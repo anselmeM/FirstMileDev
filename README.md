@@ -78,7 +78,7 @@ The FirstMileDev project is a responsive, single-page website concept designed t
 
 ## Live Demo
 
-*(Link to your deployed version if available)*
+https://anselmem.github.io/FirstMileDev/
 
 ## Contact
 
