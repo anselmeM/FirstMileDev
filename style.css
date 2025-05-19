@@ -1,0 +1,480 @@
+/* --- Base Styles --- */
+body {
+    font-family: 'Montserrat', 'League Spartan', sans-serif;
+    /* Default text color: Dark Grey */
+    color: #1f2937; /* Equivalent to Tailwind text-gray-800 */
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.5s ease-out; /* Smooth background transition */
+    /* Default background: White */
+    background-color: #FFFFFF;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+  h1, h2, h3, .font-headline {
+    font-family: 'Archivo Black', sans-serif; /* Headline font */
+    font-weight: normal;
+    text-transform: uppercase; /* Headlines are uppercase */
+  }
+  
+  .font-montserrat-bold {
+    font-family: 'Montserrat', 'League Spartan', sans-serif;
+    font-weight: 700; /* Bold Montserrat */
+  }
+  .uppercase-text { text-transform: uppercase; }
+  
+  /* --- New Accent Colors --- */
+  /* Watermelon */
+  .accent-watermelon { color: #FF3B3F; }
+  .bg-accent-watermelon { background-color: #FF3B3F; }
+  .border-accent-watermelon { border-color: #FF3B3F; }
+  /* Sky */
+  .accent-sky { color: #CAEBF2; }
+  .bg-accent-sky { background-color: #CAEBF2; }
+  .border-accent-sky { border-color: #CAEBF2; }
+  /* Carbon */
+  .text-carbon { color: #A9A9A9; }
+  .border-carbon { border-color: #A9A9A9; }
+  /* Neutral */
+  .bg-neutral { background-color: #EFEFEF; }
+  
+  
+  /* --- Component Styles (Updated for Light Theme) --- */
+  /* Form Inputs & Textarea */
+  input[type="text"], input[type="email"], textarea {
+      background-color: #FFFFFF; /* White background */
+      border: 1px solid #A9A9A9; /* Carbon border */
+      color: #1f2937; /* Dark text */
+      font-family: 'Montserrat', 'League Spartan', sans-serif;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      width: 100%;
+      box-sizing: border-box;
+  }
+  input[type="text"]::placeholder, input[type="email"]::placeholder, textarea::placeholder { color: #A9A9A9; } /* Carbon placeholder */
+  input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+      outline: none;
+      border-color: #FF3B3F; /* Watermelon border on focus */
+      box-shadow: 0 0 0 2px rgba(255, 59, 63, 0.4); /* Watermelon glow on focus */
+  }
+  /* Specific style for newsletter input */
+  #newsletter-email {
+      background-color: #FFFFFF;
+      color: #1f2937; /* Dark text */
+      border: 1px solid #A9A9A9; /* Carbon border */
+      border-radius: 0.25rem;
+  }
+   #newsletter-email::placeholder { color: #A9A9A9; }
+   #newsletter-email:focus {
+       border-color: #FF3B3F;
+       box-shadow: 0 0 0 2px rgba(255, 59, 63, 0.4);
+   }
+  
+  
+  /* Portfolio Item */
+  .portfolio-item {
+      min-height: 150px;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      background-color: #EFEFEF; /* Neutral background for placeholder */
+      opacity: 1;
+      position: relative;
+  }
+   .portfolio-item img {
+      width: 100%; height: 100%; object-fit: cover;
+  }
+  
+  /* Enhanced Button Hover */
+  button, .button {
+      border-radius: 0.5rem;
+      transition: transform 0.2s ease-out, background-color 0.3s, color 0.3s;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+  }
+   /* Remove dark theme ::before effect */
+   /* button::before, .button::before { ... } */
+  
+    /* Primary Button Style (Watermelon) */
+    .button.primary-button {
+        background-color: #FF3B3F;
+        color: #FFFFFF; /* White text */
+    }
+    .button.primary-button:hover {
+        background-color: #e02d33; /* Darker Watermelon */
+    }
+  
+    /* Prevent hover transform if magnetic button class is present */
+    button:not(.magnetic-button):hover, .button:not(.magnetic-button):hover {
+         transform: translateY(-4px);
+    }
+  input, textarea, .rounded-lg { border-radius: 0.5rem; }
+  
+  /* Header CTA Button Specific Styles (Sky) */
+  .header-cta-button {
+      background-color: #CAEBF2; /* Sky background */
+      color: #1f2937; /* Dark text */
+      font-weight: 700; padding: 0.5rem 1rem; border-radius: 0.5rem;
+      text-transform: uppercase; font-size: 0.75rem;
+      transition: background-color 0.3s, transform 0.2s ease-out;
+      white-space: nowrap;
+      overflow: visible; position: static; z-index: auto;
+  }
+   .header-cta-button::before { display: none; }
+   .header-cta-button:hover {
+       background-color: #a4d8e8; /* Darker Sky */
+       /* transform: translateY(-4px); */ /* Let magnetic effect handle transform */
+   }
+  
+  /* Hero CTA Link Styles (White text on Watermelon bg) */
+  .hero-cta-link {
+      position: relative; color: #FFFFFF; font-weight: 700;
+      padding-top: 0.5rem; padding-bottom: 0.25rem;
+      text-transform: uppercase; font-size: 0.875rem;
+      display: inline-block; text-decoration: none;
+      transition: opacity 0.3s, transform 0.2s ease-out;
+      opacity: 0; /* Start hidden for GSAP */
+      transform: translateY(10px); /* Start lower for GSAP */
+  }
+   .hero-cta-link:hover {
+       opacity: 0.8;
+       transform: translateY(-2px);
+   }
+  .hero-cta-link::after {
+      content: ''; position: absolute; width: 100%; height: 1px; bottom: -1px; left: 0;
+      background: #FFFFFF; /* White underline */
+      transition: width 0.3s ease-in-out;
+  }
+   .hero-cta-link:hover::after { width: 0%; }
+  
+   /* Desktop Navigation Link Hover */
+   .desktop-nav-link {
+       position: relative;
+       padding-bottom: 4px;
+       text-decoration: none;
+       transition: color 0.3s;
+       /* Text color will depend on header background - handled inline/via parent */
+   }
+   .desktop-nav-link::after {
+       content: '';
+       position: absolute;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+       height: 2px;
+       background-color: #FF3B3F; /* Watermelon underline */
+       transform: scaleX(0);
+       transform-origin: left center;
+       transition: transform 0.3s ease-out;
+   }
+   .desktop-nav-link:hover::after {
+       transform: scaleX(1);
+   }
+  
+  /* --- Logo Marquee Styles --- */
+  .logo-marquee-wrapper {
+      overflow: hidden;
+      width: 100%; max-width: 6xl; margin-left: auto; margin-right: auto;
+      padding: 1rem 0; position: relative;
+      /* Adjust mask for light theme if needed, might not be necessary */
+      /* mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); */
+      /* -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); */
+  }
+  .logo-scroll-container {
+      display: flex; flex-wrap: nowrap;
+      width: max-content;
+      will-change: transform;
+  }
+  .svg-logo {
+       max-height: 2.5rem; /* Adjust height as needed */
+       width: auto; /* Allow width to adjust based on content */
+       min-width: 7.5rem; /* Ensure minimum width */
+       opacity: 0.7;
+       transition: opacity 0.3s;
+       color: #A9A9A9; /* Carbon color for logos */
+       flex-shrink: 0;
+       margin: 0 1.5rem;
+       display: block;
+       font-size: 1.5rem;
+       font-weight: 600;
+       line-height: 2.5rem; /* Match max-height */
+       text-align: center;
+  }
+  .svg-logo:hover { opacity: 1.0; color: #1f2937; } /* Darken on hover */
+  
+  /* Feature icons */
+  .plan-features p {
+      display: flex; align-items: center; margin-bottom: 0.5rem;
+      /* Text color inherited from parent card (e.g., gray-600) */
+      font-size: 0.875rem;
+  }
+  .plan-features img.feature-icon {
+       width: 1rem; height: 1rem; margin-right: 0.5rem;
+       /* Remove filter, icons should be dark */
+       /* filter: brightness(0) invert(1); */
+       opacity: 0.8;
+       transition: transform 0.3s ease-in-out;
+       /* Set icon color if SVG doesn't inherit */
+       /* color: #1f2937; */ /* Or use stroke/fill */
+  }
+  .plan-features p:hover img.feature-icon {
+       transform: rotate(15deg) scale(1.1);
+  }
+  
+  /* Mobile Menu Styles */
+  #mobile-menu {
+    display: none;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    /* Dark background for contrast */
+    background-color: rgba(31, 41, 55, 0.97); /* Tailwind gray-800 with opacity */
+    z-index: 50;
+    padding-top: 5rem; padding-left: 2rem; padding-right: 2rem;
+  }
+   #mobile-menu.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+   #mobile-menu a { color: white; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 600; }
+   /* Mobile CTA button uses header style */
+   #mobile-menu .header-cta-button { margin-top: 1rem; font-size: 1rem; padding: 0.75rem 1.5rem; }
+   #close-menu-button { position: absolute; top: 1.5rem; right: 1.5rem; color: white; background: none; border: none; font-size: 2rem; cursor: pointer; }
+  
+  /* Testimonial Grid Layout & SVG Border */
+  .testimonial-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1.5rem; }
+  @media (min-width: 768px) {
+    .testimonial-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; }
+     .testimonial-item:nth-child(1) { grid-column: span 2 / span 2; grid-row: 1 / 2; }
+     .testimonial-item:nth-child(2) { grid-column: 3 / 4; grid-row: 1 / 3; }
+     .testimonial-item:nth-child(3) { grid-column: span 2 / span 2; grid-row: 2 / 3; }
+  }
+  .testimonial-item {
+    padding: 1.5rem; position: relative; min-height: 150px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    border-radius: 0;
+    opacity: 0; /* Start hidden for GSAP */
+    transition: transform 0.3s ease-out;
+    position: relative; /* Needed for SVG positioning */
+    /* Text color inherited from parent section (e.g., black/dark grey) */
+  }
+  .testimonial-item:hover {
+      transform: translateY(-8px);
+  }
+   /* Style for the SVG border */
+   .testimonial-border-rect {
+       stroke-dasharray: 1; /* Total length of path */
+       stroke-dashoffset: 1; /* Start hidden */
+       transition: stroke-dashoffset 0.5s ease-in-out, stroke 0.3s ease-out;
+       stroke: #FF3B3F; /* Watermelon border */
+   }
+    .testimonial-item:hover .testimonial-border-rect {
+        stroke: #CAEBF2; /* Sky hover border */
+    }
+  
+  .testimonial-quote-mark {
+    font-family: 'Archivo Black', sans-serif; color: #FF3B3F; font-size: 4rem; line-height: 1;
+    position: absolute; top: 1rem; left: 1.5rem; opacity: 0.8; user-select: none;
+    z-index: 5;
+  }
+  .testimonial-text {
+    font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.875rem; line-height: 1.6;
+    padding-top: 3rem;
+    margin-bottom: 1rem; flex-grow: 1;
+    /* color: #1f2937; */ /* Inherited */
+  }
+  .testimonial-attribution {
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.75rem;
+    text-transform: uppercase; color: #6b7280; /* Tailwind gray-500 */
+  }
+   .testimonial-attribution span {
+     display: block; font-weight: 400; color: #A9A9A9; /* Carbon */ margin-top: 0.1rem; text-transform: none;
+   }
+  
+   /* GSAP Reveal Helpers */
+   .gsap-reveal-text { opacity: 0; y: 30px; }
+   .gsap-reveal { opacity: 0; y: 30px; }
+   .asset-item { opacity: 0; y: 20px; }
+   .faq-item { opacity: 0; y: 30px; }
+   [data-bgcolor] { /* Optional padding for sections */ }
+  
+   /* --- Styles for Word Reveal --- */
+   .word-wrapper {
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: bottom;
+   }
+   .word {
+        display: block;
+        transform-origin: bottom left;
+   }
+    .word-wrapper + .word-wrapper::before {
+        content: " ";
+    }
+    #hero-headline .line-wrapper { overflow: hidden; display: block; }
+    #hero-headline .word { display: inline-block; padding-bottom: 0.1em; margin-bottom: -0.1em; }
+    #hero-headline .word-wrapper { margin-right: 0; margin-bottom: 0;}
+    #hero-headline .word-wrapper + .word-wrapper::before { content: ""; }
+  
+    #hero-headline svg { display: inline-block; width: 2.5rem; height: 2.5rem; margin-left: 0.25rem; position: relative; top: -0.25rem; stroke: #FFFFFF; } /* Ensure SVG stroke is visible */
+    @media (min-width: 768px) { #hero-headline svg { width: 3rem; height: 3rem; top: -0.25rem; } }
+    @media (min-width: 1024px) { #hero-headline svg { width: 4rem; height: 4rem; top: -0.5rem; } }
+  
+  
+   /* --- Styles for Letter Reveal --- */
+   .letter { display: inline-block; }
+  
+   /* --- Styles for Line Reveal --- */
+   .line-wrapper-anim {
+        display: block;
+        overflow: hidden;
+   }
+   .line-content-anim {
+        display: block;
+   }
+  
+  
+   /* --- CSS Sliding Arrow Animation Styles --- */
+   .arrow-anim-container { position: relative; width: 100%; height: 5rem; overflow: hidden; }
+   .arrow { width: 2rem; height: 2rem; border-style: solid; border-width: 0.75rem; border-color: #A9A9A9 transparent transparent #A9A9A9; /* Carbon arrow */ transform: rotate(-45deg); }
+   .arrowSliding { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); animation: slide 4s linear infinite; }
+   .delay1 { animation-delay: 1s; }
+   .delay2 { animation-delay: 2s; }
+   .delay3 { animation-delay: 3s; }
+   @keyframes slide {
+       0% { opacity:0; transform: translate(-50%, -50%) translateX(80px); }
+       20% { opacity:1; transform: translate(-50%, -50%) translateX(40px); }
+       80% { opacity:1; transform: translate(-50%, -50%) translateX(-40px); }
+       100% { opacity:0; transform: translate(-50%, -50%) translateX(-80px); }
+   }
+  
+   /* Service Card Hover Specific Styles */
+   #services .service-card {
+       transition: transform 0.3s ease-out, border-color 0.3s ease-out;
+       border-left: 4px solid #A9A9A9; /* Carbon default border */
+       background-color: #FFFFFF; /* White background */
+       color: #1f2937; /* Dark text */
+   }
+   #services .service-card:hover {
+       transform: translateY(-8px);
+       border-left-color: #FF3B3F; /* Watermelon hover border */
+   }
+   #services .service-icon {
+       transition: transform 0.3s ease-in-out;
+       color: #1f2937; /* Dark icon color */
+       /* Remove filter if previously applied */
+   }
+   #services .service-card:hover .service-icon {
+       transform: rotate(15deg) scale(1.1);
+       color: #FF3B3F; /* Watermelon icon color on hover */
+   }
+   #services .service-card p {
+       color: #6b7280; /* Tailwind gray-500 for description */
+   }
+  
+  
+   /* Hero Arrow SVG Line Drawing Initial State */
+    #hero-arrow-svg line,
+    #hero-arrow-svg polyline {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        stroke: #FFFFFF; /* Ensure white stroke on hero */
+    }
+  
+    /* Styles for Strikethrough Animation (if kept) */
+    .cheap-text-container {
+        position: relative;
+        display: inline-block;
+    }
+    .cross-line {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: #FF3B3F; /* Watermelon strikethrough */
+        transform: translateY(-50%);
+    }
+  
+    /* Newsletter Submit Button Style */
+    .newsletter-submit-button {
+        background-color: #FF3B3F; /* Watermelon button */
+        color: #FFFFFF; /* White text */
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.25rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        transition: background-color 0.3s, transform 0.2s ease-out;
+        border: none;
+        cursor: pointer;
+    }
+    .newsletter-submit-button:hover {
+        background-color: #e02d33; /* Darker Watermelon */
+        transform: translateY(-2px);
+    }
+  
+    /* FAQ Section Styles */
+    #faq {
+        color: #1f2937; /* Dark text */
+    }
+    .faq-item {
+        border-bottom: 1px solid #d1d5db; /* Lighter gray border (Tailwind gray-300) */
+    }
+    .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 1.5rem 0;
+        text-align: left;
+        font-weight: 600;
+        font-size: 1.125rem;
+        cursor: pointer;
+        color: inherit; /* Inherit dark text color */
+        transition: color 0.3s;
+    }
+    .faq-toggle-icon {
+        flex-shrink: 0;
+        margin-left: 1rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        transition: transform 0.3s ease-out, stroke 0.3s ease-out;
+        stroke: #6b7280; /* Icon stroke color (Tailwind gray-500) */
+    }
+    .faq-question:hover .faq-toggle-icon {
+        stroke: #FF3B3F; /* Watermelon icon hover */
+    }
+    .faq-item.active .faq-toggle-icon {
+        transform: rotate(45deg);
+    }
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        color: #4b5563; /* Darker gray for answer (Tailwind gray-600) */
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+    .faq-answer p {
+        margin: 0;
+        padding-bottom: 0; /* Padding added by GSAP */
+    }
+  
+    /* Calendly Widget Container */
+    .calendly-widget-container {
+        opacity: 0; /* Start hidden for reveal */
+        y: 30px; /* Start lower for reveal */
+    }
+  
+    /* Asterisk Continuous Spin */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spin 15s linear infinite;
+    }
