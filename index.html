@@ -1,465 +1,600 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FirstMileDev - Web & Software Development</title>
+    <title>FirstMileDev - Validate First, Build Second</title>
+    <meta name="description"
+        content="The Market-First MVP Agency. We validate demand before writing code for high-growth startups.">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- GSAP for Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'headline': ['"Archivo Black"', 'sans-serif'],
+                        'body': ['"Montserrat"', 'sans-serif'],
+                    },
+                    colors: {
+                        'accent-red': '#FF3B3F',
+                        'accent-sky': '#CAEBF2',
+                        'carbon': '#1f2937',
+                        'light-gray': '#FAFAFA',
+                    },
+                    animation: {
+                        'spin-slow': 'spin 15s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="antialiased"> <section id="hero-section" data-bgcolor="#FF3B3F" class="text-white px-6 md:px-8 lg:px-16 py-6 md:py-8">
-        <header class="relative flex justify-between items-center mb-12 md:mb-16 py-4">
-            <div class="text-lg font-montserrat-bold uppercase-text leading-tight z-10 gsap-reveal"> First<br>MileDev </div>
-            <div class="hidden md:flex items-center space-x-8 gsap-reveal">
-                <nav class="flex items-center space-x-6">
-                    <a href="#work" class="desktop-nav-link uppercase-text text-sm font-semibold">Projects</a>
-                    <a href="#pricing" class="desktop-nav-link uppercase-text text-sm font-semibold">Plans</a>
-                    <a href="#services" class="desktop-nav-link uppercase-text text-sm font-semibold">Services</a>
-                </nav>
-                <a href="#booking" class="button header-cta-button magnetic-button"> Discuss Your Project </a>
+
+<body class="antialiased bg-white text-gray-900">
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 bg-[#1f2937] z-50 flex flex-col justify-center items-center text-center">
+        <!-- Close Button -->
+        <button onclick="toggleMobileMenu()"
+            class="absolute top-6 right-6 text-white p-2 hover:rotate-90 transition-transform duration-300">
+            <i data-lucide="x" class="w-10 h-10"></i>
+        </button>
+
+        <!-- Menu Links -->
+        <nav class="flex flex-col space-y-8">
+            <a href="#process" onclick="toggleMobileMenu()"
+                class="mobile-link-item text-4xl font-headline text-white uppercase hover:text-[#FF3B3F] transition-colors">Process</a>
+            <a href="#lab" onclick="toggleMobileMenu()"
+                class="mobile-link-item text-4xl font-headline text-white uppercase hover:text-[#FF3B3F] transition-colors">The
+                Lab</a>
+            <a href="#work" onclick="toggleMobileMenu()"
+                class="mobile-link-item text-4xl font-headline text-white uppercase hover:text-[#FF3B3F] transition-colors">Work</a>
+            <a href="#pricing" onclick="toggleMobileMenu()"
+                class="mobile-link-item text-4xl font-headline text-white uppercase hover:text-[#FF3B3F] transition-colors">Roadmap</a>
+            <!-- NEW CALCULATOR LINK -->
+            <a href="calculator.html"
+                class="mobile-link-item text-4xl font-headline text-[#FF3B3F] uppercase hover:text-white transition-colors">Calculator</a>
+
+            <a href="#contact" onclick="toggleMobileMenu()"
+                class="mobile-link-item text-xl font-bold font-body text-white uppercase tracking-widest border-2 border-white px-8 py-4 rounded-full hover:bg-white hover:text-[#1f2937] transition-all mt-4">Start
+                Validation</a>
+        </nav>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="hero-section"
+        class="bg-[#FF3B3F] text-white px-6 md:px-8 lg:px-16 py-6 md:py-8 min-h-screen flex flex-col justify-between relative overflow-hidden">
+
+        <header class="relative flex justify-between items-center py-4 z-20">
+            <div class="text-lg font-headline uppercase-text leading-tight z-10 font-black tracking-tighter cursor-pointer"
+                onclick="window.scrollTo(0,0)">
+                First<br>MileDev
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-2xl rounded p-1 text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-white z-10" aria-label="Open Menu" aria-controls="mobile-menu" aria-expanded="false">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg>
-             </button>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center space-x-8">
+                <nav class="flex items-center space-x-8">
+                    <a href="#process"
+                        class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition">Process</a>
+                    <a href="#lab"
+                        class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition">The Lab</a>
+                    <a href="#work"
+                        class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition">Work</a>
+                    <a href="#pricing"
+                        class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition">Roadmap</a>
+                    <!-- NEW CALCULATOR LINK -->
+                    <a href="calculator.html"
+                        class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition text-white border border-white/30 px-3 py-1 rounded hover:bg-white hover:text-[#FF3B3F]">Calculator</a>
+                </nav>
+                <a href="#contact" class="header-cta-button"> Start Validation </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button class="md:hidden text-white z-10 p-2 hover:bg-white/10 rounded-lg transition"
+                onclick="toggleMobileMenu()">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
         </header>
 
-        <div class="mb-12 md:mb-16">
-            <h1 id="hero-headline" class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase-text leading-none font-headline">
-                <span class="line-wrapper-anim block"><span class="line-content-anim">BUILDING DIGITAL</span></span>
-                <span class="line-wrapper-anim block"><span class="line-content-anim">PRODUCTS THAT</span></span>
-                <span class="line-wrapper-anim block"><span class="line-content-anim">PERFORM AND</span></span>
-                <span class="line-wrapper-anim block"><span class="line-content-anim">SCALE
-                    <svg id="hero-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="">
-                        <line x1="7" y1="7" x2="17" y2="17" pathLength="1"></line>
-                        <polyline points="7 17 17 17 17 7" pathLength="1"></polyline>
-                    </svg>
-                </span></span>
+        <div class="mt-12 md:mt-20 mb-12 z-10">
+            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase-text leading-none font-headline mb-8">
+                <span class="line-wrapper-anim block"><span class="line-content-anim">VALIDATE DEMAND</span></span>
+                <span class="line-wrapper-anim block"><span class="line-content-anim">BEFORE YOU WRITE</span></span>
+                <span class="line-wrapper-anim block"><span class="line-content-anim text-black">A SINGLE
+                        LINE</span></span>
+                <span class="line-wrapper-anim block"><span class="line-content-anim">OF CODE</span></span>
             </h1>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-12 md:mb-16">
-             <div class="lg:col-start-2">
-                <p id="hero-subheadline" class="text-base md:text-lg font-montserrat-bold uppercase-text mb-4">
-                    FOR FOUNDERS & BUSINESSES NEEDING<br>
-                    ROBUST WEB APPLICATIONS<br>
-                    WITHOUT THE TECHNICAL OVERHEAD.
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-12 md:mb-16 z-10">
+            <div class="lg:col-start-2">
+                <p id="hero-subheadline"
+                    class="text-base md:text-lg font-bold uppercase-text mb-8 leading-relaxed opacity-0 transform translate-y-5 tracking-wide">
+                    The "Market-First" MVP Agency for Visionary Founders.<br>
+                    We move you from "Idea" to "Validated Product"<br>
+                    using Data, No-Code, and the MERN Stack.
                 </p>
-                <a href="#booking" class="hero-cta-link gsap-reveal-from-bottom"> Discuss Your Project </a>
+                <div class="flex flex-col sm:flex-row gap-4 opacity-0 transform translate-y-5" id="hero-cta-container">
+                    <a href="#pricing" class="hero-cta-link"> View The Roadmap </a>
+                </div>
             </div>
         </div>
 
-        <div id="hero-separator" class="text-[9rem] md:text-[12rem] leading-none font-black text-center inline-block py-8 md:py-10 animate-spin-slow">*</div>
+        <div
+            class="absolute bottom-[-5%] right-[-5%] text-[15rem] md:text-[20rem] leading-none font-black text-center inline-block py-8 md:py-10 animate-spin-slow opacity-10 select-none text-black pointer-events-none">
+            *</div>
+    </section>
 
-        <div class="max-w-3xl pb-12 md:pb-16">
-             <h2 id="intro-headline" class="text-3xl md:text-4xl uppercase-text mb-4 font-headline">
-                <span class="line-wrapper-anim block"><span class="line-content-anim">STOP WRESTLING WITH</span></span><br>
-                <span class="line-wrapper-anim block"><span class="line-content-anim">UNRELIABLE CODE OR</span></span><br>
-                <span class="line-wrapper-anim block"><span class="line-content-anim">ENDLESS DEVELOPMENT CYCLES.</span></span>
-             </h2>
-             <p id="intro-paragraph" class="text-base md:text-lg text-red-100 font-normal tracking-tight leading-relaxed"> That's right. No scope creep. No communication gaps. Our development process is streamlined and focused on delivering high-quality, maintainable code that powers your business goals. Need proof? See how we build.
-             </p>
+    <!-- PHILOSOPHY SECTION -->
+    <section id="process" class="px-6 md:px-8 lg:px-16 py-20 md:py-32 bg-[#FAFAFA]">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 border-t border-b border-gray-200 py-16">
+
+            <div class="md:col-span-2 pr-0 md:pr-12 gsap-reveal">
+                <div class="flex items-start space-x-4 mb-8">
+                    <div
+                        class="w-14 h-14 rounded-full bg-gray-300 overflow-hidden flex-shrink-0 border-2 border-white shadow-sm z-10 relative">
+                        <img src="https://placehold.co/100x100/333/fff?text=AM" alt="Founder"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <div class="overflow-hidden">
+                            <p class="font-bold text-lg text-gray-900 founder-anim">Anselme Motcho</p>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="text-xs text-gray-500 font-bold uppercase tracking-widest mt-1 founder-anim">
+                                Principal & Lead Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="font-headline text-3xl md:text-4xl mb-6 uppercase-text leading-tight text-gray-900">
+                    Most startups fail because they build things nobody wants.
+                </h3>
+                <p class="text-gray-600 text-lg leading-relaxed max-w-2xl font-medium">
+                    I built FirstMileDev to stop that cycle. We don't just write code; we bridge the gap between
+                    business strategy and technical execution. Whether you need a quick No-Code validation or a scalable
+                    MERN stack platform, we ensure every dollar you spend moves you closer to Product-Market Fit.
+                </p>
+            </div>
+
+            <div
+                class="flex flex-col justify-center pt-8 md:pt-0 pl-0 md:pl-12 border-l-0 md:border-l border-gray-200 gsap-reveal">
+                <div class="mb-10 opacity-50 grayscale transition hover:grayscale-0 hover:opacity-100 duration-500">
+                    <h4 class="font-headline text-lg uppercase-text text-gray-400 mb-2">The Old Way</h4>
+                    <p class="text-sm font-bold line-through decoration-red-500 decoration-2 text-gray-500">Guess
+                        Features &rarr; Spend $50k &rarr; Launch &rarr; Pray</p>
+                </div>
+                <div>
+                    <h4 class="font-headline text-2xl uppercase-text text-[#FF3B3F] mb-4">The FirstMile Way</h4>
+                    <ul
+                        class="list-none space-y-4 font-bold uppercase-text text-sm md:text-sm tracking-wide text-gray-800">
+                        <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 mr-3 text-green-600"></i>
+                            Phase 1: Prove Market Demand</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 mr-3 text-green-600"></i>
+                            Phase 2: Launch No-Code MVP</li>
+                        <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 mr-3 text-green-600"></i>
+                            Phase 3: Scale with Custom Code</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <main class="px-6 md:px-8 lg:px-16 py-12 text-gray-800"> <section id="about" data-bgcolor="#EFEFEF" class="mb-20 md:mb-28 scroll-mt-20 text-gray-800">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 border-t border-b border-gray-300 py-12"> <div class="md:col-span-2">
-                    <div class="flex items-start space-x-4 mb-6 gsap-reveal">
-                        <img src="https://placehold.co/64x64/EFEFEF/1f2937?text=AM" alt="Anselme Motcho, Founder" class="w-16 h-16 rounded-full object-cover flex-shrink-0"> <div> <p class="font-bold">Anselme Motcho,</p> <p class="text-sm text-gray-500">Founder & Lead Developer</p> </div>
-                    </div>
-                    <h3 id="about-headline" class="font-headline text-2xl mb-3 uppercase-text">
-                        THERE'S A SMARTER WAY TO BUILD THE SOFTWARE THAT DRIVES YOUR VISION.
-                    </h3>
-                     <p id="about-paragraph" class="text-gray-600"> With years of hands-on experience building applications using technologies like the MERN/FERN stack, Java, and C#, I've seen what works and what doesn't. FirstMileDev was built to cut through the noise, focusing on efficient development practices and delivering functional, scalable solutions without the typical agency bloat. We prioritize clean code and clear communication.
-                     </p>
-                </div>
-                <div id="good-fast-cheap-container" class="flex items-center justify-center md:justify-start md:items-start pt-4 md:pt-0">
-                    <div class="text-center md:text-left">
-                        <p id="good-text" class="font-headline text-4xl uppercase-text leading-tight">GOOD CODE</p>
-                        <p id="fast-text" class="font-headline text-4xl uppercase-text leading-tight">FAST DEV</p>
-                        <div class="cheap-text-container">
-                             <p id="cheap-text" class="font-headline text-4xl uppercase-text leading-tight text-gray-400">SHORTCUTS</p> <span class="cross-line block"></span> </div>
-                    </div>
-                </div>
+    <!-- VIDEO SECTION (THE LAB) -->
+    <section id="lab" class="px-6 md:px-8 lg:px-16 py-20 bg-white">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="gsap-reveal">
+                <h2 class="text-3xl md:text-5xl uppercase-text font-headline mb-6">Transparency as a Service</h2>
+                <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                    We don't hide our process behind buzzwords. Watch Anselme break down the exact tech stacks, scraping
+                    strategies, and code patterns we use for client builds in our "Build in Public" series.
+                </p>
+                <a href="https://youtube.com/@firstmiledev" target="_blank"
+                    class="inline-flex items-center font-bold uppercase text-sm tracking-widest text-[#FF3B3F] hover:text-black transition group">
+                    <i data-lucide="youtube" class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i> Visit
+                    The Lab
+                    <span
+                        class="block h-[2px] bg-[#FF3B3F] w-0 group-hover:w-full transition-all duration-300 ml-2"></span>
+                </a>
             </div>
-        </section>
 
-        <section id="cta-section" data-bgcolor="#FFFFFF" class="mb-24 md:mb-32 flex flex-col md:flex-row items-start md:items-center gap-6 text-gray-800">
-            <div class="arrow-anim-container flex-shrink-0 w-24 md:w-32">
-              <div class="arrowSliding"> <div class="arrow"></div> </div>
-              <div class="arrowSliding delay1"> <div class="arrow"></div> </div>
-              <div class="arrowSliding delay2"> <div class="arrow"></div> </div>
-              <div class="arrowSliding delay3"> <div class="arrow"></div> </div>
-            </div>
-            <div>
-                 <h3 id="cta-headline" class="font-headline text-2xl md:text-3xl uppercase-text">
-                    <span class="line-wrapper-anim block"><span class="line-content-anim">STOP WAITING FOR FEATURES AND START LAUNCHING YOUR PRODUCT.</span></span>
-                 </h3>
-                 <p id="cta-subtext" class="text-lg text-gray-600"> <span class="line-wrapper-anim block"><span class="line-content-anim">GET THE DEVELOPMENT EXPERTISE YOU NEED TO GO FROM IDEA TO MVP AND BEYOND.</span></span>
-                 </p>
-            </div>
-        </section>
-
-        <section id="partnerships" data-bgcolor="#EFEFEF" class="py-16 md:py-24 scroll-mt-20 text-gray-800">
-            <hr class="border-t border-gray-400 mb-12 md:mb-16 max-w-4xl mx-auto gsap-reveal"> <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16 px-4">
-                <h2 id="partnerships-headline" class="text-xl md:text-2xl font-semibold uppercase-text tracking-wider">
-                    OUR CODE POWERS BUSINESSES. FROM STARTUPS TO ESTABLISHED COMPANIES, TEAMS TRUST US FOR RELIABLE DEVELOPMENT.
-                </h2>
-            </div>
-            <div class="logo-marquee-wrapper">
-                <div class="logo-scroll-container">
-                    <span class="svg-logo">React</span>
-                    <span class="svg-logo">Node.js</span>
-                    <span class="svg-logo">MongoDB</span>
-                    <span class="svg-logo">Express</span>
-                    <span class="svg-logo">JavaScript</span>
-                    <span class="svg-logo">Java</span>
-                    <span class="svg-logo">C#</span>
-                    <span class="svg-logo">AWS</span>
-                    <span class="svg-logo">React</span>
-                    <span class="svg-logo">Node.js</span>
-                    <span class="svg-logo">MongoDB</span>
-                    <span class="svg-logo">Express</span>
-                    <span class="svg-logo">JavaScript</span>
-                    <span class="svg-logo">Java</span>
-                    <span class="svg-logo">C#</span>
-                    <span class="svg-logo">AWS</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="work" data-bgcolor="#FFFFFF" class="mb-24 md:mb-32 scroll-mt-20 text-gray-800">
-             <h2 id="work-headline" class="text-4xl md:text-5xl uppercase-text mb-16 font-headline"> FIRSTMILEDEV PROJECTS
-             </h2>
-             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-16 md:mb-20">
-                 <div class="portfolio-item col-span-2 md:col-span-2 lg:col-span-2 row-span-2">
-                     <a href="#github-project-1" target="_blank" rel="noopener noreferrer" aria-label="View Project 1 on GitHub">
-                        <img src="https://placehold.co/600x600/EFEFEF/1f2937?text=Project+1" alt="Project 1 Example">
-                     </a>
-                 </div>
-                 <div class="portfolio-item">
-                     <a href="#github-project-2" target="_blank" rel="noopener noreferrer" aria-label="View Project 2 on GitHub">
-                        <img src="https://placehold.co/300x300/EFEFEF/1f2937?text=Project+2" alt="Project 2 Example">
-                     </a>
-                 </div>
-                 <div class="portfolio-item">
-                     <a href="#github-project-3" target="_blank" rel="noopener noreferrer" aria-label="View Project 3 on GitHub">
-                        <img src="https://placehold.co/300x300/EFEFEF/1f2937?text=Project+3" alt="Project 3 Example">
-                     </a>
-                 </div>
-                 <div class="portfolio-item col-span-2 md:col-span-1 lg:col-span-2">
-                     <a href="#github-project-4" target="_blank" rel="noopener noreferrer" aria-label="View Project 4 on GitHub">
-                        <img src="https://placehold.co/600x300/EFEFEF/1f2937?text=Project+4" alt="Project 4 Example Wide">
-                     </a>
-                 </div>
-                 <div class="portfolio-item">
-                     <a href="#github-project-5" target="_blank" rel="noopener noreferrer" aria-label="View Project 5 on GitHub">
-                        <img src="https://placehold.co/300x300/EFEFEF/1f2937?text=Project+5" alt="Project 5 Example">
-                     </a>
-                 </div>
-             </div>
-             <div id="asset-list-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                 <div class="md:col-span-1 text-left pt-8 md:pt-0 md:self-end">
-                     <p id="asset-intro-text" class="text-sm uppercase-text mb-4 text-gray-500"> WE BUILD KEY COMPONENTS AND APPLICATIONS THAT SOLVE REAL PROBLEMS </p>
-                     <hr class="border-t-2 border-accent-watermelon max-w-[100px] ml-0 md:ml-auto md:mr-0 gsap-reveal">
-                 </div>
-                 <div id="asset-list" class="md:col-span-2 text-left md:text-right">
-                      <p class="asset-item uppercase-text font-bold leading-tight mb-1 text-lg">APIs</p>
-                      <p class="asset-item uppercase-text font-bold leading-tight mb-1 text-lg">Databases</p>
-                      <p class="asset-item uppercase-text font-bold leading-tight mb-1 text-lg">User Authentication</p>
-                      <p class="asset-item uppercase-text font-bold leading-tight mb-1 text-lg">Dashboards</p>
-                      <p class="asset-item uppercase-text font-bold leading-tight mb-1 text-lg">E-commerce Features</p>
-                      <p class="asset-item uppercase-text font-bold leading-tight mb-1 text-lg">SaaS Platforms</p>
-                      <p class="asset-item uppercase-text font-bold leading-tight mb-1 text-lg">Web Applications</p>
-                      <p class="asset-item uppercase-text font-bold leading-tight mb-1 text-lg">Mobile-Responsive UI</p>
-                      <p class="asset-item uppercase-text font-bold leading-tight mb-1 text-lg">Cloud Deployment</p>
-                      <p class="asset-item uppercase-text font-bold leading-tight mb-1 text-lg">Automated Testing</p>
-                      <p class="asset-item uppercase-text font-bold leading-tight mb-1 text-lg">Component Libraries</p>
-                      <p class="text-sm text-gray-500 mt-6 gsap-reveal"> Whatever features you need, we build them right. </p>
-                 </div>
-             </div>
-             </section>
-
-        <section id="services" data-bgcolor="#CAEBF2" class="mb-24 md:mb-32 scroll-mt-20 text-gray-800">
-             <h2 id="services-headline" class="text-4xl md:text-5xl uppercase-text mb-16 font-headline"> DEVELOPMENT SERVICES
-             </h2>
-             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-                 <div class="service-card group pl-6 py-4 rounded-r-lg"> <div class="flex items-center mb-2">
-                         <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/code-2.svg" alt="" class="service-icon w-6 h-6 mr-3 opacity-80 transition-transform duration-300 ease-in-out group-hover:rotate-12 group-hover:scale-110">
-                         <h3 class="font-montserrat-bold text-2xl uppercase-text">FULL-STACK DEV</h3>
-                     </div>
-                     <p class="pl-9">End-to-end application development from database to UI.</p>
-                 </div>
-                 <div class="service-card group pl-6 py-4 rounded-r-lg">
-                     <div class="flex items-center mb-2">
-                          <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/monitor-smartphone.svg" alt="" class="service-icon w-6 h-6 mr-3 opacity-80 transition-transform duration-300 ease-in-out group-hover:rotate-12 group-hover:scale-110">
-                         <h3 class="font-montserrat-bold text-2xl uppercase-text">FRONTEND DEV</h3>
-                     </div>
-                     <p class="pl-9">Building responsive and interactive user interfaces with modern frameworks.</p>
-                 </div>
-                 <div class="service-card group pl-6 py-4 rounded-r-lg">
-                     <div class="flex items-center mb-2">
-                         <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/server.svg" alt="" class="service-icon w-6 h-6 mr-3 opacity-80 transition-transform duration-300 ease-in-out group-hover:rotate-12 group-hover:scale-110">
-                         <h3 class="font-montserrat-bold text-2xl uppercase-text">BACKEND & API</h3>
-                     </div>
-                     <p class="pl-9">Developing robust server-side logic, databases, and APIs.</p>
-                 </div>
-                 <div class="service-card group pl-6 py-4 rounded-r-lg">
-                     <div class="flex items-center mb-2">
-                          <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/box.svg" alt="" class="service-icon w-6 h-6 mr-3 opacity-80 transition-transform duration-300 ease-in-out group-hover:rotate-12 group-hover:scale-110">
-                         <h3 class="font-montserrat-bold text-2xl uppercase-text">SAAS DEVELOPMENT</h3>
-                     </div>
-                     <p class="pl-9">Bringing your Software-as-a-Service ideas to life.</p>
-                 </div>
-                 <div class="service-card group pl-6 py-4 rounded-r-lg">
-                     <div class="flex items-center mb-2">
-                         <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/message-circle.svg" alt="" class="service-icon w-6 h-6 mr-3 opacity-80 transition-transform duration-300 ease-in-out group-hover:rotate-12 group-hover:scale-110">
-                         <h3 class="font-montserrat-bold text-2xl uppercase-text">CONSULTING</h3>
-                     </div>
-                     <p class="pl-9">Providing expert technical guidance and strategy.</p>
-                 </div>
-                 </div>
-         </section>
-
-        <section id="pricing" data-bgcolor="#EFEFEF" class="mb-24 md:mb-32 scroll-mt-20 text-gray-800">
-             <h2 id="pricing-headline" class="text-4xl md:text-5xl uppercase-text mb-16 font-headline"> DEVELOPMENT PLANS
-             </h2>
-             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-                 <div class="border border-gray-300 p-6 rounded-lg flex flex-col bg-white transition-transform duration-300 hover:scale-105 hover:border-accent-watermelon gsap-reveal">
-                     <h3 class="font-montserrat-bold text-xl uppercase-text mb-2">LAUNCHPAD MVP</h3>
-                     <h3 class="font-montserrat-bold text-xl uppercase-text mb-4">PACKAGE</h3>
-                     <p class="text-gray-500 mb-6 flex-grow text-sm">Rapid validation using platforms like Bubble, Webflow, and Airtable. Basic UI/UX, essential features, and staging environment deployment.</p>
-                     <div class="plan-features mb-6 flex-grow space-y-1 text-gray-600">
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/zap.svg" alt="" class="feature-icon inline-block">No-Code Focus (Bubble, Webflow, Airtable)</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/layout-template.svg" alt="" class="feature-icon inline-block">Basic UI/UX Design</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/list-checks.svg" alt="" class="feature-icon inline-block">Essential Feature Set</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/server-cog.svg" alt="" class="feature-icon inline-block">Staging Environment Deployment</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="" class="feature-icon inline-block">Project Initiation Meeting</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/message-square.svg" alt="" class="feature-icon inline-block">Regular Project Updates</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/shield-check.svg" alt="" class="feature-icon inline-block">Quality Assurance Testing</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/file-code.svg" alt="" class="feature-icon inline-block">Final Delivery (Source Code & Docs)</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/life-buoy.svg" alt="" class="feature-icon inline-block">Post-Launch Support</p>
-                     </div>
-                     <div class="text-3xl font-bold mb-6">Starting at $4,000</div>
-                     <a href="#booking" class="button primary-button w-full text-white font-bold py-3 px-4 uppercase-text text-sm transition-colors magnetic-button">Book Your Scoping Call</a>
-                 </div>
-                 <div class="border border-gray-300 p-6 rounded-lg flex flex-col bg-white transition-transform duration-300 hover:scale-105 hover:border-accent-watermelon gsap-reveal">
-                     <h3 class="font-montserrat-bold text-xl uppercase-text mb-2">ACCELERATOR MVP</h3>
-                     <h3 class="font-montserrat-bold text-xl uppercase-text mb-4">PACKAGE</h3>
-                     <p class="text-gray-500 mb-6 flex-grow text-sm">Scalable MVP development combining low-code platforms (Retool, Firebase) with custom code. Custom UI/UX, advanced features, and production deployment.</p>
-                     <div class="plan-features mb-6 flex-grow space-y-1 text-gray-600">
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/layers.svg" alt="" class="feature-icon inline-block">Low-Code/Hybrid (Retool, Firebase + Custom)</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/figma.svg" alt="" class="feature-icon inline-block">Custom UI/UX Design</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/settings-2.svg" alt="" class="feature-icon inline-block">Advanced Feature Set</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/cloud-cog.svg" alt="" class="feature-icon inline-block">Production Environment Deployment</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="" class="feature-icon inline-block">Project Initiation Meeting</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/message-square.svg" alt="" class="feature-icon inline-block">Regular Project Updates</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/shield-check.svg" alt="" class="feature-icon inline-block">Quality Assurance Testing</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/file-code.svg" alt="" class="feature-icon inline-block">Final Delivery (Source Code & Docs)</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/life-buoy.svg" alt="" class="feature-icon inline-block">Post-Launch Support</p>
-                     </div>
-                     <div class="text-3xl font-bold mb-6">Starting at 10,000</div>
-                     <a href="#booking" class="button primary-button w-full text-white font-bold py-3 px-4 uppercase-text text-sm transition-colors magnetic-button">Book Your Scoping Call</a>
-                 </div>
-                 <div class="border border-gray-300 p-6 rounded-lg flex flex-col bg-white transition-transform duration-300 hover:scale-105 hover:border-accent-watermelon gsap-reveal md:col-span-2 xl:col-span-1">
-                     <h3 class="font-montserrat-bold text-xl uppercase-text mb-2">CUSTOM BUILD MVP</h3>
-                     <h3 class="font-montserrat-bold text-xl uppercase-text mb-4">PACKAGE</h3>
-                     <p class="text-gray-500 mb-6 flex-grow text-sm">Fully customized MVP development using MERN or FERN stack. In-depth custom UI/UX, complex features, rigorous testing, and production deployment.</p>
-                     <div class="plan-features mb-6 flex-grow space-y-1 text-gray-600">
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/code-2.svg" alt="" class="feature-icon inline-block">Full Custom Dev (MERN/FERN Stack)</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/pencil-ruler.svg" alt="" class="feature-icon inline-block">In-depth Custom UI/UX</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/puzzle.svg" alt="" class="feature-icon inline-block">Complex Feature Implementation</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/clipboard-check.svg" alt="" class="feature-icon inline-block">Rigorous Testing</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/cloud-cog.svg" alt="" class="feature-icon inline-block">Production Environment Deployment</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/users.svg" alt="" class="feature-icon inline-block">Project Initiation Meeting</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/message-square.svg" alt="" class="feature-icon inline-block">Regular Project Updates</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/shield-check.svg" alt="" class="feature-icon inline-block">Quality Assurance Testing</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/file-code.svg" alt="" class="feature-icon inline-block">Final Delivery (Source Code & Docs)</p>
-                         <p class="group"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/life-buoy.svg" alt="" class="feature-icon inline-block">Post-Launch Support</p>
-                     </div>
-                     <div class="text-3xl font-bold mb-6">Starting at $20,000+</div>
-                     <a href="#booking" class="button primary-button w-full text-white font-bold py-3 px-4 uppercase-text text-sm transition-colors magnetic-button">Book Your Scoping Call</a>
-                 </div>
-             </div>
-         </section>
-
-         <section id="faq" data-bgcolor="#EFEFEF" class="py-16 md:py-24 scroll-mt-20 text-gray-800">
-            <div class="max-w-4xl mx-auto px-6 md:px-8 lg:px-16">
-                <h2 id="faq-headline" class="text-4xl md:text-5xl font-headline mb-16"> FREQUENTLY ASKED QUESTIONS.
-                </h2>
-                <div class="faq-container space-y-4">
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
-                            <span>Why not just hire a full-time developer?</span>
-                            <svg class="faq-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        </button>
-                        <div id="faq-answer-1" class="faq-answer">
-                            <p>Hiring a senior full-time developer involves significant costs (often $100k+ annually plus benefits), lengthy recruitment processes, and potential downtime if there isn't a constant stream of work. Our flexible models (retainers, projects) provide access to senior-level expertise precisely when you need it, often at a lower overall cost and without the long-term commitment.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
-                            <span>What's your development process like?</span>
-                             <svg class="faq-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        </button>
-                        <div id="faq-answer-2" class="faq-answer">
-                            <p>We employ an agile-inspired methodology focused on collaboration and transparency. We start with a discovery phase to fully understand your requirements, followed by planning sprints or milestones. Development is iterative, with regular communication (e.g., Slack, Trello, Jira) and demos. We emphasize clean code, code reviews, and systematic deployment to ensure quality and predictability.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
-                            <span>What technologies do you specialize in?</span>
-                             <svg class="faq-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        </button>
-                         <div id="faq-answer-3" class="faq-answer">
-                            <p>Our core expertise lies in full-stack JavaScript development using the MERN (MongoDB, Express, React, Node.js) and FERN (Firebase, Express, React, Node.js) stacks. We are also highly proficient in Java and C# for backend systems and enterprise applications. We are adaptable and choose the best technology fit for your specific project goals and scalability needs.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
-                            <span>How is intellectual property (IP) handled?</span>
-                             <svg class="faq-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        </button>
-                        <div id="faq-answer-4" class="faq-answer">
-                            <p>Simple: You own it. Upon final payment for the project or service period, you retain 100% ownership of all custom code and intellectual property developed specifically for you. This is clearly stated in our service agreements.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
-                            <span>How do you ensure code quality and handle testing?</span>
-                             <svg class="faq-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        </button>
-                        <div id="faq-answer-5" class="faq-answer">
-                            <p>Quality is paramount. We adhere to industry best practices, including writing clean, maintainable, and well-documented code. Our process incorporates code reviews, automated testing (unit, integration, end-to-end where applicable), linting/formatting for consistency, and thorough manual QA before deployment. The specific testing strategy is tailored to the project's complexity and requirements.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
-                            <span>Do you offer maintenance or support after launch?</span>
-                             <svg class="faq-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        </button>
-                        <div id="faq-answer-6" class="faq-answer">
-                            <p>Absolutely. We understand that software requires ongoing care. We offer post-launch support and maintenance packages through our retainer model or custom agreements. This ensures your application remains secure, up-to-date, performs optimally, and can be enhanced with new features over time.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">
-                            <span>How do we get started?</span>
-                             <svg class="faq-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        </button>
-                        <div id="faq-answer-7" class="faq-answer">
-                            <p>The best first step is to book a free discovery call using the Calendly link on this page. We'll discuss your project goals, technical requirements, and determine the best engagement model (Strategy Session, Retainer, Project Sprint, or Custom) to move forward.</p>
-                        </div>
-                    </div>
-                     <div class="faq-item">
-                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-8">
-                            <span>What kind of communication can I expect?</span>
-                             <svg class="faq-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                        </button>
-                        <div id="faq-answer-8" class="faq-answer">
-                            <p>We prioritize clear and consistent communication. Depending on the project structure, we typically use tools like Slack for quick updates, a project management board (Trello/Jira) for task tracking, and scheduled video calls for demos and strategic discussions. We aim to keep you informed every step of the way.</p>
-                        </div>
+            <!-- Video Placeholder/Embed -->
+            <div
+                class="relative aspect-video bg-gray-900 rounded-lg overflow-hidden shadow-2xl border border-gray-200 group cursor-pointer gsap-reveal">
+                <div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                    <div
+                        class="w-20 h-20 bg-[#FF3B3F] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                        <i data-lucide="play" class="w-8 h-8 text-white fill-current ml-1"></i>
                     </div>
                 </div>
-            </div>
-         </section>
-
-        <section id="testimonials" data-bgcolor="#FFFFFF" class="mb-16 md:mb-24 scroll-mt-20 text-gray-800">
-             <h2 id="testimonials-headline" class="text-2xl md:text-3xl font-headline mb-16 text-center"> WHAT CLIENTS SAY ABOUT FIRSTMILEDEV:
-             </h2>
-             <div class="testimonial-grid max-w-6xl mx-auto">
-                <div class="testimonial-item">
-                    <svg class="absolute top-0 left-0 w-full h-full pointer-events-none z-0" preserveAspectRatio="none" aria-hidden="true">
-                         <rect width="100%" height="100%" fill="none" stroke-width="2" pathLength="1" class="testimonial-border-rect"/> </svg>
-                    <div class="relative z-10 flex flex-col justify-between h-full">
-                        <div>
-                            <div class="testimonial-quote-mark">“</div> <p class="testimonial-text"> FIRSTMILEDEV DELIVERED EXACTLY WHAT WE NEEDED, ON TIME AND WITH EXCELLENT CODE QUALITY. THEIR COMMUNICATION WAS TOP-NOTCH THROUGHOUT THE PROJECT. HIGHLY RECOMMENDED! </p>
-                        </div>
-                        <footer class="testimonial-attribution"> Sarah Chen <span>CEO, Innovatech Solutions</span> </footer> </div>
-                </div>
-                <div class="testimonial-item">
-                     <svg class="absolute top-0 left-0 w-full h-full pointer-events-none z-0" preserveAspectRatio="none" aria-hidden="true">
-                         <rect width="100%" height="100%" fill="none" stroke-width="2" pathLength="1" class="testimonial-border-rect"/>
-                    </svg>
-                    <div class="relative z-10 flex flex-col justify-between h-full">
-                        <div>
-                            <div class="testimonial-quote-mark">“</div>
-                            <p class="testimonial-text"> WORKING WITH ANSELME WAS A BREEZE. HE UNDERSTOOD OUR TECHNICAL CHALLENGES AND PROVIDED A SCALABLE SOLUTION THAT EXCEEDED OUR EXPECTATIONS. </p>
-                        </div>
-                        <footer class="testimonial-attribution"> David Miller <span>Founder, Spark &amp; Stitch Co.</span> </footer>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                     <svg class="absolute top-0 left-0 w-full h-full pointer-events-none z-0" preserveAspectRatio="none" aria-hidden="true">
-                         <rect width="100%" height="100%" fill="none" stroke-width="2" pathLength="1" class="testimonial-border-rect"/>
-                    </svg>
-                    <div class="relative z-10 flex flex-col justify-between h-full">
-                        <div>
-                            <div class="testimonial-quote-mark">“</div>
-                            <p class="testimonial-text"> THE EXPERTISE IN FULL-STACK DEVELOPMENT HELPED US LAUNCH OUR MVP FASTER THAN WE THOUGHT POSSIBLE. GREAT TECHNICAL PARTNER. </p>
-                        </div>
-                        <footer class="testimonial-attribution"> Jessica Lee <span>Project Manager, Quantum Leap Digital</span> </footer>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="booking" data-bgcolor="#CAEBF2" class="py-16 md:py-24 text-gray-800">
-             <div class="max-w-4xl mx-auto px-6 md:px-8 lg:px-16">
-                 <h2 id="booking-headline" class="text-3xl md:text-4xl font-headline mb-16 text-center"> READY TO BUILD? LET'S TALK CODE. BOOK A DISCOVERY CALL
-                 </h2>
-                 <div class="calendly-widget-container gsap-reveal">
-                     <div class="calendly-inline-widget" data-url="https://calendly.com/amotchojr/30min" style="min-width:320px;height:750px;"></div>
-                     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                     </div>
-             </div>
-        </section>
-
-        <section id="newsletter" data-bgcolor="#EFEFEF" class="py-16 md:py-24 text-gray-800">
-            <div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-                <div>
-                    <h2 id="newsletter-headline" class="text-3xl sm:text-4xl lg:text-5xl font-headline leading-tight mb-4">
-                       <span class="line-wrapper-nl block"><span class="line-content-nl">WANT DEVELOPMENT INSIGHTS</span></span>
-                       <span class="line-wrapper-nl block"><span class="line-content-nl">& TECH TIPS DELIVERED</span></span>
-                       <span class="line-wrapper-nl block"><span class="line-content-nl">TO YOUR INBOX?</span></span>
-                    </h2>
-                    <p class="text-gray-500 text-sm gsap-reveal">No spam, just valuable content for builders.</p> </div>
-                <div class="gsap-reveal"> <form id="newsletter-form" class="space-y-4">
-                        <div>
-                            <label for="newsletter-email" class="sr-only">Email Address</label>
-                            <input type="email" id="newsletter-email" name="email" placeholder="Email Address" required>
-                             <p class="text-red-500 text-xs mt-1 error-message hidden" id="newsletter-email-error">Please enter a valid email.</p>
-                        </div>
-                        <div>
-                            <button type="submit" class="newsletter-submit-button w-full md:w-auto">Subscribe</button>
-                        </div>
-                        <div id="newsletter-form-status" class="mt-2 text-sm text-gray-600"></div> </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer data-bgcolor="#FFFFFF" class="px-6 md:px-8 lg:px-16 py-8 border-t border-gray-300 gsap-reveal text-gray-800">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-center md:text-left">
-                 <div class="text-lg font-montserrat-bold uppercase-text leading-tight mb-2 inline-block border border-gray-800 px-2 py-1"> First<br>MileDev </div>
-                 <p class="text-gray-500 text-sm">&copy; <span id="current-year"></span> FirstMileDev. All rights reserved.</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="#" class="text-sm text-gray-600 hover:text-accent-watermelon transition-colors">Privacy Policy</a>
-                <a href="#" class="text-sm text-gray-600 hover:text-accent-watermelon transition-colors">Terms & Conditions</a>
+                <!-- Placeholder Image -->
+                <img src="https://placehold.co/800x450/1f2937/fff?text=Build+In+Public+Series"
+                    class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 scale-100 group-hover:scale-105">
             </div>
         </div>
-     </footer>
+    </section>
 
-    <div id="mobile-menu"> <button id="close-menu-button" aria-label="Close Menu">&times;</button> <nav class="flex flex-col items-center justify-center h-full">
-            <a href="#work" class="mobile-nav-link">Projects</a> <a href="#pricing" class="mobile-nav-link">Plans</a> <a href="#services" class="mobile-nav-link">Services</a> <a href="#booking" class="button header-cta-button mobile-nav-link"> Discuss Your Project </a> </nav>
-    </div>
+    <!-- SELECTED WORK / TESTIMONIALS SECTION -->
+    <section id="work" class="px-6 md:px-8 lg:px-16 py-20 bg-[#FAFAFA]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 gsap-reveal">
+                <h2 class="text-3xl md:text-5xl uppercase-text font-headline mb-4">Selected Launches</h2>
+                <p class="text-gray-500 text-sm font-bold uppercase tracking-widest">Real Results, Not Just Code</p>
+            </div>
 
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Project 1 -->
+                <div
+                    class="work-card group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 gsap-reveal">
+                    <!-- Image Area -->
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://placehold.co/800x600/333/fff?text=SaaS+Dashboard" alt="Project 1"
+                            class="work-image w-full h-full object-cover transition-transform duration-700">
+                        <div
+                            class="work-overlay absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                            <span
+                                class="text-white font-headline uppercase tracking-widest border-2 border-white px-6 py-2">View
+                                Case Study</span>
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="font-headline text-xl uppercase-text mb-1">FinTech MVP</h3>
+                                <span class="text-xs font-bold text-[#FF3B3F] uppercase tracking-widest">Phase 2: MVP
+                                    Build</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">Built a functional financial dashboard in
+                            4 weeks using React & Node.js, allowing the founders to secure Pre-Seed funding.</p>
+
+                        <!-- Mini Testimonial Attached -->
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <div class="flex text-[#FF3B3F] mb-2">
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                            </div>
+                            <p class="text-xs italic text-gray-500">"Anselme moved faster in 2 weeks than our previous
+                                dev shop did in 2 months. The transparency was refreshing."</p>
+                            <p class="text-xs font-bold text-gray-900 mt-2">— Sarah J., CEO</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="work-card group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 gsap-reveal">
+                    <!-- Image Area -->
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://placehold.co/800x600/FF3B3F/fff?text=Market+Validator" alt="Project 2"
+                            class="work-image w-full h-full object-cover transition-transform duration-700">
+                        <div
+                            class="work-overlay absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                            <span
+                                class="text-white font-headline uppercase tracking-widest border-2 border-white px-6 py-2">View
+                                Case Study</span>
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="font-headline text-xl uppercase-text mb-1">E-Com Validator</h3>
+                                <span class="text-xs font-bold text-[#FF3B3F] uppercase tracking-widest">Phase 1:
+                                    Validation</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">Ran a 14-day ad test for a niche sneaker
+                            marketplace. The data proved the market was too small, saving the client $30k in dev costs.
+                        </p>
+
+                        <!-- Mini Testimonial Attached -->
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <div class="flex text-[#FF3B3F] mb-2">
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                            </div>
+                            <p class="text-xs italic text-gray-500">"Honesty is rare in this industry. FirstMileDev told
+                                us NOT to build, which was the best advice we got."</p>
+                            <p class="text-xs font-bold text-gray-900 mt-2">— Mike T., Founder</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="px-6 md:px-8 lg:px-16 py-24 md:py-32 bg-white">
+        <div class="max-w-4xl mx-auto text-center mb-20 gsap-reveal">
+            <h2 class="text-4xl md:text-6xl uppercase-text mb-4 font-headline text-gray-900">The Roadmap</h2>
+            <p class="text-lg text-gray-400 uppercase font-bold tracking-widest mb-8">De-risking your development
+                journey</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-16">
+
+            <!-- Card 1: Validation -->
+            <div
+                class="gsap-reveal border border-gray-200 p-8 rounded-xl flex flex-col bg-white hover:shadow-xl hover:border-[#FF3B3F] transition-all duration-300 relative group">
+                <div
+                    class="bg-gray-100 text-[10px] font-black tracking-widest px-3 py-1 absolute top-0 right-0 rounded-bl-lg uppercase text-gray-500">
+                    Validation</div>
+
+                <h3
+                    class="font-bold text-sm uppercase-text mb-2 text-gray-400 group-hover:text-[#FF3B3F] transition-colors tracking-widest">
+                    Phase 1</h3>
+                <h3 class="font-headline text-2xl uppercase-text mb-4 text-gray-900">Market Proof</h3>
+
+                <div class="mb-6 pb-6 border-b border-gray-100">
+                    <p class="text-4xl font-black font-headline tracking-tight text-gray-900">$2,000</p>
+                    <p
+                        class="text-xs text-green-700 font-bold mt-3 uppercase tracking-wide bg-green-50 inline-block px-2 py-1 rounded border border-green-100">
+                        Fast Turnaround (2 Weeks)</p>
+                </div>
+
+                <p class="text-gray-500 mb-8 text-sm leading-relaxed">Don't build until you know they'll buy. We
+                    validate your concept with real data before writing code.</p>
+
+                <div class="space-y-4 text-gray-700 text-sm font-medium flex-grow mb-8">
+                    <div class="flex items-center"><i data-lucide="bar-chart-3"
+                            class="w-4 h-4 mr-3 text-[#FF3B3F]"></i>Ad Funnel Testing</div>
+                    <div class="flex items-center"><i data-lucide="layout"
+                            class="w-4 h-4 mr-3 text-[#FF3B3F]"></i>Landing Page Creation</div>
+                    <div class="flex items-center"><i data-lucide="file-text"
+                            class="w-4 h-4 mr-3 text-[#FF3B3F]"></i>Viability Report</div>
+                </div>
+
+                <a href="#contact"
+                    class="block w-full text-center border-2 border-gray-900 text-gray-900 py-4 font-bold hover:bg-black hover:text-white transition uppercase text-xs tracking-widest rounded-lg">Start
+                    Validation</a>
+            </div>
+
+            <!-- Card 2: MVP (Popular) -->
+            <div
+                class="gsap-reveal border-2 border-gray-900 p-8 rounded-xl flex flex-col bg-white shadow-2xl relative transform md:-translate-y-6 z-10">
+                <div
+                    class="bg-black text-white text-[10px] font-black tracking-widest px-4 py-1 absolute top-0 right-0 rounded-bl-lg uppercase">
+                    Most Popular</div>
+
+                <h3 class="font-bold text-sm uppercase-text mb-2 text-[#FF3B3F] tracking-widest">Phase 2</h3>
+                <h3 class="font-headline text-2xl uppercase-text mb-4 text-gray-900">Launchpad MVP</h3>
+
+                <div class="mb-6 pb-6 border-b border-gray-100">
+                    <p class="text-4xl font-black font-headline tracking-tight text-gray-900">$5,000</p>
+                    <p class="text-xs text-gray-500 mt-3 uppercase tracking-wide font-bold">4-6 Week Turnaround</p>
+                </div>
+
+                <p class="text-gray-500 mb-8 text-sm leading-relaxed">Get your first 100 users. We build a functional,
+                    beautiful product using high-performance Low-Code tools to save time.</p>
+
+                <div class="space-y-4 text-gray-700 text-sm font-medium flex-grow mb-8">
+                    <div class="flex items-center"><i data-lucide="users" class="w-4 h-4 mr-3 text-[#FF3B3F]"></i>User
+                        Authentication</div>
+                    <div class="flex items-center"><i data-lucide="database"
+                            class="w-4 h-4 mr-3 text-[#FF3B3F]"></i>Real Database Integration</div>
+                    <div class="flex items-center"><i data-lucide="credit-card"
+                            class="w-4 h-4 mr-3 text-[#FF3B3F]"></i>Stripe Payments</div>
+                    <div class="flex items-center"><i data-lucide="smartphone"
+                            class="w-4 h-4 mr-3 text-[#FF3B3F]"></i>Mobile Responsive</div>
+                </div>
+
+                <a href="#contact"
+                    class="block w-full text-center bg-[#FF3B3F] text-white border-2 border-[#FF3B3F] py-4 font-bold hover:bg-black hover:border-black transition uppercase text-xs tracking-widest rounded-lg shadow-lg">Build
+                    My MVP</a>
+            </div>
+
+            <!-- Card 3: Scale -->
+            <div
+                class="gsap-reveal border border-gray-200 p-8 rounded-xl flex flex-col bg-white hover:shadow-xl hover:border-[#FF3B3F] transition-all duration-300 relative group">
+                <div
+                    class="bg-gray-100 text-[10px] font-black tracking-widest px-3 py-1 absolute top-0 right-0 rounded-bl-lg uppercase text-gray-500">
+                    Scaling</div>
+
+                <h3
+                    class="font-bold text-sm uppercase-text mb-2 text-gray-400 group-hover:text-[#FF3B3F] transition-colors tracking-widest">
+                    Phase 3</h3>
+                <h3 class="font-headline text-2xl uppercase-text mb-4 text-gray-900">Custom Scale</h3>
+
+                <div class="mb-6 pb-6 border-b border-gray-100">
+                    <p class="text-4xl font-black font-headline tracking-tight text-gray-900">Custom</p>
+                    <p class="text-xs text-gray-500 mt-3 uppercase tracking-wide font-bold">Long-term Partnership</p>
+                </div>
+
+                <p class="text-gray-500 mb-8 text-sm leading-relaxed">Ready to handle thousands of users? We migrate
+                    your MVP to a scalable custom architecture (MERN Stack).</p>
+
+                <div class="space-y-4 text-gray-700 text-sm font-medium flex-grow mb-8">
+                    <div class="flex items-center"><i data-lucide="code-2"
+                            class="w-4 h-4 mr-3 text-[#FF3B3F]"></i>React/Node.js Custom Code</div>
+                    <div class="flex items-center"><i data-lucide="server"
+                            class="w-4 h-4 mr-3 text-[#FF3B3F]"></i>AWS/Cloud Architecture</div>
+                    <div class="flex items-center"><i data-lucide="shield"
+                            class="w-4 h-4 mr-3 text-[#FF3B3F]"></i>Advanced Security</div>
+                </div>
+
+                <a href="#contact"
+                    class="block w-full text-center border-2 border-gray-900 text-gray-900 py-4 font-bold hover:bg-black hover:text-white transition uppercase text-xs tracking-widest rounded-lg">Let's
+                    Scale</a>
+            </div>
+        </div>
+
+        <!-- CTA to Calculator -->
+        <div class="text-center gsap-reveal border-t border-gray-100 pt-12">
+            <p class="text-gray-500 font-bold uppercase tracking-widest text-sm mb-4">Unsure about the cost?</p>
+            <a href="calculator.html"
+                class="inline-flex items-center font-bold uppercase text-base tracking-widest text-[#FF3B3F] hover:text-black transition group">
+                Try our App Cost Calculator <i data-lucide="arrow-right"
+                    class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="px-6 md:px-8 lg:px-16 py-20 bg-[#FAFAFA]">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-5xl uppercase-text font-headline mb-12 text-center">Common Questions</h2>
+
+            <div class="space-y-4">
+                <!-- Question 1 -->
+                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer"
+                    onclick="toggleFaq(this)">
+                    <div class="p-6 flex justify-between items-center">
+                        <h4 class="font-bold text-lg text-gray-900">Why validate before building?</h4>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6">
+                        <div class="pb-6 text-gray-600">
+                            Development is expensive. Marketing a product nobody wants is even more expensive. By
+                            spending a small amount on validation (ads + landing page), we save you thousands of dollars
+                            and months of time.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer"
+                    onclick="toggleFaq(this)">
+                    <div class="p-6 flex justify-between items-center">
+                        <h4 class="font-bold text-lg text-gray-900">What tech stack do you use?</h4>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6">
+                        <div class="pb-6 text-gray-600">
+                            For MVPs (Phase 2), we use advanced low-code tools like Bubble, FlutterFlow, or Webflow +
+                            Wized. For Scaled Apps (Phase 3), we build custom using the MERN stack (MongoDB, Express,
+                            React, Node.js) or Next.js.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer"
+                    onclick="toggleFaq(this)">
+                    <div class="p-6 flex justify-between items-center">
+                        <h4 class="font-bold text-lg text-gray-900">Do I own the code?</h4>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6">
+                        <div class="pb-6 text-gray-600">
+                            Absolutely. Once the project is paid for, you own 100% of the IP, code, and design assets.
+                            We are your partners, not your landlords.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION WITH CALENDLY -->
+    <section id="contact" class="px-6 md:px-8 lg:px-16 py-20 bg-[#1f2937] text-white">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+
+            <!-- Left Side: Copy -->
+            <div class="lg:col-span-2 pt-8 gsap-reveal">
+                <h2 class="text-4xl md:text-5xl uppercase-text font-headline mb-6">Let's Validate Your Idea</h2>
+                <p class="text-gray-400 mb-8 text-lg leading-relaxed">
+                    Stop guessing and start building with confidence. Book a 15-minute discovery call to see if your
+                    idea is ready for the First Mile.
+                </p>
+
+                <div class="space-y-6 mb-12">
+                    <div class="flex items-start">
+                        <div class="bg-[#FF3B3F] p-3 rounded-full mr-4 shrink-0">
+                            <i data-lucide="zap" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-white mb-1">Rapid Validation</h4>
+                            <p class="text-sm text-gray-400">We'll discuss your market hypothesis.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-[#FF3B3F] p-3 rounded-full mr-4 shrink-0">
+                            <i data-lucide="code" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-white mb-1">Tech Strategy</h4>
+                            <p class="text-sm text-gray-400">Determine if you need No-Code or Custom.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-gray-700">
+                    <p class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Direct Contact</p>
+                    <div class="flex items-center text-gray-300 mb-2">
+                        <i data-lucide="mail" class="w-5 h-5 mr-3 text-[#FF3B3F]"></i>
+                        hello@firstmiledev.com
+                    </div>
+                    <div class="flex items-center text-gray-300">
+                        <i data-lucide="map-pin" class="w-5 h-5 mr-3 text-[#FF3B3F]"></i>
+                        Ottawa, Ontario
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Calendly Embed -->
+            <div class="lg:col-span-3 w-full bg-white rounded-xl overflow-hidden shadow-2xl gsap-reveal">
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget"
+                    data-url="https://calendly.com/anselme-firstmiledev?hide_gdpr_banner=1&primary_color=ff3b3f"
+                    style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"
+                    async></script>
+                <!-- Calendly inline widget end -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white px-6 py-12 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="text-2xl font-headline uppercase-text tracking-tighter mb-4 md:mb-0">
+                First<span class="text-[#FF3B3F]">Mile</span>Dev
+            </div>
+            <div class="text-gray-500 text-xs font-bold uppercase tracking-widest">
+                &copy; 2024 FirstMileDev. Validate First.
+            </div>
+        </div>
+    </footer>
+
+    <!-- EXTERNAL JS -->
     <script src="script.js"></script>
+
+    <script>
+        // Additional inline script for any specific page logic could go here if needed, 
+        // but core logic is in script.js which handles the GSAP animations, Lucide icons, etc.
+    </script>
 </body>
+
 </html>
