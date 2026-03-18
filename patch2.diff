@@ -1,0 +1,14 @@
+--- .github/workflows/FirstMileDev-orchestration.yaml
++++ .github/workflows/FirstMileDev-orchestration.yaml
+@@ -19,8 +19,11 @@
+     outputs:
+       deployment-enabled: ${{ fromJson(steps.project.outputs.info || '{}').deployment-enabled }}
+       branch-id: ${{ fromJson(steps.project.outputs.info || '{}').branch-id }}
++    env:
++      IONOS_API_KEY: ${{ secrets.IONOS_API_KEY }}
+     steps:
+       - name: Fetch project data
++        if: env.IONOS_API_KEY != ''
+         uses: ionos-deploy-now/project-action@v1
+         id: project
+         with:
