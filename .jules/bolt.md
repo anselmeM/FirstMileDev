@@ -1,0 +1,3 @@
+## 2024-05-17 - No Package Manager Found
+**Learning:** This is a static HTML/CSS/JS site running directly from files. There is no `package.json`, `npm`, or `pnpm` available, meaning standard Node-based linting or testing tools cannot be run.
+**Action:** Do not attempt to run `pnpm lint` or `pnpm test` as instructed by the generic Bolt prompt, as they will fail. Rely on manual verification (e.g., Python HTTP server) and native browser features for performance optimizations.
