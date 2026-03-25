@@ -54,7 +54,7 @@ The FirstMileDev website is a well-structured single-page landing page that effe
 | HIGH | No secondary navigation | Add a sub-nav or jump links within long sections |
 | HIGH | Missing "Back to Top" button | Implement floating CTA button |
 | MEDIUM | Nav items don't indicate active section | Add scroll-based active state highlighting |
-| LOW | Calculator link in 2 places but file missing | Ensure calculator.html exists or remove links |
+| LOW | Calculator link in 2 places but file missing | Ensure calculator.html exists |
 
 ### Implementation Suggestions
 
@@ -134,7 +134,6 @@ Current palette is solid. Consider:
 | HIGH | Only 1 hero CTA | Add urgency with secondary "Limited Availability" badge |
 | HIGH | No lead magnet | Create email capture (free validation checklist) |
 | HIGH | No exit intent popup | Implement exit-intent to capture abandoning visitors |
-| MEDIUM | Pricing lacks trust signals | Add "Money-back guarantee" or "Results or Refund" |
 | MEDIUM | No A/B testing capability | Add Google Optimize or similar for CTA testing |
 | LOW | No real-time notifications | "X founders viewing this page" social proof |
 

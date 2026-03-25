@@ -125,12 +125,26 @@ window.addEventListener('scroll', function() {
     if (scrollPercent >= 50 && !cta50Shown && scrollPercent < 75) {
         scrollCta50.classList.add('visible');
         cta50Shown = true;
+        
+        // Auto-dismiss after 8 seconds
+        setTimeout(() => {
+            scrollCta50.classList.remove('visible');
+            const content = scrollCta50.querySelector('.scroll-cta-content');
+            if (content) content.style.display = 'none';
+        }, 8000);
     }
     
     // Show CTA at 75% scroll (only once)
     if (scrollPercent >= 75 && !cta75Shown) {
         scrollCta75.classList.add('visible');
         cta75Shown = true;
+        
+        // Auto-dismiss after 8 seconds
+        setTimeout(() => {
+            scrollCta75.classList.remove('visible');
+            const content = scrollCta75.querySelector('.scroll-cta-content');
+            if (content) content.style.display = 'none';
+        }, 8000);
     }
     
     // Hide 50% CTA when past 75%
@@ -216,3 +230,280 @@ if (prefersReducedMotion.matches) {
     // Disable GSAP animations for users who prefer reduced motion
     gsap.globalTimeline.clear();
 }
+
+// ========== STICKY NAVIGATION WITH SCROLL-SPY ==========
+
+// 12. Sticky Navigation - Add class when scrolling past hero
+const header = document.querySelector('header');
+const heroSection = document.getElementById('hero-section');
+
+function handleStickyNav() {
+    if (!header || !heroSection) return;
+    
+    const heroBottom = heroSection.offsetHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > heroBottom - 100) {
+        header.classList.add('sticky-nav');
+    } else {
+        header.classList.remove('sticky-nav');
+    }
+}
+
+// 13. Scroll-Spy - Highlight active navigation link based on current section
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('header nav a[href^="#"]');
+
+function handleScrollSpy() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollTop >= sectionTop && scrollTop < sectionBottom) {
+            // Remove active class from all nav links
+            navLinks.forEach(link => {
+                link.classList.remove('nav-link-active');
+            });
+            
+            // Add active class to corresponding nav link
+            const activeLink = document.querySelector(`header nav a[href="#${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('nav-link-active');
+            }
+        }
+    });
+}
+
+// Combined scroll event handler
+let ticking = false;
+window.addEventListener('scroll', function() {
+    if (!ticking) {
+        window.requestAnimationFrame(function() {
+            handleStickyNav();
+            handleScrollSpy();
+            handleProgressIndicator();
+            handleFloatingCta();
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
+
+// Initial check on page load
+handleStickyNav();
+handleScrollSpy();
+
+// ========== PROGRESS INDICATOR ==========
+
+// 14. Progress Indicator - Updates based on scroll position
+const progressIndicator = document.getElementById('progress-indicator');
+const progressFill = document.getElementById('progress-fill');
+const progressPhases = document.querySelectorAll('.progress-phase');
+
+function handleProgressIndicator() {
+    if (!progressIndicator || !progressFill) return;
+    
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    const scrollPercent = (scrollTop / (docHeight - windowHeight)) * 100;
+    
+    // Show progress indicator when past hero
+    const heroSection = document.getElementById('hero-section');
+    const heroBottom = heroSection ? heroSection.offsetHeight : 0;
+    
+    if (scrollTop > heroBottom - 100) {
+        progressIndicator.classList.add('visible');
+    } else {
+        progressIndicator.classList.remove('visible');
+    }
+    
+    // Update progress fill
+    progressFill.style.width = Math.min(scrollPercent, 100) + '%';
+    
+    // Update active phase
+    const sections = ['process', 'pricing', 'lab', 'work', 'contact'];
+    let activePhase = 'process';
+    
+    sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            const sectionTop = section.offsetTop - 200;
+            if (scrollTop >= sectionTop) {
+                if (sectionId === 'process' || sectionId === 'lab' || sectionId === 'work') {
+                    activePhase = 'process';
+                } else if (sectionId === 'pricing') {
+                    activePhase = 'pricing';
+                } else if (sectionId === 'contact') {
+                    activePhase = 'contact';
+                }
+            }
+        }
+    });
+    
+    progressPhases.forEach(phase => {
+        const phaseName = phase.getAttribute('data-phase');
+        if (phaseName === activePhase) {
+            phase.classList.add('active');
+        } else {
+            phase.classList.remove('active');
+        }
+    });
+}
+
+// Add to scroll handler
+window.addEventListener('scroll', function() {
+    if (!ticking) {
+        window.requestAnimationFrame(function() {
+            handleStickyNav();
+            handleScrollSpy();
+            handleProgressIndicator();
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
+
+// Initial check
+handleProgressIndicator();
+
+// Progress indicator click to scroll
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        const headerHeight = document.querySelector('header').offsetHeight;
+        const sectionTop = section.offsetTop - headerHeight - 20;
+        window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+    }
+}
+
+// ========== LIVE CHAT (Tawk.to) ==========
+
+// 15. Tawk.to Integration with 15-second proactive invitation
+// Replace XXXXXXXXXX with your actual Tawk.to property ID
+(function() {
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.src = 'https://embed.tawk.to/XXXXXXXXXX/YYYYYYYYY';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+})();
+
+// Proactive chat invitation after 15 seconds
+setTimeout(function() {
+    if (typeof TawkAPI !== 'undefined') {
+        // Show proactive chat invitation
+        TawkAPI.toggle();
+    }
+}, 15000);
+
+// ========== FLOATING CTA ==========
+
+// 16. Floating "Get Started" CTA - appears after pricing section
+const floatingCta = document.getElementById('floating-cta');
+
+function handleFloatingCta() {
+    if (!floatingCta) return;
+    
+    const pricingSection = document.getElementById('pricing');
+    if (!pricingSection) return;
+    
+    const pricingBottom = pricingSection.offsetTop + pricingSection.offsetHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > pricingBottom - 200) {
+        floatingCta.classList.add('visible');
+    } else {
+        floatingCta.classList.remove('visible');
+    }
+}
+
+// Initial check
+handleFloatingCta();
+
+// ========== SECONDARY NAV / JUMP LINKS ==========
+
+// 17. Jump Links functionality for long sections
+const jumpLinks = document.querySelectorAll('.jump-link');
+
+jumpLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+            e.preventDefault();
+            const header = document.querySelector('header');
+            const headerHeight = header ? header.offsetHeight : 0;
+            const targetTop = targetSection.offsetTop - headerHeight - 20;
+            
+            window.scrollTo({
+                top: targetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// 18. Hide Popups When Contact Section Is Visible (Calendly Optimization)
+function dismissPopupsAtContactSection() {
+    const contactSection = document.getElementById('contact');
+    if (!contactSection) return;
+    
+    const contactSectionTop = contactSection.offsetTop;
+    const contactSectionBottom = contactSectionTop + contactSection.offsetHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
+    
+    // Check if contact section is in viewport (with some buffer)
+    const isContactVisible = scrollTop + windowHeight > contactSectionTop + 100;
+    
+    if (isContactVisible) {
+        // Dismiss exit-intent popup if visible
+        const exitPopup = document.getElementById('exit-intent-popup');
+        if (exitPopup && exitPopup.classList.contains('active')) {
+            exitPopup.classList.remove('active');
+        }
+        
+        // Dismiss floating CTA if visible
+        const floatingCta = document.getElementById('floating-cta');
+        if (floatingCta && floatingCta.classList.contains('visible')) {
+            floatingCta.classList.remove('visible');
+        }
+        
+        // Dismiss scroll-triggered CTAs and their content if visible
+        const scrollCta50 = document.getElementById('scroll-cta-50');
+        const scrollCta75 = document.getElementById('scroll-cta-75');
+        const scrollCtaContent50 = document.querySelector('.scroll-cta-content');
+        
+        if (scrollCta50) {
+            scrollCta50.classList.remove('visible');
+            // Specifically hide scroll-cta-content
+            const content = scrollCta50.querySelector('.scroll-cta-content');
+            if (content) content.style.display = 'none';
+        }
+        if (scrollCta75) {
+            scrollCta75.classList.remove('visible');
+            const content = scrollCta75.querySelector('.scroll-cta-content');
+            if (content) content.style.display = 'none';
+        }
+    }
+}
+
+// Add to scroll handler
+window.addEventListener('scroll', function() {
+    if (!ticking) {
+        window.requestAnimationFrame(function() {
+            handleStickyNav();
+            handleScrollSpy();
+            handleProgressIndicator();
+            handleFloatingCta();
+            dismissPopupsAtContactSection();
+            ticking = false;
+        });
+        ticking = true;
+    }
+});

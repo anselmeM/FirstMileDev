@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Cost Calculator - FirstMileDev</title>
+    <meta name="description"
+        content="Estimate your MVP development cost with our free app cost calculator. Get a tailored quote based on features, complexity, and timeline.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'headline': ['"Archivo Black"', 'sans-serif'],
+                        'body': ['"Montserrat"', 'sans-serif'],
+                    },
+                    colors: {
+                        'accent-red': '#FF3B3F',
+                        'accent-sky': '#7CB9C9',
+                        'carbon': '#1f2937',
+                        'light-gray': '#FAFAFA',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="antialiased bg-white text-gray-900">
+
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <main id="main-content">
+        <!-- Header -->
+        <header class="bg-[#1f2937] text-white px-6 py-4">
+            <div class="max-w-6xl mx-auto flex justify-between items-center">
+                <a href="index.html" class="text-xl font-headline uppercase tracking-tighter">
+                    First<span class="text-[#FF3B3F]">Mile</span>Dev
+                </a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html#process" class="uppercase-text text-xs font-bold tracking-widest hover:text-[#FF3B3F]">Process</a>
+                    <a href="index.html#pricing" class="uppercase-text text-xs font-bold tracking-widest hover:text-[#FF3B3F]">Roadmap</a>
+                    <a href="index.html#contact" class="btn btn-sm btn-primary">Get Started</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Calculator Hero -->
+        <section class="bg-[#FF3B3F] text-white px-6 py-16 text-center">
+            <h1 class="text-4xl md:text-6xl uppercase-text font-headline mb-4">App Cost Calculator</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
+                Estimate your MVP development cost in seconds. Get a tailored quote based on features, complexity, and timeline.
+            </p>
+        </section>
+
+        <!-- Calculator Form -->
+        <section class="px-6 py-16 bg-[#FAFAFA]">
+            <div class="max-w-3xl mx-auto">
+                <form id="cost-calculator" class="bg-white rounded-2xl shadow-lg p-8">
+                    <!-- App Type -->
+                    <div class="mb-8">
+                        <label class="block text-lg font-bold mb-4">What type of app are you building?</label>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <label class="calculator-option">
+                                <input type="radio" name="appType" value="web" class="sr-only peer">
+                                <div class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-[#FF3B3F] peer-checked:bg-red-50 transition">
+                                    <span class="text-2xl mb-2 block">🌐</span>
+                                    <span class="font-bold">Web App</span>
+                                </div>
+                            </label>
+                            <label class="calculator-option">
+                                <input type="radio" name="appType" value="mobile" class="sr-only peer">
+                                <div class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-[#FF3B3F] peer-checked:bg-red-50 transition">
+                                    <span class="text-2xl mb-2 block">📱</span>
+                                    <span class="font-bold">Mobile App</span>
+                                </div>
+                            </label>
+                            <label class="calculator-option">
+                                <input type="radio" name="appType" value="both" class="sr-only peer">
+                                <div class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-[#FF3B3F] peer-checked:bg-red-50 transition">
+                                    <span class="text-2xl mb-2 block">🔄</span>
+                                    <span class="font-bold">Both</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Complexity -->
+                    <div class="mb-8">
+                        <label class="block text-lg font-bold mb-4">How complex is your app?</label>
+                        <div class="space-y-3">
+                            <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gray-300 peer-checked:border-[#FF3B3F]">
+                                <input type="radio" name="complexity" value="simple" class="mr-4">
+                                <div>
+                                    <span class="font-bold block">Simple</span>
+                                    <span class="text-sm text-gray-500">Basic features, 5-10 screens, no complex integrations</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gray-300 peer-checked:border-[#FF3B3F]">
+                                <input type="radio" name="complexity" value="medium" class="mr-4">
+                                <div>
+                                    <span class="font-bold block">Medium</span>
+                                    <span class="text-sm text-gray-500">Moderate features, 10-20 screens, some integrations</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gray-300 peer-checked:border-[#FF3B3F]">
+                                <input type="radio" name="complexity" value="complex" class="mr-4">
+                                <div>
+                                    <span class="font-bold block">Complex</span>
+                                    <span class="text-sm text-gray-500">Advanced features, 20+ screens, multiple integrations</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="mb-8">
+                        <label class="block text-lg font-bold mb-4">Select features you need:</label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="features" value="auth" class="mr-3 rounded text-[#FF3B3F]">
+                                <span>User Authentication</span>
+                            </label>
+                            <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="features" value="payments" class="mr-3 rounded text-[#FF3B3F]">
+                                <span>Payment Processing</span>
+                            </label>
+                            <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="features" value="dashboard" class="mr-3 rounded text-[#FF3B3F]">
+                                <span>Admin Dashboard</span>
+                            </label>
+                            <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="features" value="api" class="mr-3 rounded text-[#FF3B3F]">
+                                <span>API Integration</span>
+                            </label>
+                            <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="features" value="notifications" class="mr-3 rounded text-[#FF3B3F]">
+                                <span>Push Notifications</span>
+                            </label>
+                            <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="features" value="analytics" class="mr-3 rounded text-[#FF3B3F]">
+                                <span>Analytics & Reporting</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Timeline -->
+                    <div class="mb-8">
+                        <label class="block text-lg font-bold mb-4">What's your preferred timeline?</label>
+                        <div class="flex space-x-4">
+                            <label class="flex-1">
+                                <input type="radio" name="timeline" value="4" class="sr-only peer">
+                                <div class="p-4 border-2 border-gray-200 rounded-lg text-center cursor-pointer peer-checked:border-[#FF3B3F] peer-checked:bg-red-50">
+                                    <span class="font-bold block">4-6 Weeks</span>
+                                    <span class="text-sm text-gray-500">Fast</span>
+                                </div>
+                            </label>
+                            <label class="flex-1">
+                                <input type="radio" name="timeline" value="8" class="sr-only peer">
+                                <div class="p-4 border-2 border-gray-200 rounded-lg text-center cursor-pointer peer-checked:border-[#FF3B3F] peer-checked:bg-red-50">
+                                    <span class="font-bold block">8-12 Weeks</span>
+                                    <span class="text-sm text-gray-500">Standard</span>
+                                </div>
+                            </label>
+                            <label class="flex-1">
+                                <input type="radio" name="timeline" value="12" class="sr-only peer">
+                                <div class="p-4 border-2 border-gray-200 rounded-lg text-center cursor-pointer peer-checked:border-[#FF3B3F] peer-checked:bg-red-50">
+                                    <span class="font-bold block">12+ Weeks</span>
+                                    <span class="text-sm text-gray-500">Flexible</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Email for Results -->
+                    <div class="mb-8">
+                        <label class="block text-lg font-bold mb-4">Where should we send your estimate?</label>
+                        <input type="email" id="contact-email" placeholder="your@email.com" 
+                            class="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-[#FF3B3F] focus:outline-none">
+                    </div>
+
+                    <button type="button" onclick="calculateCost()" 
+                        class="btn btn-primary btn-lg w-full">
+                        Calculate My Cost
+                    </button>
+                </form>
+
+                <!-- Results -->
+                <div id="results" class="hidden mt-8 bg-white rounded-2xl shadow-lg p-8 text-center">
+                    <h2 class="text-2xl font-headline mb-4">Your Estimated Cost</h2>
+                    <p id="estimated-cost" class="text-5xl font-black text-[#FF3B3F] mb-4">$0</p>
+                    <p class="text-gray-600 mb-6">This is an estimate based on your selections. Get a detailed quote by booking a call.</p>
+                    <a href="index.html#contact" class="btn btn-primary">Book Discovery Call</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="px-6 py-16 bg-[#1f2937] text-white text-center">
+            <h2 class="text-3xl md:text-4xl font-headline uppercase mb-4">Ready to Build?</h2>
+            <p class="text-lg opacity-80 mb-8">Let's discuss your project and find the best path forward.</p>
+            <a href="index.html#contact" class="btn btn-primary">Start Your Project</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white px-6 py-8 text-center">
+        <p class="text-gray-500 text-sm">&copy; 2024 FirstMileDev. Validate First.</p>
+    </footer>
+
+    <script>
+        function calculateCost() {
+            // Get form values
+            const appType = document.querySelector('input[name="appType"]:checked');
+            const complexity = document.querySelector('input[name="complexity"]:checked');
+            const timeline = document.querySelector('input[name="timeline"]:checked');
+            const features = document.querySelectorAll('input[name="features"]:checked');
+            const email = document.getElementById('contact-email').value;
+
+            if (!appType || !complexity || !timeline) {
+                alert('Please select app type, complexity, and timeline');
+                return;
+            }
+
+            // Base costs
+            let baseCost = 0;
+            switch(appType.value) {
+                case 'web': baseCost = 3000; break;
+                case 'mobile': baseCost = 5000; break;
+                case 'both': baseCost = 7000; break;
+            }
+
+            // Complexity multiplier
+            let complexityMultiplier = 1;
+            switch(complexity.value) {
+                case 'simple': complexityMultiplier = 1; break;
+                case 'medium': complexityMultiplier = 1.5; break;
+                case 'complex': complexityMultiplier = 2.5; break;
+            }
+
+            // Features cost
+            const featureCost = features.length * 500;
+
+            // Timeline adjustment (faster = more expensive)
+            let timelineMultiplier = 1;
+            switch(timeline.value) {
+                case '4': timelineMultiplier = 1.3; break; // Fast
+                case '8': timelineMultiplier = 1; break;  // Standard
+                case '12': timelineMultiplier = 0.9; break; // Flexible
+            }
+
+            // Calculate total
+            const total = Math.round((baseCost + featureCost) * complexityMultiplier * timelineMultiplier);
+
+            // Display results
+            document.getElementById('results').classList.remove('hidden');
+            document.getElementById('estimated-cost').textContent = '$' + total.toLocaleString();
+
+            // Smooth scroll to results
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>

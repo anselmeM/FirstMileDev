@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTech MVP Case Study - FirstMileDev</title>
+    <meta name="description" content="Learn how FirstMileDev helped a startup build a financial dashboard MVP in 4 weeks that secured Pre-Seed funding.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'headline': ['"Archivo Black"', 'sans-serif'],
+                        'body': ['"Montserrat"', 'sans-serif'],
+                    },
+                    colors: {
+                        'accent-red': '#FF3B3F',
+                        'accent-teal': '#0D9488',
+                        'carbon-800': '#1F2937',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="antialiased bg-white text-gray-900 font-body">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="bg-carbon-800 text-white px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-xl font-headline uppercase tracking-tighter">
+                First<span class="text-accent-red">Mile</span>Dev
+            </a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html#process" class="uppercase-text text-xs font-bold tracking-widest hover:text-accent-red">Process</a>
+                <a href="index.html#work" class="uppercase-text text-xs font-bold tracking-widest hover:text-accent-red">Work</a>
+                <a href="index.html#pricing" class="uppercase-text text-xs font-bold tracking-widest hover:text-accent-red">Pricing</a>
+                <a href="#contact" class="btn btn-primary btn-sm">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Case Study Hero -->
+        <section class="bg-accent-red text-white px-6 py-16 md:py-24">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-6">
+                    <span class="bg-white/20 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">FinTech</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-headline uppercase mb-6">Financial Dashboard MVP</h1>
+                <p class="text-xl md:text-2xl opacity-90 max-w-2xl">Helping startup founders track their metrics and secure Pre-Seed funding with a functional MVP built in 4 weeks.</p>
+            </div>
+        </section>
+
+        <!-- Key Metrics -->
+        <section class="px-6 py-12 bg-gray-50">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <p class="text-4xl font-headline text-accent-red">4 Weeks</p>
+                        <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Development Time</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-4xl font-headline text-accent-red">$5,000</p>
+                        <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Investment</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-4xl font-headline text-accent-red">$500K</p>
+                        <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Funding Secured</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-4xl font-headline text-accent-red">3</p>
+                        <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Integrations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Challenge -->
+        <section class="px-6 py-16 md:py-24">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-8">The Challenge</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                    Sarah and John, two fintech founders, had a brilliant idea for a financial dashboard that would help small businesses track their cash flow in real-time. However, they had limited budget and needed to prove their concept before investors would take notice.
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Their previous development team had quoted $40,000 and 6 months for a full product. They needed a faster, more affordable solution to validate demand and secure Pre-Seed funding.
+                </p>
+            </div>
+        </section>
+
+        <!-- The Solution -->
+        <section class="px-6 py-16 md:py-24 bg-gray-50">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-8">The Solution</h2>
+                <div class="space-y-6">
+                    <div class="bg-white p-8 rounded-xl shadow-card">
+                        <h3 class="text-xl font-bold mb-4">Phase 1: Rapid Validation (Week 1)</h3>
+                        <p class="text-gray-600">We created a high-fidelity landing page with a waitlist signup form. Ran $2,000 in targeted LinkedIn ads to validate demand. Result: 847 signups in 14 days with 23% conversion rate.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-card">
+                        <h3 class="text-xl font-bold mb-4">Phase 2: Low-Code MVP (Weeks 2-3)</h3>
+                        <p class="text-gray-600">Using Webflow + Wized + Xano, we built a functional dashboard with real-time data visualization, user authentication, and Stripe integration. Features included: cash flow tracking, invoice generation, and financial forecasting.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-card">
+                        <h3 class="text-xl font-bold mb-4">Phase 3: Investor Demo (Week 4)</h3>
+                        <p class="text-gray-600">Delivered a polished product demo to investors. The functional MVP with real data convinced investors to commit $500K in Pre-Seed funding.</p>
+                    </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="mt-12">
+                    <h3 class="text-lg font-bold uppercase tracking-widest text-gray-500 mb-4">Tech Stack Used</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-accent-red/10 text-accent-red px-4 py-2 rounded-lg font-semibold">Webflow</span>
+                        <span class="bg-accent-teal/10 text-accent-teal px-4 py-2 rounded-lg font-semibold">Wized</span>
+                        <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-semibold">Xano</span>
+                        <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-semibold">Stripe</span>
+                        <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-semibold">Chart.js</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section class="px-6 py-16 md:py-24">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-8">The Results</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-accent-red text-white p-8 rounded-xl">
+                        <p class="text-5xl font-headline mb-2">$500K</p>
+                        <p class="text-lg font-semibold">Pre-Seed Funding Secured</p>
+                    </div>
+                    <div class="bg-gray-100 p-8 rounded-xl">
+                        <p class="text-5xl font-headline text-gray-900 mb-2">2,400+</p>
+                        <p class="text-lg font-semibold text-gray-600">Active Users After Launch</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial -->
+        <section class="px-6 py-16 md:py-24 bg-gray-50">
+            <div class="max-w-4xl mx-auto">
+                <blockquote class="text-2xl md:text-3xl font-medium text-gray-900 leading-relaxed mb-8">
+                    "Anselme and his team delivered what other developers promised in 6 months in just 4 weeks. The MVP we built helped us secure $500K in funding. Their validation-first approach saved us from building something nobody wanted."
+                </blockquote>
+                <div class="flex items-center">
+                    <div class="w-16 h-16 bg-gray-300 rounded-full mr-4">
+                        <img src="https://placehold.co/100x100/333/fff?text=SJ" alt="Sarah J." class="w-full h-full rounded-full object-cover">
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg">Sarah Johnson</p>
+                        <p class="text-gray-500">CEO & Co-Founder, FinanceFlow</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="px-6 py-16 md:py-24 bg-carbon-800 text-white text-center">
+            <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6">Ready to Validate Your Idea?</h2>
+            <p class="text-xl opacity-80 mb-8 max-w-2xl mx-auto">Book a free 15-minute discovery call and let's see if your startup idea is ready for the First Mile.</p>
+            <a href="index.html#contact" class="btn btn-primary btn-lg">Book Discovery Call</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white px-6 py-8 text-center">
+        <p class="text-gray-500 text-sm">&copy; 2024 FirstMileDev. Validate First.</p>
+    </footer>
+</body>
+
+</html>
