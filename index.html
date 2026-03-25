@@ -7,6 +7,66 @@
     <title>FirstMileDev - Validate First, Build Second</title>
     <meta name="description"
         content="The Market-First MVP Agency. We validate demand before writing code for high-growth startups.">
+    <!-- Canonical URL for SEO -->
+    <link rel="canonical" href="https://firstmiledev.com/">
+
+    <!-- Open Graph Meta Tags for Facebook & LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://firstmiledev.com/">
+    <meta property="og:title" content="FirstMileDev - Validate Demand Before You Write Code">
+    <meta property="og:description" content="The Market-First MVP Agency. We validate demand before writing code for high-growth startups. Move from Idea to Validated Product using Data, No-Code, and MERN Stack.">
+    <meta property="og:image" content="https://firstmiledev.com/og-image.jpg">
+    <meta property="og:site_name" content="FirstMileDev">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@firstmiledev">
+    <meta name="twitter:title" content="FirstMileDev - Validate Demand Before You Write Code">
+    <meta name="twitter:description" content="The Market-First MVP Agency. We validate demand before writing code for high-growth startups.">
+    <meta name="twitter:image" content="https://firstmiledev.com/twitter-image.jpg">
+
+    <!-- JSON-LD Structured Data for Organization & Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "FirstMileDev",
+      "url": "https://firstmiledev.com",
+      "logo": "https://firstmiledev.com/logo.png",
+      "description": "The Market-First MVP Agency. We validate demand before writing code for high-growth startups.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ottawa",
+        "addressRegion": "Ontario",
+        "addressCountry": "CA"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "hello@firstmiledev.com",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g"
+      ]
+    }
+    </script>
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "FirstMileDev",
+      "image": "https://firstmiledev.com/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ottawa",
+        "addressRegion": "Ontario",
+        "addressCountry": "CA"
+      },
+      "priceRange": "$$"
+    }
+    </script>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -38,7 +98,7 @@
                     },
                     colors: {
                         'accent-red': '#FF3B3F',
-                        'accent-sky': '#CAEBF2',
+                        'accent-sky': '#7CB9C9',
                         'carbon': '#1f2937',
                         'light-gray': '#FAFAFA',
                     },
@@ -52,6 +112,12 @@
 </head>
 
 <body class="antialiased bg-white text-gray-900">
+
+    <!-- Accessibility: Skip Link for Keyboard Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Main Content Landmark for Accessibility -->
+    <main id="main-content">
 
     <!-- MOBILE MENU OVERLAY -->
     <div id="mobile-menu-overlay"
@@ -138,6 +204,7 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 opacity-0 transform translate-y-5" id="hero-cta-container">
                     <a href="#pricing" class="hero-cta-link"> View The Roadmap </a>
+                    <a href="#contact" class="hero-cta-secondary"> Book Discovery Call </a>
                 </div>
             </div>
         </div>
@@ -579,6 +646,52 @@
 
         </div>
     </section>
+
+    </main>
+
+    <!-- CONVERSION: Scroll-Triggered CTA at 50% -->
+    <div id="scroll-cta-50" class="scroll-cta" role="status" aria-live="polite">
+        <div class="scroll-cta-content">
+            <button class="scroll-cta-close" aria-label="Close" onclick="closeScrollCta('scroll-cta-50')">&times;</button>
+            <p class="scroll-cta-text">Ready to validate your startup idea?</p>
+            <a href="#contact" class="scroll-cta-button">Book Free Discovery Call</a>
+        </div>
+    </div>
+
+    <!-- CONVERSION: Exit-Intent Popup with Lead Magnet -->
+    <div id="exit-intent-popup" class="exit-popup" role="dialog" aria-labelledby="exit-popup-title" aria-modal="true">
+        <div class="exit-popup-overlay" onclick="closeExitPopup()"></div>
+        <div class="exit-popup-content">
+            <button class="exit-popup-close" aria-label="Close" onclick="closeExitPopup()">&times;</button>
+            <div class="exit-popup-body">
+                <h3 id="exit-popup-title" class="exit-popup-title">Wait! Don't Build Without Validation</h3>
+                <p class="exit-popup-subtitle">Get our FREE MVP Validation Checklist - 10 things to verify before writing code</p>
+                <form id="lead-capture-form" class="lead-capture-form" onsubmit="handleLeadCapture(event)">
+                    <label for="lead-email" class="sr-only">Email address</label>
+                    <input 
+                        type="email" 
+                        id="lead-email" 
+                        name="email" 
+                        placeholder="Enter your email" 
+                        required 
+                        class="lead-input"
+                        autocomplete="email"
+                    >
+                    <button type="submit" class="lead-submit">Send Me The Checklist</button>
+                </form>
+                <p class="lead-privacy">We respect your privacy. No spam, ever.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONVERSION: Scroll-Triggered CTA at 75% -->
+    <div id="scroll-cta-75" class="scroll-cta scroll-cta-late" role="status" aria-live="polite">
+        <div class="scroll-cta-content">
+            <button class="scroll-cta-close" aria-label="Close" onclick="closeScrollCta('scroll-cta-75')">&times;</button>
+            <p class="scroll-cta-text">Stop guessing. Start building with data.</p>
+            <a href="#contact" class="scroll-cta-button">Start Validation Today</a>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="bg-black text-white px-6 py-12 border-t border-gray-800">
