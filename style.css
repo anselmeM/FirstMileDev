@@ -1,3 +1,8 @@
+/* Cache Control: Prevent stale content
+   @-webkit-cache-control: no-cache, no-store, must-revalidate
+   @-moz-cache-control: no-cache, no-store, must-revalidate
+   @cache-control: no-cache, no-store, must-revalidate
+ */
 /* --- CSS CUSTOM PROPERTIES / DESIGN TOKENS --- */
 :root {
   /* Primary Accent - Red */
@@ -96,6 +101,39 @@ body {
   box-shadow: var(--shadow-btn-hover);
 }
 .btn-primary:active {
+  transform: translateY(0);
+}
+
+/* White Button - White filled, dark text for dark backgrounds */
+.btn-white {
+  background-color: white;
+  color: var(--color-primary);
+  border-color: white;
+}
+.btn-white:hover {
+  background-color: var(--color-carbon-800);
+  border-color: var(--color-carbon-800);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-btn-hover);
+}
+.btn-white:active {
+  transform: translateY(0);
+}
+
+/* Outline White Button - Transparent with white border */
+.btn-outline-white {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+.btn-outline-white:hover {
+  background-color: white;
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-btn-hover);
+}
+.btn-outline-white:active {
   transform: translateY(0);
 }
 
@@ -444,6 +482,55 @@ body.menu-open {
   background: #1f2937;
 }
 
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: #FF3B3F;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: #e63539;
+  transform: translateY(-2px);
+}
+
+.back-to-top:focus {
+  outline: 3px solid #FF3B3F;
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top,
+  .back-to-top.visible,
+  .back-to-top:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
 /* Exit-Intent Popup */
 .exit-popup {
   display: none;
@@ -691,28 +778,6 @@ body.menu-open {
   z-index: 9999 !important;
 }
 
-/* ========== FLOATING CTA ========== */
-.floating-cta {
-  position: fixed;
-  bottom: -100px;
-  right: 24px;
-  z-index: 900;
-  transition: bottom 0.4s ease;
-}
-
-.floating-cta.visible {
-  bottom: 24px;
-}
-
-/* Icon animation for floating CTA */
-.floating-cta a i {
-  transition: transform 0.3s ease;
-}
-
-.floating-cta a:hover i {
-  transform: translateX(4px);
-}
-
 /* ========== SECONDARY NAV / JUMP LINKS ========== */
 .jump-links {
   display: flex;
@@ -816,10 +881,6 @@ body.menu-open {
     transform: none !important;
   }
   
-  /* Simplified floating CTA */
-  .floating-cta {
-    transition: none;
-  }
   
   /* Reduced motion for buttons */
   .btn,

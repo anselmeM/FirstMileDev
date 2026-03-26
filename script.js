@@ -122,7 +122,10 @@ window.addEventListener('scroll', function() {
     const scrollPercent = (scrollTop / scrollHeight) * 100;
     
     // Show CTA at 50% scroll (only once, don't show after contact section)
-    if (scrollPercent >= 50 && !cta50Shown && scrollPercent < 75) {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    
+    if (scrollPercent >= 50 && !cta50Shown && scrollPercent < 75 && !prefersReducedMotion.matches) {
         scrollCta50.classList.add('visible');
         cta50Shown = true;
         
@@ -224,6 +227,74 @@ function handleLeadCapture(event) {
     }
 }
 
+// 11. FORM ABANDONMENT TRACKING
+// Track when users start filling forms but don't complete them
+document.addEventListener('DOMContentLoaded', function() {
+    // Lead capture form abandonment tracking
+    const leadEmailInput = document.getElementById('lead-email');
+    if (leadEmailInput) {
+        let formAbandoned = false;
+        
+        // Track when user starts typing
+        leadEmailInput.addEventListener('input', function() {
+            if (!formAbandoned && this.value.length > 0) {
+                formAbandoned = true;
+                // Track form abandonment in GA4
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'form_start', { 
+                        'event_category': 'form_interaction', 
+                        'event_label': 'lead_capture_start',
+                        'form_name': 'exit_popup_lead_capture'
+                    });
+                }
+            }
+        });
+        
+        // Track abandonment when user closes popup without submitting
+        const exitPopup = document.getElementById('exit-intent-popup');
+        if (exitPopup) {
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        if (exitPopup.classList.contains('hidden') && formAbandoned && !leadEmailInput.value.includes('@')) {
+                            if (typeof gtag !== 'undefined') {
+                                gtag('event', 'form_abandon', { 
+                                    'event_category': 'form_interaction', 
+                                    'event_label': 'lead_capture_abandon',
+                                    'form_name': 'exit_popup_lead_capture'
+                                });
+                            }
+                        }
+                    }
+                });
+            });
+            observer.observe(exitPopup, { attributes: true });
+        }
+    }
+    
+    // Calculator form abandonment tracking
+    const calculatorForm = document.getElementById('cost-calculator');
+    if (calculatorForm) {
+        const formInputs = calculatorForm.querySelectorAll('input, select');
+        let calculatorStarted = false;
+        
+        formInputs.forEach(function(input) {
+            input.addEventListener('change', function() {
+                if (!calculatorStarted) {
+                    calculatorStarted = true;
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'form_start', { 
+                            'event_category': 'form_interaction', 
+                            'event_label': 'calculator_start',
+                            'form_name': 'app_cost_calculator'
+                        });
+                    }
+                }
+            });
+        });
+    }
+});
+
 // 11. PREFERS-REDUCED-MOTION for accessibility
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (prefersReducedMotion.matches) {
@@ -285,7 +356,7 @@ window.addEventListener('scroll', function() {
             handleStickyNav();
             handleScrollSpy();
             handleProgressIndicator();
-            handleFloatingCta();
+            handleBackToTop();
             ticking = false;
         });
         ticking = true;
@@ -377,8 +448,68 @@ function scrollToSection(sectionId) {
         const headerHeight = document.querySelector('header').offsetHeight;
         const sectionTop = section.offsetTop - headerHeight - 20;
         window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+        
+        // Track navigation clicks in GA4
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'navigation_click', {
+                'event_category': 'engagement',
+                'event_label': sectionId
+            });
+        }
     }
 }
+
+// ========== CTA CLICK EVENT TRACKING ==========
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Track all CTA button clicks
+    const ctaButtons = document.querySelectorAll('a[href*="#contact"], a[href*="calculator.html"], .btn-primary, .header-cta-button');
+    
+    ctaButtons.forEach(function(button) {
+        button.addEventListener('click', function(e) {
+            const href = this.getAttribute('href') || '';
+            let eventLabel = 'cta_click';
+            
+            if (href.includes('contact')) {
+                eventLabel = 'contact_cta';
+            } else if (href.includes('calculator')) {
+                eventLabel = 'calculator_cta';
+            }
+            
+            // Track in GA4
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'cta_click', {
+                    'event_category': 'conversion',
+                    'event_label': eventLabel,
+                    'transport_type': 'beacon'
+                });
+            }
+        });
+    });
+    
+    // Track scroll depth milestones (25%, 50%, 75%, 100%)
+    let scrollMilestones = { 25: false, 50: false, 75: false, 100: false };
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+        
+        Object.keys(scrollMilestones).forEach(function(milestone) {
+            if (scrollPercent >= milestone && !scrollMilestones[milestone]) {
+                scrollMilestones[milestone] = true;
+                
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'scroll_depth', {
+                        'event_category': 'engagement',
+                        'event_label': milestone + '_percent',
+                        'value': milestone
+                    });
+                }
+            }
+        });
+    });
+});
 
 // ========== LIVE CHAT (Tawk.to) ==========
 
@@ -400,29 +531,26 @@ setTimeout(function() {
     }
 }, 15000);
 
-// ========== FLOATING CTA ==========
+// ========== BACK TO TOP ==========
 
-// 16. Floating "Get Started" CTA - appears after pricing section
-const floatingCta = document.getElementById('floating-cta');
+// Back to Top Button - appears after scrolling down
+const backToTopBtn = document.getElementById('back-to-top');
 
-function handleFloatingCta() {
-    if (!floatingCta) return;
+function handleBackToTop() {
+    if (!backToTopBtn) return;
     
-    const pricingSection = document.getElementById('pricing');
-    if (!pricingSection) return;
-    
-    const pricingBottom = pricingSection.offsetTop + pricingSection.offsetHeight;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
-    if (scrollTop > pricingBottom - 200) {
-        floatingCta.classList.add('visible');
+    // Show button after scrolling 500px
+    if (scrollTop > 500) {
+        backToTopBtn.classList.add('visible');
     } else {
-        floatingCta.classList.remove('visible');
+        backToTopBtn.classList.remove('visible');
     }
 }
 
 // Initial check
-handleFloatingCta();
+handleBackToTop();
 
 // ========== SECONDARY NAV / JUMP LINKS ==========
 
@@ -468,12 +596,6 @@ function dismissPopupsAtContactSection() {
             exitPopup.classList.remove('active');
         }
         
-        // Dismiss floating CTA if visible
-        const floatingCta = document.getElementById('floating-cta');
-        if (floatingCta && floatingCta.classList.contains('visible')) {
-            floatingCta.classList.remove('visible');
-        }
-        
         // Dismiss scroll-triggered CTAs and their content if visible
         const scrollCta50 = document.getElementById('scroll-cta-50');
         const scrollCta75 = document.getElementById('scroll-cta-75');
@@ -500,7 +622,7 @@ window.addEventListener('scroll', function() {
             handleStickyNav();
             handleScrollSpy();
             handleProgressIndicator();
-            handleFloatingCta();
+            handleBackToTop();
             dismissPopupsAtContactSection();
             ticking = false;
         });
