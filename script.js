@@ -503,25 +503,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ========== LIVE CHAT (Tawk.to) ==========
 
-// 15. Tawk.to Integration with 15-second proactive invitation
-// Replace XXXXXXXXXX with your actual Tawk.to property ID
-(function() {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.src = 'https://embed.tawk.to/XXXXXXXXXX/YYYYYYYYY';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-})();
-
-// Proactive chat invitation after 15 seconds
-setTimeout(function() {
-    if (typeof TawkAPI !== 'undefined') {
-        // Show proactive chat invitation
-        TawkAPI.toggle();
-    }
-}, 15000);
 
 // ========== BACK TO TOP ==========
 
