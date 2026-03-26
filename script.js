@@ -65,8 +65,8 @@ gsap.to(".founder-anim", {
 });
 
 // 6. MOBILE MENU LOGIC
-const menuTl = gsap.timeline({ paused: true });
-menuTl
+window.menuTl = gsap.timeline({ paused: true });
+window.menuTl
     .to("#mobile-menu-overlay", {
         duration: 0.4,
         autoAlpha: 1,
@@ -84,18 +84,7 @@ menuTl
         "-=0.2"
     );
 
-let isMenuOpen = false;
-function toggleMobileMenu() {
-    if (!isMenuOpen) {
-        menuTl.play();
-        document.body.classList.add("menu-open");
-        isMenuOpen = true;
-    } else {
-        menuTl.reverse();
-        document.body.classList.remove("menu-open");
-        isMenuOpen = false;
-    }
-}
+// toggleMobileMenu is now handled in navbar.js
 
 // 7. FAQ TOGGLE LOGIC
 function toggleFaq(element) {
@@ -309,24 +298,26 @@ const header = document.querySelector('header');
 const heroSection = document.getElementById('hero-section');
 
 function handleStickyNav() {
-    if (!header || !heroSection) return;
+    const headerElement = document.querySelector('header');
+    const heroSectionElement = document.getElementById('hero-section');
     
-    const heroBottom = heroSection.offsetHeight;
+    if (!headerElement || !heroSectionElement) return;
+    
+    const heroBottom = heroSectionElement.offsetHeight;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
     if (scrollTop > heroBottom - 100) {
-        header.classList.add('sticky-nav');
+        headerElement.classList.add('sticky-nav');
     } else {
-        header.classList.remove('sticky-nav');
+        headerElement.classList.remove('sticky-nav');
     }
 }
 
 // 13. Scroll-Spy - Highlight active navigation link based on current section
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('header nav a[href^="#"]');
-
 function handleScrollSpy() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const navLinks = document.querySelectorAll('header nav a[href*="#"]');
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 150;
@@ -340,7 +331,8 @@ function handleScrollSpy() {
             });
             
             // Add active class to corresponding nav link
-            const activeLink = document.querySelector(`header nav a[href="#${sectionId}"]`);
+            // Handle both "#section" and "index.html#section"
+            const activeLink = document.querySelector(`header nav a[href="#${sectionId}"], header nav a[href="index.html#${sectionId}"]`);
             if (activeLink) {
                 activeLink.classList.add('nav-link-active');
             }

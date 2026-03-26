@@ -48,6 +48,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <script src="navbar.js" defer></script>
 
     <script>
         tailwind.config = {
@@ -71,68 +72,8 @@
 <body class="antialiased bg-white text-gray-900 font-body">
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu-overlay"
-        class="fixed inset-0 bg-[#1f2937] z-50 flex flex-col justify-center items-center text-center">
-        <!-- Close Button -->
-        <button onclick="toggleMobileMenu()"
-            class="absolute top-6 right-6 text-white p-2 hover:rotate-90 transition-transform duration-300">
-            <i data-lucide="x" class="w-10 h-10"></i>
-        </button>
-
-        <!-- Menu Links -->
-        <nav class="flex flex-col space-y-8">
-            <a href="index.html#process" onclick="toggleMobileMenu()"
-                class="mobile-link-item text-4xl font-headline text-white uppercase hover:text-[#FF3B3F] transition-colors">Process</a>
-            <a href="index.html#blog" onclick="toggleMobileMenu()"
-                class="mobile-link-item text-4xl font-headline text-white uppercase hover:text-[#FF3B3F] transition-colors">Blog</a>
-            <a href="index.html#work" onclick="toggleMobileMenu()"
-                class="mobile-link-item text-4xl font-headline text-white uppercase hover:text-[#FF3B3F] transition-colors">Work</a>
-            <a href="index.html#pricing" onclick="toggleMobileMenu()"
-                class="mobile-link-item text-4xl font-headline text-white uppercase hover:text-[#FF3B3F] transition-colors">Roadmap</a>
-            <a href="calculator.html"
-                class="mobile-link-item text-4xl font-headline text-[#FF3B3F] uppercase hover:text-white transition-colors">Calculator</a>
-            <a href="faq.html"
-                class="mobile-link-item text-4xl font-headline text-white uppercase hover:text-[#FF3B3F] transition-colors">FAQ</a>
-
-            <a href="index.html#contact" onclick="toggleMobileMenu()"
-                class="mobile-link-item text-xl font-bold font-body text-white uppercase tracking-widest border-2 border-white px-8 py-4 rounded-full hover:bg-white hover:text-[#1f2937] transition-all mt-4">Start
-                Validation</a>
-        </nav>
-    </div>
-
-    <!-- Header - Matching index.html -->
-    <header class="relative flex justify-between items-center py-4 z-20 px-6 md:px-8 lg:px-16 bg-[#FF3B3F]">
-        <div class="text-lg font-headline uppercase-text leading-tight z-10 font-black tracking-tighter cursor-pointer"
-            onclick="window.location.href='index.html'">
-            First<br>MileDev
-        </div>
-
-        <!-- Desktop Nav -->
-        <div class="hidden md:flex items-center space-x-8">
-            <nav class="flex items-center space-x-8">
-                <a href="index.html#process"
-                    class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition">Process</a>
-                <a href="index.html#blog"
-                    class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition">Blog</a>
-                <a href="index.html#work"
-                    class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition">Work</a>
-                <a href="index.html#pricing"
-                    class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition">Roadmap</a>
-                <a href="calculator.html"
-                    class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition text-white border border-white/30 px-3 py-1 rounded hover:bg-white hover:text-[#FF3B3F]">Calculator</a>
-                <a href="faq.html"
-                    class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition">FAQ</a>
-            </nav>
-            <a href="index.html#contact" class="header-cta-button">Start Validation</a>
-        </div>
-
-        <!-- Mobile Hamburger -->
-        <button class="md:hidden text-white z-10 p-2 hover:bg-white/10 rounded-lg transition"
-            onclick="toggleMobileMenu()">
-            <i data-lucide="menu" class="w-8 h-8"></i>
-        </button>
-    </header>
+    <!-- UNIFIED NAVBAR -->
+    <div id="navbar-placeholder"></div>
 
     <main id="main-content">
         <!-- Case Study Hero -->
@@ -291,9 +232,47 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-black text-white px-6 py-8 text-center">
-        <p class="text-gray-500 text-sm">&copy; 2024 FirstMileDev. Validate First.</p>
+    <!-- UNIFIED FOOTER -->
+    <footer class="bg-[#FF3B3F] text-white px-6 py-16" role="contentinfo">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <div class="text-2xl font-headline uppercase-text tracking-tighter mb-4">FirstMileDev</div>
+                    <p class="text-white/80 text-sm max-w-sm mb-6">The Market-First MVP Agency. We validate demand before you write code.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank" class="text-white/80 hover:text-white"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-white/80 hover:text-white"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-white/80 hover:text-white"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#process" class="text-white/80 hover:text-white text-sm">Process</a></li>
+                        <li><a href="index.html#work" class="text-white/80 hover:text-white text-sm">Work</a></li>
+                        <li><a href="index.html#pricing" class="text-white/80 hover:text-white text-sm">Roadmap</a></li>
+                        <li><a href="calculator.html" class="text-white/80 hover:text-white text-sm">Calculator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Resources</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li><a href="blog-why-startups-fail.html" class="text-white/80 hover:text-white text-sm">Blog</a></li>
+                        <li><a href="faq.html" class="text-white/80 hover:text-white text-sm">FAQ</a></li>
+                        <li><a href="sitemap.xml" class="text-white/80 hover:text-white text-sm">Sitemap</a></li>
+                    </ul>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Contact</h4>
+                    <p class="text-white/80 text-sm">hello@firstmiledev.com</p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-white/60 text-xs">&copy; 2024 FirstMileDev. Validate First.</div>
+                <div class="flex gap-6 text-xs">
+                    <a href="#" class="text-white/60 hover:text-white">Privacy</a>
+                    <a href="#" class="text-white/60 hover:text-white">Terms</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!--Start of Tawk.to Script-->

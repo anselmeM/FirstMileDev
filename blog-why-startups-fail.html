@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Why 90% of Startups Fail | FirstMileDev Blog</title>
+    <meta name="description" content="Discover why 90% of startups fail and learn how validation-first development can help your startup beat the odds. Real strategies for entrepreneurial success.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://firstmiledev.com/blog-why-startups-fail.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://firstmiledev.com/blog-why-startups-fail.html">
+    <meta property="og:title" content="Why 90% of Startups Fail | FirstMileDev">
+    <meta property="og:description" content="Discover why 90% of startups fail and learn validation-first strategies to beat the odds.">
+    <meta property="og:image" content="https://firstmiledev.com/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why 90% of Startups Fail | FirstMileDev">
+    <meta name="twitter:description" content="Discover why 90% of startups fail and learn validation-first strategies to beat the odds.">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.clarity.ms">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FWBEXRG2N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5FWBEXRG2N', {'page_title': 'Why 90% of Startups Fail'});
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript" defer>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "w1i576b6a9");
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="navbar.js" defer></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'headline': ['"Archivo Black"', 'sans-serif'],
+                        'body': ['"Montserrat"', 'sans-serif'],
+                    },
+                    colors: {
+                        'accent-red': '#FF3B3F',
+                        'accent-teal': '#0D9488',
+                        'carbon-800': '#1F2937',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Why 90% of Startups Fail (And How to Beat the Odds)",
+        "description": "Discover why 90% of startups fail and learn validation-first development strategies to beat the odds.",
+        "author": {
+            "@type": "Organization",
+            "name": "FirstMileDev"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FirstMileDev",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://firstmiledev.com/logo.png"
+            }
+        },
+        "datePublished": "2024-01-15",
+        "dateModified": "2024-01-15"
+    }
+    </script>
+</head>
+
+<body class="antialiased bg-white text-gray-900 font-body">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- UNIFIED NAVBAR -->
+    <div id="navbar-placeholder"></div>
+    
+    <main id="main-content">
+        <!-- Article Hero -->
+        <section class="bg-[#FF3B3F] text-white px-6 py-16 md:py-24">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="bg-white/20 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Startup Validation</span>
+                    <span class="text-white/80 text-sm">8 min read</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-headline uppercase mb-6">Why 90% of Startups Fail (And How to Beat the Odds)</h1>
+                <p class="text-xl md:text-2xl opacity-90 max-w-2xl">The startup failure rate is staggering, but it doesn't have to be your story. Learn the hidden patterns that send founders spiraling—and the validation-first approach that changes everything.</p>
+            </div>
+        </section>
+        
+        <!-- Article Content -->
+        <article class="px-6 py-16 md:py-24 max-w-4xl mx-auto">
+            <!-- Introduction -->
+            <div class="prose prose-lg max-w-none mb-12">
+                <p class="text-xl text-gray-600 leading-relaxed mb-6">Every year, millions of entrepreneurs launch startups with dreams of building the next billion-dollar company. Yet <strong>90% of them fail</strong>. The conventional wisdom says this is just the cost of entrepreneurship—that failure is inevitable, even necessary.</p>
+                <p class="text-lg text-gray-600 leading-relaxed">But what if most startup failures aren't accidents? What if they're predictable—and preventable?</p>
+            </div>
+            
+            <!-- Section 1 -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">The Real Startup Failure Statistics</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">Before we dive into solutions, let's ground ourselves in reality. The data is sobering:</p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="x-circle" class="w-6 h-6 text-accent-red mt-1"></i>
+                        <span class="text-gray-600"><strong>90% of startups fail</strong> — CB Insights research shows the top reason is "no market need"</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="x-circle" class="w-6 h-6 text-accent-red mt-1"></i>
+                        <span class="text-gray-600"><strong>21.5% of startups fail</strong> in the first year, 30% in the first two years</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="x-circle" class="w-6 h-6 text-accent-red mt-1"></i>
+                        <span class="text-gray-600"><strong>74% of high-growth startups</strong> fail due to premature scaling</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="x-circle" class="w-6 h-6 text-accent-red mt-1"></i>
+                        <span class="text-gray-600"><strong>35% of startups</strong> cite "team issues" as a reason for failure</span>
+                    </li>
+                </ul>
+                <p class="text-lg text-gray-600 leading-relaxed">But here's what most founders miss: these failures aren't random. They follow predictable patterns that can be identified—and avoided—before you write a single line of code.</p>
+            </section>
+            
+            <!-- Section 2 -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Pattern #1: Building Before Validating</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">The most deadly pattern is also the most common: falling in love with your idea before testing whether anyone actually wants it.</p>
+                <div class="bg-gray-50 p-8 rounded-xl border-l-4 border-accent-red mb-6">
+                    <p class="text-lg text-gray-700 italic">"We spent 8 months building a product that nobody wanted. By the time we realized our target market didn't care, we had burned through $120,000 in savings." — SaaS Founder</p>
+                </div>
+                <p class="text-lg text-gray-600 leading-relaxed mb-4">This is what we call the "<strong>Build First, Ask Later</strong>" trap. Founders assume:</p>
+                <ul class="space-y-3 mb-6">
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-accent-red"></i>
+                        <span class="text-gray-600">Their idea is unique enough to succeed</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-accent-red"></i>
+                        <span class="text-gray-600">The problem they solve is urgent enough to pay for</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-accent-red"></i>
+                        <span class="text-gray-600">Their target customer will find them</span>
+                    </li>
+                </ul>
+                <p class="text-lg text-gray-600 leading-relaxed">The reality? Most of these assumptions are wrong—and you won't discover that until you've invested months and money you can't get back.</p>
+            </section>
+            
+            <!-- Section 3 -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Pattern #2: The Validation Shortcut</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">Some founders do attempt validation—but they take shortcuts that give them false confidence:</p>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-red-50 p-6 rounded-lg border border-red-100">
+                        <h3 class="font-bold text-red-800 mb-3">❌ Bad Validation</h3>
+                        <ul class="space-y-2 text-sm text-red-700">
+                            <li>• Asking friends if they'd buy</li>
+                            <li>• Posting on social media for feedback</li>
+                            <li>• Running a survey without real skin in the game</li>
+                            <li>• Counting "interest" as revenue signal</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg border border-green-100">
+                        <h3 class="font-bold text-green-800 mb-3">✓ Real Validation</h3>
+                        <ul class="space-y-2 text-sm text-green-700">
+                            <li>• Landing page with payment or waitlist</li>
+                            <li>• Running actual ad campaigns</li>
+                            <li>• Getting commitment (deposits, pre-orders)</li>
+                            <li>• Measuring willingness to pay with real transactions</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-lg text-gray-600 leading-relaxed">The difference is simple: <strong>real validation requires skin in the game</strong>. Your aunt saying "that sounds great" means nothing. A stranger handing you their credit card number? That's a signal.</p>
+            </section>
+            
+            <!-- Section 4 -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Pattern #3: The Feature Trap</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">As founders build, they get seduced by the "more features" trap. Each new feature feels like progress—but it's actually pulling you further from product-market fit.</p>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6"><strong>The paradox:</strong> adding features before validation doesn't de-risk your startup—it multiplies your downside. Every feature is:</p>
+                <ul class="space-y-4 mb-6">
+                    <li class="flex items-start gap-3">
+                        <span class="bg-accent-red text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</span>
+                        <span class="text-gray-600"><strong>More time</strong> you're not getting market feedback</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="bg-accent-red text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</span>
+                        <span class="text-gray-600"><strong>More code</strong> you'll have to maintain or rewrite</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="bg-accent-red text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</span>
+                        <span class="text-gray-600"><strong>More complexity</strong> that confuses early adopters</span>
+                    </li>
+                </ul>
+                <p class="text-lg text-gray-600 leading-relaxed">The solution? <strong>Build the minimum viable version</strong> that tests your core hypothesis—and nothing more.</p>
+            </section>
+            
+            <!-- Section 5 -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">The Validation-First Alternative</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">What if there was a better way? A method that dramatically reduces risk before you invest your life savings?</p>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">That's exactly what we built at FirstMileDev—the <strong>validation-first methodology</strong> that helps founders test demand before building.</p>
+                
+                <div class="bg-gray-900 text-white p-8 rounded-xl mb-8">
+                    <h3 class="font-headline text-2xl uppercase mb-4">The Three-Phase Approach</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <div class="text-accent-red font-bold text-xl mb-2">Phase 1: Validate</div>
+                            <p class="text-gray-300 text-sm">2-4 weeks • $2,500-5,000</p>
+                            <p class="text-gray-400 text-sm mt-2">Landing page + ad campaign to test real demand before writing code.</p>
+                        </div>
+                        <div>
+                            <div class="text-accent-red font-bold text-xl mb-2">Phase 2: Build</div>
+                            <p class="text-gray-300 text-sm">4-12 weeks • $15,000-35,000</p>
+                            <p class="text-gray-400 text-sm mt-2">MVP development with validated features based on real user data.</p>
+                        </div>
+                        <div>
+                            <div class="text-accent-red font-bold text-xl mb-2">Phase 3: Scale</div>
+                            <p class="text-gray-300 text-sm">Ongoing • $50,000+</p>
+                            <p class="text-gray-400 text-sm mt-2">Full-scale development when you've proven demand and secured funding.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-lg text-gray-600 leading-relaxed">The key insight? <strong>You don't validate your entire business at once</strong>. You validate the riskiest assumption—the one that could kill your startup if you're wrong.</p>
+            </section>
+            
+            <!-- Section 6 -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Real Results: Validation in Action</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">This isn't theoretical. We've helped dozens of founders use validation to dramatically improve their odds:</p>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <p class="text-3xl font-headline text-green-600 mb-2">$500K</p>
+                        <p class="text-gray-700 font-semibold">Funding Secured</p>
+                        <p class="text-gray-600 text-sm mt-2">FinTech startup validated first, then built MVP. Secured Pre-Seed funding in 4 weeks.</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <p class="text-3xl font-headline text-green-600 mb-2">$30K</p>
+                        <p class="text-gray-700 font-semibold">Development Saved</p>
+                        <p class="text-gray-600 text-sm mt-2">E-commerce founder avoided building a product with no market demand.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <p class="text-lg text-gray-700 italic">"We were ready to spend $40,000 on development. FirstMileDev's validation revealed our target market wasn't interested. We pivoted—and saved ourselves from a $40K mistake."</p>
+                    <p class="text-gray-500 mt-4">— Mike T., E-commerce Founder</p>
+                </div>
+            </section>
+            
+            <!-- Key Takeaways -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Your Startup Survival Guide</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">Ready to beat the odds? Here's your action checklist:</p>
+                
+                <div class="bg-accent-red/10 p-8 rounded-xl border border-accent-red/20">
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-accent-red mt-1"></i>
+                            <div>
+                                <strong class="text-gray-900">Identify your riskiest assumption</strong>
+                                <p class="text-gray-600 text-sm">What's the one thing that could kill your startup if you're wrong?</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-accent-red mt-1"></i>
+                            <div>
+                                <strong class="text-gray-900">Test with real skin in the game</strong>
+                                <p class="text-gray-600 textsm">Landing page + payment or waitlist, not surveys or social media likes.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-accent-red mt-1"></i>
+                            <div>
+                                <strong class="text-gray-900">Build the minimum, not the maximum</strong>
+                                <p class="text-gray-600 text-sm">Only build what's needed to test your core hypothesis.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-accent-red mt-1"></i>
+                            <div>
+                                <strong class="text-gray-900">Be willing to pivot—or stop</strong>
+                                <p class="text-gray-600 text-sm">40% of our validation projects result in a "don't build" recommendation. That's a success.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Conclusion -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Your Next Step</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">The startup failure rate doesn't have to include you. The difference between success and failure isn't talent, luck, or even ideas—it's testing the right thing at the right time.</p>
+                <p class="text-lg text-gray-600 leading-relaxed mb-8">Don't let the "build first, hope later" approach consume your savings and years. Test demand before you build, and give yourself the best possible chance of success.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="index.html#contact" class="btn btn-primary btn-lg">Start Your Validation</a>
+                    <a href="calculator.html" class="btn btn-outline btn-lg">Get Cost Estimate</a>
+                </div>
+            </section>
+            
+            <!-- Related Articles -->
+            <section class="border-t border-gray-200 pt-12 mt-12">
+                <h3 class="text-2xl font-headline uppercase mb-6">Related Articles</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="blog-no-code-vs-custom.html" class="group">
+                        <div class="bg-gray-100 rounded-lg overflow-hidden mb-3">
+                            <img src="https://placehold.co/600x400/0D9488/fff?text=No-Code" alt="No-Code vs Custom" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <h4 class="font-bold text-lg group-hover:text-accent-red transition">No-Code vs Custom Development</h4>
+                        <p class="text-gray-600 text-sm">When to use low-code tools and when to invest in custom development.</p>
+                    </a>
+                    <a href="blog-true-cost-mvp.html" class="group">
+                        <div class="bg-gray-100 rounded-lg overflow-hidden mb-3">
+                            <img src="https://placehold.co/600x400/FF3B3F/fff?text=MVP+Cost" alt="True Cost of MVP" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <h4 class="font-bold text-lg group-hover:text-accent-red transition">The True Cost of an MVP</h4>
+                        <p class="text-gray-600 text-sm">A complete breakdown of MVP development costs and budgeting.</p>
+                    </a>
+                </div>
+            </section>
+        </article>
+        
+        <!-- CTA Section -->
+        <section class="px-6 py-16 bg-gray-900 text-white text-center">
+            <h2 class="text-3xl md:text-4xl font-headline uppercase mb-4">Ready to Validate Your Idea?</h2>
+            <p class="text-xl opacity-80 mb-8 max-w-2xl mx-auto">Don't become another startup statistic. Test demand before you build.</p>
+            <a href="index.html#contact" class="btn btn-primary btn-lg">Book Discovery Call</a>
+        </section>
+    </main>
+
+    <!-- UNIFIED FOOTER -->
+    <footer class="bg-[#FF3B3F] text-white px-6 py-16" role="contentinfo">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <div class="text-2xl font-headline uppercase-text tracking-tighter mb-4">FirstMileDev</div>
+                    <p class="text-white/80 text-sm max-w-sm mb-6">The Market-First MVP Agency. We validate demand before you write code.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank" class="text-white/80 hover:text-white"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-white/80 hover:text-white"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-white/80 hover:text-white"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#process" class="text-white/80 hover:text-white text-sm">Process</a></li>
+                        <li><a href="index.html#work" class="text-white/80 hover:text-white text-sm">Work</a></li>
+                        <li><a href="index.html#pricing" class="text-white/80 hover:text-white text-sm">Roadmap</a></li>
+                        <li><a href="calculator.html" class="text-white/80 hover:text-white text-sm">Calculator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Resources</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li><a href="blog-why-startups-fail.html" class="text-white/80 hover:text-white text-sm">Blog</a></li>
+                        <li><a href="faq.html" class="text-white/80 hover:text-white text-sm">FAQ</a></li>
+                        <li><a href="sitemap.xml" class="text-white/80 hover:text-white text-sm">Sitemap</a></li>
+                    </ul>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Contact</h4>
+                    <p class="text-white/80 text-sm">hello@firstmiledev.com</p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-white/60 text-xs">&copy; 2024 FirstMileDev. Validate First.</div>
+                <div class="flex gap-6 text-xs">
+                    <a href="#" class="text-white/60 hover:text-white">Privacy</a>
+                    <a href="#" class="text-white/60 hover:text-white">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    
+    <!-- Tawk.to -->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/69c45fd846a6c41c341ab391/1jkjhcpdh';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+</body>
+</html>
