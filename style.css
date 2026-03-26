@@ -889,3 +889,69 @@ body.menu-open {
     transition: none;
   }
 }
+
+/* ========== REPLACING INLINE STYLES ========== */
+
+/* Work card clickable cursor */
+.work-card-clickable {
+  cursor: pointer;
+}
+
+/* Calendly widget container */
+.calendly-widget-container {
+  min-width: 320px;
+  height: 700px;
+}
+
+/* ========== CONVERTKIT FORM STYLING ========== */
+.ck-form-container {
+  margin-top: 12px;
+}
+
+.ck-form-container .klaviyo-form {
+  margin-top: 12px;
+}
+
+.ck-form-container .klaviyo-field-group {
+  margin-bottom: 12px;
+}
+
+.ck-form-container .klaviyo-field-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.ck-form-container .klaviyo-field-group input:focus {
+  outline: none;
+  border-color: #FF3B3F;
+}
+
+.ck-form-container .klaviyo-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #FF3B3F;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ck-form-container .klaviyo-submit:hover {
+  background-color: #E63539;
+}
+
+.ck-form-container .klaviyo-success-message {
+  color: #059669;
+  font-weight: 600;
+  padding: 12px;
+  background-color: #d1fae5;
+  border-radius: 8px;
+  text-align: center;
+}

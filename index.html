@@ -43,10 +43,12 @@
     <link rel="sitemap" type="application/xml" href="sitemap.xml">
 
     <!-- iOS PWA Support -->
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="FirstMileDev">
-    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="images/icon-192.png">
 
     <!-- JSON-LD Structured Data for Organization & Local Business -->
     <script type="application/ld+json">
@@ -158,6 +160,19 @@
 
     <!-- Tailwind CSS - Inlined for performance (critical) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function showCkForm(formUid) {
+            var formContainer = document.getElementById('ck-form-' + formUid);
+            var downloadBtn = document.getElementById('download-btn-' + formUid);
+            
+            if (formContainer) {
+                formContainer.style.display = 'block';
+            }
+            if (downloadBtn) {
+                downloadBtn.style.display = 'none';
+            }
+        }
+    </script>
 
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -371,7 +386,7 @@
                     We don't hide our process behind buzzwords. Watch Anselme break down the exact tech stacks, scraping
                     strategies, and code patterns we use for client builds in our "Build in Public" series.
                 </p>
-                <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank"
+                <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank" rel="noopener"
                     class="inline-flex items-center font-bold uppercase text-sm tracking-widest text-[#FF3B3F] hover:text-black transition group">
                     <i data-lucide="youtube" class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i> Visit
                     The Lab
@@ -410,9 +425,8 @@
 
                 <!-- Project 1 - Link to full case study -->
                 <div
-                    class="work-card group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 gsap-reveal"
-                    onclick="window.location.href='case-study-fintech.html'"
-                    style="cursor: pointer;">
+                    class="work-card group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 gsap-reveal work-card-clickable"
+                    onclick="window.location.href='case-study-fintech.html'">
                     <!-- Image Area -->
                     <div class="h-64 overflow-hidden relative">
                         <!-- FinTech Dashboard Screenshot -->
@@ -455,9 +469,8 @@
 
                 <!-- Project 2 -->
                 <div
-                    class="work-card group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 gsap-reveal"
-                    onclick="window.location.href='case-study-ecom-validator.html'"
-                    style="cursor: pointer;">
+                    class="work-card group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 gsap-reveal work-card-clickable"
+                    onclick="window.location.href='case-study-ecom-validator.html'">
                     <!-- Image Area -->
                     <div class="h-64 overflow-hidden relative">
                         <!-- E-Commerce Validator Screenshot -->
@@ -718,14 +731,19 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Resource 1 -->
+                <!-- Resource 1 - ConvertKit Form -->
                 <div class="resource-card bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300">
                     <div class="w-12 h-12 bg-accent-red/10 rounded-lg flex items-center justify-center mb-4">
                         <i data-lucide="check-square" class="w-6 h-6 text-accent-red"></i>
                     </div>
                     <h3 class="font-bold text-lg mb-2">MVP Validation Checklist</h3>
                     <p class="text-gray-500 text-sm mb-4">10 things to verify before building your product.</p>
-                    <a href="#" class="text-sm font-bold text-accent-red">Download Free &rarr;</a>
+                    <!-- Download button -->
+                    <button type="button" id="download-btn-873c083981" class="text-sm font-bold text-accent-red bg-transparent border-none cursor-pointer p-0 hover:text-black" onclick="document.getElementById('ck-form-873c083981').style.display='block'; this.style.display='none';">Download Free &rarr;</button>
+                    <!-- ConvertKit inline form (hidden initially) -->
+                    <div id="ck-form-873c083981" style="display: none; margin-top: 12px;">
+                        <script async data-uid="873c083981" src="https://amlive.kit.com/873c083981/index.js"></script>
+                    </div>
                 </div>
 
                 <!-- Resource 2 -->
@@ -745,7 +763,7 @@
                     </div>
                     <h3 class="font-bold text-lg mb-2">Requirements Template</h3>
                     <p class="text-gray-500 text-sm mb-4">Document your app requirements for developers.</p>
-                    <a href="#" class="text-sm font-bold text-accent-red">Download Free &rarr;</a>
+                    <a href="#" class="text-sm font-bold text-gray-400">Coming Soon</a>
                 </div>
 
                 <!-- Resource 4 -->
@@ -755,7 +773,7 @@
                     </div>
                     <h3 class="font-bold text-lg mb-2">Startup Roadmap</h3>
                     <p class="text-gray-500 text-sm mb-4">Your path from idea to validated product.</p>
-                    <a href="#" class="text-sm font-bold text-accent-red">Download Free &rarr;</a>
+                    <a href="#" class="text-sm font-bold text-gray-400">Coming Soon</a>
                 </div>
             </div>
         </div>
@@ -938,9 +956,8 @@
             <!-- Right Side: Calendly Embed -->
             <div class="lg:col-span-3 w-full bg-white rounded-xl overflow-hidden shadow-2xl gsap-reveal">
                 <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget"
-                    data-url="https://calendly.com/anselme-firstmiledev?hide_gdpr_banner=1&primary_color=ff3b3f"
-                    style="min-width:320px;height:700px;"></div>
+                <div class="calendly-inline-widget calendly-widget-container"
+                    data-url="https://calendly.com/anselme-firstmiledev?hide_gdpr_banner=1&primary_color=ff3b3f"></div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"
                     async></script>
                 <!-- Calendly inline widget end -->
@@ -1011,7 +1028,7 @@
                     </div>
                     <p class="text-white/80 text-sm max-w-sm mb-6">The Market-First MVP Agency. We validate demand before you write code for high-growth startups.</p>
                     <div class="flex gap-4">
-                        <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank" class="text-white/80 hover:text-white transition" aria-label="FirstMileDev on YouTube">
+                        <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank" rel="noopener" class="text-white/80 hover:text-white transition" aria-label="FirstMileDev on YouTube">
                             <i data-lucide="youtube" class="w-5 h-5" aria-hidden="true"></i>
                         </a>
                         <a href="#" class="text-white/80 hover:text-white transition" aria-label="FirstMileDev on Twitter">

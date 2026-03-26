@@ -99,7 +99,20 @@ function toggleFaq(element) {
 
 // ========== CONVERSION ENHANCEMENTS ==========
 
-// 8. SCROLL-TRIGGERED CTAs at 50% and 75% scroll depth
+// 8. ConvertKit Form Display Function
+function showCkForm(formUid) {
+    var formContainer = document.getElementById('ck-form-' + formUid);
+    var downloadBtn = document.getElementById('download-btn-' + formUid);
+    
+    if (formContainer) {
+        formContainer.style.display = 'block';
+    }
+    if (downloadBtn) {
+        downloadBtn.style.display = 'none';
+    }
+}
+
+// 9. SCROLL-TRIGGERED CTAs at 50% and 75% scroll depth
 const scrollCta50 = document.getElementById('scroll-cta-50');
 const scrollCta75 = document.getElementById('scroll-cta-75');
 let cta50Shown = false;
