@@ -1,5 +1,5 @@
 // Service Worker for FirstMileDev - Offline Caching
-const CACHE_NAME = 'firstmiledev-v2'; // Version incremented to force cache refresh
+const CACHE_NAME = 'firstmiledev-v3'; // Version incremented to fix fetch errors
 const urlsToCache = [
   '/',
   '/index.html',
@@ -9,6 +9,7 @@ const urlsToCache = [
   '/faq.html',
   '/privacy.html',
   '/terms.html',
+  '/blog.html',
   '/case-study-fintech.html',
   '/case-study-ecom-validator.html',
   '/case-study-ecommerce.html',
@@ -17,7 +18,9 @@ const urlsToCache = [
   '/blog-no-code-vs-custom.html',
   '/manifest.json',
   '/images/sassdashboard.png',
-  '/images/E-Commerce Validator.png'
+  '/images/E-Commerce Validator.png',
+  '/images/MVPInfluence.jpg',
+  '/images/Why-Building-an-MVP-Matters-for-Startups.jpg'
 ];
 
 // Install event - cache resources
@@ -40,8 +43,17 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
   const request = event.request;
   
+  // Handle favicon requests - return empty response to prevent errors
+  if (request.url.includes('favicon.ico')) {
+    event.respondWith(
+      caches.match('/favicon.ico')
+        .then(response => response || new Response('', { status: 404 }))
+    );
+    return;
+  }
+  
   // Network-first strategy for HTML pages (always get fresh content)
-  if (request.headers.get('accept').includes('text/html')) {
+  if (request.headers.get('accept') && request.headers.get('accept').includes('text/html')) {
     event.respondWith(
       fetch(request)
         .then(response => {
