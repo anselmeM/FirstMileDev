@@ -168,6 +168,7 @@ function closeScrollCta(ctaId) {
 // 9. EXIT-INTENT POPUP DETECTION
 let exitIntentShown = false;
 const exitPopup = document.getElementById('exit-intent-popup');
+let previouslyFocusedElement = null;
 
 // Detect mouse moving toward browser chrome (exit intent)
 document.addEventListener('mouseleave', function(e) {
@@ -183,18 +184,56 @@ document.addEventListener('touchstart', function() {
 
 function showExitPopup() {
     if (!exitIntentShown) {
+        // Store the previously focused element for accessibility
+        previouslyFocusedElement = document.activeElement;
+        
         exitPopup.classList.add('active');
         exitIntentShown = true;
-        // Focus the email input for accessibility
+        
+        // Focus the first interactive element for accessibility
         setTimeout(() => {
-            document.getElementById('lead-email').focus();
+            const firstFocusable = exitPopup.querySelector('input, button, a');
+            if (firstFocusable) {
+                firstFocusable.focus();
+            }
         }, 100);
     }
 }
 
 function closeExitPopup() {
     exitPopup.classList.remove('active');
+    
+    // Return focus to the element that triggered the popup for accessibility
+    if (previouslyFocusedElement) {
+        previouslyFocusedElement.focus();
+        previouslyFocusedElement = null;
+    }
 }
+
+// Focus trap for accessibility - keep focus within popup when open
+exitPopup.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+        const focusableElements = exitPopup.querySelectorAll(
+            'input, button, a[href], select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        
+        if (e.shiftKey) {
+            // Shift + Tab
+            if (document.activeElement === firstElement) {
+                e.preventDefault();
+                lastElement.focus();
+            }
+        } else {
+            // Tab
+            if (document.activeElement === lastElement) {
+                e.preventDefault();
+                firstElement.focus();
+            }
+        }
+    }
+});
 
 // Close popup on Escape key for accessibility
 document.addEventListener('keydown', function(e) {

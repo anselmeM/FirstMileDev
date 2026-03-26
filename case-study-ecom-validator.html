@@ -4,12 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Cache Control - Prevent stale content -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
     <title>E-Commerce Validator Case Study - FirstMileDev</title>
     <meta name="description" content="Learn how FirstMileDev validated an e-commerce startup idea, proving market demand before development saved $25K in unnecessary costs.">
+    
+    <!-- Canonical URL for SEO -->
+    <link rel="canonical" href="https://firstmiledev.com/case-study-ecom-validator.html">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://firstmiledev.com/case-study-ecom-validator.html">
+    <meta property="og:title" content="E-Commerce Validator Case Study - FirstMileDev">
+    <meta property="og:description" content="Learn how FirstMileDev validated an e-commerce startup idea, proving market demand before development saved $25K in unnecessary costs.">
+    <meta property="og:image" content="https://firstmiledev.com/og-image.jpg">
+    <meta property="og:site_name" content="FirstMileDev">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://firstmiledev.com/case-study-ecom-validator.html">
+    <meta name="twitter:title" content="E-Commerce Validator Case Study - FirstMileDev">
+    <meta name="twitter:description" content="Learn how FirstMileDev validated an e-commerce startup idea, proving market demand before development saved $25K in unnecessary costs.">
+    <meta name="twitter:image" content="https://firstmiledev.com/twitter-image.jpg">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FWBEXRG2N"></script>
@@ -66,6 +80,31 @@
                 }
             }
         }
+    </script>
+
+    <!-- JSON-LD Structured Data for Case Study -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CaseStudy",
+      "headline": "E-Commerce Validator Case Study",
+      "description": "Learn how FirstMileDev validated an e-commerce startup idea, proving market demand before development saved $25K in unnecessary costs.",
+      "image": "https://firstmiledev.com/images/E-Commerce%20Validator.png",
+      "author": {
+        "@type": "Organization",
+        "name": "FirstMileDev",
+        "url": "https://firstmiledev.com"
+      },
+      "datePublished": "2024",
+      "publisher": {
+        "@type": "Organization",
+        "name": "FirstMileDev",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://firstmiledev.com/logo.png"
+        }
+      }
+    }
     </script>
 </head>
 
@@ -287,7 +326,7 @@
                 <div>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Resources</h4>
                     <ul class="space-y-2 mb-6">
-                        <li><a href="blog-why-startups-fail.html" class="text-white/80 hover:text-white text-sm">Blog</a></li>
+                        <li><a href="blog.html" class="text-white/80 hover:text-white text-sm">Blog</a></li>
                         <li><a href="faq.html" class="text-white/80 hover:text-white text-sm">FAQ</a></li>
                         <li><a href="sitemap.xml" class="text-white/80 hover:text-white text-sm">Sitemap</a></li>
                     </ul>
@@ -296,7 +335,7 @@
                 </div>
             </div>
             <div class="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-white/60 text-xs">&copy; 2024 FirstMileDev. Validate First.</div>
+                <div class="text-white/60 text-xs">&copy; <span id="copyright-year">2024</span> FirstMileDev. Validate First.</div>
                 <div class="flex gap-6 text-xs">
                     <a href="privacy.html" class="text-white/60 hover:text-white">Privacy Policy</a>
                     <a href="terms.html" class="text-white/60 hover:text-white">Terms of Service</a>
@@ -307,17 +346,33 @@
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/69c45fd846a6c41c341ab391/1jkjhcpdh';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
+    // Load tawk.to after page load to potentially bypass ad blockers
+    window.addEventListener('load', function() {
+        console.log('[Tawk.to] Loading widget after page load...');
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/69c45fd846a6c41c341ab391/1jkjhcpdh';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s1.onload = function() { 
+            console.log('[Tawk.to] Script loaded successfully'); 
+            setTimeout(function() {
+                var iframes = document.querySelectorAll('iframe');
+                var tawkFrame = Array.from(iframes).find(function(f) { return f.src && f.src.includes('tawk.to'); });
+                if (tawkFrame) {
+                    console.log('[Tawk.to] Widget iframe found! visible:', tawkFrame.offsetParent !== null);
+                }
+            }, 2000);
+        };
+        s1.onerror = function() { console.error('[Tawk.to] Script failed to load - likely blocked by ad blocker'); };
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    });
     </script>
     <!--End of Tawk.to Script-->
+    <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
 </body>
 
 </html>

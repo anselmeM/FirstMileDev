@@ -4,9 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
     <title>Blog - Startup Validation & Development Insights | FirstMileDev</title>
     <meta name="description" content="Read the latest insights on MVP development, startup validation, No-Code vs Custom development, and building successful products.">
     
@@ -36,6 +33,17 @@
             'page_title': 'Blog',
             'page_location': 'https://firstmiledev.com/blog.html'
         });
+    </script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "FirstMileDev Blog",
+        "description": "Insights on MVP development, startup validation, and building successful products.",
+        "url": "https://firstmiledev.com/blog.html"
+    }
     </script>
 
     <!-- Preconnect for LCP optimization -->
@@ -310,15 +318,30 @@
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/69c45fd846a6c41c341ab391/1jkjhcpdh';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
+    // Load tawk.to after page load to potentially bypass ad blockers
+    window.addEventListener('load', function() {
+        console.log('[Tawk.to] Loading widget after page load...');
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/69c45fd846a6c41c341ab391/1jkjhcpdh';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s1.onload = function() { 
+            console.log('[Tawk.to] Script loaded successfully'); 
+            setTimeout(function() {
+                var iframes = document.querySelectorAll('iframe');
+                var tawkFrame = Array.from(iframes).find(function(f) { return f.src && f.src.includes('tawk.to'); });
+                if (tawkFrame) {
+                    console.log('[Tawk.to] Widget iframe found! visible:', tawkFrame.offsetParent !== null);
+                }
+            }, 2000);
+        };
+        s1.onerror = function() { console.error('[Tawk.to] Script failed to load - likely blocked by ad blocker'); };
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    });
     </script>
     <!--End of Tawk.to Script-->
 </body>

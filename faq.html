@@ -4,10 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Cache Control - Prevent stale content -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
     <title>FAQ - Frequently Asked Questions | FirstMileDev</title>
     <meta name="description" content="Get answers to common questions about FirstMileDev's MVP development services, pricing, process, and startup validation approach.">
     
@@ -40,6 +36,48 @@
         });
     </script>
 
+    <!-- JSON-LD Structured Data for FAQ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the typical timeline for MVP development?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most MVPs can be delivered in 4-8 weeks depending on complexity. Our rapid validation approach ensures you get a functional prototype quickly to test market assumptions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does MVP development cost?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "MVP development costs range from $5,000 to $25,000 depending on features and complexity. We offer flexible engagement models starting with validation packages."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What tech stack do you use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We primarily use modern JavaScript frameworks like React, Node.js, and MongoDB. We also offer no-code solutions like Bubble and FlutterFlow for faster deployment."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you offer post-launch support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we offer ongoing maintenance and support packages to ensure your MVP continues to perform optimally after launch."
+                }
+            }
+        ]
+    }
+    </script>
+
     <!-- Preconnect for LCP optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,10 +100,14 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
     <script src="navbar.js" defer></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <script>
         tailwind.config = {
@@ -77,491 +119,290 @@
                     },
                     colors: {
                         'accent-red': '#FF3B3F',
+                        'accent-red-dark': '#E63539',
+                        'accent-red-light': '#FF6B6E',
                         'accent-teal': '#0D9488',
+                        'accent-teal-dark': '#0F766E',
+                        'accent-teal-light': '#14B8A6',
+                        'carbon-900': '#111827',
                         'carbon-800': '#1F2937',
+                        'carbon-700': '#374151',
+                        'carbon-600': '#4B5563',
+                        'carbon-500': '#6B7280',
+                        'carbon-400': '#9CA3AF',
+                        'carbon-300': '#D1D5DB',
+                        'carbon-200': '#E5E7EB',
+                        'carbon-100': '#F3F4F6',
+                        'carbon-50': '#F9FAFB',
                     }
                 }
             }
         }
     </script>
-
-    <!-- JSON-LD FAQ Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How much does MVP development cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our MVP development starts at $2,500 for Phase 1 (validation) and $15,000+ for Phase 2 (MVP build). The cost depends on your chosen technology stack, feature complexity, and timeline. We offer three tiers: Validation ($2,500), MVP Build ($15,000-35,000), and Scale ($50,000+). All prices include full code ownership and a 30-day post-launch support period."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does it take to build an MVP?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Phase 1 (validation) takes 2-4 weeks using landing pages and ad campaigns. Phase 2 (MVP build) takes 4-12 weeks depending on complexity. For example, a simple web app with 5-7 core features typically takes 6-8 weeks. We use agile methodologies with bi-weekly sprints to ensure fast delivery while maintaining quality."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What technology stack do you use?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "For Phase 1 (validation), we use no-code tools like Bubble, FlutterFlow, or Webflow + Wized for rapid testing. For Phase 2 (MVP) and Phase 3 (scale), we use the MERN stack (MongoDB, Express, React, Node.js) or Next.js for custom builds. We choose the stack based on your specific needs - low-code for speed-to-market, custom for maximum flexibility and scalability."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do I own the code after the project?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely. Once the project is fully paid for, you own 100% of the IP, code, design assets, and any third-party integrations. We provide complete source code with documentation and can assist with hosting migration if needed. We are your partners, not your landlords - our goal is to make you fully self-sufficient."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the validation process?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our validation process starts with a 30-minute discovery call to understand your idea and target market. We then create a high-converting landing page and run targeted ads (Facebook, Instagram, Google) for 2-4 weeks. We analyze the data to determine if there's real demand before you invest in development. This typically costs $2,500 and can save you $30,000+ in unnecessary development costs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do you handle communication during projects?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We assign a dedicated project manager who serves as your single point of contact. You'll have access to a private Slack channel for quick questions and updates. We provide bi-weekly video standups to review progress, demonstrate working features, and gather feedback. All project documentation, timelines, and deliverables are tracked in a shared project management tool."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What happens after the MVP launches?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We include 30 days of post-launch support to address any bugs or critical issues. After that, we offer ongoing maintenance packages starting at $500/month which includes hosting, security updates, feature enhancements, and priority support. We're also happy to train your team on how to use and manage the product."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you help with fundraising?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! Our validated MVPs help founders secure Pre-Seed and Seed funding. We've helped clients secure over $2M in combined funding by proving market demand first. We can also help create pitch deck materials, demo videos, and investor-ready documentation. Many investors now require validation before considering funding proposals."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What industries do you specialize in?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We specialize in B2B SaaS, marketplace platforms, fintech, healthtech, and e-commerce solutions. Our validation-first approach works particularly well for complex marketplaces and platforms where market demand is uncertain. We've helped over 50 startups validate and build their products across various industries."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer fixed-price or hourly billing?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We primarily offer fixed-price packages for predictability and budget certainty. Each phase has a clear scope and deliverable timeline. For ongoing maintenance and support, we offer monthly retainer arrangements. All pricing is transparent with no hidden fees - we provide detailed quotes before any work begins."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do you ensure code quality?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We follow industry best practices including code reviews, automated testing, and documentation standards. All our developers are experienced with clean code principles and modern development workflows. We use Git for version control, implement proper security practices, and ensure all code is optimized for performance and scalability."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you work with existing code or partially built projects?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, we can audit and continue development on existing projects. We offer code review services ($500) to assess the current state, identify issues, and provide a roadmap for completion or optimization. Many clients come to us after unsuccessful attempts with other developers - we help clean up and move forward."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What's your success rate with validation?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "About 40% of validation projects result in a 'no-build' recommendation - which we consider a success! Our honest approach saves clients from building products without market demand. Of the 60% that proceed to build, over 80% secure funding or launch successfully. We're proud to tell clients NOT to build when the data doesn't support their idea."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you sign NDAs?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, we sign NDAs for all projects to protect your intellectual property. Your idea and business details remain completely confidential. We treat every project with the highest level of privacy and professional discretion. We're happy to sign your NDA or provide our standard template."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I get started?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Simply book a free 15-minute discovery call through our Calendly link. We'll discuss your idea, answer any initial questions, and determine which phase is right for you. There's no commitment - we just want to understand your vision and see if we're a good fit. Most clients start with Phase 1 (validation) to test their market before investing in full development."
-          }
-        }
-      ]
-    }
-    </script>
 </head>
 
-<body class="antialiased bg-white text-gray-900 font-body">
+<body class="antialiased bg-white text-gray-900">
+
+    <!-- Accessibility: Skip Link for Keyboard Navigation -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- UNIFIED NAVBAR -->
-    <div id="navbar-placeholder"></div>
+    <!-- Main Content Landmark for Accessibility -->
+    <main id="main-content" role="main">
 
-    <main id="main-content">
-        <!-- FAQ Hero Section -->
-        <section class="bg-[#FF3B3F] text-white px-6 md:px-8 lg:px-16 py-12 md:py-20 min-h-[50vh] flex flex-col justify-center relative overflow-hidden">
-            <div class="max-w-4xl mx-auto text-center z-10">
-                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase-text leading-none font-headline mb-6">
-                    <span class="block">Frequently</span>
-                    <span class="block">Asked Questions</span>
-                </h1>
-                <p class="text-xl md:text-2xl font-bold uppercase-text mb-8 opacity-90 max-w-2xl mx-auto">Everything you need to know about our MVP development services, pricing, and validation process.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="index.html#contact" class="btn btn-white btn-lg">Book Discovery Call</a>
-                    <a href="calculator.html" class="btn btn-outline-white btn-lg">Get Cost Estimate</a>
-                </div>
-            </div>
-            <!-- Decorative circles -->
-            <div class="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
-            <div class="absolute bottom-10 right-20 w-48 h-48 bg-white/10 rounded-full blur-xl"></div>
-        </section>
+        <!-- UNIFIED NAVBAR PLACEHOLDERS -->
+        <div id="mobile-menu-placeholder"></div>
 
-        <!-- FAQ Content -->
-        <section class="px-6 py-16 md:py-24 bg-gray-50">
+        <!-- FAQ HERO SECTION -->
+        <section class="bg-[#FF3B3F] text-white px-6 md:px-8 lg:px-16 py-16 md:py-24 relative overflow-hidden">
+            <div id="header-placeholder"></div>
             <div class="max-w-4xl mx-auto">
-                
-                <!-- FAQ Item 1 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">How much does MVP development cost?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">Our MVP development starts at $2,500 for Phase 1 (validation) and $15,000+ for Phase 2 (MVP build). The cost depends on your chosen technology stack, feature complexity, and timeline.</p>
-                            <p class="mb-4">We offer three tiers: Validation ($2,500), MVP Build ($15,000-35,000), and Scale ($50,000+). All prices include full code ownership and a 30-day post-launch support period.</p>
-                            <p>Use our <a href="calculator.html" class="text-accent-red hover:underline">free cost calculator</a> to get an instant estimate based on your specific requirements.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">How long does it take to build an MVP?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">Phase 1 (validation) takes 2-4 weeks using landing pages and ad campaigns. Phase 2 (MVP build) takes 4-12 weeks depending on complexity.</p>
-                            <p>For example, a simple web app with 5-7 core features typically takes 6-8 weeks. We use agile methodologies with bi-weekly sprints to ensure fast delivery while maintaining quality.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">What technology stack do you use?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">For Phase 1 (validation), we use no-code tools like Bubble, FlutterFlow, or Webflow + Wized for rapid testing. For Phase 2 (MVP) and Phase 3 (scale), we use the MERN stack (MongoDB, Express, React, Node.js) or Next.js for custom builds.</p>
-                            <p>We choose the stack based on your specific needs - low-code for speed-to-market, custom for maximum flexibility and scalability.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">Do I own the code after the project?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">Absolutely. Once the project is fully paid for, you own 100% of the IP, code, design assets, and any third-party integrations.</p>
-                            <p>We provide complete source code with documentation and can assist with hosting migration if needed. We are your partners, not your landlords - our goal is to make you fully self-sufficient.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 5 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">What is the validation process?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">Our validation process starts with a 30-minute discovery call to understand your idea and target market.</p>
-                            <p class="mb-4">We then create a high-converting landing page and run targeted ads (Facebook, Instagram, Google) for 2-4 weeks. We analyze the data to determine if there's real demand before you invest in development.</p>
-                            <p>This typically costs $2,500 and can save you $30,000+ in unnecessary development costs.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 6 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">How do you handle communication during projects?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">We assign a dedicated project manager who serves as your single point of contact. You'll have access to a private Slack channel for quick questions and updates.</p>
-                            <p>We provide bi-weekly video standups to review progress, demonstrate working features, and gather feedback. All project documentation, timelines, and deliverables are tracked in a shared project management tool.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 7 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">What happens after the MVP launches?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">We include 30 days of post-launch support to address any bugs or critical issues.</p>
-                            <p>After that, we offer ongoing maintenance packages starting at $500/month which includes hosting, security updates, feature enhancements, and priority support. We're also happy to train your team on how to use and manage the product.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 8 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">Can you help with fundraising?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">Yes! Our validated MVPs help founders secure Pre-Seed and Seed funding. We've helped clients secure over $2M in combined funding by proving market demand first.</p>
-                            <p>We can also help create pitch deck materials, demo videos, and investor-ready documentation. Many investors now require validation before considering funding proposals.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 9 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">What industries do you specialize in?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">We specialize in B2B SaaS, marketplace platforms, fintech, healthtech, and e-commerce solutions.</p>
-                            <p>Our validation-first approach works particularly well for complex marketplaces and platforms where market demand is uncertain. We've helped over 50 startups validate and build their products across various industries.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 10 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">Do you offer fixed-price or hourly billing?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">We primarily offer fixed-price packages for predictability and budget certainty.</p>
-                            <p>Each phase has a clear scope and deliverable timeline. For ongoing maintenance and support, we offer monthly retainer arrangements. All pricing is transparent with no hidden fees - we provide detailed quotes before any work begins.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 11 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">How do you ensure code quality?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">We follow industry best practices including code reviews, automated testing, and documentation standards.</p>
-                            <p>All our developers are experienced with clean code principles and modern development workflows. We use Git for version control, implement proper security practices, and ensure all code is optimized for performance and scalability.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 12 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">Can you work with existing code or partially built projects?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">Yes, we can audit and continue development on existing projects.</p>
-                            <p>We offer code review services ($500) to assess the current state, identify issues, and provide a roadmap for completion or optimization. Many clients come to us after unsuccessful attempts with other developers - we help clean up and move forward.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 13 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">What's your success rate with validation?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">About 40% of validation projects result in a 'no-build' recommendation - which we consider a success!</p>
-                            <p>Our honest approach saves clients from building products without market demand. Of the 60% that proceed to build, over 80% secure funding or launch successfully. We're proud to tell clients NOT to build when the data doesn't support their idea.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 14 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">Do you sign NDAs?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">Yes, we sign NDAs for all projects to protect your intellectual property.</p>
-                            <p>Your idea and business details remain completely confidential. We treat every project with the highest level of privacy and professional discretion. We're happy to sign your NDA or provide our standard template.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 15 -->
-                <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden mb-4">
-                    <div class="p-6 flex justify-between items-center cursor-pointer" onclick="toggleFaq(this)">
-                        <h4 class="font-bold text-lg text-gray-900">How do I get started?</h4>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
-                    </div>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-gray-600">
-                            <p class="mb-4">Simply book a free 15-minute discovery call through our Calendly link.</p>
-                            <p>We'll discuss your idea, answer any initial questions, and determine which phase is right for you. There's no commitment - we just want to understand your vision and see if we're a good fit. Most clients start with Phase 1 (validation) to test their market before investing in full development.</p>
-                        </div>
-                    </div>
-                </div>
-
+                <h1 class="text-5xl sm:text-6xl md:text-7xl uppercase-text leading-none font-headline mb-8">
+                    <span class="block">FREQUENTLY</span>
+                    <span class="block">ASKED QUESTIONS</span>
+                </h1>
+                <p class="text-lg md:text-xl font-bold uppercase-text mb-8 leading-relaxed opacity-90 max-w-2xl">
+                    Get answers to common questions about MVP development, startup validation, and our process.
+                </p>
             </div>
         </section>
 
-        <!-- Still Have Questions CTA -->
-        <section class="px-6 py-16 bg-carbon-800 text-white text-center">
-            <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6">Still Have Questions?</h2>
-            <p class="text-xl opacity-80 mb-8 max-w-2xl mx-auto">Book a free discovery call and we'll answer all your questions about MVP development.</p>
-            <a href="index.html#contact" class="btn btn-primary btn-lg">Book Discovery Call</a>
+        <!-- FAQ CONTENT SECTION -->
+        <section class="px-6 md:px-8 lg:px-16 py-20 bg-[#FAFAFA]">
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-4">
+                    <!-- Question 1 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h4 class="font-bold text-lg text-gray-900">What is the typical timeline for MVP development?</h4>
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <div class="pb-6 text-gray-600">
+                                Most MVPs can be delivered in 4-8 weeks depending on complexity. Our rapid validation approach ensures you get a functional prototype quickly to test market assumptions. Phase 1 (Validation) typically takes 2 weeks, Phase 2 (MVP Build) takes 4-6 weeks, and Phase 3 (Custom Scale) is scoped based on your specific requirements.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h4 class="font-bold text-lg text-gray-900">How much does MVP development cost?</h4>
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <div class="pb-6 text-gray-600">
+                                MVP development costs range from $5,000 to $25,000 depending on features and complexity. We offer flexible engagement models: Phase 1 (Market Validation) starts at $2,000, Phase 2 (MVP Build) starts at $5,000, and Phase 3 (Custom Scale) is priced based on your specific needs. We provide detailed quotes after understanding your requirements.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h4 class="font-bold text-lg text-gray-900">What tech stack do you use?</h4>
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <div class="pb-6 text-gray-600">
+                                We primarily use modern JavaScript frameworks like React, Node.js, and MongoDB. We also offer no-code solutions like Bubble, FlutterFlow, and Webflow + Wized for faster deployment. For MVPs, we recommend low-code tools to reduce time-to-market. For scaling, we build custom using the MERN stack (MongoDB, Express, React, Node.js) or Next.js.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h4 class="font-bold text-lg text-gray-900">Do you offer post-launch support?</h4>
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <div class="pb-6 text-gray-600">
+                                Yes, we offer ongoing maintenance and support packages to ensure your MVP continues to perform optimally after launch. We provide bug fixes, security updates, performance monitoring, and feature enhancements. Our support packages are flexible and can be tailored to your needs.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h4 class="font-bold text-lg text-gray-900">Why validate before building?</h4>
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <div class="pb-6 text-gray-600">
+                                Development is expensive. Marketing a product nobody wants is even more expensive. By spending a small amount on validation (ads + landing page), we save you thousands of dollars and months of time. Our validation process tests your market hypothesis with real data before you commit to building.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 6 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h4 class="font-bold text-lg text-gray-900">Do I own the code?</h4>
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <div class="pb-6 text-gray-600">
+                                Absolutely. Once the project is paid for, you own 100% of the IP, code, and design assets. We are your partners, not your landlords. You'll receive all source code, database access, and deployment credentials upon project completion.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 7 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h4 class="font-bold text-lg text-gray-900">How does the validation process work?</h4>
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <div class="pb-6 text-gray-600">
+                                Our validation process involves: 1) Market Research & Competitor Analysis, 2) Creating a Landing Page with your value proposition, 3) Running targeted ads to test demand, 4) Analyzing conversion data and customer feedback. You'll receive a detailed viability report with recommendations on whether to proceed and how to optimize.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 8 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h4 class="font-bold text-lg text-gray-900">What industries do you work with?</h4>
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <div class="pb-6 text-gray-600">
+                                We work across various industries including FinTech, E-commerce, SaaS, HealthTech, EdTech, and more. Our team has experience building MVPs for startups in both B2B and B2C spaces. We adapt our approach based on your industry's specific requirements and regulations.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 9 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h4 class="font-bold text-lg text-gray-900">Can you work with existing code or legacy systems?</h4>
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <div class="pb-6 text-gray-600">
+                                Yes, we can work with existing codebases and help modernize legacy systems. We offer code audits to assess your current infrastructure and provide recommendations for improvement. Our team can integrate new features into existing systems or migrate you to modern architectures.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 10 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="p-6 flex justify-between items-center">
+                            <h4 class="font-bold text-lg text-gray-900">What happens after I book a discovery call?</h4>
+                            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                        </div>
+                        <div class="faq-answer px-6">
+                            <div class="pb-6 text-gray-600">
+                                During the 15-minute discovery call, we'll discuss your startup idea, target market, and goals. We'll answer any questions you have and explain our approach. If there's a good fit, we'll outline next steps and provide a customized proposal for your project.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Still Have Questions CTA -->
+                <div class="mt-12 text-center bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <h3 class="font-headline text-2xl uppercase-text mb-4 text-gray-900">Still Have Questions?</h3>
+                    <p class="text-gray-600 mb-6">Book a free discovery call and we'll help you find the answers.</p>
+                    <a href="index.html#contact" class="btn btn-primary">Book Discovery Call</a>
+                </div>
+            </div>
         </section>
+
     </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
 
     <!-- UNIFIED FOOTER -->
     <footer class="bg-[#FF3B3F] text-white px-6 py-16" role="contentinfo">
         <div class="max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Logo & Tagline -->
                 <div class="md:col-span-2">
-                    <div class="text-2xl font-headline uppercase-text tracking-tighter mb-4">FirstMileDev</div>
-                    <p class="text-white/80 text-sm max-w-sm mb-6">The Market-First MVP Agency. We validate demand before you write code.</p>
+                    <div class="text-2xl font-headline uppercase-text tracking-tighter mb-4">
+                        FirstMileDev
+                    </div>
+                    <p class="text-white/80 text-sm max-w-sm mb-6">The Market-First MVP Agency. We validate demand before you write code for high-growth startups.</p>
                     <div class="flex gap-4">
-                        <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank" class="text-white/80 hover:text-white"><i data-lucide="youtube" class="w-5 h-5"></i></a>
-                        <a href="#" class="text-white/80 hover:text-white"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                        <a href="#" class="text-white/80 hover:text-white"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank" rel="noopener" class="text-white/80 hover:text-white transition" aria-label="FirstMileDev on YouTube">
+                            <i data-lucide="youtube" class="w-5 h-5" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-white/80 hover:text-white transition" aria-label="FirstMileDev on Twitter">
+                            <i data-lucide="twitter" class="w-5 h-5" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-white/80 hover:text-white transition" aria-label="FirstMileDev on LinkedIn">
+                            <i data-lucide="linkedin" class="w-5 h-5" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
+
+                <!-- Quick Links -->
                 <div>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="index.html#process" class="text-white/80 hover:text-white text-sm">Process</a></li>
-                        <li><a href="index.html#work" class="text-white/80 hover:text-white text-sm">Work</a></li>
-                        <li><a href="index.html#pricing" class="text-white/80 hover:text-white text-sm">Roadmap</a></li>
-                        <li><a href="calculator.html" class="text-white/80 hover:text-white text-sm">Calculator</a></li>
+                        <li><a href="index.html#process" class="text-white/80 hover:text-white text-sm transition">Process</a></li>
+                        <li><a href="index.html#work" class="text-white/80 hover:text-white text-sm transition">Work</a></li>
+                        <li><a href="index.html#pricing" class="text-white/80 hover:text-white text-sm transition">Roadmap</a></li>
+                        <li><a href="calculator.html" class="text-white/80 hover:text-white text-sm transition">Calculator</a></li>
+                        <li><a href="index.html#contact" class="text-white/80 hover:text-white text-sm transition">Get Started</a></li>
                     </ul>
                 </div>
+
+                <!-- Resources & Contact -->
                 <div>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Resources</h4>
                     <ul class="space-y-2 mb-6">
-                        <li><a href="blog-why-startups-fail.html" class="text-white/80 hover:text-white text-sm">Blog</a></li>
-                        <li><a href="faq.html" class="text-white/80 hover:text-white text-sm">FAQ</a></li>
-                        <li><a href="sitemap.xml" class="text-white/80 hover:text-white text-sm">Sitemap</a></li>
+                        <li><a href="blog.html" class="text-white/80 hover:text-white text-sm transition">Blog</a></li>
+                        <li><a href="faq.html" class="text-white/80 hover:text-white text-sm transition">FAQ</a></li>
+                        <li><a href="case-study-fintech.html" class="text-white/80 hover:text-white text-sm transition">Case Studies</a></li>
+                        <li><a href="sitemap.xml" class="text-white/80 hover:text-white text-sm transition" target="_blank">Sitemap</a></li>
                     </ul>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Contact</h4>
                     <p class="text-white/80 text-sm">hello@firstmiledev.com</p>
                 </div>
             </div>
+
+            <!-- Bottom Bar -->
             <div class="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-white/60 text-xs">&copy; 2024 FirstMileDev. Validate First.</div>
+                <div class="text-white/60 text-xs">
+                    &copy; <span id="copyright-year">2024</span> FirstMileDev. Validate First. All rights reserved.
+                </div>
                 <div class="flex gap-6 text-xs">
-                    <a href="privacy.html" class="text-white/60 hover:text-white">Privacy Policy</a>
-                    <a href="terms.html" class="text-white/60 hover:text-white">Terms of Service</a>
+                    <a href="privacy.html" class="text-white/60 hover:text-white transition">Privacy Policy</a>
+                    <a href="terms.html" class="text-white/60 hover:text-white transition">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- FAQ Toggle Script -->
     <script>
-        // FAQ Toggle Functionality
-        function toggleFaq(element) {
-            const answer = element.nextElementSibling;
-            const icon = element.querySelector('.faq-icon');
-            
-            if (answer.style.maxHeight === '0px' || answer.style.maxHeight === '') {
-                answer.style.maxHeight = answer.scrollHeight + 'px';
-                answer.style.paddingTop = '0';
-                answer.style.paddingBottom = '0';
-                element.classList.add('active');
-                if (icon) icon.style.transform = 'rotate(180deg)';
-                
-                // Track in GA4
-                if (typeof gtag !== 'undefined') {
-                    const question = element.querySelector('h4').textContent;
-                    gtag('event', 'faq_click', {
-                        'event_category': 'engagement',
-                        'event_label': question
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- EXTERNAL JS -->
+    <script src="script.js" defer></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        // Only register Service Worker on HTTP/HTTPS (not file://)
+        if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed:', error);
                     });
-                }
-            } else {
-                answer.style.maxHeight = '0';
-                answer.style.paddingTop = '0';
-                answer.style.paddingBottom = '0';
-                element.classList.remove('active');
-                if (icon) icon.style.transform = 'rotate(0deg)';
-            }
+            });
+        } else if (window.location.protocol === 'file:') {
+            console.log('ServiceWorker not registered: Running from file:// protocol');
         }
     </script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        lucide.createIcons();
-    </script>
-
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/69c45fd846a6c41c341ab391/1jkjhcpdh';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
 </body>
 
 </html>

@@ -4,10 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Cache Control -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
     <title>Why 90% of Startups Fail | FirstMileDev Blog</title>
     <meta name="description" content="Discover why 90% of startups fail and learn how validation-first development can help your startup beat the odds. Real strategies for entrepreneurial success.">
     
@@ -23,8 +19,10 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://firstmiledev.com/blog-why-startups-fail.html">
     <meta name="twitter:title" content="Why 90% of Startups Fail | FirstMileDev">
     <meta name="twitter:description" content="Discover why 90% of startups fail and learn validation-first strategies to beat the odds.">
+    <meta name="twitter:image" content="https://firstmiledev.com/twitter-image.jpg">
     
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -159,7 +157,7 @@
                 <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Pattern #1: Building Before Validating</h2>
                 <p class="text-lg text-gray-600 leading-relaxed mb-6">The most deadly pattern is also the most common: falling in love with your idea before testing whether anyone actually wants it.</p>
                 <div class="bg-gray-50 p-8 rounded-xl border-l-4 border-accent-red mb-6">
-                    <p class="text-lg text-gray-700 italic">"We spent 8 months building a product that nobody wanted. By the time we realized our target market didn't care, we had burned through $120,000 in savings." — SaaS Founder</p>
+                    <p class="text-lg text-gray-700 italic">"We spent 8 months building a product that nobody wanted. By the time we realized our target market didn't care, we had burned through $55,000 in savings." — SaaS Founder</p>
                 </div>
                 <p class="text-lg text-gray-600 leading-relaxed mb-4">This is what we call the "<strong>Build First, Ask Later</strong>" trap. Founders assume:</p>
                 <ul class="space-y-3 mb-6">
@@ -239,17 +237,17 @@
                     <div class="grid md:grid-cols-3 gap-6">
                         <div>
                             <div class="text-accent-red font-bold text-xl mb-2">Phase 1: Validate</div>
-                            <p class="text-gray-300 text-sm">2-4 weeks • $2,500-5,000</p>
+                            <p class="text-gray-300 text-sm">2 weeks • $2,000</p>
                             <p class="text-gray-400 text-sm mt-2">Landing page + ad campaign to test real demand before writing code.</p>
                         </div>
                         <div>
                             <div class="text-accent-red font-bold text-xl mb-2">Phase 2: Build</div>
-                            <p class="text-gray-300 text-sm">4-12 weeks • $15,000-35,000</p>
+                            <p class="text-gray-300 text-sm">2-4 weeks • $5,000</p>
                             <p class="text-gray-400 text-sm mt-2">MVP development with validated features based on real user data.</p>
                         </div>
                         <div>
                             <div class="text-accent-red font-bold text-xl mb-2">Phase 3: Scale</div>
-                            <p class="text-gray-300 text-sm">Ongoing • $50,000+</p>
+                            <p class="text-gray-300 text-sm">Ongoing • Custom</p>
                             <p class="text-gray-400 text-sm mt-2">Full-scale development when you've proven demand and secured funding.</p>
                         </div>
                     </div>
@@ -265,9 +263,9 @@
                 
                 <div class="grid md:grid-cols-2 gap-6 mb-8">
                     <div class="bg-green-50 p-6 rounded-lg">
-                        <p class="text-3xl font-headline text-green-600 mb-2">$500K</p>
+                        <p class="text-3xl font-headline text-green-600 mb-2">$50K</p>
                         <p class="text-gray-700 font-semibold">Funding Secured</p>
-                        <p class="text-gray-600 text-sm mt-2">FinTech startup validated first, then built MVP. Secured Pre-Seed funding in 4 weeks.</p>
+                        <p class="text-gray-600 text-sm mt-2">FinTech startup validated first, then built MVP. Secured funding in 7 months.</p>
                     </div>
                     <div class="bg-green-50 p-6 rounded-lg">
                         <p class="text-3xl font-headline text-green-600 mb-2">$30K</p>
@@ -388,7 +386,7 @@
                 <div>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Resources</h4>
                     <ul class="space-y-2 mb-6">
-                        <li><a href="blog-why-startups-fail.html" class="text-white/80 hover:text-white text-sm">Blog</a></li>
+                        <li><a href="blog.html" class="text-white/80 hover:text-white text-sm">Blog</a></li>
                         <li><a href="faq.html" class="text-white/80 hover:text-white text-sm">FAQ</a></li>
                         <li><a href="sitemap.xml" class="text-white/80 hover:text-white text-sm">Sitemap</a></li>
                     </ul>
@@ -397,7 +395,7 @@
                 </div>
             </div>
             <div class="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-white/60 text-xs">&copy; 2024 FirstMileDev. Validate First.</div>
+                <div class="text-white/60 text-xs">&copy; <span id="copyright-year">2024</span> FirstMileDev. Validate First.</div>
                 <div class="flex gap-6 text-xs">
                     <a href="privacy.html" class="text-white/60 hover:text-white">Privacy Policy</a>
                     <a href="terms.html" class="text-white/60 hover:text-white">Terms of Service</a>
@@ -414,15 +412,32 @@
     
     <!-- Tawk.to -->
     <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/69c45fd846a6c41c341ab391/1jkjhcpdh';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
+    // Load tawk.to after page load to potentially bypass ad blockers
+    window.addEventListener('load', function() {
+        console.log('[Tawk.to] Loading widget after page load...');
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/69c45fd846a6c41c341ab391/1jkjhcpdh';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s1.onload = function() { 
+            console.log('[Tawk.to] Script loaded successfully'); 
+            // Monitor widget iframe after load
+            setTimeout(function() {
+                var iframes = document.querySelectorAll('iframe');
+                var tawkFrame = Array.from(iframes).find(function(f) { return f.src && f.src.includes('tawk.to'); });
+                if (tawkFrame) {
+                    console.log('[Tawk.to] Widget iframe found! visible:', tawkFrame.offsetParent !== null);
+                }
+            }, 2000);
+        };
+        s1.onerror = function() { console.error('[Tawk.to] Script failed to load - likely blocked by ad blocker'); };
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    });
     </script>
+    <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

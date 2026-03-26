@@ -485,8 +485,8 @@ body.menu-open {
 /* Back to Top Button */
 .back-to-top {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 80px;
+  left: 20px;
   width: 50px;
   height: 50px;
   background: #FF3B3F;
@@ -502,7 +502,7 @@ body.menu-open {
   visibility: hidden;
   transform: translateY(20px);
   transition: all 0.3s ease;
-  z-index: 999;
+  z-index: 9999;
 }
 
 .back-to-top.visible {
