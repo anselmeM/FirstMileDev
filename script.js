@@ -64,27 +64,8 @@ gsap.to(".founder-anim", {
     ease: "power3.out",
 });
 
-// 6. MOBILE MENU LOGIC
-window.menuTl = gsap.timeline({ paused: true });
-window.menuTl
-    .to("#mobile-menu-overlay", {
-        duration: 0.4,
-        autoAlpha: 1,
-        ease: "power2.inOut",
-    })
-    .to(
-        ".mobile-link-item",
-        {
-            y: 0,
-            opacity: 1,
-            duration: 0.4,
-            stagger: 0.1,
-            ease: "power3.out",
-        },
-        "-=0.2"
-    );
-
-// toggleMobileMenu is now handled in navbar.js
+// 6. MOBILE MENU - Now handled entirely by navbar.js
+// The toggleMobileMenu function is defined in navbar.js
 
 // 7. FAQ TOGGLE LOGIC
 function toggleFaq(element) {

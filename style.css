@@ -387,10 +387,72 @@ body.menu-open {
 #mobile-menu-overlay {
   visibility: hidden;
   opacity: 0;
+  display: flex;
 }
+
+#mobile-menu-overlay.open {
+  visibility: visible;
+  opacity: 1;
+}
+
 .mobile-link-item {
   opacity: 0;
   transform: translateY(20px);
+}
+
+#mobile-menu-overlay.open .mobile-link-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== RESPONSIVE MOBILE MENU BREAKPOINT ========== */
+@media (max-width: 767px) {
+  /* Show mobile toggle button on mobile */
+  #mobile-menu-toggle {
+    display: block !important;
+  }
+  
+  /* Hide desktop navigation on mobile */
+  header .hidden.md\:flex {
+    display: none !important;
+  }
+  
+  /* Ensure mobile menu overlay works on mobile */
+  #mobile-menu-overlay {
+    display: flex !important;
+  }
+  
+  /* Mobile menu link items animation base state */
+  .mobile-link-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease;
+  }
+  
+  #mobile-menu-overlay.open .mobile-link-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  /* Hide mobile toggle on desktop */
+  #mobile-menu-toggle {
+    display: none !important;
+  }
+  
+  /* Ensure mobile overlay is hidden on desktop */
+  #mobile-menu-overlay {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  
+  /* Reset mobile link items on desktop */
+  .mobile-link-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* Work Grid Image Hover */
