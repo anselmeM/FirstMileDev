@@ -83,8 +83,6 @@ function toggleMobileMenu() {
         return;
     }
     
-    console.log('Toggle called, isMenuOpen:', isMenuOpen);
-    
     if (!isMenuOpen) {
         // OPEN MENU
         overlay.classList.remove('hidden');
@@ -125,9 +123,6 @@ function toggleMobileMenu() {
 
 // Expose globally
 window.toggleMobileMenu = toggleMobileMenu;
-
-function initNavbar() {
-};
 
 function initNavbar() {
     const combinedPlaceholder = document.getElementById('navbar-placeholder');
