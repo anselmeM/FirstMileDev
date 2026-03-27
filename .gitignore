@@ -201,6 +201,7 @@ docs/_build/
 site/
 
 # Build notes and process documentation (if generated)
+*.md
 TAILWIND_BUILD.md
 BUILD_NOTES.md
 CHANGELOG.md
@@ -270,8 +271,7 @@ robots.txt
 !tailwind.config.js
 
 # Documentation (if wanted)
-!README.md
-!CONTRIBUTING.md
+# !README.md
 
 # Source files
 !index.html
