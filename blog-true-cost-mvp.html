@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- cspell: disable -->
+<!-- cspell: words Waitlist MERN Webflow Wized Tawk FWBEXRG -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The True Cost of an MVP: A Complete Breakdown | FirstMileDev Blog</title>
+    <meta name="description" content="Everything you need to know about MVP development costs. Get a realistic budget breakdown for validation, MVP build, and scaling phases.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://firstmiledev.com/blog-true-cost-mvp.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://firstmiledev.com/blog-true-cost-mvp.html">
+    <meta property="og:title" content="The True Cost of an MVP: A Complete Breakdown | FirstMileDev">
+    <meta property="og:description" content="Everything you need to know about MVP development costs.">
+    <meta property="og:image" content="https://firstmiledev.com/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://firstmiledev.com/blog-true-cost-mvp.html">
+    <meta name="twitter:title" content="The True Cost of an MVP: A Complete Breakdown | FirstMileDev">
+    <meta name="twitter:description" content="Everything you need to know about MVP development costs.">
+    <meta name="twitter:image" content="https://firstmiledev.com/twitter-image.jpg">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.clarity.ms">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FWBEXRG2N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        <!-- cspell: ignore FWBEXRG -->
+        gtag('config', 'G-5FWBEXRG2N', {'page_title': 'True Cost of an MVP'});
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript" defer>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "w1i576b6a9");
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="navbar.js" defer></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'headline': ['"Archivo Black"', 'sans-serif'],
+                        'body': ['"Montserrat"', 'sans-serif'],
+                    },
+                    colors: {
+                        'accent-red': '#FF3B3F',
+                        'accent-teal': '#0D9488',
+                        'carbon-800': '#1F2937',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The True Cost of an MVP: A Complete Breakdown",
+        "description": "Everything you need to know about MVP development costs. Get a realistic budget breakdown.",
+        "author": {
+            "@type": "Organization",
+            "name": "FirstMileDev"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FirstMileDev"
+        },
+        "datePublished": "2024-01-25",
+        "dateModified": "2024-01-25"
+    }
+    </script>
+</head>
+
+<body class="antialiased bg-white text-gray-900 font-body">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- UNIFIED NAVBAR -->
+    <div id="navbar-placeholder"></div>
+    
+    <main id="main-content">
+        <!-- Article Hero -->
+        <section class="bg-[#FF3B3F] text-white px-6 py-16 md:py-24">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="bg-white/20 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Pricing</span>
+                    <span class="text-white/80 text-sm">6 min read</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-headline uppercase mb-6">The True Cost of an MVP</h1>
+                <p class="text-xl md:text-2xl opacity-90 max-w-2xl">Don't get blindsided by hidden costs. Here's the complete budget breakdown for every phase of MVP development.</p>
+            </div>
+        </section>
+        
+        <!-- Article Content -->
+        <article class="px-6 py-16 md:py-24 max-w-4xl mx-auto">
+            <!-- Introduction -->
+            <div class="prose prose-lg max-w-none mb-12">
+                <p class="text-xl text-gray-600 leading-relaxed mb-6">"How much does an MVP cost?" is one of the first questions founders ask—and one of the hardest to answer directly.</p>
+                <p class="text-lg text-gray-600 leading-relaxed">The truth is, MVP costs range from <strong>$2,000 to $150,000+</strong> depending on your approach, features, and team. This guide breaks down every cost component so you can budget accurately.</p>
+            </div>
+            
+            <!-- Phase Overview -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">The Three MVP Phases</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">At FirstMileDev, we break MVP development into three phases. Most startups should start with Phase 1:</p>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+                        <div class="text-3xl font-headline text-green-600 mb-2">$2,000</div>
+                        <p class="text-green-800 font-bold uppercase text-sm mb-2">Phase 1: Validation</p>
+                        <p class="text-gray-600 text-sm">2-4 weeks</p>
+                        <ul class="text-gray-600 text-sm mt-3 space-y-1">
+                            <li>• Landing page</li>
+                            <li>• Ad campaign</li>
+                            <li>• Waitlist signup</li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-200">
+                        <div class="text-3xl font-headline text-blue-600 mb-2">$5,000</div>
+                        <p class="text-blue-800 font-bold uppercase text-sm mb-2">Phase 2: MVP Build</p>
+                        <p class="text-gray-600 text-sm">4-12 weeks</p>
+                        <ul class="text-gray-600 text-sm mt-3 space-y-1">
+                            <li>• Core features</li>
+                            <li>• User auth</li>
+                            <li>• Basic dashboard</li>
+                        </ul>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-xl border border-purple-200">
+                        <div class="text-3xl font-headline text-purple-600 mb-2">Custom</div>
+                        <p class="text-purple-800 font-bold uppercase text-sm mb-2">Phase 3: Scale</p>
+                        <p class="text-gray-600 text-sm">Long-term Partnership</p>
+                        <ul class="text-gray-600 text-sm mt-3 space-y-1">
+                            <li>• Advanced features</li>
+                            <li>• Performance</li>
+                            <li>• Security compliance</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Phase 1 Detail -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Phase 1: Validation ($2,000)</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">Before you build anything, validate that people actually want it. This phase tests demand with minimal investment.</p>
+                
+                <div class="overflow-x-auto mb-6">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-gray-200">
+                                <th class="py-3 px-4 font-bold text-sm">Cost Component</th>
+                                <th class="py-3 px-4 font-bold text-sm">Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">Landing page design & build</td>
+                                <td class="py-3 px-4">Included</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">Ad spend (Facebook/Google)</td>
+                                <td class="py-3 px-4">Included</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">Email/waitlist tool</td>
+                                <td class="py-3 px-4">Included</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">Analytics setup</td>
+                                <td class="py-3 px-4">Included</td>
+                            </tr>
+                            <tr class="border-b-2 border-gray-200 bg-gray-50">
+                                <td class="py-3 px-4 font-bold">Total</td>
+                                <td class="py-3 px-4 font-bold">$2,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="bg-green-50 border-l-4 border-green-400 p-6">
+                    <p class="text-green-800 font-semibold">💡 Why This Is Worth It</p>
+                    <p class="text-green-700 mt-2">The average failed startup spends $30,000+ on development before discovering nobody wants their product. Validation costs 10x less and gives you real data to decide whether to proceed.</p>
+                </div>
+            </section>
+            
+            <!-- Phase 2 Detail -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Phase 2: MVP Build ($5,000)</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">Once you've validated demand, it's time to build your minimum viable product—the smallest version that delivers core value.</p>
+                
+                <div class="overflow-x-auto mb-6">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-gray-200">
+                                <th class="py-3 px-4 font-bold text-sm">Cost Component</th>
+                                <th class="py-3 px-4 font-bold text-sm">Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">UI/UX Design</td>
+                                <td class="py-3 px-4">Included</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">Frontend development</td>
+                                <td class="py-3 px-4">Included</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">Backend/API development</td>
+                                <td class="py-3 px-4">Included</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">Third-party integrations</td>
+                                <td class="py-3 px-4">Included</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">Testing & QA</td>
+                                <td class="py-3 px-4">Included</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">Project management</td>
+                                <td class="py-3 px-4">Included</td>
+                            </tr>
+                            <tr class="border-b-2 border-gray-200 bg-gray-50">
+                                <td class="py-3 px-4 font-bold">Total</td>
+                                <td class="py-3 px-4 font-bold">$5,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Hidden Costs -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Hidden Costs Most Founders Forget</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">These costs don't show up in development quotes but can derail your budget:</p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4 bg-red-50 p-6 rounded-lg">
+                        <i data-lucide="alert-triangle" class="w-6 h-6 text-red-600 mt-1"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Hosting & Infrastructure ($50-500/month)</h3>
+                            <p class="text-gray-600">AWS, Heroku, Vercel costs add up quickly at scale. MVP hosting starts at $50/month but can hit $500+ with traffic.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4 bg-orange-50 p-6 rounded-lg">
+                        <i data-lucide="alert-triangle" class="w-6 h-6 text-orange-600 mt-1"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Software Subscriptions ($50-300/month)</h3>
+                            <p class="text-gray-600">Email (Mailchimp/SendGrid), analytics (Mixpanel), payments (Stripe), SMS (Twilio)—costs accumulate.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4 bg-yellow-50 p-6 rounded-lg">
+                        <i data-lucide="alert-triangle" class="w-6 h-6 text-yellow-600 mt-1"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Post-Launch Support ($500-2,000/month)</h3>
+                            <p class="text-gray-600">Bugs, feature requests, security updates. Budget 20% of development cost annually for maintenance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4 bg-blue-50 p-6 rounded-lg">
+                        <i data-lucide="alert-triangle" class="w-6 h-6 text-blue-600 mt-1"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Legal & Compliance ($500-5,000+)</h3>
+                            <p class="text-gray-600">Terms of service, privacy policy, possibly HIPAA/SOC2 for regulated industries.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Cost Comparison -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Approach Comparison</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">How do different development approaches compare on cost?</p>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-gray-200">
+                                <th class="py-3 px-4 font-headline uppercase text-sm">Approach</th>
+                                <th class="py-3 px-4 font-headline uppercase text-sm">MVP Cost</th>
+                                <th class="py-3 px-4 font-headline uppercase text-sm">Timeline</th>
+                                <th class="py-3 px-4 font-headline uppercase text-sm">Best For</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4 font-bold">No-Code (Bubble)</td>
+                                <td class="py-3 px-4">$8,000-18,000</td>
+                                <td class="py-3 px-4">4-8 weeks</td>
+                                <td class="py-3 px-4 text-sm">Validation, MVPs, non-critical features</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4 font-bold">Low-Code (Webflow+Wized)</td>
+                                <td class="py-3 px-4">$10,000-20,000</td>
+                                <td class="py-3 px-4">6-10 weeks</td>
+                                <td class="py-3 px-4 text-sm">Web apps with custom backends</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4 font-bold">Hybrid (FlutterFlow)</td>
+                                <td class="py-3 px-4">$12,000-25,000</td>
+                                <td class="py-3 px-4">6-12 weeks</td>
+                                <td class="py-3 px-4 text-sm">Mobile-first products</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4 font-bold">Custom (MERN/Next.js)</td>
+                                <td class="py-3 px-4">$25,000-50,000</td>
+                                <td class="py-3 px-4">12-20 weeks</td>
+                                <td class="py-3 px-4 text-sm">Complex logic, scale, performance</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-bold">Offshore Custom</td>
+                                <td class="py-3 px-4">$15,000-35,000</td>
+                                <td class="py-3 px-4">12-20 weeks</td>
+                                <td class="py-3 px-4 text-sm">Budget-conscious, clear specs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Budget Tips -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">How to Budget Wisely</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">Before you start spending, follow this checklist:</p>
+                
+                <div class="bg-accent-red/10 p-8 rounded-xl border border-accent-red/20">
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-accent-red mt-1"></i>
+                            <div>
+                                <strong class="text-gray-900">Validate before building</strong>
+                                <p class="text-gray-600 text-sm">Spend $2,000 on validation to avoid spending $30,000 on a product nobody wants.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-accent-red mt-1"></i>
+                            <div>
+                                <strong class="text-gray-900">Define 5-7 core features maximum</strong>
+                                <p class="text-gray-600 text-sm">Every feature adds time and cost. Start with the minimum, add more after launch.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-accent-red mt-1"></i>
+                            <div>
+                                <strong class="text-gray-900">Budget 20% for post-launch</strong>
+                                <p class="text-gray-600 text-sm">Plan for ongoing costs: hosting, maintenance, support. MVP is just the beginning.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-accent-red mt-1"></i>
+                            <div>
+                                <strong class="text-gray-900">Get fixed-price quotes</strong>
+                                <p class="text-gray-600 text-sm">Hourly rates can spiral. Insist on detailed scope and fixed-price proposals.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-accent-red mt-1"></i>
+                            <div>
+                                <strong class="text-gray-900">Account for hidden costs</strong>
+                                <p class="text-gray-600 textsm">Add 20-30% buffer for subscriptions, legal, and unexpected expenses.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- CTA -->
+            <section class="mb-12">
+                <div class="bg-gray-900 text-white p-8 rounded-xl text-center">
+                    <h2 class="text-3xl font-headline uppercase mb-4">Get Your Personalized Estimate</h2>
+                    <p class="text-xl opacity-80 mb-6 max-w-2xl mx-auto">Use our free MVP cost calculator to get a tailored breakdown based on your specific features and requirements.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="calculator.html" class="btn btn-white btn-lg">Use Cost Calculator</a>
+                        <a href="index.html#contact" class="btn btn-outline-white btn-lg">Talk to an Expert</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Related Articles -->
+            <section class="border-t border-gray-200 pt-12 mt-12">
+                <h3 class="text-2xl font-headline uppercase mb-6">Related Articles</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="blog-why-startups-fail.html" class="group">
+                        <div class="bg-gray-100 rounded-lg overflow-hidden mb-3">
+                            <img src="images/Why-Building-an-MVP-Matters-for-Startups.jpg" alt="Why 90% of Startups Fail" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <h4 class="font-bold text-lg group-hover:text-accent-red transition">Why 90% of Startups Fail</h4>
+                        <p class="text-gray-600 text-sm">And how validation-first development prevents your startup from becoming another statistic.</p>
+                    </a>
+                    <a href="blog-no-code-vs-custom.html" class="group">
+                        <div class="bg-gray-100 rounded-lg overflow-hidden mb-3">
+                            <img src="images/MVPInfluence.jpg" alt="No-Code vs Custom" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <h4 class="font-bold text-lg group-hover:text-accent-red transition">No-Code vs Custom Development</h4>
+                        <p class="text-gray-600 text-sm">When to use low-code tools and when to invest in custom development.</p>
+                    </a>
+                </div>
+            </section>
+        </article>
+        
+        <!-- CTA Section -->
+        <section class="px-6 py-16 bg-gray-900 text-white text-center">
+            <h2 class="text-3xl md:text-4xl font-headline uppercase mb-4">Ready to Build Your MVP?</h2>
+            <p class="text-xl opacity-80 mb-8 max-w-2xl mx-auto">Let's get you an accurate cost estimate for your specific project.</p>
+            <a href="calculator.html" class="btn btn-primary btn-lg">Get Free Estimate</a>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-[#FF3B3F] text-white px-6 py-16" role="contentinfo">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <div class="text-2xl font-headline uppercase-text tracking-tighter mb-4">FirstMileDev</div>
+                    <p class="text-white/80 text-sm max-w-sm mb-6">The Market-First MVP Agency. We validate demand before you write code.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank" rel="noopener" aria-label="YouTube" class="text-white/80 hover:text-white"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                        <a href="#" aria-label="Twitter" class="text-white/80 hover:text-white"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" aria-label="LinkedIn" class="text-white/80 hover:text-white"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#process" class="text-white/80 hover:text-white text-sm">Process</a></li>
+                        <li><a href="index.html#work" class="text-white/80 hover:text-white text-sm">Work</a></li>
+                        <li><a href="index.html#pricing" class="text-white/80 hover:text-white text-sm">Roadmap</a></li>
+                        <li><a href="calculator.html" class="text-white/80 hover:text-white text-sm">Calculator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Resources</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li><a href="blog.html" class="text-white/80 hover:text-white text-sm">Blog</a></li>
+                        <li><a href="faq.html" class="text-white/80 hover:text-white text-sm">FAQ</a></li>
+                        <li><a href="sitemap.xml" class="text-white/80 hover:text-white text-sm">Sitemap</a></li>
+                    </ul>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Contact</h4>
+                    <p class="text-white/80 text-sm">hello@firstmiledev.com</p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-white/60 text-xs">&copy; <span id="copyright-year">2024</span> FirstMileDev. Validate First.</div>
+                <div class="flex gap-6 text-xs">
+                    <a href="privacy.html" class="text-white/60 hover:text-white">Privacy Policy</a>
+                    <a href="terms.html" class="text-white/60 hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    
+    <!-- Tawk.to -->
+    <script type="text/javascript">
+    // Load tawk.to after page load to potentially bypass ad blockers
+    window.addEventListener('load', function() {
+        console.log('[Tawk.to] Loading widget after page load...');
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/69c45fd846a6c41c341ab391/1jkjhcpdh';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s1.onload = function() { 
+            console.log('[Tawk.to] Script loaded successfully'); 
+            setTimeout(function() {
+                var iframes = document.querySelectorAll('iframe');
+                var tawkFrame = Array.from(iframes).find(function(f) { return f.src && f.src.includes('tawk.to'); });
+                if (tawkFrame) {
+                    console.log('[Tawk.to] Widget iframe found! visible:', tawkFrame.offsetParent !== null);
+                }
+            }, 2000);
+        };
+        s1.onerror = function() { console.error('[Tawk.to] Script failed to load - likely blocked by ad blocker'); };
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    });
+    </script>
+    <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

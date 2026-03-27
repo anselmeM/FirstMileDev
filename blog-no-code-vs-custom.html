@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No-Code vs Custom Development: Which is Right for Your Startup? | FirstMileDev Blog</title>
+    <meta name="description" content="Learn when to use no-code tools like Bubble and FlutterFlow versus custom development with MERN stack. Make the right choice for your startup's budget and scale.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://firstmiledev.com/blog-no-code-vs-custom.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://firstmiledev.com/blog-no-code-vs-custom.html">
+    <meta property="og:title" content="No-Code vs Custom Development: Which is Right for Your Startup? | FirstMileDev">
+    <meta property="og:description" content="Learn when to use no-code tools vs custom development for your startup.">
+    <meta property="og:image" content="https://firstmiledev.com/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://firstmiledev.com/blog-no-code-vs-custom.html">
+    <meta name="twitter:title" content="No-Code vs Custom Development: Which is Right for Your Startup? | FirstMileDev">
+    <meta name="twitter:description" content="Learn when to use no-code tools vs custom development for your startup.">
+    <meta name="twitter:image" content="https://firstmiledev.com/twitter-image.jpg">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.clarity.ms">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FWBEXRG2N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5FWBEXRG2N', {'page_title': 'No-Code vs Custom Development'});
+    </script>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript" defer>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "w1i576b6a9");
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="navbar.js" defer></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'headline': ['"Archivo Black"', 'sans-serif'],
+                        'body': ['"Montserrat"', 'sans-serif'],
+                    },
+                    colors: {
+                        'accent-red': '#FF3B3F',
+                        'accent-teal': '#0D9488',
+                        'carbon-800': '#1F2937',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "No-Code vs Custom Development: Which is Right for Your Startup?",
+        "description": "Learn when to use no-code tools like Bubble and FlutterFlow versus custom development with MERN stack.",
+        "author": {
+            "@type": "Organization",
+            "name": "FirstMileDev"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FirstMileDev"
+        },
+        "datePublished": "2024-01-20",
+        "dateModified": "2024-01-20"
+    }
+    </script>
+</head>
+
+<body class="antialiased bg-white text-gray-900 font-body">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- UNIFIED NAVBAR -->
+    <div id="navbar-placeholder"></div>
+    
+    <main id="main-content">
+        <!-- Article Hero -->
+        <section class="bg-[#0D9488] text-white px-6 py-16 md:py-24">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="bg-white/20 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Development</span>
+                    <span class="text-white/80 text-sm">7 min read</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-headline uppercase mb-6">No-Code vs Custom Development</h1>
+                <p class="text-xl md:text-2xl opacity-90 max-w-2xl">One decision will shape your startup's future. Learn when to move fast with no-code—and when to invest in custom architecture.</p>
+            </div>
+        </section>
+        
+        <!-- Article Content -->
+        <article class="px-6 py-16 md:py-24 max-w-4xl mx-auto">
+            <!-- Introduction -->
+            <div class="prose prose-lg max-w-none mb-12">
+                <p class="text-xl text-gray-600 leading-relaxed mb-6">It's the question every startup founder faces: Should I build with no-code tools like Bubble and FlutterFlow, or invest in custom development with MERN, React, or Python?</p>
+                <p class="text-lg text-gray-600 leading-relaxed">The wrong choice can cost you months of time and tens of thousands of dollars. The right choice depends on your specific situation—your stage, budget, scale requirements, and long-term vision.</p>
+            </div>
+            
+            <!-- Section 1 -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Understanding the Two Paths</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">Let's define our terms clearly:</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-blue-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-headline uppercase mb-4 text-blue-800">No-Code / Low-Code</h3>
+                        <p class="text-gray-600 mb-4">Visual development platforms that let you build apps without writing code:</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• <strong>Bubble</strong> - Web apps</li>
+                            <li>• <strong>FlutterFlow</strong> - Mobile apps</li>
+                            <li>• <strong>Webflow</strong> - Websites</li>
+                            <li>• <strong>Wized + Xano</strong> - Backend + frontend</li>
+                        </ul>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-headline uppercase mb-4 text-purple-800">Custom Development</h3>
+                        <p class="text-gray-600 mb-4">Traditional coding with modern frameworks:</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• <strong>MERN Stack</strong> - MongoDB, Express, React, Node</li>
+                            <li>• <strong>Next.js</strong> - React framework</li>
+                            <li>• <strong>Python/Django</strong> - Backend</li>
+                            <li>• <strong>Rust/Go</strong> - High-performance</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 2 -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">When to Choose No-Code</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">No-code isn't a compromise—it's a strategic choice in the right circumstances:</p>
+                
+                <div class="space-y-6 mb-8">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-green-100 p-3 rounded-lg">
+                            <i data-lucide="check" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">You're in the Validation Phase</h3>
+                            <p class="text-gray-600">Your #1 goal is testing demand, not building the perfect product. No-code gets you to market in days, not months.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="bg-green-100 p-3 rounded-lg">
+                            <i data-lucide="check" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Your Feature Needs Are Standard</h3>
+                            <p class="text-gray-600">If you need user accounts, forms, dashboards, messaging, payments—no-code has ready-made components for these.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="bg-green-100 p-3 rounded-lg">
+                            <i data-lucide="check" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">You Have a Non-Technical Founder</h3>
+                            <p class="text-gray-600">No-code lets you iterate quickly without depending on developers. You own the product cycle.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="bg-green-100 p-3 rounded-lg">
+                            <i data-lucide="check" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Budget Under $15,000</h3>
+                            <p class="text-gray-600">No-code development typically costs $5,000-15,000. Custom starts at $25,000+.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-6">
+                    <p class="text-yellow-800 font-semibold">💡 Pro Tip: The No-Code Trap</p>
+                    <p class="text-yellow-700 mt-2">Many founders start with no-code but don't plan for the migration. If you expect to scale significantly, choose your no-code tool with your eventual migration path in mind.</p>
+                </div>
+            </section>
+            
+            <!-- Section 3 -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">When to Choose Custom Development</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">Custom development is worth the investment in these scenarios:</p>
+                
+                <div class="space-y-6 mb-8">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-red-100 p-3 rounded-lg">
+                            <i data-lucide="x" class="w-6 h-6 text-red-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">You Need Unique, Complex Logic</h3>
+                            <p class="text-gray-600">If your product requires proprietary algorithms, complex calculations, or novel workflows that no platform supports—custom is your only option.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="bg-red-100 p-3 rounded-lg">
+                            <i data-lucide="x" class="w-6 h-6 text-red-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Scale Exceeds 100,000 Users</h3>
+                            <p class="text-gray-600">No-code platforms have usage limits and per-user pricing that becomes expensive at scale. Custom scales infinitely with proper architecture.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="bg-red-100 p-3 rounded-lg">
+                            <i data-lucide="x" class="w-6 h-6 text-red-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">You Need Deep Integrations</h3>
+                            <p class="text-gray-600">Custom APIs, legacy system connections, and complex third-party integrations often require custom development.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="bg-red-100 p-3 rounded-lg">
+                            <i data-lucide="x" class="w-6 h-6 text-red-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">Performance is Critical</h3>
+                            <p class="text-gray-600">Real-time features, heavy data processing, video streaming—custom code can be optimized in ways no-code platforms can't match.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 4 -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">The Hybrid Approach: Phase-Based Strategy</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">The smartest founders don't choose one path—they use both strategically:</p>
+                
+                <div class="bg-gray-900 text-white p-8 rounded-xl mb-8">
+                    <h3 class="font-headline text-2xl uppercase mb-6">The Smart Startup Roadmap</h3>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="bg-accent-teal text-white w-12 h-12 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+                            <div>
+                                <h4 class="font-bold text-lg">Validation Phase (Weeks 1-4)</h4>
+                                <p class="text-gray-300">Use Bubble or Webflow + Wized to build a rapid prototype. Test demand with real users. Cost: $2,500-5,000</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="bg-accent-teal text-white w-12 h-12 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-lg">MVP Phase (Weeks 5-16)</h4>
+                                <p class="text-gray-300">If validation succeeds, rebuild in custom code OR continue with no-code depending on scale needs. Cost: $15,000-35,000</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="bg-accent-teal text-white w-12 h-12 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="font-bold text-lg">Scale Phase (Month 6+)</h4>
+                                <p class="text-gray-300">Once you've found product-market fit and secured funding, invest in custom architecture for performance and scale. Cost: $50,000+</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-lg text-gray-600 leading-relaxed">This approach lets you validate without over-investing, then migrate to custom code when you've proven demand.</p>
+            </section>
+            
+            <!-- Section 5 -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Real-World Decision Matrix</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">Here's how different startup types should think about this choice:</p>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-gray-200">
+                                <th class="py-3 px-4 font-headline uppercase text-sm">Startup Type</th>
+                                <th class="py-3 px-4 font-headline uppercase text-sm">Recommended</th>
+                                <th class="py-3 px-4 font-headline uppercase text-sm">Why</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">Marketplace</td>
+                                <td class="py-3 px-4"><span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-bold">Custom</span></td>
+                                <td class="py-3 px-4 text-gray-600 text-sm">Complex matching algorithms, user roles, payment splitting</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">B2B SaaS</td>
+                                <td class="py-3 px-4"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-bold">No-Code First</span></td>
+                                <td class="py-3 px-4 text-gray-600 text-sm">Standard features, faster to market, validate pricing</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">E-commerce</td>
+                                <td class="py-3 px-4"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-bold">No-Code First</span></td>
+                                <td class="py-3 px-4 text-gray-600 text-sm">Shopify handles heavy lifting, custom only for unique checkout</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">FinTech</td>
+                                <td class="py-3 px-4"><span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-bold">Custom</span></td>
+                                <td class="py-3 px-4 text-gray-600 text-sm">Security requirements, API integrations, compliance</td>
+                            </tr>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-4">HealthTech</td>
+                                <td class="py-3 px-4"><span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-bold">Custom</span></td>
+                                <td class="py-3 px-4 text-gray-600 text-sm">HIPAA compliance, data security, complex regulations</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4">Mobile App</td>
+                                <td class="py-3 px-4"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-bold">No-Code First</span></td>
+                                <td class="py-3 px-4 text-gray-600 text-sm">FlutterFlow or Glide for rapid validation, migrate to React Native if needed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Conclusion -->
+            <section class="mb-12">
+                <h2 class="text-3xl md:text-4xl font-headline uppercase mb-6 text-gray-900">Making Your Decision</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">There's no universal "right" answer—only the right answer for your specific situation. The key is being honest about:</p>
+                
+                <div class="bg-accent-teal/10 p-8 rounded-xl border border-accent-teal/20">
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="help-circle" class="w-6 h-6 text-accent-teal mt-1"></i>
+                            <div>
+                                <strong class="text-gray-900">Where are you in your startup journey?</strong>
+                                <p class="text-gray-600 text-sm">Validation vs. growth stage matters enormously.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="help-circle" class="w-6 h-6 text-accent-teal mt-1"></i>
+                            <div>
+                                <strong class="text-gray-900">What does your technical landscape look like?</strong>
+                                <p class="text-gray-600 text-sm">Unique requirements demand custom solutions. Standard needs don't.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="help-circle" class="w-6 h-6 text-accent-teal mt-1"></i>
+                            <div>
+                                <strong class="text-gray-900">What's your budget and timeline?</strong>
+                                <p class="text-gray-600 text-sm">No-code is faster and cheaper initially—but consider migration costs.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <p class="text-lg text-gray-600 leading-relaxed mt-8 mb-8">Need help choosing? We'd rather have an honest conversation than watch you make an expensive mistake. Let us help you evaluate your specific situation.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="index.html#contact" class="btn btn-primary btn-lg">Get Expert Guidance</a>
+                    <a href="calculator.html" class="btn btn-outline btn-lg">Estimate Your Cost</a>
+                </div>
+            </section>
+            
+            <!-- Related Articles -->
+            <section class="border-t border-gray-200 pt-12 mt-12">
+                <h3 class="text-2xl font-headline uppercase mb-6">Related Articles</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="blog-why-startups-fail.html" class="group">
+                        <div class="bg-gray-100 rounded-lg overflow-hidden mb-3">
+                            <img src="images/Why-Building-an-MVP-Matters-for-Startups.jpg" alt="Why 90% of Startups Fail" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <h4 class="font-bold text-lg group-hover:text-accent-red transition">Why 90% of Startups Fail</h4>
+                        <p class="text-gray-600 text-sm">And how validation-first development prevents your startup from becoming another statistic.</p>
+                    </a>
+                    <a href="blog-true-cost-mvp.html" class="group">
+                        <div class="bg-gray-100 rounded-lg overflow-hidden mb-3">
+                            <img src="images/Why-Building-an-MVP-Matters-for-Startups.jpg" alt="True Cost of MVP" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <h4 class="font-bold text-lg group-hover:text-accent-red transition">The True Cost of an MVP</h4>
+                        <p class="text-gray-600 text-sm">A complete breakdown of MVP development costs and budgeting.</p>
+                    </a>
+                </div>
+            </section>
+        </article>
+        
+        <!-- CTA Section -->
+        <section class="px-6 py-16 bg-gray-900 text-white text-center">
+            <h2 class="text-3xl md:text-4xl font-headline uppercase mb-4">Not Sure Which Path Is Right?</h2>
+            <p class="text-xl opacity-80 mb-8 max-w-2xl mx-auto">We help startups make this critical decision every day.</p>
+            <a href="index.html#contact" class="btn btn-primary btn-lg">Book Discovery Call</a>
+        </section>
+    </main>
+
+    <!-- UNIFIED FOOTER -->
+    <footer class="bg-[#FF3B3F] text-white px-6 py-16" role="contentinfo">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <div class="text-2xl font-headline uppercase-text tracking-tighter mb-4">FirstMileDev</div>
+                    <p class="text-white/80 text-sm max-w-sm mb-6">The Market-First MVP Agency. We validate demand before you write code.</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank" rel="noopener" class="text-white/80 hover:text-white" aria-label="FirstMileDev on YouTube"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-white/80 hover:text-white" aria-label="FirstMileDev on Twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-white/80 hover:text-white" aria-label="FirstMileDev on LinkedIn"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#process" class="text-white/80 hover:text-white text-sm">Process</a></li>
+                        <li><a href="index.html#work" class="text-white/80 hover:text-white text-sm">Work</a></li>
+                        <li><a href="index.html#pricing" class="text-white/80 hover:text-white text-sm">Roadmap</a></li>
+                        <li><a href="calculator.html" class="text-white/80 hover:text-white text-sm">Calculator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Resources</h4>
+                    <ul class="space-y-2 mb-6">
+                        <li><a href="blog.html" class="text-white/80 hover:text-white text-sm">Blog</a></li>
+                        <li><a href="faq.html" class="text-white/80 hover:text-white text-sm">FAQ</a></li>
+                        <li><a href="sitemap.xml" class="text-white/80 hover:text-white text-sm">Sitemap</a></li>
+                    </ul>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Contact</h4>
+                    <p class="text-white/80 text-sm">hello@firstmiledev.com</p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-white/60 text-xs">&copy; <span id="copyright-year">2024</span> FirstMileDev. Validate First.</div>
+                <div class="flex gap-6 text-xs">
+                    <a href="privacy.html" class="text-white/60 hover:text-white">Privacy Policy</a>
+                    <a href="terms.html" class="text-white/60 hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    
+    <!-- Tawk.to -->
+    <script type="text/javascript">
+    // Load tawk.to after page load to potentially bypass ad blockers
+    window.addEventListener('load', function() {
+        console.log('[Tawk.to] Loading widget after page load...');
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/69c45fd846a6c41c341ab391/1jkjhcpdh';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s1.onload = function() { 
+            console.log('[Tawk.to] Script loaded successfully'); 
+            setTimeout(function() {
+                var iframes = document.querySelectorAll('iframe');
+                var tawkFrame = Array.from(iframes).find(function(f) { return f.src && f.src.includes('tawk.to'); });
+                if (tawkFrame) {
+                    console.log('[Tawk.to] Widget iframe found! visible:', tawkFrame.offsetParent !== null);
+                }
+            }, 2000);
+        };
+        s1.onerror = function() { console.error('[Tawk.to] Script failed to load - likely blocked by ad blocker'); };
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    });
+    </script>
+    <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
