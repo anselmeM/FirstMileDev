@@ -1,4 +1,4 @@
-
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 // 2. INITIALIZE ICONS & GSAP
 lucide.createIcons();
@@ -106,7 +106,6 @@ window.addEventListener('scroll', function() {
     
     // Show CTA at 50% scroll (only once, don't show after contact section)
     // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     
     if (scrollPercent >= 50 && !cta50Shown && scrollPercent < 75 && !prefersReducedMotion.matches) {
         scrollCta50.classList.add('visible');
@@ -318,7 +317,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // 11. PREFERS-REDUCED-MOTION for accessibility
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (prefersReducedMotion.matches) {
     // Disable GSAP animations for users who prefer reduced motion
     gsap.globalTimeline.clear();
