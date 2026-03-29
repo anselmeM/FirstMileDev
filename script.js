@@ -634,3 +634,7 @@ window.addEventListener('scroll', function() {
         ticking = true;
     }
 });
+// 12. EXPORTS FOR TESTING
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { showCkForm };
+}
