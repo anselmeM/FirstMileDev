@@ -107,3 +107,7 @@ function toggleFaq(element) {
         element.classList.add("active");
     }
 }
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { toggleFaq };
+}
