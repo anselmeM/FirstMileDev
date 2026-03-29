@@ -66,26 +66,28 @@ global.document = {
 const { showCkForm } = require('../script');
 
 describe('showCkForm', () => {
-    let mockFormContainer;
-    let mockDownloadBtn;
+    let elements;
 
     beforeEach(() => {
         // Reset mocks before each test
         jest.clearAllMocks();
 
-        // Setup mock elements
-        mockFormContainer = { style: { display: 'none' } };
-        mockDownloadBtn = { style: { display: 'block' } };
+        // Initialize an empty map for elements
+        elements = {};
 
-        // Setup getElementById to return our mock elements
+        // Setup getElementById to return items from our map, or null if not found
         global.document.getElementById.mockImplementation((id) => {
-            if (id === 'ck-form-123') return mockFormContainer;
-            if (id === 'download-btn-123') return mockDownloadBtn;
-            return mockElement;
+            return elements[id] || null;
         });
     });
 
     test('should show form and hide download button when elements exist', () => {
+        const mockFormContainer = { style: { display: 'none' } };
+        const mockDownloadBtn = { style: { display: 'block' } };
+
+        elements['ck-form-123'] = mockFormContainer;
+        elements['download-btn-123'] = mockDownloadBtn;
+
         showCkForm('123');
 
         expect(mockFormContainer.style.display).toBe('block');
@@ -93,35 +95,24 @@ describe('showCkForm', () => {
     });
 
     test('should handle missing formContainer gracefully', () => {
-        // Mock download button only
-        global.document.getElementById.mockImplementation((id) => {
-            if (id === 'download-btn-missing-form') return mockDownloadBtn;
-            if (id.startsWith('ck-form-')) return null;
-            return mockElement;
-        });
+        const mockDownloadBtn = { style: { display: 'block' } };
+
+        elements['download-btn-missing-form'] = mockDownloadBtn;
 
         expect(() => showCkForm('missing-form')).not.toThrow();
         expect(mockDownloadBtn.style.display).toBe('none');
     });
 
     test('should handle missing downloadBtn gracefully', () => {
-        // Mock form container only
-        global.document.getElementById.mockImplementation((id) => {
-            if (id === 'ck-form-missing-btn') return mockFormContainer;
-            if (id.startsWith('download-btn-')) return null;
-            return mockElement;
-        });
+        const mockFormContainer = { style: { display: 'none' } };
+
+        elements['ck-form-missing-btn'] = mockFormContainer;
 
         expect(() => showCkForm('missing-btn')).not.toThrow();
         expect(mockFormContainer.style.display).toBe('block');
     });
 
     test('should handle both elements missing gracefully', () => {
-        global.document.getElementById.mockImplementation((id) => {
-            if (id.startsWith('ck-form-') || id.startsWith('download-btn-')) return null;
-            return mockElement;
-        });
-
         expect(() => showCkForm('both-missing')).not.toThrow();
     });
 });
