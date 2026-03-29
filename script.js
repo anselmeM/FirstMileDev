@@ -99,7 +99,7 @@ const scrollCta75 = document.getElementById('scroll-cta-75');
 let cta50Shown = false;
 let cta75Shown = false;
 
-window.addEventListener('scroll', function() {
+function handleScrollCTAs() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = (scrollTop / scrollHeight) * 100;
@@ -136,7 +136,7 @@ window.addEventListener('scroll', function() {
     if (scrollPercent >= 75 && cta50Shown) {
         scrollCta50.classList.remove('visible');
     }
-});
+}
 
 function closeScrollCta(ctaId) {
     const cta = document.getElementById(ctaId);
@@ -371,20 +371,7 @@ function handleScrollSpy() {
     });
 }
 
-// Combined scroll event handler
-let ticking = false;
-window.addEventListener('scroll', function() {
-    if (!ticking) {
-        window.requestAnimationFrame(function() {
-            handleStickyNav();
-            handleScrollSpy();
-            handleProgressIndicator();
-            handleBackToTop();
-            ticking = false;
-        });
-        ticking = true;
-    }
-});
+
 
 // Initial check on page load
 handleStickyNav();
@@ -448,18 +435,7 @@ function handleProgressIndicator() {
     });
 }
 
-// Add to scroll handler
-window.addEventListener('scroll', function() {
-    if (!ticking) {
-        window.requestAnimationFrame(function() {
-            handleStickyNav();
-            handleScrollSpy();
-            handleProgressIndicator();
-            ticking = false;
-        });
-        ticking = true;
-    }
-});
+
 
 // Initial check
 handleProgressIndicator();
@@ -513,7 +489,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Track scroll depth milestones (25%, 50%, 75%, 100%)
     let scrollMilestones = { 25: false, 50: false, 75: false, 100: false };
     
-    window.addEventListener('scroll', function() {
+    function handleScrollTracking() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPercent = Math.round((scrollTop / docHeight) * 100);
@@ -531,7 +507,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-    });
+    }
+
+    // Attach function to global scope so the main scroll handler can call it
+    window.handleScrollTracking = handleScrollTracking;
 });
 
 
@@ -620,15 +599,20 @@ function dismissPopupsAtContactSection() {
     }
 }
 
-// Add to scroll handler
+// Combined scroll event handler
+let ticking = false;
 window.addEventListener('scroll', function() {
     if (!ticking) {
         window.requestAnimationFrame(function() {
+            handleScrollCTAs();
             handleStickyNav();
             handleScrollSpy();
             handleProgressIndicator();
             handleBackToTop();
             dismissPopupsAtContactSection();
+            if (typeof window.handleScrollTracking === 'function') {
+                window.handleScrollTracking();
+            }
             ticking = false;
         });
         ticking = true;
