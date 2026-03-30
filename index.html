@@ -6,27 +6,214 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FirstMileDev - Validate First, Build Second</title>
     <meta name="description"
-        content="The Market-First MVP Agency. We validate demand before writing code for high-growth startups.">
+        content="Where Vision Meets Velocity. We transform ideas into market-validated MVPs using Data-Driven Insights, No-Code Agility, and PERN Stack Precision.">
+    <!-- Canonical URL for SEO -->
+    <link rel="canonical" href="https://firstmiledev.com/">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Open Graph Meta Tags for Facebook & LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://firstmiledev.com/">
+    <meta property="og:title" content="FirstMileDev - Where Vision Meets Velocity">
+    <meta property="og:description" content="Where Vision Meets Velocity. We transform ideas into market-validated MVPs using Data-Driven Insights, No-Code Agility, and PERN Stack Precision.">
+    <meta property="og:image" content="https://firstmiledev.com/og-image.jpg">
+    <meta property="og:site_name" content="FirstMileDev">
 
-    <!-- Fonts -->
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@firstmiledev">
+    <meta name="twitter:title" content="FirstMileDev - Where Vision Meets Velocity">
+    <meta name="twitter:description" content="Where Vision Meets Velocity. We transform ideas into market-validated MVPs using Data-Driven Insights, No-Code Agility, and PERN Stack Precision.">
+    <meta name="twitter:image" content="https://firstmiledev.com/twitter-image.jpg">
+
+    <!-- Preconnect to external origins for LCP optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.clarity.ms">
+
+    <!-- Preload critical fonts for LCP -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- XML Sitemap for SEO -->
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
+
+    <!-- iOS PWA Support -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FirstMileDev">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="images/icon-192.png">
+
+    <!-- JSON-LD Structured Data for Organization & Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "FirstMileDev",
+      "url": "https://firstmiledev.com",
+      "logo": "https://firstmiledev.com/logo.png",
+      "description": "Where Vision Meets Velocity. We transform ideas into market-validated MVPs using Data-Driven Insights, No-Code Agility, and PERN Stack Precision.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ottawa",
+        "addressRegion": "Ontario",
+        "addressCountry": "CA"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "hello@firstmiledev.com",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g"
+      ]
+    }
+    </script>
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "FirstMileDev",
+      "image": "https://firstmiledev.com/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ottawa",
+        "addressRegion": "Ontario",
+        "addressCountry": "CA"
+      },
+      "priceRange": "$$"
+    }
+    </script>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why validate before building?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Development is expensive. Marketing a product nobody wants is even more expensive. By spending a small amount on validation (ads + landing page), we save you thousands of dollars and months of time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What tech stack do you use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For MVPs (Phase 2), we use advanced low-code tools like Bubble, FlutterFlow, or Webflow + Wized. For Scaled Apps (Phase 3), we build custom using the PERN stack (PostgreSQL, Express, React, Node.js) or Next.js."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I own the code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. Once the project is paid for, you own 100% of the IP, code, and design assets. We are your partners, not your landlords."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- WebPage Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "FirstMileDev - Validate First, Build Second",
+      "description": "Where Vision Meets Velocity. We transform ideas into market-validated MVPs using Data-Driven Insights, No-Code Agility, and PERN Stack Precision.",
+      "url": "https://firstmiledev.com/",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://firstmiledev.com/og-image.jpg"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FirstMileDev"
+      }
+    }
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FWBEXRG2N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5FWBEXRG2N', {
+            'page_title': 'FirstMileDev Home',
+            'page_location': 'https://firstmiledev.com/'
+        });
+        
+        // Custom event for conversion tracking
+        gtag('event', 'conversion', {
+            'event_category': 'engagement',
+            'event_label': 'page_view'
+        });
+    </script>
+
+    
+
+    <!-- Microsoft Clarity - Deferred for FID -->
+    <script type="text/javascript" defer>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "w1i576b6a9");
+    </script>
+
+    
+
+    <!-- Tailwind CSS - Inlined for performance (critical) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function showCkForm(formUid) {
+            var formContainer = document.getElementById('ck-form-' + formUid);
+            var downloadBtn = document.getElementById('download-btn-' + formUid);
+            
+            if (formContainer) {
+                formContainer.style.display = 'block';
+            }
+            if (downloadBtn) {
+                downloadBtn.style.display = 'none';
+            }
+        }
+    </script>
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+
+    <!-- Fonts with font-display: swap -->
     <link
         href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
     <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
+    <script src="navbar.js" defer></script>
 
-    <!-- GSAP for Animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- GSAP - Deferred loading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons - Deferred -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <script>
         tailwind.config = {
@@ -37,10 +224,38 @@
                         'body': ['"Montserrat"', 'sans-serif'],
                     },
                     colors: {
+                        // Primary Accent - Red
                         'accent-red': '#FF3B3F',
-                        'accent-sky': '#CAEBF2',
+                        'accent-red-dark': '#E63539',
+                        'accent-red-light': '#FF6B6E',
+                        
+                        // Secondary Accent - Teal
+                        'accent-teal': '#0D9488',
+                        'accent-teal-dark': '#0F766E',
+                        'accent-teal-light': '#14B8A6',
+                        
+                        // Carbon/Neutral Shades
+                        'carbon-900': '#111827',
+                        'carbon-800': '#1F2937',
+                        'carbon-700': '#374151',
+                        'carbon-600': '#4B5563',
+                        'carbon-500': '#6B7280',
+                        'carbon-400': '#9CA3AF',
+                        'carbon-300': '#D1D5DB',
+                        'carbon-200': '#E5E7EB',
+                        'carbon-100': '#F3F4F6',
+                        'carbon-50': '#F9FAFB',
+                        
+                        // Legacy aliases
+                        'accent-sky': '#7CB9C9',
                         'carbon': '#1f2937',
                         'light-gray': '#FAFAFA',
+                    },
+                    boxShadow: {
+                        'btn': '0 4px 14px rgba(0, 0, 0, 0.1)',
+                        'btn-hover': '0 8px 25px rgba(0, 0, 0, 0.15)',
+                        'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
+                        'card-hover': '0 12px 40px rgba(0, 0, 0, 0.12)',
                     },
                     animation: {
                         'spin-slow': 'spin 15s linear infinite',
@@ -53,70 +268,42 @@
 
 <body class="antialiased bg-white text-gray-900">
 
-    <!-- MOBILE MENU OVERLAY -->
-    <div id="mobile-menu-overlay"
-        class="fixed inset-0 bg-[#1f2937] z-50 flex flex-col justify-center items-center text-center">
-        <!-- Close Button -->
-        <button onclick="toggleMobileMenu()"
-            class="absolute top-6 right-6 text-white p-2 hover:rotate-90 transition-transform duration-300">
-            <i data-lucide="x" class="w-10 h-10"></i>
-        </button>
+    <!-- Accessibility: Skip Link for Keyboard Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-        <!-- Menu Links -->
-        <nav class="flex flex-col space-y-8">
-            <a href="#process" onclick="toggleMobileMenu()"
-                class="mobile-link-item text-4xl font-headline text-white uppercase hover:text-[#FF3B3F] transition-colors">Process</a>
-            <a href="#lab" onclick="toggleMobileMenu()"
-                class="mobile-link-item text-4xl font-headline text-white uppercase hover:text-[#FF3B3F] transition-colors">The
-                Lab</a>
-            <a href="#work" onclick="toggleMobileMenu()"
-                class="mobile-link-item text-4xl font-headline text-white uppercase hover:text-[#FF3B3F] transition-colors">Work</a>
-            <a href="#pricing" onclick="toggleMobileMenu()"
-                class="mobile-link-item text-4xl font-headline text-white uppercase hover:text-[#FF3B3F] transition-colors">Roadmap</a>
-            <!-- NEW CALCULATOR LINK -->
-            <a href="calculator.html"
-                class="mobile-link-item text-4xl font-headline text-[#FF3B3F] uppercase hover:text-white transition-colors">Calculator</a>
+    <!-- Main Content Landmark for Accessibility -->
+    <main id="main-content" role="main">
 
-            <a href="#contact" onclick="toggleMobileMenu()"
-                class="mobile-link-item text-xl font-bold font-body text-white uppercase tracking-widest border-2 border-white px-8 py-4 rounded-full hover:bg-white hover:text-[#1f2937] transition-all mt-4">Start
-                Validation</a>
-        </nav>
-    </div>
+    <!-- UNIFIED NAVBAR PLACEHOLDERS -->
+    <div id="mobile-menu-placeholder"></div>
 
     <!-- HERO SECTION -->
     <section id="hero-section"
         class="bg-[#FF3B3F] text-white px-6 md:px-8 lg:px-16 py-6 md:py-8 min-h-screen flex flex-col justify-between relative overflow-hidden">
 
-        <header class="relative flex justify-between items-center py-4 z-20">
-            <div class="text-lg font-headline uppercase-text leading-tight z-10 font-black tracking-tighter cursor-pointer"
-                onclick="window.scrollTo(0,0)">
-                First<br>MileDev
-            </div>
+        <!-- Navbar Placeholder (Desktop) -->
+        <div id="header-placeholder"></div>
 
-            <!-- Desktop Nav -->
-            <div class="hidden md:flex items-center space-x-8">
-                <nav class="flex items-center space-x-8">
-                    <a href="#process"
-                        class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition">Process</a>
-                    <a href="#lab"
-                        class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition">The Lab</a>
-                    <a href="#work"
-                        class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition">Work</a>
-                    <a href="#pricing"
-                        class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition">Roadmap</a>
-                    <!-- NEW CALCULATOR LINK -->
-                    <a href="calculator.html"
-                        class="uppercase-text text-xs font-bold tracking-widest hover:opacity-75 transition text-white border border-white/30 px-3 py-1 rounded hover:bg-white hover:text-[#FF3B3F]">Calculator</a>
-                </nav>
-                <a href="#contact" class="header-cta-button"> Start Validation </a>
+        <!-- Progress Indicator for Three-Phase Journey -->
+        <div id="progress-indicator" class="progress-indicator">
+            <div class="progress-track">
+                <div class="progress-fill" id="progress-fill"></div>
             </div>
-
-            <!-- Mobile Hamburger -->
-            <button class="md:hidden text-white z-10 p-2 hover:bg-white/10 rounded-lg transition"
-                onclick="toggleMobileMenu()">
-                <i data-lucide="menu" class="w-8 h-8"></i>
-            </button>
-        </header>
+            <div class="progress-labels">
+                <button class="progress-phase" data-phase="process" onclick="scrollToSection('process')">
+                    <span class="phase-number">1</span>
+                    <span class="phase-name">Viability</span>
+                </button>
+                <button class="progress-phase" data-phase="pricing" onclick="scrollToSection('pricing')">
+                    <span class="phase-number">2</span>
+                    <span class="phase-name">Build</span>
+                </button>
+                <button class="progress-phase" data-phase="contact" onclick="scrollToSection('contact')">
+                    <span class="phase-number">3</span>
+                    <span class="phase-name">Growth</span>
+                </button>
+            </div>
+        </div>
 
         <div class="mt-12 md:mt-20 mb-12 z-10">
             <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase-text leading-none font-headline mb-8">
@@ -132,12 +319,17 @@
             <div class="lg:col-start-2">
                 <p id="hero-subheadline"
                     class="text-base md:text-lg font-bold uppercase-text mb-8 leading-relaxed opacity-0 transform translate-y-5 tracking-wide">
-                    The "Market-First" MVP Agency for Visionary Founders.<br>
-                    We move you from "Idea" to "Validated Product"<br>
-                    using Data, No-Code, and the MERN Stack.
+                    Where Vision Meets Velocity. We transform ideas into market-validated MVPs using Data-Driven Insights, No-Code Agility, and PERN Stack Precision. Your breakthrough product—built faster, tested smarter, ready for launch.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 opacity-0 transform translate-y-5" id="hero-cta-container">
-                    <a href="#pricing" class="hero-cta-link"> View The Roadmap </a>
+                <div class="flex flex-col sm:flex-row gap-4 opacity-0 transform translate-y-5 items-start" id="hero-cta-container">
+                    <div class="flex flex-col">
+                        <!-- Limited Availability Badge -->
+                        <span class="inline-flex items-center gap-2 bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full w-fit mb-4">
+                            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                            Limited Availability - 2 spots left this month
+                        </span>
+                        <a href="#contact" class="hero-cta-link"> Book Discovery Call </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -156,8 +348,11 @@
                     <div
                         class="w-14 h-14 rounded-full bg-gray-300 overflow-hidden flex-shrink-0 border-2 border-white shadow-sm z-10 relative">
                         <!-- ⚡ Bolt: Lazy load below-the-fold founder image -->
-                        <img src="https://placehold.co/100x100/333/fff?text=AM" alt="Founder"
-                            class="w-full h-full object-cover" loading="lazy" decoding="async" width="100" height="100">
+                        <picture>
+                            <source srcset="https://placehold.co/100x100/333/fff.webp?text=AM" type="image/webp">
+                            <img src="https://placehold.co/100x100/333/fff?text=AM" alt="Founder"
+                                class="w-full h-full object-cover" loading="lazy" decoding="async" width="100" height="100">
+                        </picture>
                     </div>
                     <div>
                         <div class="overflow-hidden">
@@ -175,7 +370,7 @@
                 <p class="text-gray-600 text-lg leading-relaxed max-w-2xl font-medium">
                     I built FirstMileDev to stop that cycle. We don't just write code; we bridge the gap between
                     business strategy and technical execution. Whether you need a quick No-Code validation or a scalable
-                    MERN stack platform, we ensure every dollar you spend moves you closer to Product-Market Fit.
+                    PERN stack platform, we ensure every dollar you spend moves you closer to Product-Market Fit.
                 </p>
             </div>
 
@@ -211,7 +406,7 @@
                     We don't hide our process behind buzzwords. Watch Anselme break down the exact tech stacks, scraping
                     strategies, and code patterns we use for client builds in our "Build in Public" series.
                 </p>
-                <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank"
+                <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank" rel="noopener noreferrer"
                     class="inline-flex items-center font-bold uppercase text-sm tracking-widest text-[#FF3B3F] hover:text-black transition group">
                     <i data-lucide="youtube" class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform"></i> Visit
                     The Lab
@@ -230,9 +425,13 @@
                     </div>
                 </div>
                 <!-- Placeholder Image -->
-                <!-- ⚡ Bolt: Lazy load video placeholder image -->
-                <img src="https://placehold.co/800x450/1f2937/fff?text=Build+In+Public+Series"
-                    class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 scale-100 group-hover:scale-105" loading="lazy" decoding="async" width="800" height="450">
+                <!-- ⚡ Bolt: Lazy load video placeholder image - REPLACE with actual video thumbnail -->
+                <picture>
+                    <source srcset="https://placehold.co/800x450/1f2937/fff.webp?text=Build+In+Public+Series" type="image/webp">
+                    <img src="https://placehold.co/800x450/1f2937/fff?text=Build+In+Public+Series"
+                        alt="Build In Public video series thumbnail - Anselme explaining tech stacks and development processes" width="800" height="450" loading="lazy" decoding="async"
+                        class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500 scale-100 group-hover:scale-105">
+                </picture>
             </div>
         </div>
     </section>
@@ -241,20 +440,21 @@
     <section id="work" class="px-6 md:px-8 lg:px-16 py-20 bg-[#FAFAFA]">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16 gsap-reveal">
-                <h2 class="text-3xl md:text-5xl uppercase-text font-headline mb-4">Selected Launches</h2>
+                <h2 class="text-3xl md:text-5xl uppercase-text font-headline mb-4">Case Studies</h2>
                 <p class="text-gray-500 text-sm font-bold uppercase tracking-widest">Real Results, Not Just Code</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                <!-- Project 1 -->
+                <!-- Project 1 - Link to full case study -->
                 <div
-                    class="work-card group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 gsap-reveal">
+                    class="work-card group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 gsap-reveal work-card-clickable"
+                    onclick="window.location.href='case-study-fintech.html'">
                     <!-- Image Area -->
                     <div class="h-64 overflow-hidden relative">
-                        <!-- ⚡ Bolt: Lazy load project 1 image -->
-                        <img src="https://placehold.co/800x600/333/fff?text=SaaS+Dashboard" alt="Project 1"
-                            class="work-image w-full h-full object-cover transition-transform duration-700" loading="lazy" decoding="async" width="800" height="600">
+                        <!-- FinTech Dashboard Screenshot -->
+                        <img src="images/sassdashboard.png?v=2" alt="FinTech MVP - Financial dashboard with real-time data visualization, user analytics, and reporting features"
+                                class="work-image w-full h-full object-cover transition-transform duration-700" loading="lazy" decoding="async" width="800" height="600">
                         <div
                             class="work-overlay absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 flex items-center justify-center">
                             <span
@@ -292,12 +492,13 @@
 
                 <!-- Project 2 -->
                 <div
-                    class="work-card group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 gsap-reveal">
+                    class="work-card group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 gsap-reveal work-card-clickable"
+                    onclick="window.location.href='case-study-ecom-validator.html'">
                     <!-- Image Area -->
                     <div class="h-64 overflow-hidden relative">
-                        <!-- ⚡ Bolt: Lazy load project 2 image -->
-                        <img src="https://placehold.co/800x600/FF3B3F/fff?text=Market+Validator" alt="Project 2"
-                            class="work-image w-full h-full object-cover transition-transform duration-700" loading="lazy" decoding="async" width="800" height="600">
+                        <!-- E-Commerce Validator Screenshot -->
+                        <img src="images/E-Commerce Validator.png?v=2" alt="Market Validator - Landing page with ad campaign results, market size analysis, and validation metrics"
+                                class="work-image w-full h-full object-cover transition-transform duration-700" loading="lazy" decoding="async" width="800" height="600">
                         <div
                             class="work-overlay absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 flex items-center justify-center">
                             <span
@@ -340,6 +541,16 @@
 
     <!-- PRICING SECTION -->
     <section id="pricing" class="px-6 md:px-8 lg:px-16 py-24 md:py-32 bg-white">
+        <!-- Secondary Navigation / Jump Links -->
+        <div class="max-w-4xl mx-auto mb-8 gsap-reveal">
+            <div class="jump-links justify-center">
+                <a href="#validation" class="jump-link">Phase 1: Validation</a>
+                <a href="#mvp" class="jump-link">Phase 2: MVP</a>
+                <a href="#scale" class="jump-link">Phase 3: Scale</a>
+                <a href="calculator.html" class="jump-link">Cost Calculator</a>
+            </div>
+        </div>
+
         <div class="max-w-4xl mx-auto text-center mb-20 gsap-reveal">
             <h2 class="text-4xl md:text-6xl uppercase-text mb-4 font-headline text-gray-900">The Roadmap</h2>
             <p class="text-lg text-gray-400 uppercase font-bold tracking-widest mb-8">De-risking your development
@@ -349,7 +560,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-16">
 
             <!-- Card 1: Validation -->
-            <div
+            <div id="validation"
                 class="gsap-reveal border border-gray-200 p-8 rounded-xl flex flex-col bg-white hover:shadow-xl hover:border-[#FF3B3F] transition-all duration-300 relative group">
                 <div
                     class="bg-gray-100 text-[10px] font-black tracking-widest px-3 py-1 absolute top-0 right-0 rounded-bl-lg uppercase text-gray-500">
@@ -379,13 +590,12 @@
                             class="w-4 h-4 mr-3 text-[#FF3B3F]"></i>Viability Report</div>
                 </div>
 
-                <a href="#contact"
-                    class="block w-full text-center border-2 border-gray-900 text-gray-900 py-4 font-bold hover:bg-black hover:text-white transition uppercase text-xs tracking-widest rounded-lg">Start
+                <a href="#contact" class="btn btn-outline btn-full">Start
                     Validation</a>
             </div>
 
             <!-- Card 2: MVP (Popular) -->
-            <div
+            <div id="mvp"
                 class="gsap-reveal border-2 border-gray-900 p-8 rounded-xl flex flex-col bg-white shadow-2xl relative transform md:-translate-y-6 z-10">
                 <div
                     class="bg-black text-white text-[10px] font-black tracking-widest px-4 py-1 absolute top-0 right-0 rounded-bl-lg uppercase">
@@ -413,13 +623,12 @@
                             class="w-4 h-4 mr-3 text-[#FF3B3F]"></i>Mobile Responsive</div>
                 </div>
 
-                <a href="#contact"
-                    class="block w-full text-center bg-[#FF3B3F] text-white border-2 border-[#FF3B3F] py-4 font-bold hover:bg-black hover:border-black transition uppercase text-xs tracking-widest rounded-lg shadow-lg">Build
+                <a href="#contact" class="btn btn-primary btn-full">Build
                     My MVP</a>
             </div>
 
             <!-- Card 3: Scale -->
-            <div
+            <div id="scale"
                 class="gsap-reveal border border-gray-200 p-8 rounded-xl flex flex-col bg-white hover:shadow-xl hover:border-[#FF3B3F] transition-all duration-300 relative group">
                 <div
                     class="bg-gray-100 text-[10px] font-black tracking-widest px-3 py-1 absolute top-0 right-0 rounded-bl-lg uppercase text-gray-500">
@@ -436,7 +645,7 @@
                 </div>
 
                 <p class="text-gray-500 mb-8 text-sm leading-relaxed">Ready to handle thousands of users? We migrate
-                    your MVP to a scalable custom architecture (MERN Stack).</p>
+                    your MVP to a scalable custom architecture (PERN Stack).</p>
 
                 <div class="space-y-4 text-gray-700 text-sm font-medium flex-grow mb-8">
                     <div class="flex items-center"><i data-lucide="code-2"
@@ -447,20 +656,257 @@
                             class="w-4 h-4 mr-3 text-[#FF3B3F]"></i>Advanced Security</div>
                 </div>
 
-                <a href="#contact"
-                    class="block w-full text-center border-2 border-gray-900 text-gray-900 py-4 font-bold hover:bg-black hover:text-white transition uppercase text-xs tracking-widest rounded-lg">Let's
+                <a href="#contact" class="btn btn-outline btn-full">Let's
                     Scale</a>
             </div>
         </div>
 
+        <!-- Trust Badges -->
+        <div class="mt-12 pt-8 border-t border-gray-100">
+            <div class="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-500">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-green-600"></i>
+                    <span>SSL Secure</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="lock" class="w-5 h-5 text-green-600"></i>
+                    <span>Encrypted Payments</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="credit-card" class="w-5 h-5 text-green-600"></i>
+                    <span>No Credit Card Required to Start</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="rotate-ccw" class="w-5 h-5 text-green-600"></i>
+                    <span>100% Ownership</span>
+                </div>
+            </div>
+        </div>
+
         <!-- CTA to Calculator -->
-        <div class="text-center gsap-reveal border-t border-gray-100 pt-12">
+        <div class="text-center gsap-reveal border-t border-gray-100 pt-8">
             <p class="text-gray-500 font-bold uppercase tracking-widest text-sm mb-4">Unsure about the cost?</p>
             <a href="calculator.html"
                 class="inline-flex items-center font-bold uppercase text-base tracking-widest text-[#FF3B3F] hover:text-black transition group">
                 Try our App Cost Calculator <i data-lucide="arrow-right"
                     class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
             </a>
+        </div>
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section id="blog" class="px-6 md:px-8 lg:px-16 py-20 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 gsap-reveal">
+                <h2 class="text-3xl md:text-5xl uppercase-text font-headline mb-4">Latest Insights</h2>
+                <p class="text-gray-500 text-sm font-bold uppercase tracking-widest">Startup Validation & Development Tips</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <!-- Blog Post 1 -->
+                <article class="blog-card group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col">
+                    <a href="blog-why-startups-fail.html" class="flex flex-col h-full">
+                        <div class="h-48 bg-gray-100 overflow-hidden relative flex-shrink-0">
+                            <img src="images/Handpicked-Reasons-Why-90-Startups-Fail-.jpg" alt="Why 90% of Startups Fail" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async" width="600" height="400">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-xs font-bold text-accent-red uppercase tracking-widest">Startup Validation</span>
+                            <h3 class="font-headline text-xl uppercase-text mt-2 mb-3">Why 90% of Startups Fail</h3>
+                            <p class="text-gray-600 text-sm mb-4">And how validation-first development prevents your startup from becoming another statistic.</p>
+                            <div class="border-t border-gray-100 pt-4 mt-auto">
+                                <ul class="text-xs text-gray-500 space-y-1 mb-4">
+                                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Build measure learn loop</li>
+                                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Problem-solution fit first</li>
+                                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Data-driven decisions</li>
+                                </ul>
+                            </div>
+                            <div class="flex items-center justify-between pt-2 border-t border-gray-50 mt-2">
+                                <span class="text-xs text-gray-400">5 min read</span>
+                                <span class="text-sm font-bold text-accent-red hover:text-black transition">Read More &rarr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col">
+                    <a href="blog-no-code-vs-custom.html" class="flex flex-col h-full">
+                        <div class="h-48 bg-gray-100 overflow-hidden relative flex-shrink-0">
+                            <img src="images/MVPInfluence.jpg" alt="No-Code vs Custom" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async" width="600" height="400">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-xs font-bold text-accent-red uppercase tracking-widest">Development</span>
+                            <h3 class="font-headline text-xl uppercase-text mt-2 mb-3">No-Code vs Custom</h3>
+                            <p class="text-gray-600 text-sm mb-4">When to use low-code tools and when to invest in custom development.</p>
+                            <div class="border-t border-gray-100 pt-4 mt-auto">
+                                <ul class="text-xs text-gray-500 space-y-1 mb-4">
+                                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> MVP: Bubble, FlutterFlow</li>
+                                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Scale: PERN, Next.js</li>
+                                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Migration path planning</li>
+                                </ul>
+                            </div>
+                            <div class="flex items-center justify-between pt-2 border-t border-gray-50 mt-2">
+                                <span class="text-xs text-gray-400">7 min read</span>
+                                <span class="text-sm font-bold text-accent-red hover:text-black transition">Read More &rarr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col">
+                    <a href="blog-true-cost-mvp.html" class="flex flex-col h-full">
+                        <div class="h-48 bg-gray-100 overflow-hidden relative flex-shrink-0">
+                            <img src="images/Why-Building-an-MVP-Matters-for-Startups.jpg" alt="True Cost of MVP" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" decoding="async" width="600" height="400">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-xs font-bold text-accent-red uppercase tracking-widest">Pricing</span>
+                            <h3 class="font-headline text-xl uppercase-text mt-2 mb-3">The True Cost of an MVP</h3>
+                            <p class="text-gray-600 text-sm mb-4">A breakdown of MVP development costs and how to budget for your first product.</p>
+                            <div class="border-t border-gray-100 pt-4 mt-auto">
+                                <ul class="text-xs text-gray-500 space-y-1 mb-4">
+                                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Phase 1: $2,000</li>
+                                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Phase 2: $5,000</li>
+                                    <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Hidden costs to avoid</li>
+                                </ul>
+                            </div>
+                            <div class="flex items-center justify-between pt-2 border-t border-gray-50 mt-2">
+                                <span class="text-xs text-gray-400">6 min read</span>
+                                <span class="text-sm font-bold text-accent-red hover:text-black transition">Read More &rarr;</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="blog.html" class="btn btn-outline">View All Articles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESOURCES SECTION -->
+    <section id="resources" class="px-6 md:px-8 lg:px-16 py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 gsap-reveal">
+                <h2 class="text-3xl md:text-5xl uppercase-text font-headline mb-4">Free Resources</h2>
+                <p class="text-gray-500 text-sm font-bold uppercase tracking-widest">Templates, Checklists & Guides</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Resource 1 - ConvertKit Form -->
+                <div class="resource-card bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300">
+                    <div class="w-12 h-12 bg-accent-red/10 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="check-square" class="w-6 h-6 text-accent-red"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">MVP Validation Checklist</h3>
+                    <p class="text-gray-500 text-sm mb-4">10 things to verify before building your product.</p>
+                    <!-- Download button -->
+                    <button type="button" id="download-btn-873c083981" class="text-sm font-bold text-accent-red bg-transparent border-none cursor-pointer p-0 hover:text-black" onclick="document.getElementById('ck-form-873c083981').style.display='block'; this.style.display='none';">Download Free &rarr;</button>
+                    <!-- ConvertKit inline form (hidden initially) -->
+                    <div id="ck-form-873c083981" style="display: none; margin-top: 12px;">
+                        <script async data-uid="873c083981" src="https://amlive.kit.com/873c083981/index.js"></script>
+                    </div>
+                </div>
+
+                <!-- Resource 2 -->
+                <div class="resource-card bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300">
+                    <div class="w-12 h-12 bg-accent-teal/10 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="calculator" class="w-6 h-6 text-accent-teal"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Cost Calculator</h3>
+                    <p class="text-gray-500 text-sm mb-4">Estimate your MVP development cost in seconds.</p>
+                    <a href="calculator.html" class="text-sm font-bold text-accent-red">Use Calculator &rarr;</a>
+                </div>
+
+                <!-- Resource 3 -->
+                <div class="resource-card bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300">
+                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="file-text" class="w-6 h-6 text-gray-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Requirements Template</h3>
+                    <p class="text-gray-500 text-sm mb-4">Document your app requirements for developers.</p>
+                    <a href="#" class="text-sm font-bold text-gray-400">Coming Soon</a>
+                </div>
+
+                <!-- Resource 4 -->
+                <div class="resource-card bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300">
+                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="map" class="w-6 h-6 text-gray-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Startup Roadmap</h3>
+                    <p class="text-gray-500 text-sm mb-4">Your path from idea to validated product.</p>
+                    <a href="#" class="text-sm font-bold text-gray-400">Coming Soon</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST SIGNALS SECTION -->
+    <section class="px-6 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <!-- As Seen In / Media Mentions - COMMENTED OUT
+            <div class="text-center mb-12">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">As Seen In</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 opacity-60">
+                    <span class="text-xl font-bold text-gray-400">FORBES</span>
+                    <span class="text-xl font-bold text-gray-400">TechCrunch</span>
+                    <span class="text-xl font-bold text-gray-400">STARTUP weekly</span>
+                    <span class="text-xl font-bold text-gray-400">Y Combinator</span>
+                </div>
+            </div>
+            -->
+
+            <!-- Partnership Badges -->
+            <div class="border-t border-b border-gray-100 py-12">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-400 text-center mb-8">Technologies We Use</p>
+                <div class="flex flex-wrap justify-center items-center gap-8">
+                    <div class="flex items-center gap-2 text-gray-500">
+                        <i data-lucide="box" class="w-5 h-5"></i>
+                        <span class="font-semibold">Webflow</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-500">
+                        <i data-lucide="database" class="w-5 h-5"></i>
+                        <span class="font-semibold">Xano</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-500">
+                        <i data-lucide="code" class="w-5 h-5"></i>
+                        <span class="font-semibold">React</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-500">
+                        <i data-lucide="server" class="w-5 h-5"></i>
+                        <span class="font-semibold">Node.js</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-500">
+                        <i data-lucide="cloud" class="w-5 h-5"></i>
+                        <span class="font-semibold">AWS</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-500">
+                        <i data-lucide="credit-card" class="w-5 h-5"></i>
+                        <span class="font-semibold">Stripe</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12">
+                <div class="text-center">
+                    <p class="text-4xl font-headline text-accent-red">100%</p>
+                    <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Projects Delivered</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-headline text-accent-red">100%</p>
+                    <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Client Funding Secured</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-headline text-accent-red">360°</p>
+                    <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Full-Stack Expertise</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-headline text-accent-red">Zero</p>
+                    <p class="text-gray-500 text-sm uppercase tracking-widest mt-2">Blind Guesswork</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -496,7 +942,7 @@
                     <div class="faq-answer px-6">
                         <div class="pb-6 text-gray-600">
                             For MVPs (Phase 2), we use advanced low-code tools like Bubble, FlutterFlow, or Webflow +
-                            Wized. For Scaled Apps (Phase 3), we build custom using the MERN stack (MongoDB, Express,
+                            Wized. For Scaled Apps (Phase 3), we build custom using the PERN stack (PostgreSQL, Express,
                             React, Node.js) or Next.js.
                         </div>
                     </div>
@@ -527,6 +973,10 @@
             <!-- Left Side: Copy -->
             <div class="lg:col-span-2 pt-8 gsap-reveal">
                 <h2 class="text-4xl md:text-5xl uppercase-text font-headline mb-6">Let's Validate Your Idea</h2>
+                <p class="text-sm text-green-400 font-bold mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    <span id="visitor-count">2-5 founders</span> viewing this page
+                </p>
                 <p class="text-gray-400 mb-8 text-lg leading-relaxed">
                     Stop guessing and start building with confidence. Book a 15-minute discovery call to see if your
                     idea is ready for the First Mile.
@@ -569,9 +1019,8 @@
             <!-- Right Side: Calendly Embed -->
             <div class="lg:col-span-3 w-full bg-white rounded-xl overflow-hidden shadow-2xl gsap-reveal">
                 <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget"
-                    data-url="https://calendly.com/anselme-firstmiledev?hide_gdpr_banner=1&primary_color=ff3b3f"
-                    style="min-width:320px;height:700px;"></div>
+                <div class="calendly-inline-widget calendly-widget-container"
+                    data-url="https://calendly.com/anselme-firstmiledev?hide_gdpr_banner=1&primary_color=ff3b3f"></div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"
                     async></script>
                 <!-- Calendly inline widget end -->
@@ -580,25 +1029,120 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-black text-white px-6 py-12 border-t border-gray-800">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="text-2xl font-headline uppercase-text tracking-tighter mb-4 md:mb-0">
-                First<span class="text-[#FF3B3F]">Mile</span>Dev
-            </div>
-            <div class="text-gray-500 text-xs font-bold uppercase tracking-widest">
-                &copy; 2024 FirstMileDev. Validate First.
+    </main>
+
+    <!-- CONVERSION: Scroll-Triggered CTA at 50% -->
+    <div id="scroll-cta-50" class="scroll-cta" role="status" aria-live="polite">
+        <div class="scroll-cta-content">
+            <button class="scroll-cta-close" aria-label="Close" onclick="closeScrollCta('scroll-cta-50')">&times;</button>
+            <p class="scroll-cta-text">Ready to validate your startup idea?</p>
+            <a href="#contact" class="scroll-cta-button">Book Free Discovery Call</a>
+        </div>
+    </div>
+
+    <!-- CONVERSION: Exit-Intent Popup with Lead Magnet -->
+    <div id="exit-intent-popup" class="exit-popup" role="dialog" aria-labelledby="exit-popup-title" aria-modal="true">
+        <div class="exit-popup-overlay" onclick="closeExitPopup()"></div>
+        <div class="exit-popup-content">
+            <button class="exit-popup-close" aria-label="Close" onclick="closeExitPopup()">&times;</button>
+            <div class="exit-popup-body">
+                <h3 id="exit-popup-title" class="exit-popup-title">Wait! Don't Build Without Validation</h3>
+                <p class="exit-popup-subtitle">Get our FREE MVP Validation Checklist - 10 things to verify before writing code</p>
+                <form id="lead-capture-form" class="lead-capture-form" onsubmit="handleLeadCapture(event)">
+                    <label for="lead-email" class="sr-only">Email address</label>
+                    <input 
+                        type="email" 
+                        id="lead-email" 
+                        name="email" 
+                        placeholder="Enter your email" 
+                        required 
+                        class="lead-input"
+                        autocomplete="email"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        title="Please enter a valid email address"
+                    >
+                    <button type="submit" class="lead-submit">Send Me The Checklist</button>
+                </form>
+                <p class="lead-privacy">We respect your privacy. No spam, ever.</p>
             </div>
         </div>
-    </footer>
+    </div>
+
+    <!-- CONVERSION: Scroll-Triggered CTA at 75% -->
+    <div id="scroll-cta-75" class="scroll-cta scroll-cta-late" role="status" aria-live="polite">
+        <div class="scroll-cta-content">
+            <button class="scroll-cta-close" aria-label="Close" onclick="closeScrollCta('scroll-cta-75')">&times;</button>
+            <p class="scroll-cta-text">Stop guessing. Start building with data.</p>
+            <a href="#contact" class="scroll-cta-button">Start Validation Today</a>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- FOOTER JS -->
+    <script src="footer.js" defer></script>
+
 
     <!-- EXTERNAL JS -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        // Only register Service Worker on HTTP/HTTPS (not file://)
+        if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed:', error);
+                    });
+            });
+        } else if (window.location.protocol === 'file:') {
+            console.log('ServiceWorker not registered: Running from file:// protocol');
+        }
+    </script>
 
     <script>
         // Additional inline script for any specific page logic could go here if needed, 
         // but core logic is in script.js which handles the GSAP animations, Lucide icons, etc.
     </script>
+
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    // Load tawk.to after page load to potentially bypass ad blockers
+    window.addEventListener('load', function() {
+        console.log('[Tawk.to] Loading widget after page load...');
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/69c45fd846a6c41c341ab391/1jkjhcpdh';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s1.onload = function() { 
+            console.log('[Tawk.to] Script loaded successfully'); 
+            // Monitor widget iframe after load
+            setTimeout(function() {
+                var iframes = document.querySelectorAll('iframe');
+                var tawkFrame = Array.from(iframes).find(function(f) { return f.src && f.src.includes('tawk.to'); });
+                if (tawkFrame) {
+                    console.log('[Tawk.to] Widget iframe found! visible:', tawkFrame.offsetParent !== null);
+                }
+            }, 2000);
+        };
+        s1.onerror = function() { console.error('[Tawk.to] Script failed to load - likely blocked by ad blocker'); };
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    });
+</script>
+<!--End of Tawk.to Script-->
 </body>
 
 </html>

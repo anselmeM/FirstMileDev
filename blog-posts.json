@@ -1,0 +1,44 @@
+[
+  {
+    "image": "images/Handpicked-Reasons-Why-90-Startups-Fail-.jpg",
+    "alt": "Why 90% of Startups Fail",
+    "category": "Startup Validation",
+    "title": "Why 90% of Startups Fail",
+    "description": "And how validation-first development prevents your startup from becoming another statistic.",
+    "features": [
+      "Build measure learn loop",
+      "Problem-solution fit first",
+      "Data-driven decisions"
+    ],
+    "readTime": "5 min read",
+    "link": "blog-why-startups-fail.html"
+  },
+  {
+    "image": "images/MVPInfluence.jpg",
+    "alt": "No-Code vs Custom",
+    "category": "Development",
+    "title": "No-Code vs Custom",
+    "description": "When to use low-code tools and when to invest in custom development.",
+    "features": [
+      "MVP: Bubble, FlutterFlow",
+      "Scale: MERN, Next.js",
+      "Migration path planning"
+    ],
+    "readTime": "7 min read",
+    "link": "blog-no-code-vs-custom.html"
+  },
+  {
+    "image": "images/Why-Building-an-MVP-Matters-for-Startups.jpg",
+    "alt": "True Cost of MVP",
+    "category": "Pricing",
+    "title": "The True Cost of an MVP",
+    "description": "A breakdown of MVP development costs and how to budget for your first product.",
+    "features": [
+      "Phase 1: $2,000",
+      "Phase 2: $5,000",
+      "Hidden costs to avoid"
+    ],
+    "readTime": "6 min read",
+    "link": "blog-true-cost-mvp.html"
+  }
+]

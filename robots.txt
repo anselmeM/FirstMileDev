@@ -1,0 +1,15 @@
+# Robots.txt for FirstMileDev
+# https://firstmiledev.com/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://firstmiledev.com/sitemap.xml
+
+# Disallow sensitive directories (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Crawl delay (optional - uncomment if needed)
+# Crawl-delay: 1
