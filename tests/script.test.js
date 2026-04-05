@@ -51,7 +51,16 @@ const mockElement = {
 };
 
 global.document = {
-    getElementById: jest.fn(() => mockElement),
+    getElementById: jest.fn((id) => {
+        if (id === 'exit-intent-popup') {
+            return {
+                addEventListener: jest.fn(),
+                querySelectorAll: jest.fn(() => []),
+                classList: { contains: jest.fn(), add: jest.fn(), remove: jest.fn() }
+            };
+        }
+        return null;
+    }),
     querySelectorAll: jest.fn(() => []),
     addEventListener: jest.fn(),
     documentElement: {
@@ -63,7 +72,7 @@ global.document = {
 };
 
 // Import the function after mocks
-const { showCkForm } = require('../script');
+const { showCkForm, handleLeadCapture } = require('../script');
 
 describe('showCkForm', () => {
     let elements;
@@ -114,5 +123,57 @@ describe('showCkForm', () => {
 
     test('should handle both elements missing gracefully', () => {
         expect(() => showCkForm('both-missing')).not.toThrow();
+    });
+});
+
+describe('handleLeadCapture', () => {
+    let elements;
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+        elements = {};
+        global.document.getElementById.mockImplementation((id) => {
+            return elements[id] || null;
+        });
+
+        // Mock document.createElement
+        global.document.createElement = jest.fn((tagName) => ({
+            tagName: tagName.toUpperCase(),
+            style: {},
+            setAttribute: jest.fn(),
+            appendChild: jest.fn(),
+            classList: {
+                add: jest.fn()
+            }
+        }));
+
+        global.setTimeout = jest.fn();
+    });
+
+    test('should handle lead capture and update form UI', () => {
+        const mockForm = {
+            replaceChildren: jest.fn(),
+
+        };
+        const mockEmailInput = { value: 'test@example.com' };
+
+        elements['lead-capture-form'] = mockForm;
+        elements['lead-email'] = mockEmailInput;
+
+        const mockEvent = { preventDefault: jest.fn() };
+
+        handleLeadCapture(mockEvent);
+
+        expect(mockEvent.preventDefault).toHaveBeenCalled();
+
+        // Should replace children with the new container
+        expect(mockForm.replaceChildren).toHaveBeenCalled();
+
+        // Should create elements
+        expect(document.createElement).toHaveBeenCalledWith('div');
+        expect(document.createElement).toHaveBeenCalledWith('i');
+        expect(document.createElement).toHaveBeenCalledWith('p');
+
+
     });
 });
