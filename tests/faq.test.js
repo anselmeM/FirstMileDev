@@ -67,14 +67,15 @@ global.document = {
         return [];
     }),
     getElementById: jest.fn().mockImplementation((id) => {
-        if (id === 'exit-intent-popup') {
-            return {
-                addEventListener: jest.fn(),
-                querySelectorAll: jest.fn(() => []),
-                classList: { contains: jest.fn(), add: jest.fn(), remove: jest.fn() }
-            };
-        }
-        return mockElements.find(el => el.id === id) || null;
+        const found = mockElements.find(el => el.id === id);
+        if (found) return found;
+        return {
+            classList: new MockClassList(),
+            addEventListener: jest.fn(),
+            querySelector: jest.fn(() => ({ style: {} })),
+            querySelectorAll: jest.fn(() => []),
+            style: {}
+        };
     }),
     body: {
         classList: new MockClassList()
