@@ -142,14 +142,23 @@ describe('handleLeadCapture', () => {
     });
 
     test('should handle lead capture and update form UI', () => {
+        jest.useFakeTimers();
+        jest.spyOn(global, 'setTimeout');
+
         const mockForm = {
-            innerHTML: 'initial content',
-            appendChild: jest.fn()
+            replaceChildren: jest.fn()
         };
         const mockEmailInput = { value: 'test@example.com' };
 
+        const mockExitPopup = {
+            classList: {
+                remove: jest.fn()
+            }
+        };
+
         elements['lead-capture-form'] = mockForm;
         elements['lead-email'] = mockEmailInput;
+        elements['exit-intent-popup'] = mockExitPopup;
 
         const mockEvent = { preventDefault: jest.fn() };
 
@@ -157,15 +166,24 @@ describe('handleLeadCapture', () => {
 
         expect(mockEvent.preventDefault).toHaveBeenCalled();
 
-        // Should clear innerHTML
-        expect(mockForm.innerHTML).toBe('');
-
         // Should create elements
         expect(document.createElement).toHaveBeenCalledWith('div');
         expect(document.createElement).toHaveBeenCalledWith('i');
         expect(document.createElement).toHaveBeenCalledWith('p');
 
-        // Should append container to form
-        expect(mockForm.appendChild).toHaveBeenCalled();
+        // Should replace children with the new container
+        const container = document.createElement.mock.results[0].value;
+        expect(mockForm.replaceChildren).toHaveBeenCalledWith(container);
+
+        expect(global.lucide.createIcons).toHaveBeenCalled();
+        expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 3000);
+
+        // Fast-forward time to trigger setTimeout
+        jest.runAllTimers();
+
+        // Ensure closeExitPopup was called
+        expect(mockElement.classList.remove).toHaveBeenCalledWith('active');
+
+        jest.useRealTimers();
     });
 });
