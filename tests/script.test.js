@@ -143,8 +143,7 @@ describe('handleLeadCapture', () => {
 
     test('should handle lead capture and update form UI', () => {
         const mockForm = {
-            innerHTML: 'initial content',
-            appendChild: jest.fn()
+            replaceChildren: jest.fn()
         };
         const mockEmailInput = { value: 'test@example.com' };
 
@@ -157,15 +156,14 @@ describe('handleLeadCapture', () => {
 
         expect(mockEvent.preventDefault).toHaveBeenCalled();
 
-        // Should clear innerHTML
-        expect(mockForm.innerHTML).toBe('');
-
         // Should create elements
         expect(document.createElement).toHaveBeenCalledWith('div');
         expect(document.createElement).toHaveBeenCalledWith('i');
         expect(document.createElement).toHaveBeenCalledWith('p');
 
-        // Should append container to form
-        expect(mockForm.appendChild).toHaveBeenCalled();
+        // Should replace children with the new container
+        expect(mockForm.replaceChildren).toHaveBeenCalled();
+        expect(global.lucide.createIcons).toHaveBeenCalled();
+        expect(global.setTimeout).toHaveBeenCalledWith(expect.any(Function), 3000);
     });
 });

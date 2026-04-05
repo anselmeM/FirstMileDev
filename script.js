@@ -236,6 +236,8 @@ function handleLeadCapture(event) {
         // Show success message (replace form with confirmation)
         const form = document.getElementById('lead-capture-form');
 
+        if (!form) return;
+
         const container = document.createElement('div');
         container.style.cssText = 'text-align:center; padding: 20px;';
 
@@ -255,8 +257,7 @@ function handleLeadCapture(event) {
         container.appendChild(title);
         container.appendChild(subtitle);
 
-        form.innerHTML = '';
-        form.appendChild(container);
+        form.replaceChildren(container);
 
         lucide.createIcons();
         
