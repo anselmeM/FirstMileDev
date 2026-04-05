@@ -235,7 +235,29 @@ function handleLeadCapture(event) {
         
         // Show success message (replace form with confirmation)
         const form = document.getElementById('lead-capture-form');
-        form.innerHTML = '<div style="text-align:center; padding: 20px;"><i data-lucide="check-circle" class="w-12 h-12 text-green-600 mb-4"></i><p style="font-weight:700; font-size:18px; color:#1f2937;">Check your inbox!</p><p style="color:#6b7280; margin-top:8px;">The MVP Validation Checklist is on its way.</p></div>';
+
+        const container = document.createElement('div');
+        container.style.cssText = 'text-align:center; padding: 20px;';
+
+        const icon = document.createElement('i');
+        icon.setAttribute('data-lucide', 'check-circle');
+        icon.className = 'w-12 h-12 text-green-600 mb-4';
+
+        const title = document.createElement('p');
+        title.style.cssText = 'font-weight:700; font-size:18px; color:#1f2937;';
+        title.textContent = 'Check your inbox!';
+
+        const subtitle = document.createElement('p');
+        subtitle.style.cssText = 'color:#6b7280; margin-top:8px;';
+        subtitle.textContent = 'The MVP Validation Checklist is on its way.';
+
+        container.appendChild(icon);
+        container.appendChild(title);
+        container.appendChild(subtitle);
+
+        form.innerHTML = '';
+        form.appendChild(container);
+
         lucide.createIcons();
         
         // Close popup after 3 seconds
@@ -620,5 +642,5 @@ window.addEventListener('scroll', function() {
 });
 // 12. EXPORTS FOR TESTING
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { showCkForm };
+    module.exports = { showCkForm, handleLeadCapture, toggleFaq };
 }
