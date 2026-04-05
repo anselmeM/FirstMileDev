@@ -51,7 +51,16 @@ const mockElement = {
 };
 
 global.document = {
-    getElementById: jest.fn(() => mockElement),
+    getElementById: jest.fn((id) => {
+        if (id === 'exit-intent-popup') {
+            return {
+                addEventListener: jest.fn(),
+                querySelectorAll: jest.fn(() => []),
+                classList: { contains: jest.fn(), add: jest.fn(), remove: jest.fn() }
+            };
+        }
+        return null;
+    }),
     querySelectorAll: jest.fn(() => []),
     addEventListener: jest.fn(),
     documentElement: {
