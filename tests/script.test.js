@@ -182,7 +182,7 @@ describe('handleLeadCapture', () => {
         jest.runAllTimers();
 
         // Ensure closeExitPopup was called
-        expect(mockElement.classList.remove).toHaveBeenCalledWith('active');
+        expect(mockExitPopup.classList.remove).toHaveBeenCalledWith('active');
 
         jest.useRealTimers();
     });
