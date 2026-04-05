@@ -162,7 +162,8 @@ describe('handleLeadCapture', () => {
         expect(document.createElement).toHaveBeenCalledWith('p');
 
         // Should replace children with the new container
-        expect(mockForm.replaceChildren).toHaveBeenCalled();
+        const container = document.createElement.mock.results[0].value;
+        expect(mockForm.replaceChildren).toHaveBeenCalledWith(container);
         expect(global.lucide.createIcons).toHaveBeenCalled();
         expect(global.setTimeout).toHaveBeenCalledWith(expect.any(Function), 3000);
     });
