@@ -1,71 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App Cost Calculator - FirstMileDev</title>
-    <meta name="description"
-        content="Estimate your MVP development cost with our free app cost calculator. Get a tailored quote based on features, complexity, and timeline.">
-
-    <!-- Canonical URL for SEO -->
+    <meta name="description" content="Estimate your MVP development cost with our free app cost calculator.">
     <link rel="canonical" href="https://firstmiledev.com/calculator.html">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://firstmiledev.com/calculator.html">
-    <meta property="og:title" content="App Cost Calculator - FirstMileDev">
-    <meta property="og:description" content="Estimate your MVP development cost with our free app cost calculator. Get a tailored quote based on features, complexity, and timeline.">
-    <meta property="og:image" content="https://firstmiledev.com/og-image.jpg">
-    <meta property="og:site_name" content="FirstMileDev">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://firstmiledev.com/calculator.html">
-    <meta name="twitter:title" content="App Cost Calculator - FirstMileDev">
-    <meta name="twitter:description" content="Estimate your MVP development cost with our free app cost calculator.">
-    <meta name="twitter:image" content="https://firstmiledev.com/twitter-image.jpg">
-
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FWBEXRG2N"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-5FWBEXRG2N', {
-            'page_title': 'FirstMileDev Calculator',
-            'page_location': 'https://firstmiledev.com/calculator.html'
-        });
-    </script>
-
-    <!-- Preconnect for LCP optimization -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://unpkg.com">
-
-    <!-- Microsoft Clarity - Deferred for FID -->
-    <script type="text/javascript" defer>
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "w1i576b6a9");
-    </script>
-
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-
-    <!-- External CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="navbar.js" defer></script>
-
     <script>
         tailwind.config = {
             theme: {
@@ -77,349 +20,527 @@
                     colors: {
                         'accent-red': '#FF3B3F',
                         'accent-sky': '#7CB9C9',
-                        'carbon': '#1f2937',
-                        'light-gray': '#FAFAFA',
                     }
                 }
             }
         }
     </script>
+    <style>
+        .toggle-switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .toggle-slider { position: absolute; cursor: pointer; inset: 0; background-color: #e5e7eb; transition: 0.25s; border-radius: 24px; }
+        .toggle-slider:before { content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: 0.25s; border-radius: 50%; position: absolute; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+        input:checked + .toggle-slider { background-color: #FF3B3F; }
+        input:checked + .toggle-slider:before { transform: translateX(20px); }
 
-    <!-- JSON-LD Structured Data for Calculator -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "MVP Cost Calculator",
-      "description": "Estimate your MVP development cost with our free app cost calculator. Get a tailored quote based on features, complexity, and timeline.",
-      "url": "https://firstmiledev.com/calculator.html",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "FirstMileDev",
-        "url": "https://firstmiledev.com"
-      }
-    }
-    </script>
+        .radio-card { cursor: pointer; border: 2px solid #e5e7eb; border-radius: 12px; padding: 14px; transition: all 0.2s; background: white; }
+        .radio-card:hover { border-color: #d1d5db; }
+        .radio-card.selected { border-color: #FF3B3F; background: #FFF5F5; box-shadow: 0 0 0 1px #FF3B3F; }
+        .radio-card:focus-within { outline: 2px solid #FF3B3F; outline-offset: 2px; }
+
+        .toggle-switch input:focus { outline: none; }
+        .toggle-switch input:focus + .toggle-slider { box-shadow: 0 0 0 2px #FF3B3F; }
+
+        .feature-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 8px; transition: background 0.15s; }
+        .feature-row:hover { background: #f9fafb; }
+
+        input[type="range"] { -webkit-appearance: none; height: 6px; background: #e5e7eb; border-radius: 3px; outline: none; width: 100%; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; background: #FF3B3F; border-radius: 50%; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+        input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; background: #FF3B3F; border-radius: 50%; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.3); border: none; }
+
+        .skip-link { position: absolute; left: -9999px; z-index: 999; padding: 1rem; background: #FF3B3F; color: white; font-weight: 600; text-decoration: none; }
+        .skip-link:focus { left: 0; }
+
+        button:focus-visible, a:focus-visible { outline: 2px solid #FF3B3F; outline-offset: 2px; }
+        .radio-card:focus-visible { outline: 2px solid #FF3B3F; outline-offset: 2px; }
+
+        .view-section { display: none; }
+        .view-section.active { display: block; }
+    </style>
 </head>
-
-<body class="antialiased bg-white text-gray-900">
-
-    <!-- Skip Link -->
+<body class="antialiased bg-white text-gray-900 font-body">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- UNIFIED NAVBAR -->
     <div id="navbar-placeholder"></div>
 
     <main id="main-content">
-
-        <!-- Calculator Hero - Matching index.html hero style -->
-        <section class="bg-[#FF3B3F] text-white px-6 md:px-8 lg:px-16 py-16 md:py-24 relative overflow-hidden">
+        <!-- Hero -->
+        <section class="bg-[#FF3B3F] text-white px-6 py-16 md:py-24">
             <div class="max-w-4xl mx-auto">
-                <h1 class="text-5xl sm:text-6xl md:text-7xl uppercase-text leading-none font-headline mb-8">
-                    <span class="block">APP COST</span>
-                    <span class="block">CALCULATOR</span>
+                <h1 class="text-5xl sm:text-6xl md:text-7xl uppercase leading-none font-headline mb-6">
+                    <span class="block">APP COST</span><span class="block">CALCULATOR</span>
                 </h1>
-                <p class="text-lg md:text-xl font-bold uppercase-text mb-8 leading-relaxed opacity-90 max-w-2xl">
-                    Estimate your MVP development cost in seconds.<br>
-                    Get a tailored quote based on features, complexity, and timeline.
+                <p class="text-lg md:text-xl font-bold opacity-90 max-w-2xl">
+                    Estimate your MVP development cost in seconds.<br>Get a tailored quote based on features, complexity, and timeline.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 items-start">
-                    <a href="#cost-calculator" class="btn btn-primary btn-lg">
-                        Calculate Now
-                    </a>
-                    <a href="index.html#contact" class="btn btn-outline btn-lg border-white text-white hover:bg-white hover:text-[#FF3B3F]">
-                        Talk to an Expert
-                    </a>
+            </div>
+        </section>
+
+        <!-- Mode Toggle Bar -->
+        <section class="px-6 py-6 bg-[#FAFAFA] border-b border-gray-200">
+            <div class="max-w-3xl mx-auto flex items-center justify-between flex-wrap gap-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-sm font-medium" id="wizard-label">Guided</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="mode-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="text-sm font-medium text-gray-500" id="dashboard-label">Dashboard</span>
+                </div>
+                <div id="cost-badge" class="hidden md:flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
+                    <span class="text-xs text-gray-500 font-medium">EST.</span>
+                    <span id="live-cost" class="text-lg font-bold text-[#FF3B3F]" aria-live="polite" aria-atomic="true">$0k–$0k</span>
                 </div>
             </div>
         </section>
 
-        <!-- Calculator Form -->
-        <section class="px-6 py-16 bg-[#FAFAFA]">
+        <!-- ========== WIZARD VIEW ========== -->
+        <section id="wizard-view" class="view-section active px-6 py-12 bg-[#FAFAFA]">
             <div class="max-w-3xl mx-auto">
-                <form id="cost-calculator" class="bg-white rounded-2xl shadow-lg p-8">
-                    <!-- App Type -->
-                    <div class="mb-8">
-                        <label class="block text-lg font-bold mb-4">What type of app are you building?</label>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <label class="calculator-option">
-                                <input type="radio" name="appType" value="web" class="sr-only peer">
-                                <div class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-[#FF3B3F] peer-checked:bg-red-50 transition">
-                                    <span class="text-2xl mb-2 block">🌐</span>
-                                    <span class="font-bold">Web App</span>
-                                </div>
-                            </label>
-                            <label class="calculator-option">
-                                <input type="radio" name="appType" value="mobile" class="sr-only peer">
-                                <div class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-[#FF3B3F] peer-checked:bg-red-50 transition">
-                                    <span class="text-2xl mb-2 block">📱</span>
-                                    <span class="font-bold">Mobile App</span>
-                                </div>
-                            </label>
-                            <label class="calculator-option">
-                                <input type="radio" name="appType" value="both" class="sr-only peer">
-                                <div class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer peer-checked:border-[#FF3B3F] peer-checked:bg-red-50 transition">
-                                    <span class="text-2xl mb-2 block">🔄</span>
-                                    <span class="font-bold">Both</span>
-                                </div>
-                            </label>
+                <div class="bg-gray-200 h-2 rounded-full mb-10 overflow-hidden">
+                    <div id="progress-fill" class="bg-[#FF3B3F] h-2 rounded-full transition-all duration-400" style="width:11.1%"></div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg p-8 min-h-[400px] flex flex-col">
+                    <div class="flex items-center justify-between mb-8">
+                        <div>
+                            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Step <span id="step-num">1</span> of <span id="total-steps">9</span></p>
+                            <h2 id="step-title" class="text-xl font-semibold text-gray-900"></h2>
                         </div>
+                        <button id="wizard-skip-btn" class="text-sm font-medium text-[#FF3B3F] hover:text-[#e63538] transition-colors">Skip to Dashboard →</button>
                     </div>
-
-                    <!-- Complexity -->
-                    <div class="mb-8">
-                        <label class="block text-lg font-bold mb-4">How complex is your app?</label>
-                        <div class="space-y-3">
-                            <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gray-300 peer-checked:border-[#FF3B3F]">
-                                <input type="radio" name="complexity" value="simple" class="mr-4">
-                                <div>
-                                    <span class="font-bold block">Simple</span>
-                                    <span class="text-sm text-gray-500">Basic features, 5-10 screens, no complex integrations</span>
-                                </div>
-                            </label>
-                            <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gray-300 peer-checked:border-[#FF3B3F]">
-                                <input type="radio" name="complexity" value="medium" class="mr-4">
-                                <div>
-                                    <span class="font-bold block">Medium</span>
-                                    <span class="text-sm text-gray-500">Moderate features, 10-20 screens, some integrations</span>
-                                </div>
-                            </label>
-                            <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gray-300 peer-checked:border-[#FF3B3F]">
-                                <input type="radio" name="complexity" value="complex" class="mr-4">
-                                <div>
-                                    <span class="font-bold block">Complex</span>
-                                    <span class="text-sm text-gray-500">Advanced features, 20+ screens, multiple integrations</span>
-                                </div>
-                            </label>
-                        </div>
+                    <div id="step-content" class="flex-grow"></div>
+                    <p class="text-xs text-gray-300 mt-4 italic">You can always add more later—this is for an initial estimate.</p>
+                    <div class="mt-10 flex items-center justify-between border-t border-gray-100 pt-6">
+                        <button id="back-btn" class="text-gray-400 hover:text-gray-600 transition-colors flex items-center gap-2 disabled:opacity-30" disabled>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg> Back
+                        </button>
+                        <button id="next-btn" class="bg-[#FF3B3F] hover:bg-[#e63538] text-white font-semibold py-3 px-8 rounded-lg transition-colors flex items-center gap-2">
+                            Next <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
                     </div>
-
-                    <!-- Features -->
-                    <div class="mb-8">
-                        <label class="block text-lg font-bold mb-4">Select features you need:</label>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                                <input type="checkbox" name="features" value="auth" class="mr-3 rounded text-[#FF3B3F]">
-                                <span>User Authentication</span>
-                            </label>
-                            <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                                <input type="checkbox" name="features" value="payments" class="mr-3 rounded text-[#FF3B3F]">
-                                <span>Payment Processing</span>
-                            </label>
-                            <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                                <input type="checkbox" name="features" value="dashboard" class="mr-3 rounded text-[#FF3B3F]">
-                                <span>Admin Dashboard</span>
-                            </label>
-                            <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                                <input type="checkbox" name="features" value="api" class="mr-3 rounded text-[#FF3B3F]">
-                                <span>API Integration</span>
-                            </label>
-                            <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                                <input type="checkbox" name="features" value="notifications" class="mr-3 rounded text-[#FF3B3F]">
-                                <span>Push Notifications</span>
-                            </label>
-                            <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
-                                <input type="checkbox" name="features" value="analytics" class="mr-3 rounded text-[#FF3B3F]">
-                                <span>Analytics & Reporting</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Timeline -->
-                    <div class="mb-8">
-                        <label class="block text-lg font-bold mb-4">What's your preferred timeline?</label>
-                        <div class="flex space-x-4">
-                            <label class="flex-1">
-                                <input type="radio" name="timeline" value="4" class="sr-only peer">
-                                <div class="p-4 border-2 border-gray-200 rounded-lg text-center cursor-pointer peer-checked:border-[#FF3B3F] peer-checked:bg-red-50">
-                                    <span class="font-bold block">4-6 Weeks</span>
-                                    <span class="text-sm text-gray-500">Fast</span>
-                                </div>
-                            </label>
-                            <label class="flex-1">
-                                <input type="radio" name="timeline" value="8" class="sr-only peer">
-                                <div class="p-4 border-2 border-gray-200 rounded-lg text-center cursor-pointer peer-checked:border-[#FF3B3F] peer-checked:bg-red-50">
-                                    <span class="font-bold block">8-12 Weeks</span>
-                                    <span class="text-sm text-gray-500">Standard</span>
-                                </div>
-                            </label>
-                            <label class="flex-1">
-                                <input type="radio" name="timeline" value="12" class="sr-only peer">
-                                <div class="p-4 border-2 border-gray-200 rounded-lg text-center cursor-pointer peer-checked:border-[#FF3B3F] peer-checked:bg-red-50">
-                                    <span class="font-bold block">12+ Weeks</span>
-                                    <span class="text-sm text-gray-500">Flexible</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Email for Results -->
-                    <div class="mb-8">
-                        <label class="block text-lg font-bold mb-4">Where should we send your estimate?</label>
-                        <input type="email" id="contact-email" placeholder="your@email.com" 
-                            class="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-[#FF3B3F] focus:outline-none"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                            title="Please enter a valid email address"
-                            required>
-                    </div>
-
-                    <button type="button" onclick="calculateCost()" 
-                        class="btn btn-primary btn-lg w-full">
-                        Calculate My Cost
-                    </button>
-                </form>
-
-                <!-- Results -->
-                <div id="results" class="hidden mt-8 bg-white rounded-2xl shadow-lg p-8 text-center">
-                    <h2 class="text-2xl font-headline mb-4">Your Estimated Cost</h2>
-                    <p id="estimated-cost" class="text-5xl font-black text-[#FF3B3F] mb-4">$0</p>
-                    <p class="text-gray-600 mb-6">This is an estimate based on your selections. Get a detailed quote by booking a call.</p>
-                    <a href="index.html#contact" class="btn btn-primary">Book Discovery Call</a>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
+        <!-- ========== DASHBOARD VIEW ========== -->
+        <section id="dashboard-view" class="view-section px-6 py-12 bg-[#FAFAFA]">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900 font-headline">App Cost Estimator</h1>
+                        <p class="text-gray-500 mt-2 max-w-xl text-sm">Adjust parameters to see how complexity, features, and design impact your budget.</p>
+                    </div>
+                    <button id="dashboard-back-btn" class="text-sm font-medium text-gray-600 bg-white border border-gray-300 hover:bg-gray-50 px-4 py-2 rounded-lg transition-colors">
+                        ← Back to Questionnaire
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-lg font-semibold text-gray-900 border-b border-gray-100 pb-3 mb-5">Scope</h2>
+                            <div class="mb-5">
+                                <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Platforms</p>
+                                <div id="dash-platform" class="grid grid-cols-2 gap-3"></div>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Complexity</p>
+                                <div id="dash-complexity" class="grid grid-cols-4 gap-2"></div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-lg font-semibold text-gray-900 border-b border-gray-100 pb-3 mb-5">Essential Features</h2>
+                            <div id="dash-essential" class="space-y-1"></div>
+                        </div>
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-lg font-semibold text-gray-900 border-b border-gray-100 pb-3 mb-5">Advanced Features</h2>
+                            <div id="dash-advanced" class="space-y-1"></div>
+                        </div>
+                        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-lg font-semibold text-gray-900 border-b border-gray-100 pb-3 mb-5">Backend & Integrations</h2>
+                            <div id="dash-backend" class="grid grid-cols-2 gap-3 mb-5"></div>
+                            <div id="dash-apis"></div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                                <h2 class="text-lg font-semibold text-gray-900 border-b border-gray-100 pb-3 mb-5">Design & Compliance</h2>
+                                <div id="dash-design" class="space-y-2 mb-5"></div>
+                                <div class="border-t border-gray-100 pt-5">
+                                    <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Compliance</p>
+                                    <div id="dash-compliance" class="space-y-2"></div>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                                <h2 class="text-lg font-semibold text-gray-900 border-b border-gray-100 pb-3 mb-5">Testing & Devices</h2>
+                                <div id="dash-qa" class="space-y-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-1">
+                        <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sticky top-6">
+                            <h2 class="text-lg font-semibold text-gray-900 mb-6">Your Estimate</h2>
+                            <div class="space-y-5">
+                                <div>
+                                    <p class="text-xs text-gray-500 font-medium uppercase tracking-wider mb-1">Hours</p>
+                                    <p id="dash-hours" class="text-3xl font-bold text-gray-900" aria-live="polite" aria-atomic="true">0</p>
+                                </div>
+                                <div class="border-t border-gray-100 pt-4">
+                                    <p class="text-xs text-gray-500 font-medium uppercase tracking-wider mb-1">Cost Range (CAD)</p>
+                                    <p class="text-2xl font-bold text-[#FF3B3F]">$<span id="dash-min">0</span>k – $<span id="dash-max">0</span>k</p>
+                                </div>
+                                <div class="border-t border-gray-100 pt-4">
+                                    <p class="text-xs text-gray-500 font-medium uppercase tracking-wider mb-1">Timeline</p>
+                                    <p class="text-2xl font-bold text-gray-900"><span id="dash-weeks">0</span> weeks</p>
+                                </div>
+                                <div class="border-t border-gray-100 pt-4">
+                                    <p class="text-xs text-gray-500 mb-3">Factors</p>
+                                    <div id="dash-breakdown" class="text-sm text-gray-600 space-y-1"></div>
+                                </div>
+                                <a href="index.html#contact" class="block w-full bg-[#FF3B3F] hover:bg-[#e63538] text-white text-center font-semibold py-3 px-6 rounded-lg transition-colors">Get Detailed Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
         <section class="px-6 py-16 bg-[#1f2937] text-white text-center">
             <h2 class="text-3xl md:text-4xl font-headline uppercase mb-4">Ready to Build?</h2>
             <p class="text-lg opacity-80 mb-8">Let's discuss your project and find the best path forward.</p>
-            <a href="index.html#contact" class="btn btn-primary">Start Your Project</a>
+            <a href="index.html#contact" class="inline-block bg-[#FF3B3F] hover:bg-[#e63538] text-white font-semibold py-3 px-8 rounded-lg transition-colors">Start Your Project</a>
         </section>
     </main>
 
-    <!-- UNIFIED FOOTER -->
+    <!-- Footer -->
     <footer class="bg-[#FF3B3F] text-white px-6 py-16" role="contentinfo">
         <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div class="md:col-span-2">
-                    <div class="text-2xl font-headline uppercase-text tracking-tighter mb-4">FirstMileDev</div>
-                    <p class="text-white/80 text-sm max-w-sm mb-6">The Market-First MVP Agency. We validate demand before you write code.</p>
-                    <div class="flex gap-4">
-                        <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank" class="text-white/80 hover:text-white"><i data-lucide="youtube" class="w-5 h-5"></i></a>
-                        <a href="#" class="text-white/80 hover:text-white"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                        <a href="#" class="text-white/80 hover:text-white"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="text-2xl font-headline uppercase tracking-tighter mb-4">FirstMileDev</div>
+                    <p class="text-white/80 text-sm">The Market-First MVP Agency. We validate demand before you write code.</p>
                 </div>
                 <div>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="index.html#process" class="text-white/80 hover:text-white text-sm">Process</a></li>
-                        <li><a href="index.html#work" class="text-white/80 hover:text-white text-sm">Work</a></li>
-                        <li><a href="index.html#pricing" class="text-white/80 hover:text-white text-sm">Roadmap</a></li>
+                        <li><a href="index.html" class="text-white/80 hover:text-white text-sm">Home</a></li>
                         <li><a href="calculator.html" class="text-white/80 hover:text-white text-sm">Calculator</a></li>
+                        <li><a href="blog.html" class="text-white/80 hover:text-white text-sm">Blog</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Resources</h4>
-                    <ul class="space-y-2 mb-6">
-                        <li><a href="blog.html" class="text-white/80 hover:text-white text-sm">Blog</a></li>
-                        <li><a href="faq.html" class="text-white/80 hover:text-white text-sm">FAQ</a></li>
-                        <li><a href="sitemap.xml" class="text-white/80 hover:text-white text-sm">Sitemap</a></li>
-                    </ul>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">Contact</h4>
                     <p class="text-white/80 text-sm">hello@firstmiledev.com</p>
                 </div>
             </div>
-            <div class="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-white/60 text-xs">&copy; <span id="copyright-year">2024</span> FirstMileDev. Validate First.</div>
-                <div class="flex gap-6 text-xs">
-                    <a href="privacy.html" class="text-white/60 hover:text-white">Privacy Policy</a>
-                    <a href="terms.html" class="text-white/60 hover:text-white">Terms of Service</a>
-                </div>
+            <div class="pt-8 border-t border-white/20 text-center">
+                <p class="text-white/60 text-xs">&copy; <span id="footer-year"></span> FirstMileDev.</p>
             </div>
         </div>
     </footer>
 
-    <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 
     <script>
-        function calculateCost() {
-            // Get form values
-            const appType = document.querySelector('input[name="appType"]:checked');
-            const complexity = document.querySelector('input[name="complexity"]:checked');
-            const timeline = document.querySelector('input[name="timeline"]:checked');
-            const features = document.querySelectorAll('input[name="features"]:checked');
-            const email = document.getElementById('contact-email').value;
+    (function() {
+        'use strict';
 
-            if (!appType || !complexity || !timeline) {
-                alert('Please select app type, complexity, and timeline');
-                return;
-            }
-
-            // Base costs
-            let baseCost = 0;
-            switch(appType.value) {
-                case 'web': baseCost = 3000; break;
-                case 'mobile': baseCost = 5000; break;
-                case 'both': baseCost = 7000; break;
-            }
-
-            // Complexity multiplier
-            let complexityMultiplier = 1;
-            switch(complexity.value) {
-                case 'simple': complexityMultiplier = 1; break;
-                case 'medium': complexityMultiplier = 1.5; break;
-                case 'complex': complexityMultiplier = 2.5; break;
-            }
-
-            // Features cost
-            const featureCost = features.length * 500;
-
-            // Timeline adjustment (faster = more expensive)
-            let timelineMultiplier = 1;
-            switch(timeline.value) {
-                case '4': timelineMultiplier = 1.3; break; // Fast
-                case '8': timelineMultiplier = 1; break;  // Standard
-                case '12': timelineMultiplier = 0.9; break; // Flexible
-            }
-
-            // Calculate total
-            const total = Math.round((baseCost + featureCost) * complexityMultiplier * timelineMultiplier);
-
-            // Display results
-            document.getElementById('results').classList.remove('hidden');
-            document.getElementById('estimated-cost').textContent = '$' + total.toLocaleString();
-
-            // Smooth scroll to results
-            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
-
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-    // Load tawk.to after page load to potentially bypass ad blockers
-    window.addEventListener('load', function() {
-        console.log('[Tawk.to] Loading widget after page load...');
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/69c45fd846a6c41c341ab391/1jkjhcpdh';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s1.onload = function() { 
-            console.log('[Tawk.to] Script loaded successfully'); 
-            setTimeout(function() {
-                var iframes = document.querySelectorAll('iframe');
-                var tawkFrame = Array.from(iframes).find(function(f) { return f.src && f.src.includes('tawk.to'); });
-                if (tawkFrame) {
-                    console.log('[Tawk.to] Widget iframe found! visible:', tawkFrame.offsetParent !== null);
-                }
-            }, 2000);
+        // ============================================================
+        // STATE
+        // ============================================================
+        const state = {
+            platform: 'single',
+            complexity: 'low',
+            essentialFeatures: { email: false, onboarding: false, push: false, analytics: false },
+            advancedFeatures: { sso: false, chat: false, maps: false, payments: false, media: false, offline: false, iap: false },
+            backend: 'none',
+            thirdPartyApis: 0,
+            design: 'basic',
+            compliance: 'none',
+            e2eTests: false,
+            accessibility: false,
+            extraDevices: 0,
         };
-        s1.onerror = function() { console.error('[Tawk.to] Script failed to load - likely blocked by ad blocker'); };
-        s0.parentNode.insertBefore(s1,s0);
-        })();
-    });
-    </script>
-    <!--End of Tawk.to Script-->
-</body>
 
+        // ============================================================
+        // PRICING ENGINE
+        // ============================================================
+        const RATES = { hourlyRate: 150, pmContingencyMultiplier: 1.18 };
+        const BASE_HOURS = {
+            complexity: { low: 160, medium: 320, high: 640, extreme: 1000 },
+            platform: { single: 1, dual: 1.5 },
+            backend: { none: 0, baas: 60, api: 80, custom: 200 },
+            design: { basic: 40, custom: 120, system: 240 },
+            compliance: { none: 0, basic: 16, pii: 80, soc2: 160 },
+        };
+        const FEATURE_HOURS = {
+            essential: { email: 16, onboarding: 24, push: 20, analytics: 8 },
+            advanced: { sso: 24, chat: 80, maps: 40, payments: 60, media: 40, offline: 100, iap: 60 },
+        };
+
+        function calculate() {
+            const base = BASE_HOURS.complexity[state.complexity] * BASE_HOURS.platform[state.platform];
+            let featureHours = 0;
+            Object.keys(state.essentialFeatures).forEach(k => { if (state.essentialFeatures[k]) featureHours += FEATURE_HOURS.essential[k]; });
+            Object.keys(state.advancedFeatures).forEach(k => { if (state.advancedFeatures[k]) featureHours += FEATURE_HOURS.advanced[k]; });
+            const integrations = state.thirdPartyApis * 16;
+            const qa = (state.e2eTests ? 40 : 0) + (state.accessibility ? 32 : 0) + (state.extraDevices * 24);
+            const raw = base + featureHours + BASE_HOURS.backend[state.backend] + BASE_HOURS.design[state.design] + BASE_HOURS.compliance[state.compliance] + integrations + qa;
+            const totalHours = Math.round(raw * RATES.pmContingencyMultiplier);
+            const minCost = Math.round((totalHours * RATES.hourlyRate) / 1000);
+            const maxCost = Math.round((totalHours * RATES.hourlyRate * 1.15) / 1000);
+            const weeks = Math.max(4, Math.round(totalHours / 35));
+            return { hours: totalHours, minCost, maxCost, weeks };
+        }
+
+        function updateUI() {
+            const est = calculate();
+            document.getElementById('live-cost').textContent = `$${est.minCost}k–${est.maxCost}k`;
+            document.getElementById('dash-hours').textContent = est.hours;
+            document.getElementById('dash-min').textContent = est.minCost;
+            document.getElementById('dash-max').textContent = est.maxCost;
+            document.getElementById('dash-weeks').textContent = est.weeks;
+
+            const parts = [];
+            if (state.complexity !== 'low') parts.push(`${state.complexity} complexity`);
+            if (state.platform === 'dual') parts.push('dual platform');
+            if (state.backend !== 'none') parts.push(`backend: ${state.backend}`);
+            if (state.design !== 'basic') parts.push(`design: ${state.design}`);
+            if (state.compliance !== 'none') parts.push(`compliance: ${state.compliance}`);
+            if (state.thirdPartyApis > 0) parts.push(`+${state.thirdPartyApis} APIs`);
+            if (state.e2eTests) parts.push('E2E tests');
+            if (state.accessibility) parts.push('accessibility');
+            if (state.extraDevices > 0) parts.push(`+${state.extraDevices} devices`);
+            document.getElementById('dash-breakdown').innerHTML = parts.length
+                ? parts.map(p => `<div>• ${p}</div>`).join('')
+                : '<div class="text-gray-400 italic">Select options to see factors</div>';
+        }
+
+        // ============================================================
+        // UI COMPONENTS
+        // ============================================================
+        function rc(key, value, title, ctx) {
+            const sel = state[key] === value;
+            return `<div class="radio-card ${sel ? 'selected' : ''}" data-key="${key}" data-val="${value}" data-ctx="${ctx}" tabindex="0" role="radio" aria-checked="${sel}" aria-pressed="${sel}">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm font-semibold ${sel ? 'text-[#FF3B3F]' : 'text-gray-900'}">${title}</span>
+                    ${sel ? `<div class="w-5 h-5 rounded-full bg-[#FF3B3F] flex items-center justify-center"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>` : ''}
+                </div></div>`;
+        }
+
+        function ft(parent, key, label, ctx) {
+            const id = `t-${ctx}-${parent}-${key}`;
+            return `<div class="feature-row" data-parent="${parent}" data-key="${key}" data-ctx="${ctx}">
+                <span class="text-sm font-medium text-gray-700">${label}</span>
+                <label class="toggle-switch"><input type="checkbox" id="${id}" ${state[parent][key] ? 'checked' : ''}><span class="toggle-slider"></span></label>
+            </div>`;
+        }
+
+        function st(key, label, ctx) {
+            const id = `t-${ctx}-${key}`;
+            return `<div class="flex items-center justify-between">
+                <span class="text-sm font-medium text-gray-700">${label}</span>
+                <label class="toggle-switch"><input type="checkbox" id="${id}" ${state[key] ? 'checked' : ''} data-key="${key}" data-ctx="${ctx}"><span class="toggle-slider"></span></label>
+            </div>`;
+        }
+
+        function sl(key, min, max, label, ctx) {
+            const vid = `sv-${ctx}-${key}`;
+            return `<div>
+                <div class="flex justify-between mb-2"><span class="text-sm font-medium text-gray-700">${label}</span><span id="${vid}" class="text-sm font-bold text-gray-900 bg-gray-100 rounded px-2 py-0.5">${state[key]}</span></div>
+                <input type="range" min="${min}" max="${max}" value="${state[key]}" data-key="${key}" data-ctx="${ctx}" class="w-full">
+            </div>`;
+        }
+
+        // ============================================================
+        // WIZARD
+        // ============================================================
+        const STEPS = [
+            { title: 'Which platforms do you want to launch on first?',
+              render: () => `<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">${rc('platform','single','Single platform (iOS or Android)','wiz')}${rc('platform','dual','Dual platform (iOS + Android)','wiz')}</div>` },
+            { title: 'How complex does the first version feel?',
+              render: () => `<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">${['low','medium','high','extreme'].map(l=>rc('complexity',l,l.charAt(0).toUpperCase()+l.slice(1),'wiz')).join('')}</div>` },
+            { title: 'Pick your essential features',
+              render: () => `<div class="bg-white rounded-xl border border-gray-100 p-2 space-y-1">${ft('essentialFeatures','email','Email/password accounts','wiz')}${ft('essentialFeatures','onboarding','Onboarding / profile','wiz')}${ft('essentialFeatures','push','Push notifications','wiz')}${ft('essentialFeatures','analytics','Analytics','wiz')}</div>` },
+            { title: 'Any advanced features for V1?',
+              render: () => `<div class="bg-white rounded-xl border border-gray-100 p-2 space-y-1">${ft('advancedFeatures','sso','Apple/Google sign-in','wiz')}${ft('advancedFeatures','chat','Realtime chat / messaging','wiz')}${ft('advancedFeatures','maps','Maps / location','wiz')}${ft('advancedFeatures','payments','Payments / subscriptions','wiz')}${ft('advancedFeatures','media','Photo/video upload','wiz')}${ft('advancedFeatures','offline','Offline sync','wiz')}${ft('advancedFeatures','iap','In-app purchases (IAP)','wiz')}</div>` },
+            { title: 'What best describes your backend?',
+              render: () => `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${rc('backend','none','No backend (local/offline only)','wiz')}${rc('backend','baas','BaaS (Supabase/Firebase)','wiz')}${rc('backend','api','Existing API integration','wiz')}${rc('backend','custom','Custom REST/GraphQL backend','wiz')}</div>` },
+            { title: 'How many extra third-party APIs/SDKs do you need?',
+              render: () => `<div class="max-w-md mx-auto">${sl('thirdPartyApis',0,5,'Extra Integrations','wiz')}</div>` },
+            { title: 'Design expectations',
+              render: () => `<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">${rc('design','basic','Basic UI kit / polishing','wiz')}${rc('design','custom','Custom UI (10-15 screens)','wiz')}${rc('design','system','Full Design system + visuals','wiz')}</div>` },
+            { title: 'Any data/compliance requirements?',
+              render: () => `<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">${rc('compliance','none','None','wiz')}${rc('compliance','basic','Basic legal/privacy policies','wiz')}${rc('compliance','pii','PII/PHI handling','wiz')}${rc('compliance','soc2','Enterprise/SOC2 prep','wiz')}</div>` },
+            { title: 'Quality bar — Testing & Devices',
+              render: () => `<div class="bg-white rounded-xl border border-gray-100 p-5 space-y-4">${st('e2eTests','End-to-end tests','wiz')}${st('accessibility','Accessibility pass','wiz')}<div class="border-t border-gray-100 pt-4">${sl('extraDevices',0,4,'Extra device targets (Tablets, Wearables)','wiz')}</div></div>` },
+        ];
+
+        let step = 0;
+
+        function renderStep() {
+            document.getElementById('step-title').textContent = STEPS[step].title;
+            document.getElementById('step-num').textContent = step + 1;
+            document.getElementById('total-steps').textContent = STEPS.length;
+            document.getElementById('progress-fill').style.width = `${((step + 1) / STEPS.length) * 100}%`;
+            document.getElementById('step-content').innerHTML = STEPS[step].render();
+            document.getElementById('back-btn').disabled = step === 0;
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.innerHTML = step === STEPS.length - 1
+                ? `See Results <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>`
+                : `Next <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>`;
+            attachStepListeners();
+        }
+
+        function attachStepListeners() {
+            document.querySelectorAll('.radio-card').forEach(el => {
+                el.addEventListener('click', () => {
+                    state[el.dataset.key] = el.dataset.val;
+                    updateUI();
+                    renderStep();
+                });
+                el.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        el.click();
+                    }
+                });
+            });
+            document.querySelectorAll('.feature-row input[type="checkbox"]').forEach(el => {
+                el.addEventListener('change', () => {
+                    state[el.closest('.feature-row').dataset.parent][el.closest('.feature-row').dataset.key] = el.checked;
+                    updateUI();
+                    renderStep();
+                });
+            });
+            document.querySelectorAll('input[type="range"]').forEach(el => {
+                el.addEventListener('input', () => {
+                    const key = el.dataset.key;
+                    const val = parseInt(el.value);
+                    state[key] = val;
+                    const vid = `sv-wiz-${key}`;
+                    const valEl = document.getElementById(vid);
+                    if (valEl) valEl.textContent = val;
+                    updateUI();
+                });
+            });
+            document.querySelectorAll('[data-ctx="wiz"] input[type="checkbox"]').forEach(el => {
+                if (!el.closest('.feature-row')) {
+                    el.addEventListener('change', () => {
+                        state[el.dataset.key] = el.checked;
+                        updateUI();
+                    });
+                }
+            });
+        }
+
+        document.getElementById('next-btn').addEventListener('click', () => {
+            if (step < STEPS.length - 1) { step++; renderStep(); }
+            else { setMode('dashboard'); }
+        });
+        document.getElementById('back-btn').addEventListener('click', () => { if (step > 0) { step--; renderStep(); } });
+
+        // ============================================================
+        // DASHBOARD
+        // ============================================================
+        function renderDashboard() {
+            document.getElementById('dash-platform').innerHTML =
+                rc('platform','single','Single (iOS or Android)','dash') + rc('platform','dual','Dual (iOS + Android)','dash');
+            document.getElementById('dash-complexity').innerHTML =
+                ['low','medium','high','extreme'].map(l=>rc('complexity',l,l.charAt(0).toUpperCase()+l.slice(1),'dash')).join('');
+            document.getElementById('dash-essential').innerHTML =
+                ft('essentialFeatures','email','Email/password accounts','dash') +
+                ft('essentialFeatures','onboarding','Onboarding / profile','dash') +
+                ft('essentialFeatures','push','Push notifications','dash') +
+                ft('essentialFeatures','analytics','Analytics','dash');
+            document.getElementById('dash-advanced').innerHTML =
+                ft('advancedFeatures','sso','Apple/Google sign-in','dash') +
+                ft('advancedFeatures','chat','Realtime chat / messaging','dash') +
+                ft('advancedFeatures','maps','Maps / location','dash') +
+                ft('advancedFeatures','payments','Payments / subscriptions','dash') +
+                ft('advancedFeatures','media','Photo/video upload','dash') +
+                ft('advancedFeatures','offline','Offline sync','dash') +
+                ft('advancedFeatures','iap','In-app purchases (IAP)','dash');
+            document.getElementById('dash-backend').innerHTML =
+                rc('backend','none','No backend','dash') + rc('backend','baas','BaaS','dash') +
+                rc('backend','api','Existing API','dash') + rc('backend','custom','Custom backend','dash');
+            document.getElementById('dash-apis').innerHTML = sl('thirdPartyApis',0,5,'Extra API/SDK Integrations','dash');
+            document.getElementById('dash-design').innerHTML =
+                rc('design','basic','Basic UI kit','dash') + rc('design','custom','Custom UI','dash') + rc('design','system','Design system','dash');
+            document.getElementById('dash-compliance').innerHTML =
+                rc('compliance','none','None','dash') + rc('compliance','basic','Basic policies','dash') +
+                rc('compliance','pii','PII/PHI','dash') + rc('compliance','soc2','SOC2 prep','dash');
+            document.getElementById('dash-qa').innerHTML =
+                st('e2eTests','End-to-end tests','dash') + st('accessibility','Accessibility pass','dash') +
+                `<div class="border-t border-gray-100 pt-4">${sl('extraDevices',0,4,'Extra device targets','dash')}</div>`;
+
+            attachDashboardListeners();
+        }
+
+        function attachDashboardListeners() {
+            document.querySelectorAll('#dashboard-view .radio-card').forEach(el => {
+                el.onclick = () => { state[el.dataset.key] = el.dataset.val; updateUI(); renderDashboard(); };
+                el.onkeydown = (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        el.click();
+                    }
+                };
+            });
+            document.querySelectorAll('#dashboard-view .feature-row').forEach(el => {
+                const cb = el.querySelector('input[type="checkbox"]');
+                cb.onchange = () => {
+                    state[el.dataset.parent][el.dataset.key] = cb.checked;
+                    updateUI();
+                };
+            });
+            document.querySelectorAll('#dashboard-view input[type="range"]').forEach(el => {
+                el.oninput = () => {
+                    state[el.dataset.key] = parseInt(el.value);
+                    const vid = `sv-dash-${el.dataset.key}`;
+                    const valEl = document.getElementById(vid);
+                    if (valEl) valEl.textContent = el.value;
+                    updateUI();
+                };
+            });
+            document.querySelectorAll('#dashboard-view input[data-key]').forEach(el => {
+                if (!el.closest('.feature-row') && el.type === 'checkbox') {
+                    el.onchange = () => { state[el.dataset.key] = el.checked; updateUI(); };
+                }
+            });
+        }
+
+        // ============================================================
+        // MODE SWITCHING
+        // ============================================================
+        const wizardView = document.getElementById('wizard-view');
+        const dashboardView = document.getElementById('dashboard-view');
+        const modeToggle = document.getElementById('mode-toggle');
+
+        function setMode(mode) {
+            if (mode === 'dashboard') {
+                wizardView.classList.remove('active');
+                dashboardView.classList.add('active');
+                modeToggle.checked = true;
+                document.getElementById('cost-badge').classList.remove('hidden');
+                renderDashboard();
+                updateUI();
+            } else {
+                dashboardView.classList.remove('active');
+                wizardView.classList.add('active');
+                modeToggle.checked = false;
+                document.getElementById('cost-badge').classList.add('hidden');
+            }
+        }
+
+        modeToggle.addEventListener('change', () => setMode(modeToggle.checked ? 'dashboard' : 'wizard'));
+
+        document.getElementById('wizard-skip-btn').addEventListener('click', () => setMode('dashboard'));
+        document.getElementById('dashboard-back-btn').addEventListener('click', () => setMode('wizard'));
+
+        // Init
+        renderStep();
+        renderDashboard();
+        updateUI();
+    })();
+    </script>
+</body>
 </html>
