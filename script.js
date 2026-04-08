@@ -98,9 +98,13 @@ function toggleMobileMenu() {
 }
 
 // 7. FAQ TOGGLE LOGIC
+let cachedFaqItems;
 function toggleFaq(element) {
+    if (!cachedFaqItems) {
+        cachedFaqItems = document.querySelectorAll(".faq-item");
+    }
     const isActive = element.classList.contains("active");
-    document.querySelectorAll(".faq-item").forEach((item) => {
+    cachedFaqItems.forEach((item) => {
         item.classList.remove("active");
     });
     if (!isActive) {
