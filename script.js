@@ -386,7 +386,7 @@ function handleScrollSpy() {
 
         sections.forEach(section => {
             const sectionId = section.getAttribute('id');
-            const activeLink = document.querySelector(`header nav a[href="#${sectionId}"], header nav a[href="index.html#${sectionId}"]`);
+            const activeLink = document.querySelector(`header nav a[href$="#${sectionId}"]`);
             if (activeLink) {
                 linkMap.set(sectionId, activeLink);
             }
@@ -667,5 +667,5 @@ window.addEventListener('scroll', function() {
 });
 // 12. EXPORTS FOR TESTING
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { showCkForm, handleLeadCapture, toggleFaq };
+    module.exports = { showCkForm, handleLeadCapture, toggleFaq, handleScrollSpy };
 }
