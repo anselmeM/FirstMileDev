@@ -98,12 +98,25 @@ function toggleMobileMenu() {
 }
 
 // 7. FAQ TOGGLE LOGIC
+// ⚡ Bolt: Cache FAQ items lazily to avoid redundant DOM queries on every click
+let cachedFaqItems = null;
+
 function toggleFaq(element) {
+    if (!cachedFaqItems) {
+        cachedFaqItems = document.querySelectorAll(".faq-item");
+    }
+
     const isActive = element.classList.contains("active");
-    document.querySelectorAll(".faq-item").forEach((item) => {
+    cachedFaqItems.forEach((item) => {
         item.classList.remove("active");
     });
+
     if (!isActive) {
         element.classList.add("active");
     }
+}
+
+// Support unit testing in Node.js while maintaining browser compatibility
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { toggleFaq };
 }
