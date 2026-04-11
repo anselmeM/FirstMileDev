@@ -89,7 +89,7 @@ export default function Testimonials() {
               <StarRating />
 
               <p className="text-gray-600 text-sm leading-relaxed italic mb-6 flex-grow">
-                "{t.quote}"
+                {t.quote}
               </p>
 
               {/* Result badge */}
