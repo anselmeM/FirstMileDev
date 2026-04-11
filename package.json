@@ -1,24 +1,29 @@
 {
   "name": "firstmiledev",
-  "version": "1.0.0",
-  "description": "FirstMileDev website - Market-First MVP Agency",
-  "type": "module",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "build:css": "tailwindcss -i ./src/input.css -o ./dist/styles.css --minify",
-    "watch:css": "tailwindcss -i ./src/input.css -o ./dist/styles.css --watch"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "lucide-react": "^0.441.0",
+    "next": "^15.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.59.1",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@types/node": "^20.19.39",
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "autoprefixer": "^10.4.27",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.5.15",
+    "postcss": "^8",
     "tailwindcss": "^3.4.0",
-    "vite": "^5.4.0"
-  }
+    "typescript": "^5"
+  },
+  "eslintConfig": "{\"extends\":\"next/core-web-vitals\"}"
 }

@@ -2,13 +2,13 @@
 
 ## Phase 1: Scaffold
 
-- [ ] Initialize Next.js 15 with TypeScript in `/firstmiledev`
-- [ ] Configure Tailwind CSS v4 with existing design tokens
-- [ ] Set up `/app`, `/components`, `/lib`, `/content` folder structure
-- [ ] Migrate `tailwind.config.js` → `tailwind.config.ts`
-- [ ] Create `globals.css` with existing CSS variables
-- [ ] Verify `npm run dev` starts cleanly
-- [ ] Verify `npm run build` produces clean production build
+- [x] Initialize Next.js 15 with TypeScript in `/firstmiledev`
+- [x] Configure Tailwind CSS v4 with existing design tokens
+- [x] Set up `/app`, `/components`, `/lib`, `/content` folder structure
+- [x] Migrate `tailwind.config.js` → `tailwind.config.ts`
+- [x] Create `globals.css` with existing CSS variables
+- [x] Verify `npm run dev` starts cleanly
+- [x] Verify `npm run build` produces clean production build
 
 ## Phase 2: Core Layout
 
@@ -134,9 +134,9 @@
 
 ## Testing Tasks (across all phases)
 
-- [ ] `npm run dev` starts without errors
-- [ ] `npm run build` completes without warnings
-- [ ] `npm run lint` passes
+- [x] `npm run dev` starts without errors
+- [x] `npm run build` completes without warnings
+- [x] `npm run lint` passes
 - [ ] Playwright: homepage loads without console errors
 - [ ] Playwright: navigation between sections works
 - [ ] Playwright: FAQ accordion opens and closes
