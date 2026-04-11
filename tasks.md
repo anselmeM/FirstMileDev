@@ -12,13 +12,13 @@
 
 ## Phase 2: Core Layout
 
-- [ ] Create `app/layout.tsx` with root layout
-- [ ] Build `Navbar.tsx` (desktop + mobile responsive)
-- [ ] Build `MobileMenu.tsx` (slide-out menu)
-- [ ] Build `Footer.tsx` with links and copyright
-- [ ] Add SEO metadata in `layout.tsx`
-- [ ] Verify all pages render Navbar + Footer
-- [ ] Add 404 page (`not-found.tsx`)
+- [x] Create `app/layout.tsx` with root layout
+- [x] Build `Navbar.tsx` (desktop + mobile responsive)
+- [x] Build `MobileMenu.tsx` (slide-out menu)
+- [x] Build `Footer.tsx` with links and copyright
+- [x] Add SEO metadata in `layout.tsx`
+- [x] Verify all pages render Navbar + Footer
+- [x] Add 404 page (`not-found.tsx`)
 
 ## Phase 3: Page Sections
 
