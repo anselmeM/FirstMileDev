@@ -101,24 +101,24 @@
 
 ## Phase 5: Blog Migration
 
-- [ ] Set up MDX pipeline (`next-mdx-remote` or `@next/mdx`)
-- [ ] Create `/content/blog/` directory
-- [ ] Migrate `blog-no-code-vs-custom.html` → MDX with frontmatter
-- [ ] Migrate `blog-true-cost-mvp.html` → MDX with frontmatter
-- [ ] Migrate `blog-why-startups-fail.html` → MDX with frontmatter
-- [ ] Create `app/blog/page.tsx` blog listing
-- [ ] Create `app/blog/[slug]/page.tsx` individual post
-- [ ] Implement reading time calculation
+- [x] Set up MDX pipeline (`next-mdx-remote` or `@next/mdx`)
+- [x] Create `/content/blog/` directory
+- [x] Migrate `blog-no-code-vs-custom.html` → MDX with frontmatter
+- [x] Migrate `blog-true-cost-mvp.html` → MDX with frontmatter
+- [x] Migrate `blog-why-startups-fail.html` → MDX with frontmatter
+- [x] Create `app/blog/page.tsx` blog listing
+- [x] Create `app/blog/[slug]/page.tsx` individual post
+- [x] Implement reading time calculation
 - [ ] Implement OG image per post
 
 ## Phase 6: SEO + Performance
 
-- [ ] Add `metadata.ts` with global SEO config
-- [ ] Add per-page metadata overrides
-- [ ] Generate sitemap via `next-sitemap`
-- [ ] Generate robots.txt via `next-robots`
-- [ ] Add OG images for homepage and blog posts
-- [ ] Run Lighthouse audit
+- [x] Add `metadata.ts` with global SEO config
+- [x] Add per-page metadata overrides
+- [x] Generate sitemap via `next-sitemap`
+- [x] Generate robots.txt via `next-robots`
+- [x] Add OG images for homepage and blog posts
+- [x] Run Lighthouse audit
 - [ ] Fix any performance issues found
 - [ ] Verify all pages pass accessibility audit
 
