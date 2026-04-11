@@ -1,8 +1,19 @@
+import Hero from '@/components/sections/Hero';
+import Intro from '@/components/sections/Intro';
+import About from '@/components/sections/About';
+import Services from '@/components/sections/Services';
+import Testimonials from '@/components/sections/Testimonials';
+import FAQ from '@/components/sections/FAQ';
+
 export default function HomePage() {
   return (
-    <main>
-      <h1 className="font-headline text-accent-red">FirstMileDev</h1>
-      <p className="font-body text-carbon-700">Market-First MVP Agency</p>
-    </main>
+    <>
+      <Hero />
+      <Services />
+      <Intro />
+      <About />
+      <Testimonials />
+      <FAQ />
+    </>
   );
 }
