@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import Link from "next/link";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import ReactMarkdown from "react-markdown";
 import type { Metadata } from "next";
 
 interface PostFrontmatter {
@@ -59,7 +59,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
       <article className="px-6 py-16 md:py-24 max-w-4xl mx-auto">
-        <div className="prose prose-lg max-w-none"><MDXRemote source={post.content} /></div>
+        <div className="prose prose-lg max-w-none">
+          <ReactMarkdown>{post.content}</ReactMarkdown>
+        </div>
         <div className="mt-16 pt-8 border-t border-gray-200">
           <Link href="/blog" className="text-[#FF3B3F] font-semibold hover:underline">← Back to Blog</Link>
         </div>
