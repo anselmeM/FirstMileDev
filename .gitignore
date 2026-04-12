@@ -286,4 +286,4 @@ robots.txt
 # 6. For large binaries, consider Git LFS (git lfs install)
 # 7. Use global .gitignore for personal system files:
 #    git config --global core.excludesFile ~/.gitignore
-# 8. Test new patterns in a staging area before committing
+# 8. Test new patterns in a staging area before committingundefined:
