@@ -72,7 +72,75 @@ global.document = {
 };
 
 // Import the function after mocks
-const { showCkForm, handleLeadCapture } = require('../script');
+const { showCkForm, handleLeadCapture, dismissPopupsAtContactSection, getExitPopup } = require('../script');
+
+describe('dismissPopupsAtContactSection', () => {
+    let elements;
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+        elements = {};
+        global.document.getElementById.mockImplementation((id) => elements[id] || null);
+
+        // Clear the caches before each test
+        if (dismissPopupsAtContactSection.cache) {
+            delete dismissPopupsAtContactSection.cache;
+        }
+        if (getExitPopup.cache) {
+            delete getExitPopup.cache;
+        }
+    });
+
+    test('should dismiss popups when contact section is visible', () => {
+        const mockContact = { offsetTop: 500, offsetHeight: 200 };
+        const mockExitPopup = {
+            classList: {
+                contains: jest.fn().mockReturnValue(true),
+                remove: jest.fn()
+            }
+        };
+        const mockCta50 = {
+            classList: { remove: jest.fn() },
+            querySelector: jest.fn().mockReturnValue({ style: {} })
+        };
+
+        elements['contact'] = mockContact;
+        elements['exit-intent-popup'] = mockExitPopup;
+        elements['scroll-cta-50'] = mockCta50;
+
+        // Mock scroll position to make contact visible
+        // scrollTop (0) + windowHeight (1000) > contactTop (500) + 100
+        global.window.pageYOffset = 0;
+        global.window.innerHeight = 1000;
+
+        dismissPopupsAtContactSection();
+
+        expect(mockExitPopup.classList.remove).toHaveBeenCalledWith('active');
+        expect(mockCta50.classList.remove).toHaveBeenCalledWith('visible');
+    });
+
+    test('should NOT dismiss popups when contact section is NOT visible', () => {
+        const mockContact = { offsetTop: 2000, offsetHeight: 200 };
+        const mockExitPopup = {
+            classList: {
+                contains: jest.fn().mockReturnValue(true),
+                remove: jest.fn()
+            }
+        };
+
+        elements['contact'] = mockContact;
+        elements['exit-intent-popup'] = mockExitPopup;
+
+        // Mock scroll position to make contact NOT visible
+        // scrollTop (0) + windowHeight (1000) <= contactTop (2000) + 100
+        global.window.pageYOffset = 0;
+        global.window.innerHeight = 1000;
+
+        dismissPopupsAtContactSection();
+
+        expect(mockExitPopup.classList.remove).not.toHaveBeenCalled();
+    });
+});
 
 describe('showCkForm', () => {
     let elements;
@@ -135,6 +203,11 @@ describe('handleLeadCapture', () => {
         global.document.getElementById.mockImplementation((id) => {
             return elements[id] || null;
         });
+
+        // Clear the caches before each test
+        if (getExitPopup.cache) {
+            delete getExitPopup.cache;
+        }
 
         // Mock document.createElement
         global.document.createElement = jest.fn((tagName) => ({

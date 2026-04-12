@@ -147,8 +147,18 @@ function closeScrollCta(ctaId) {
 
 // 9. EXIT-INTENT POPUP DETECTION
 let exitIntentShown = false;
-const exitPopup = document.getElementById('exit-intent-popup');
 let previouslyFocusedElement = null;
+
+/**
+ * Lazy-loaded cache for the exit popup element to improve performance and testability.
+ */
+function getExitPopup() {
+    if (typeof document === 'undefined') return null;
+    if (!getExitPopup.cache) {
+        getExitPopup.cache = document.getElementById('exit-intent-popup');
+    }
+    return getExitPopup.cache;
+}
 
 // Detect mouse moving toward browser chrome (exit intent)
 document.addEventListener('mouseleave', function(e) {
@@ -163,7 +173,8 @@ document.addEventListener('touchstart', function() {
 });
 
 function showExitPopup() {
-    if (!exitIntentShown) {
+    const exitPopup = getExitPopup();
+    if (exitPopup && !exitIntentShown) {
         // Store the previously focused element for accessibility
         previouslyFocusedElement = document.activeElement;
         
@@ -181,7 +192,10 @@ function showExitPopup() {
 }
 
 function closeExitPopup() {
-    exitPopup.classList.remove('active');
+    const exitPopup = getExitPopup();
+    if (exitPopup) {
+        exitPopup.classList.remove('active');
+    }
     
     // Return focus to the element that triggered the popup for accessibility
     if (previouslyFocusedElement) {
@@ -191,33 +205,38 @@ function closeExitPopup() {
 }
 
 // Focus trap for accessibility - keep focus within popup when open
-exitPopup.addEventListener('keydown', function(e) {
-    if (e.key === 'Tab') {
-        const focusableElements = exitPopup.querySelectorAll(
-            'input, button, a[href], select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        const firstElement = focusableElements[0];
-        const lastElement = focusableElements[focusableElements.length - 1];
-        
-        if (e.shiftKey) {
-            // Shift + Tab
-            if (document.activeElement === firstElement) {
-                e.preventDefault();
-                lastElement.focus();
-            }
-        } else {
-            // Tab
-            if (document.activeElement === lastElement) {
-                e.preventDefault();
-                firstElement.focus();
+const exitPopupElement = getExitPopup();
+if (exitPopupElement) {
+    exitPopupElement.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            const exitPopup = getExitPopup();
+            const focusableElements = exitPopup.querySelectorAll(
+                'input, button, a[href], select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+
+            if (e.shiftKey) {
+                // Shift + Tab
+                if (document.activeElement === firstElement) {
+                    e.preventDefault();
+                    lastElement.focus();
+                }
+            } else {
+                // Tab
+                if (document.activeElement === lastElement) {
+                    e.preventDefault();
+                    firstElement.focus();
+                }
             }
         }
-    }
-});
+    });
+}
 
 // Close popup on Escape key for accessibility
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && exitPopup.classList.contains('active')) {
+    const exitPopup = getExitPopup();
+    if (e.key === 'Escape' && exitPopup && exitPopup.classList.contains('active')) {
         closeExitPopup();
     }
 });
@@ -297,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Track abandonment when user closes popup without submitting
-        const exitPopup = document.getElementById('exit-intent-popup');
+        const exitPopup = getExitPopup();
         if (exitPopup) {
             const observer = new MutationObserver(function(mutations) {
                 mutations.forEach(function(mutation) {
@@ -585,13 +604,34 @@ jumpLinks.forEach(link => {
     });
 });
 
-// 18. Hide Popups When Contact Section Is Visible (Calendly Optimization)
+/**
+ * 18. Hide Popups When Contact Section Is Visible (Calendly Optimization)
+ * Optimized with lazy-loaded element caching to reduce DOM queries during scroll.
+ */
 function dismissPopupsAtContactSection() {
-    const contactSection = document.getElementById('contact');
-    if (!contactSection) return;
+    if (typeof document === 'undefined') return;
+
+    if (!dismissPopupsAtContactSection.cache) {
+        dismissPopupsAtContactSection.cache = {
+            contact: document.getElementById('contact'),
+            exitPopup: getExitPopup(),
+            cta50: document.getElementById('scroll-cta-50'),
+            cta75: document.getElementById('scroll-cta-75')
+        };
+
+        if (dismissPopupsAtContactSection.cache.cta50) {
+            dismissPopupsAtContactSection.cache.cta50Content = dismissPopupsAtContactSection.cache.cta50.querySelector('.scroll-cta-content');
+        }
+        if (dismissPopupsAtContactSection.cache.cta75) {
+            dismissPopupsAtContactSection.cache.cta75Content = dismissPopupsAtContactSection.cache.cta75.querySelector('.scroll-cta-content');
+        }
+    }
+
+    const { contact, exitPopup, cta50, cta75, cta50Content, cta75Content } = dismissPopupsAtContactSection.cache;
+
+    if (!contact) return;
     
-    const contactSectionTop = contactSection.offsetTop;
-    const contactSectionBottom = contactSectionTop + contactSection.offsetHeight;
+    const contactSectionTop = contact.offsetTop;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
     
@@ -600,26 +640,18 @@ function dismissPopupsAtContactSection() {
     
     if (isContactVisible) {
         // Dismiss exit-intent popup if visible
-        const exitPopup = document.getElementById('exit-intent-popup');
         if (exitPopup && exitPopup.classList.contains('active')) {
             exitPopup.classList.remove('active');
         }
         
-        // Dismiss scroll-triggered CTAs and their content if visible
-        const scrollCta50 = document.getElementById('scroll-cta-50');
-        const scrollCta75 = document.getElementById('scroll-cta-75');
-        const scrollCtaContent50 = document.querySelector('.scroll-cta-content');
-        
-        if (scrollCta50) {
-            scrollCta50.classList.remove('visible');
-            // Specifically hide scroll-cta-content
-            const content = scrollCta50.querySelector('.scroll-cta-content');
-            if (content) content.style.display = 'none';
+        // Dismiss scroll-triggered CTAs if visible
+        if (cta50) {
+            cta50.classList.remove('visible');
+            if (cta50Content) cta50Content.style.display = 'none';
         }
-        if (scrollCta75) {
-            scrollCta75.classList.remove('visible');
-            const content = scrollCta75.querySelector('.scroll-cta-content');
-            if (content) content.style.display = 'none';
+        if (cta75) {
+            cta75.classList.remove('visible');
+            if (cta75Content) cta75Content.style.display = 'none';
         }
     }
 }
@@ -645,5 +677,5 @@ window.addEventListener('scroll', function() {
 });
 // 12. EXPORTS FOR TESTING
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { showCkForm, handleLeadCapture, toggleFaq };
+    module.exports = { showCkForm, handleLeadCapture, toggleFaq, dismissPopupsAtContactSection, getExitPopup };
 }
