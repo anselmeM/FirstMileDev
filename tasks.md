@@ -89,15 +89,15 @@
 
 ## Phase 4: Animations
 
-- [ ] Install Framer Motion
-- [ ] Replace GSAP ScrollTrigger with Framer Motion `whileInView`
-- [ ] Replace GSAP text word/letter reveals with Framer Motion variants
-- [ ] Replace GSAP image reveals with Framer Motion
-- [ ] Replace GSAP accordion with Framer Motion `AnimatePresence`
-- [ ] Replace GSAP magnetic button with Framer Motion + CSS hover
-- [ ] Implement SVG drawing animation for testimonial borders
-- [ ] Test all animations for performance and smoothness
-- [ ] Verify `prefers-reduced-motion` works correctly
+- [x] Install Framer Motion
+- [x] Replace GSAP ScrollTrigger with Framer Motion `whileInView`
+- [x] Replace GSAP text word/letter reveals with Framer Motion variants
+- [x] Replace GSAP image reveals with Framer Motion
+- [x] Replace GSAP accordion with Framer Motion `AnimatePresence`
+- [x] Replace GSAP magnetic button with Framer Motion + CSS hover
+- [x] Implement SVG drawing animation for testimonial borders
+- [x] Test all animations for performance and smoothness
+- [x] Verify `prefers-reduced-motion` works correctly
 
 ## Phase 5: Blog Migration
 
