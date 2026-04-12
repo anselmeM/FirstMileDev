@@ -40,7 +40,7 @@ export default function CTA() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl uppercase-text font-headline mb-6">
-            Let's Validate Your Idea
+            Let&apos;s Validate Your Idea
           </h2>
           <p className="text-sm text-green-400 font-bold mb-2 flex items-center gap-2">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
@@ -58,7 +58,7 @@ export default function CTA() {
               </div>
               <div>
                 <h4 className="font-bold text-lg text-white mb-1">Rapid Validation</h4>
-                <p className="text-sm text-gray-400">We'll discuss your market hypothesis.</p>
+                <p className="text-sm text-gray-400">We&apos;ll discuss your market hypothesis.</p>
               </div>
             </div>
             <div className="flex items-start">

@@ -25,8 +25,8 @@ export default function About() {
             Transparency as a Service
           </h2>
           <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-            We don't hide our process behind buzzwords. Watch Anselme break down the exact tech stacks, scraping
-            strategies, and code patterns we use for client builds in our "Build in Public" series.
+            We don&apos;t hide our process behind buzzwords. Watch Anselme break down the exact tech stacks, scraping
+            strategies, and code patterns we use for client builds in our &quot;Build in Public&quot; series.
           </p>
           <a
             href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g"

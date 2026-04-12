@@ -40,7 +40,7 @@ export default function Intro() {
             Most startups fail because they build things nobody wants.
           </h3>
           <p className="text-gray-600 text-lg leading-relaxed max-w-2xl font-medium">
-            I built FirstMileDev to stop that cycle. We don't just write code; we bridge the gap between
+            I built FirstMileDev to stop that cycle. We don&apos;t just write code; we bridge the gap between
             business strategy and technical execution. Whether you need a quick No-Code validation or a scalable
             PERN stack platform, we ensure every dollar you spend moves you closer to Product-Market Fit.
           </p>
