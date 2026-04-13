@@ -56,6 +56,18 @@ global.gsap = {
 
 global.ScrollTrigger = jest.fn();
 
+global.window = {
+    matchMedia: jest.fn(() => ({
+        matches: false,
+        addEventListener: jest.fn()
+    })),
+    addEventListener: jest.fn(),
+    scrollTo: jest.fn(),
+    innerHeight: 1000,
+    pageYOffset: 0,
+    requestAnimationFrame: jest.fn(cb => cb())
+};
+
 // Mock document.querySelectorAll and document.getElementById
 let mockElements = [];
 global.document = {
@@ -77,6 +89,15 @@ global.document = {
             style: {}
         };
     }),
+    querySelector: jest.fn().mockImplementation((selector) => ({
+        addEventListener: jest.fn(),
+        classList: new MockClassList(),
+        style: {},
+        querySelector: jest.fn().mockReturnValue({ style: {} }),
+        querySelectorAll: jest.fn().mockReturnValue([]),
+        offsetHeight: 100,
+        offsetTop: 100
+    })),
     body: {
         classList: new MockClassList()
     },
