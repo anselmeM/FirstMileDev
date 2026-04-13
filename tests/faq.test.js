@@ -26,6 +26,16 @@ class MockElement {
     }
 }
 
+// Mock global dependencies before requiring the script
+global.window = {
+    matchMedia: jest.fn(() => ({
+        matches: false,
+        addEventListener: jest.fn()
+    })),
+    addEventListener: jest.fn(),
+    requestAnimationFrame: jest.fn(cb => cb())
+};
+
 // Mock GSAP and Lucide to prevent errors when requiring script.js
 global.lucide = {
     createIcons: jest.fn(),
@@ -72,6 +82,7 @@ class MockElementWithQueries extends MockElement {
 // Mock document.querySelectorAll and document.getElementById
 let mockElements = [];
 global.document = {
+    addEventListener: jest.fn(),
     querySelectorAll: jest.fn().mockImplementation((selector) => {
         if (selector === '.faq-item') {
             return mockElements;
@@ -85,16 +96,28 @@ global.document = {
         return null;
     }),
     getElementById: jest.fn().mockImplementation((id) => {
-        return mockElements.find(el => el.id === id) || new MockElementWithQueries(id);
+        const found = mockElements.find(el => el.id === id);
+        if (found) return found;
+        return {
+            classList: new MockClassList(),
+            addEventListener: jest.fn(),
+            querySelector: jest.fn(() => ({ style: {} })),
+            querySelectorAll: jest.fn(() => []),
+            style: {}
+        };
     }),
     body: {
         classList: new MockClassList()
     },
-    addEventListener: jest.fn(),
     documentElement: {
         scrollTop: 0,
-        scrollHeight: 2000
-    }
+        scrollHeight: 1000
+    },
+    querySelector: jest.fn(() => ({
+        offsetHeight: 100,
+        classList: new MockClassList(),
+        style: {}
+    }))
 };
 
 const { toggleFaq } = require('../script.js');
