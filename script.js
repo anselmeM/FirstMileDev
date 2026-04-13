@@ -620,5 +620,10 @@ window.addEventListener('scroll', function() {
 });
 // 12. EXPORTS FOR TESTING
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { showCkForm };
+    module.exports = {
+        showCkForm,
+        toggleFaq,
+        handleLeadCapture,
+        handleScrollSpy
+    };
 }
