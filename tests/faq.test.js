@@ -65,19 +65,8 @@ global.window = {
     scrollTo: jest.fn(),
     innerHeight: 1000,
     pageYOffset: 0,
-    requestAnimationFrame: jest.fn(cb => cb()),
-    location: { pathname: '/' }
+    requestAnimationFrame: jest.fn(cb => cb())
 };
-
-class MockElementWithQueries extends MockElement {
-    constructor(id = '', classes = []) {
-        super(id, classes);
-        this.addEventListener = jest.fn();
-        this.querySelectorAll = jest.fn().mockReturnValue([]);
-        this.querySelector = jest.fn().mockReturnValue(null);
-        this.style = {};
-    }
-}
 
 // Mock document.querySelectorAll and document.getElementById
 let mockElements = [];
@@ -106,6 +95,15 @@ global.document = {
             style: {}
         };
     }),
+    querySelector: jest.fn().mockImplementation((selector) => ({
+        addEventListener: jest.fn(),
+        classList: new MockClassList(),
+        style: {},
+        querySelector: jest.fn().mockReturnValue({ style: {} }),
+        querySelectorAll: jest.fn().mockReturnValue([]),
+        offsetHeight: 100,
+        offsetTop: 100
+    })),
     body: {
         classList: new MockClassList()
     },

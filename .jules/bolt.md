@@ -1,3 +1,6 @@
 ## 2024-05-17 - No Package Manager Found
 **Learning:** This is a static HTML/CSS/JS site running directly from files. There is no `package.json`, `npm`, or `pnpm` available, meaning standard Node-based linting or testing tools cannot be run.
 **Action:** Do not attempt to run `pnpm lint` or `pnpm test` as instructed by the generic Bolt prompt, as they will fail. Rely on manual verification (e.g., Python HTTP server) and native browser features for performance optimizations.
+## 2026-03-25 - Tailwind CDN & GSAP Render-Blocking Dependency
+**Learning:** Attempting to optimize First Contentful Paint by deferring or moving `<head>` scripts (like GSAP or Lucide) to the bottom of the `<body>` breaks this specific codebase. The architecture relies on these large scripts artificially blocking the render path so that the asynchronous Tailwind CSS CDN script has enough time to parse the DOM and inject styles *before* GSAP's `ScrollTrigger` measures the layout. Without this blocking delay, a severe Flash of Unstyled Content (FOUC) occurs, and ScrollTrigger calculates completely broken positions based on an unstyled DOM.
+**Action:** Do not remove the render-blocking nature of the scripts in the `<head>` unless also refactoring GSAP initialization to explicitly wait for `window.onload`. Prioritize safe optimizations like DOM query caching instead.

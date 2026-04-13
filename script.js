@@ -1,54 +1,69 @@
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-// 2. INITIALIZE ICONS & GSAP
-lucide.createIcons();
-gsap.registerPlugin(ScrollTrigger);
+// 2. INITIALIZE ICONS & GSAP (Browser only)
+if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+    lucide.createIcons();
+    gsap.registerPlugin(ScrollTrigger);
 
-// 3. HERO ANIMATION TIMELINE
-const tl = gsap.timeline();
-tl.to(".line-content-anim", {
-    y: 0,
-    duration: 1,
-    stagger: 0.1,
-    ease: "power3.out",
-    delay: 0.2,
-})
-    .to(
-        "#hero-subheadline",
-        {
+    // 3. HERO ANIMATION TIMELINE
+    const tl = gsap.timeline();
+    tl.to(".line-content-anim", {
+        y: 0,
+        duration: 1,
+        stagger: 0.1,
+        ease: "power3.out",
+        delay: 0.2,
+    })
+        .to(
+            "#hero-subheadline",
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power3.out",
+            },
+            "-=0.5"
+        )
+        .to(
+            "#hero-cta-container, .header-cta-button",
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.1,
+            },
+            "-=0.6"
+        );
+
+    // 4. SCROLL REVEAL ANIMATIONS
+    gsap.utils.toArray(".gsap-reveal").forEach((element) => {
+        gsap.to(element, {
+            scrollTrigger: {
+                trigger: element,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+            },
             y: 0,
             opacity: 1,
-            duration: 0.8,
+            duration: 1,
             ease: "power3.out",
-        },
-        "-=0.5"
-    )
-    .to(
-        "#hero-cta-container, .header-cta-button",
-        {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            stagger: 0.1,
-        },
-        "-=0.6"
-    );
+        });
+    });
 
-// 4. SCROLL REVEAL ANIMATIONS
-gsap.utils.toArray(".gsap-reveal").forEach((element) => {
-    gsap.to(element, {
+    // 5. FOUNDER ANIMATION
+    gsap.to(".founder-anim", {
         scrollTrigger: {
-            trigger: element,
-            start: "top 85%",
+            trigger: ".founder-anim",
+            start: "top 80%",
             toggleActions: "play none none reverse",
         },
-        y: 0,
+        x: 0,
         opacity: 1,
         duration: 1,
+        stagger: 0.2,
         ease: "power3.out",
     });
-});
 
 // 5. FOUNDER ANIMATION
 gsap.to(".founder-anim", {
@@ -68,13 +83,21 @@ gsap.to(".founder-anim", {
 // The toggleMobileMenu function is defined in navbar.js
 
 // 7. FAQ TOGGLE LOGIC
+let cachedFaqItems;
 function toggleFaq(element) {
+    if (!cachedFaqItems) {
+        cachedFaqItems = document.querySelectorAll(".faq-item");
+    }
     const isActive = element.classList.contains("active");
-    document.querySelectorAll(".faq-item").forEach((item) => {
+    cachedFaqItems.forEach((item) => {
         item.classList.remove("active");
     });
     if (!isActive) {
         element.classList.add("active");
+        activeFaqItem = element;
+    } else {
+        element.classList.remove("active");
+        activeFaqItem = null;
     }
 }
 
@@ -371,15 +394,31 @@ function handleStickyNav() {
 
 // 13. Scroll-Spy - Highlight active navigation link based on current section
 const sections = document.querySelectorAll('section[id]');
-let cachedNavLinks = null;
-const cachedActiveLinks = {};
+
+// ⚡ Bolt: Lazy cache for scroll spy navigation links to prevent DOM querying on every scroll event
+let scrollSpyCache = null;
 
 function handleScrollSpy() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    // Cache nav links once
-    if (!cachedNavLinks) {
-        cachedNavLinks = document.querySelectorAll('header nav a[href*="#"]');
+    // ⚡ Bolt: Initialize cache on first run to avoid querying the DOM inside a scroll listener
+    // Reduces layout thrashing and CPU usage during high-frequency scroll events
+    if (!scrollSpyCache) {
+        const navLinks = document.querySelectorAll('header nav a[href*="#"]');
+        const linkMap = new Map();
+
+        sections.forEach(section => {
+            const sectionId = section.getAttribute('id');
+            const activeLink = document.querySelector(`header nav a[href$="#${sectionId}"]`);
+            if (activeLink) {
+                linkMap.set(sectionId, activeLink);
+            }
+        });
+
+        scrollSpyCache = {
+            navLinks: Array.from(navLinks),
+            linkMap: linkMap
+        };
     }
     
     sections.forEach(section => {
@@ -389,17 +428,12 @@ function handleScrollSpy() {
         
         if (scrollTop >= sectionTop && scrollTop < sectionBottom) {
             // Remove active class from all nav links
-            cachedNavLinks.forEach(link => {
+            scrollSpyCache.navLinks.forEach(link => {
                 link.classList.remove('nav-link-active');
             });
             
             // Add active class to corresponding nav link
-            // Use cached lookup if available
-            if (!cachedActiveLinks[sectionId]) {
-                cachedActiveLinks[sectionId] = document.querySelector(`header nav a[href="#${sectionId}"], header nav a[href="index.html#${sectionId}"]`);
-            }
-
-            const activeLink = cachedActiveLinks[sectionId];
+            const activeLink = scrollSpyCache.linkMap.get(sectionId);
             if (activeLink) {
                 activeLink.classList.add('nav-link-active');
             }
@@ -656,5 +690,5 @@ window.addEventListener('scroll', function() {
 });
 // 12. EXPORTS FOR TESTING
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { showCkForm, handleLeadCapture, toggleFaq };
+    module.exports = { showCkForm, handleLeadCapture, toggleFaq, handleScrollSpy };
 }
