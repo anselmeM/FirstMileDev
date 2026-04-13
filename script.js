@@ -64,20 +64,7 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
         stagger: 0.2,
         ease: "power3.out",
     });
-
-// 5. FOUNDER ANIMATION
-gsap.to(".founder-anim", {
-    scrollTrigger: {
-        trigger: ".founder-anim",
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-    },
-    x: 0,
-    opacity: 1,
-    duration: 1,
-    stagger: 0.2,
-    ease: "power3.out",
-});
+}
 
 // 6. MOBILE MENU - Now handled entirely by navbar.js
 // The toggleMobileMenu function is defined in navbar.js

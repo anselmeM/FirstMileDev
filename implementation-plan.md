@@ -46,8 +46,14 @@ Ensure WCAG compliance across all pages.
 ### Phase 4: Content & Quality (Week 3) - ✅ COMPLETED
 Refine messaging, branding consistency, and content quality.
 
-### Phase 5: Technical Polish (Week 3-4) - ✅ COMPLETED
+### Phase 5: Technical Polish (Week 3-4) - âœ… COMPLETED
 Code validation, cross-browser testing, final refinements.
+
+### Phase 6: Advanced Optimization & Maintainability (Week 5+) - IN PROGRESS
+Focus on production-grade technical architecture, dynamic content rendering, and long-term maintainability.
+
+### Phase 7: Conversion & UX Refinement (Week 7+) - PENDING
+Focus on maximizing lead generation, user engagement, and trust signals through interface refinements.
 
 ---
 
@@ -207,7 +213,79 @@ Code validation, cross-browser testing, final refinements.
 
 ---
 
-## 8. Testing and QA Checklist
+## 8. Phase 6: Advanced Technical Tasks
+
+### 8.1 Production CSS Workflow - PENDING
+**Files**: package.json, src/input.css, all HTML files
+
+- [ ] Transition from Tailwind CDN to compiled CSS
+- [ ] Configure Tailwind CLI for minified production build
+- [ ] Update all HTML files to reference compiled CSS
+- [ ] Implement Critical CSS inlining for home page hero
+
+### 8.2 Dynamic Content Rendering - PENDING
+**Files**: blog.html, blog-posts.json, blog.js (new)
+
+- [ ] Create blog.js to dynamically load and render posts from blog-posts.json
+- [ ] Implement category filtering for blog posts
+- [ ] Add search functionality for blog articles
+- [ ] Ensure SEO compatibility for dynamically rendered content
+
+### 8.3 Modular JavaScript Refactoring - PENDING
+**Files**: script.js, navbar.js, footer.js, calculator.html
+
+- [ ] Refactor common utilities into a shared module
+- [ ] Move calculator logic from inline HTML to script.js or calculator.js
+- [ ] Implement lazy loading for non-critical JS features (e.g., Tawk.to, Clarity)
+- [ ] Minify all JS files for production
+
+### 8.4 Asset & Performance Optimization - PENDING
+**Files**: images/**, manifest.json
+
+- [ ] Convert all PNG/JPG images to WebP format
+- [ ] Implement responsive images using srcset and <picture>
+- [ ] Verify PWA service worker (sw.js) registration and offline capabilities
+- [ ] Audit and optimize font loading strategy (font-display: swap)
+
+---
+
+## 9. Phase 7: Conversion & UX Refinement Tasks
+
+### 9.1 Advanced Navigation Features - PENDING
+**Files**: navbar.js, script.js, style.css
+
+- [ ] Implement sticky header with backdrop-blur effect
+- [ ] Add "Back to Top" floating button with smooth scroll
+- [ ] Integrate Scroll-Spy to highlight current section in navigation
+- [ ] Add visual progress indicator for the 3-phase journey
+
+### 9.2 Conversion Rate Optimization (CRO) - PENDING
+**Files**: index.html, script.js
+
+- [ ] Add "Limited Availability" urgency badge near CTAs
+- [ ] Implement exit-intent popup for lead capture (Free Validation Checklist)
+- [ ] Standardize all button styles across the site for consistency
+- [ ] Add secondary "Book Discovery Call" CTA in the hero section
+
+### 9.3 Trust & Authority Signals - PENDING
+**Files**: footer.js, index.html
+
+- [ ] Add SSL security badge and trust indicators in the footer
+- [ ] Implement Microsoft Clarity for heatmap and session recording
+- [ ] Add "NDA Available" and "Canadian Business" trust badges
+- [ ] Set up form abandonment tracking in Google Analytics
+
+### 9.4 Mobile & PWA Enhancements - PENDING
+**Files**: manifest.json, index.html, style.css
+
+- [ ] Audit and increase mobile tap targets to minimum 44x44px
+- [ ] Finalize PWA manifest.json for "Add to Home Screen" support
+- [ ] Add iOS-specific viewport and meta tags for better mobile experience
+- [ ] Optimize typography scaling for small screens
+
+---
+
+## 10. Testing and QA Checklist
 
 ### 8.1 Pre-Launch Testing
 - [ ] All pages load without errors

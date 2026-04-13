@@ -422,7 +422,7 @@ Replace with proper caching for static assets in .htaccess or server config
 
 ---
 
-### ✅ TECH-003: Mobile Touch Target Verification
+### âœ… TECH-003: Mobile Touch Target Verification
 **Priority**: LOW | **Estimated Time**: 1 hour | **Status**: COMPLETED (OPTIONAL)
 
 **Analysis**:
@@ -439,7 +439,162 @@ Replace with proper caching for static assets in .htaccess or server config
 
 ---
 
+## Section 5: Phase 6 Advanced Technical Tasks (IN PROGRESS)
+
+### â¬œ TECH-004: Production Tailwind CSS Build
+**Priority**: HIGH | **Estimated Time**: 2 hours | **Status**: NOT STARTED
+
+**Files to Modify**: package.json, all HTML files
+
+**Task**: Transition from Tailwind CDN to a production-ready compiled CSS workflow.
+
+**Acceptance Criteria**:
+- [ ] Tailwind CLI configured and working
+- [ ] Compiled and minified CSS file generated
+- [ ] All HTML files updated to use compiled CSS
+- [ ] Verified that no styles are missing in the production build
+
+---
+
+### â¬œ TECH-005: Dynamic Blog Post Rendering
+**Priority**: MEDIUM | **Estimated Time**: 3 hours | **Status**: NOT STARTED
+
+**Files to Modify**: blog.html, blog.js (new)
+
+**Task**: Implement dynamic rendering of blog posts from `blog-posts.json`.
+
+**Acceptance Criteria**:
+- [ ] Blog posts are loaded and rendered via JavaScript
+- [ ] "Load More" or pagination implemented if needed
+- [ ] Category filtering is functional
+- [ ] Search functionality works for blog posts
+
+---
+
+### â¬œ TECH-006: JavaScript Modularization & Minification
+**Priority**: MEDIUM | **Estimated Time**: 3 hours | **Status**: NOT STARTED
+
+**Files to Modify**: script.js, navbar.js, footer.js, calculator.js (new)
+
+**Task**: Refactor and minify JavaScript files. Move calculator logic to its own file.
+
+**Acceptance Criteria**:
+- [ ] Common utilities refactored into shared functions
+- [ ] Calculator logic removed from HTML and placed in `calculator.js`
+- [ ] All JS files minified for production
+- [ ] Verified that all interactions still work correctly
+
+---
+
+### â¬œ PERF-005: Image Format Conversion (WebP)
+**Priority**: LOW | **Estimated Time**: 2 hours | **Status**: NOT STARTED
+
+**Files to Modify**: All HTML files, images folder
+
+**Task**: Convert all images to WebP and update references.
+
+**Acceptance Criteria**:
+- [ ] All PNG/JPG images have WebP versions
+- [ ] HTML files use `<picture>` or `srcset` for responsive formats
+- [ ] Fallback for older browsers provided
+- [ ] Significant reduction in total image payload
+
+---
+
+## Section 6: Phase 7 Conversion & UX Refinement Tasks (PENDING)
+
+### â¬œ UX-001: Implement Sticky Navigation & Scroll-Spy
+**Priority**: HIGH | **Estimated Time**: 2 hours | **Status**: NOT STARTED
+
+**Files to Modify**: navbar.js, script.js, style.css
+
+**Task**: Add sticky header and highlight active section in nav.
+
+**Acceptance Criteria**:
+- [ ] Navbar remains fixed at top after scrolling past hero
+- [ ] Backdrop-blur effect added to sticky navbar
+- [ ] Current section highlighted in nav menu during scroll
+- [ ] Smooth transitions between states
+
+---
+
+### â¬œ UX-002: Add "Back to Top" Button
+**Priority**: MEDIUM | **Estimated Time**: 1 hour | **Status**: NOT STARTED
+
+**Files to Modify**: index.html, script.js, style.css
+
+**Task**: Implement a floating "Back to Top" button.
+
+**Acceptance Criteria**:
+- [ ] Button appears after scrolling 500px
+- [ ] Smooth scroll to top when clicked
+- [ ] Accessible via keyboard (Tab index)
+- [ ] Responsive positioning
+
+---
+
+### â¬œ CRO-001: Implement Exit-Intent Lead Capture
+**Priority**: HIGH | **Estimated Time**: 3 hours | **Status**: NOT STARTED
+
+**Files to Modify**: index.html, script.js
+
+**Task**: Create an exit-intent popup with a lead magnet offer.
+
+**Acceptance Criteria**:
+- [ ] Popup triggers when mouse leaves browser window
+- [ ] Includes email capture form for "Validation Checklist"
+- [ ] Cookie-based prevention (don't show twice to same user)
+- [ ] Fully accessible (Focus trap, ARIA labels)
+
+---
+
+### â¬œ CRO-002: Urgency & Trust Badge Integration
+**Priority**: MEDIUM | **Estimated Time**: 2 hours | **Status**: NOT STARTED
+
+**Files to Modify**: index.html, footer.js
+
+**Task**: Add "Limited Availability" and trust badges.
+
+**Acceptance Criteria**:
+- [ ] "2 spots left this month" badge added near hero/pricing CTAs
+- [ ] SSL, "NDA Available", and "Canadian Business" badges added to footer
+- [ ] Consistent styling with brand identity
+- [ ] Verified placement on mobile
+
+---
+
+### â¬œ TECH-007: Advanced Analytics Integration
+**Priority**: MEDIUM | **Estimated Time**: 2 hours | **Status**: NOT STARTED
+
+**Files to Modify**: index.html, script.js
+
+**Task**: Set up Microsoft Clarity and form abandonment tracking.
+
+**Acceptance Criteria**:
+- [ ] Microsoft Clarity script installed and verified
+- [ ] Form abandonment events firing in GA4
+- [ ] Heatmaps confirmed active in Clarity dashboard
+- [ ] No performance degradation from scripts
+
+---
+
 ## Task Completion Summary
+
+| Category | Total Tasks | Completed | Remaining |
+|----------|-------------|-----------|-----------|
+| Critical | 6 | 6 | 0 |
+| High Priority | 8 | 5 | 3 |
+| Medium Priority | 10 | 5 | 5 |
+| Low Priority | 5 | 4 | 1 |
+| **TOTAL** | **29** | **20** | **9** |
+
+**Current Progress**: 69% complete (20 of 29 tasks)
+
+---
+
+*Task Tracker Version: 1.3*
+*Last Updated: 2026-04-12*
+*Project: FirstMileDev Website Optimization*
 
 | Category | Total Tasks | Completed | Remaining |
 |----------|-------------|-----------|-----------|
