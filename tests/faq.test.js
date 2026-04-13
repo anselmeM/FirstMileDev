@@ -46,6 +46,29 @@ global.gsap = {
 
 global.ScrollTrigger = jest.fn();
 
+global.window = {
+    matchMedia: jest.fn(() => ({
+        matches: false,
+        addEventListener: jest.fn()
+    })),
+    addEventListener: jest.fn(),
+    scrollTo: jest.fn(),
+    innerHeight: 1000,
+    pageYOffset: 0,
+    requestAnimationFrame: jest.fn(cb => cb()),
+    location: { pathname: '/' }
+};
+
+class MockElementWithQueries extends MockElement {
+    constructor(id = '', classes = []) {
+        super(id, classes);
+        this.addEventListener = jest.fn();
+        this.querySelectorAll = jest.fn().mockReturnValue([]);
+        this.querySelector = jest.fn().mockReturnValue(null);
+        this.style = {};
+    }
+}
+
 // Mock document.querySelectorAll and document.getElementById
 let mockElements = [];
 global.document = {
@@ -55,11 +78,22 @@ global.document = {
         }
         return [];
     }),
+    querySelector: jest.fn().mockImplementation((selector) => {
+        if (selector === 'header' || selector === '#hero-section' || selector === 'section[id]') {
+            return new MockElementWithQueries();
+        }
+        return null;
+    }),
     getElementById: jest.fn().mockImplementation((id) => {
-        return mockElements.find(el => el.id === id);
+        return mockElements.find(el => el.id === id) || new MockElementWithQueries(id);
     }),
     body: {
         classList: new MockClassList()
+    },
+    addEventListener: jest.fn(),
+    documentElement: {
+        scrollTop: 0,
+        scrollHeight: 2000
     }
 };
 

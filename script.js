@@ -346,9 +346,16 @@ function handleStickyNav() {
 
 // 13. Scroll-Spy - Highlight active navigation link based on current section
 const sections = document.querySelectorAll('section[id]');
+let cachedNavLinks = null;
+const cachedActiveLinks = {};
+
 function handleScrollSpy() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const navLinks = document.querySelectorAll('header nav a[href*="#"]');
+
+    // Cache nav links once
+    if (!cachedNavLinks) {
+        cachedNavLinks = document.querySelectorAll('header nav a[href*="#"]');
+    }
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 150;
@@ -357,13 +364,17 @@ function handleScrollSpy() {
         
         if (scrollTop >= sectionTop && scrollTop < sectionBottom) {
             // Remove active class from all nav links
-            navLinks.forEach(link => {
+            cachedNavLinks.forEach(link => {
                 link.classList.remove('nav-link-active');
             });
             
             // Add active class to corresponding nav link
-            // Handle both "#section" and "index.html#section"
-            const activeLink = document.querySelector(`header nav a[href="#${sectionId}"], header nav a[href="index.html#${sectionId}"]`);
+            // Use cached lookup if available
+            if (!cachedActiveLinks[sectionId]) {
+                cachedActiveLinks[sectionId] = document.querySelector(`header nav a[href="#${sectionId}"], header nav a[href="index.html#${sectionId}"]`);
+            }
+
+            const activeLink = cachedActiveLinks[sectionId];
             if (activeLink) {
                 activeLink.classList.add('nav-link-active');
             }
@@ -620,5 +631,5 @@ window.addEventListener('scroll', function() {
 });
 // 12. EXPORTS FOR TESTING
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { showCkForm };
+    module.exports = { showCkForm, handleScrollSpy, toggleFaq };
 }
