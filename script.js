@@ -68,9 +68,16 @@ gsap.to(".founder-anim", {
 // The toggleMobileMenu function is defined in navbar.js
 
 // 7. FAQ TOGGLE LOGIC
+/** @type {NodeListOf<Element> | null} */
+toggleFaq.cachedItems = null;
+
 function toggleFaq(element) {
+    if (typeof document === 'undefined') return;
+    if (!toggleFaq.cachedItems) {
+        toggleFaq.cachedItems = document.querySelectorAll(".faq-item");
+    }
     const isActive = element.classList.contains("active");
-    document.querySelectorAll(".faq-item").forEach((item) => {
+    toggleFaq.cachedItems.forEach((item) => {
         item.classList.remove("active");
     });
     if (!isActive) {
