@@ -80,7 +80,7 @@ global.document = {
             offsetTop: 100
         };
     }),
-    querySelector: jest.fn().mockImplementation(() => ({
+    querySelector: jest.fn().mockImplementation((selector) => ({
         addEventListener: jest.fn(),
         classList: new MockClassList(),
         style: {},
