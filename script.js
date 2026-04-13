@@ -1,54 +1,69 @@
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-// 2. INITIALIZE ICONS & GSAP
-lucide.createIcons();
-gsap.registerPlugin(ScrollTrigger);
+// 2. INITIALIZE ICONS & GSAP (Browser only)
+if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+    lucide.createIcons();
+    gsap.registerPlugin(ScrollTrigger);
 
-// 3. HERO ANIMATION TIMELINE
-const tl = gsap.timeline();
-tl.to(".line-content-anim", {
-    y: 0,
-    duration: 1,
-    stagger: 0.1,
-    ease: "power3.out",
-    delay: 0.2,
-})
-    .to(
-        "#hero-subheadline",
-        {
+    // 3. HERO ANIMATION TIMELINE
+    const tl = gsap.timeline();
+    tl.to(".line-content-anim", {
+        y: 0,
+        duration: 1,
+        stagger: 0.1,
+        ease: "power3.out",
+        delay: 0.2,
+    })
+        .to(
+            "#hero-subheadline",
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power3.out",
+            },
+            "-=0.5"
+        )
+        .to(
+            "#hero-cta-container, .header-cta-button",
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.1,
+            },
+            "-=0.6"
+        );
+
+    // 4. SCROLL REVEAL ANIMATIONS
+    gsap.utils.toArray(".gsap-reveal").forEach((element) => {
+        gsap.to(element, {
+            scrollTrigger: {
+                trigger: element,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+            },
             y: 0,
             opacity: 1,
-            duration: 0.8,
+            duration: 1,
             ease: "power3.out",
-        },
-        "-=0.5"
-    )
-    .to(
-        "#hero-cta-container, .header-cta-button",
-        {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            stagger: 0.1,
-        },
-        "-=0.6"
-    );
+        });
+    });
 
-// 4. SCROLL REVEAL ANIMATIONS
-gsap.utils.toArray(".gsap-reveal").forEach((element) => {
-    gsap.to(element, {
+    // 5. FOUNDER ANIMATION
+    gsap.to(".founder-anim", {
         scrollTrigger: {
-            trigger: element,
-            start: "top 85%",
+            trigger: ".founder-anim",
+            start: "top 80%",
             toggleActions: "play none none reverse",
         },
-        y: 0,
+        x: 0,
         opacity: 1,
         duration: 1,
+        stagger: 0.2,
         ease: "power3.out",
     });
-});
 
 // 5. FOUNDER ANIMATION
 gsap.to(".founder-anim", {
@@ -79,6 +94,10 @@ function toggleFaq(element) {
     });
     if (!isActive) {
         element.classList.add("active");
+        activeFaqItem = element;
+    } else {
+        element.classList.remove("active");
+        activeFaqItem = null;
     }
 }
 
