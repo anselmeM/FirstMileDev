@@ -25,36 +25,9 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'headline': ['"Archivo Black"', 'sans-serif'],
-                        'body': ['"Montserrat"', 'sans-serif'],
-                    },
-                    colors: {
-                        'accent-red': '#FF3B3F',
-                        'carbon': '#1f2937',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .font-headline {
-            font-family: 'Archivo Black', sans-serif;
-        }
-        .hero-gradient {
-            background: linear-gradient(135deg, #FF3B3F 0%, #cc2f32 100%);
-        }
-    </style>
+    <!-- Production CSS -->
+    <link rel="stylesheet" href="dist/styles.css">
+    <script src="navbar.js" defer></script>
 
     <!-- JSON-LD for 404 page -->
     <script type="application/ld+json">
@@ -74,17 +47,9 @@
 
 <body class="bg-white text-gray-900 min-h-screen flex flex-col">
 
-    <!-- Navigation -->
-    <nav class="bg-accent-red text-white py-4 px-6 md:px-8 lg:px-16">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="font-headline text-2xl uppercase tracking-tight">
-                First<br>MileDev
-            </a>
-            <a href="index.html" class="text-sm font-bold uppercase tracking-widest hover:opacity-80 transition">
-                Back to Home
-            </a>
-        </div>
-    </nav>
+    <!-- UNIFIED NAVBAR PLACEHOLDERS -->
+    <div id="mobile-menu-placeholder"></div>
+    <div id="header-placeholder"></div>
 
     <!-- 404 Content -->
     <main class="flex-grow flex items-center justify-center">

@@ -1,6 +1,6 @@
 [
   {
-    "image": "images/Handpicked-Reasons-Why-90-Startups-Fail-.jpg",
+    "image": "images/Handpicked-Reasons-Why-90-Startups-Fail-.webp",
     "alt": "Why 90% of Startups Fail",
     "category": "Startup Validation",
     "title": "Why 90% of Startups Fail",
@@ -14,7 +14,7 @@
     "link": "blog-why-startups-fail.html"
   },
   {
-    "image": "images/MVPInfluence.jpg",
+    "image": "images/MVPInfluence.webp",
     "alt": "No-Code vs Custom",
     "category": "Development",
     "title": "No-Code vs Custom",
@@ -28,7 +28,7 @@
     "link": "blog-no-code-vs-custom.html"
   },
   {
-    "image": "images/Why-Building-an-MVP-Matters-for-Startups.jpg",
+    "image": "images/Why-Building-an-MVP-Matters-for-Startups.webp",
     "alt": "True Cost of MVP",
     "category": "Pricing",
     "title": "The True Cost of an MVP",

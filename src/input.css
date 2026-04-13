@@ -1,57 +1,84 @@
 /* Tailwind CSS Input - Custom styles for FirstMileDev */
 /* This file is used to generate production CSS with Tailwind CLI */
 
-/* Import custom styles from existing style.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Additional custom styles */
 @layer components {
   /* Skip Link */
   .skip-link {
-    @apply absolute -top-10 left-4 z-50 bg-accent-red text-white px-4 py-2 transition-all duration-300;
+    @apply absolute -top-10 left-1/2 -translate-x-1/2 z-[9999] bg-[#1f2937] text-white px-6 py-3 font-bold uppercase transition-all duration-300 rounded-b-lg;
   }
   .skip-link:focus {
-    @apply top-4;
+    @apply top-0 outline outline-offset-2;
   }
   
   /* Progress Indicator */
   .progress-indicator {
-    @apply fixed top-0 left-0 w-full z-40;
+    @apply absolute bottom-0 left-0 right-0 translate-y-full bg-white px-6 py-3 z-30 opacity-0 transition-opacity duration-300;
+  }
+  .progress-indicator.visible {
+    opacity: 1 !important;
   }
   
   /* FAQ Accordion */
-  .faq-item {
-    @apply transition-all duration-300;
+  .faq-answer {
+    @apply max-h-0 overflow-hidden transition-all duration-300 ease-out;
   }
-  .faq-item.active {
-    @apply border-accent-red;
+  .faq-item.active .faq-answer {
+    max-height: 500px;
   }
-  
-  /* Blog Cards */
-  .blog-card {
-    @apply transition-all duration-500;
-  }
-  .blog-card:hover {
-    @apply transform -translate-y-1;
+  .faq-item.active .faq-icon {
+    @apply rotate-180;
   }
   
-  /* Scroll CTA */
-  .scroll-cta {
-    @apply fixed bottom-6 left-1/2 -translate-x-1/2 z-30;
+  /* Mobile Menu */
+  #mobile-menu-overlay {
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+  }
+  #mobile-menu-overlay.open {
+    visibility: visible;
+    opacity: 1;
   }
   
-  /* Exit Popup */
-  .exit-popup {
-    @apply fixed inset-0 bg-black/50 z-50 flex items-center justify-center;
+  /* Sticky Navigation */
+  .sticky-nav {
+    @apply fixed top-0 left-0 right-0 z-[1000] bg-white shadow-lg border-b border-black/5 transition-all duration-300;
   }
   
-  /* Pricing Cards */
-  #validation, #mvp, #scale {
-    @apply transition-all duration-300;
+  /* Back to Top */
+  .back-to-top {
+    @apply fixed bottom-20 left-5 w-12 h-12 bg-accent-red text-white rounded-full flex items-center justify-center shadow-lg opacity-0 invisible translate-y-5 transition-all duration-300 z-[9999];
   }
-  #validation:hover, #mvp:hover, #scale:hover {
-    @apply shadow-xl border-accent-red;
+  .back-to-top.visible {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+
+/* Base custom styles from style.css */
+@layer utilities {
+  .uppercase-text {
+    text-transform: uppercase;
+  }
+  .line-wrapper-anim {
+    overflow: hidden;
+    display: block;
+  }
+  .line-content-anim {
+    display: inline-block;
+    transform: translateY(100%);
+  }
+  .gsap-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .founder-anim {
+    opacity: 0;
+    transform: translateX(-30px);
   }
 }

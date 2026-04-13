@@ -52,31 +52,9 @@
         })(window, document, "clarity", "script", "w1i576b6a9");
     </script>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <!-- Production CSS -->
+    <link rel="stylesheet" href="dist/styles.css">
     <script src="navbar.js" defer></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'headline': ['"Archivo Black"', 'sans-serif'],
-                        'body': ['"Montserrat"', 'sans-serif'],
-                    },
-                    colors: {
-                        'accent-red': '#FF3B3F',
-                        'accent-teal': '#0D9488',
-                        'carbon-800': '#1F2937',
-                    }
-                }
-            }
-        }
-    </script>
     
     <!-- Article Schema -->
     <script type="application/ld+json">
@@ -411,14 +389,14 @@
                 <div class="grid md:grid-cols-2 gap-6">
                     <a href="blog-why-startups-fail.html" class="group">
                         <div class="bg-gray-100 rounded-lg overflow-hidden mb-3">
-                            <img src="images/Why-Building-an-MVP-Matters-for-Startups.jpg" alt="Why 90% of Startups Fail" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
+                            <img src="images/Why-Building-an-MVP-Matters-for-Startups.webp" alt="Why 90% of Startups Fail" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
                         </div>
                         <h4 class="font-bold text-lg group-hover:text-accent-red transition">Why 90% of Startups Fail</h4>
                         <p class="text-gray-600 text-sm">And how validation-first development prevents your startup from becoming another statistic.</p>
                     </a>
                     <a href="blog-no-code-vs-custom.html" class="group">
                         <div class="bg-gray-100 rounded-lg overflow-hidden mb-3">
-                            <img src="images/MVPInfluence.jpg" alt="No-Code vs Custom" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
+                            <img src="images/MVPInfluence.webp" alt="No-Code vs Custom" class="w-full h-40 object-cover group-hover:scale-105 transition duration-300">
                         </div>
                         <h4 class="font-bold text-lg group-hover:text-accent-red transition">No-Code vs Custom Development</h4>
                         <p class="text-gray-600 text-sm">When to use low-code tools and when to invest in custom development.</p>
@@ -441,12 +419,9 @@
     <!-- FOOTER JS -->
     <script src="footer.js" defer></script>
     
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        lucide.createIcons();
-    </script>
-    
+    <!-- EXTERNAL JS -->
+    <script src="script.js" defer></script>
+
     <!-- Tawk.to -->
     <script type="text/javascript">
     // Load tawk.to after page load to potentially bypass ad blockers

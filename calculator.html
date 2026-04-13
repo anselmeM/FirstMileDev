@@ -52,38 +52,9 @@
         })(window, document, "clarity", "script", "w1i576b6a9");
     </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-
-    <!-- External CSS -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Production CSS -->
+    <link rel="stylesheet" href="dist/styles.css">
     <script src="navbar.js" defer></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'headline': ['"Archivo Black"', 'sans-serif'],
-                        'body': ['"Montserrat"', 'sans-serif'],
-                    },
-                    colors: {
-                        'accent-red': '#FF3B3F',
-                        'accent-sky': '#7CB9C9',
-                        'carbon': '#1f2937',
-                        'light-gray': '#FAFAFA',
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- JSON-LD Structured Data for Calculator -->
     <script type="application/ld+json">
@@ -301,58 +272,8 @@
 
 
 
-    <script>
-        function calculateCost() {
-            // Get form values
-            const appType = document.querySelector('input[name="appType"]:checked');
-            const complexity = document.querySelector('input[name="complexity"]:checked');
-            const timeline = document.querySelector('input[name="timeline"]:checked');
-            const features = document.querySelectorAll('input[name="features"]:checked');
-            const email = document.getElementById('contact-email').value;
-
-            if (!appType || !complexity || !timeline) {
-                alert('Please select app type, complexity, and timeline');
-                return;
-            }
-
-            // Base costs
-            let baseCost = 0;
-            switch(appType.value) {
-                case 'web': baseCost = 3000; break;
-                case 'mobile': baseCost = 5000; break;
-                case 'both': baseCost = 7000; break;
-            }
-
-            // Complexity multiplier
-            let complexityMultiplier = 1;
-            switch(complexity.value) {
-                case 'simple': complexityMultiplier = 1; break;
-                case 'medium': complexityMultiplier = 1.5; break;
-                case 'complex': complexityMultiplier = 2.5; break;
-            }
-
-            // Features cost
-            const featureCost = features.length * 500;
-
-            // Timeline adjustment (faster = more expensive)
-            let timelineMultiplier = 1;
-            switch(timeline.value) {
-                case '4': timelineMultiplier = 1.3; break; // Fast
-                case '8': timelineMultiplier = 1; break;  // Standard
-                case '12': timelineMultiplier = 0.9; break; // Flexible
-            }
-
-            // Calculate total
-            const total = Math.round((baseCost + featureCost) * complexityMultiplier * timelineMultiplier);
-
-            // Display results
-            document.getElementById('results').classList.remove('hidden');
-            document.getElementById('estimated-cost').textContent = '$' + total.toLocaleString();
-
-            // Smooth scroll to results
-            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
+    <!-- CALCULATOR JS -->
+    <script src="calculator.js" defer></script>
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">

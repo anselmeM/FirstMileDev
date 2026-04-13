@@ -141,81 +141,32 @@
         <section class="px-6 md:px-8 lg:px-16 py-16 md:py-20 bg-[#FAFAFA]">
             <div class="max-w-6xl mx-auto">
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Blog Post 1 -->
-                    <article class="blog-card group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100">
-                        <a href="blog-why-startups-fail.html">
-                            <div class="h-48 bg-gray-100 overflow-hidden relative">
-                                <img src="images/Why-Building-an-MVP-Matters-for-Startups.jpg" alt="Why 90% of Startups Fail" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" width="600" height="400">
-                            </div>
-                            <div class="p-6">
-                                <span class="text-xs font-bold text-accent-red uppercase tracking-widest">Startup Validation</span>
-                                <h3 class="font-headline text-xl uppercase-text mt-2 mb-3">Why 90% of Startups Fail</h3>
-                                <p class="text-gray-600 text-sm mb-4">And how validation-first development prevents your startup from becoming another statistic.</p>
-                                <div class="border-t border-gray-100 pt-4 mt-4">
-                                    <ul class="text-xs text-gray-500 space-y-1 mb-4">
-                                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Build measure learn loop</li>
-                                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Problem-solution fit first</li>
-                                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Data-driven decisions</li>
-                                    </ul>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-xs text-gray-400">5 min read</span>
-                                    <span class="text-sm font-bold text-accent-red group-hover:text-black transition">Read More &rarr;</span>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Blog Post 2 -->
-                    <article class="blog-card group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100">
-                        <a href="blog-no-code-vs-custom.html">
-                            <div class="h-48 bg-gray-100 overflow-hidden relative">
-                                <img src="images/MVPInfluence.jpg" alt="No-Code vs Custom" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" width="600" height="400">
-                            </div>
-                            <div class="p-6">
-                                <span class="text-xs font-bold text-accent-teal uppercase tracking-widest">Development</span>
-                                <h3 class="font-headline text-xl uppercase-text mt-2 mb-3">No-Code vs Custom</h3>
-                                <p class="text-gray-600 text-sm mb-4">When to use low-code tools and when to invest in custom development.</p>
-                                <div class="border-t border-gray-100 pt-4 mt-4">
-                                    <ul class="text-xs text-gray-500 space-y-1 mb-4">
-                                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-teal"></i> MVP: Bubble, FlutterFlow</li>
-                                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-teal"></i> Scale: MERN, Next.js</li>
-                                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-teal"></i> Migration path planning</li>
-                                    </ul>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-xs text-gray-400">7 min read</span>
-                                    <span class="text-sm font-bold text-accent-teal group-hover:text-black transition">Read More &rarr;</span>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-
-                    <!-- Blog Post 3 -->
-                    <article class="blog-card group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100">
-                        <a href="blog-true-cost-mvp.html">
-                            <div class="h-48 bg-gray-100 overflow-hidden relative">
-                                <img src="images/Why-Building-an-MVP-Matters-for-Startups.jpg" alt="True Cost of MVP" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" width="600" height="400">
-                            </div>
-                            <div class="p-6">
-                                <span class="text-xs font-bold text-accent-red uppercase tracking-widest">Pricing</span>
-                                <h3 class="font-headline text-xl uppercase-text mt-2 mb-3">The True Cost of an MVP</h3>
-                                <p class="text-gray-600 text-sm mb-4">A breakdown of MVP development costs and how to budget for your first product.</p>
-                                <div class="border-t border-gray-100 pt-4 mt-4">
-                                    <ul class="text-xs text-gray-500 space-y-1 mb-4">
-                                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Phase 1: $2,500-$5,000</li>
-                                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Phase 2: $15,000-$35,000</li>
-                                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-accent-red"></i> Hidden costs to avoid</li>
-                                    </ul>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-xs text-gray-400">6 min read</span>
-                                    <span class="text-sm font-bold text-accent-red group-hover:text-black transition">Read More &rarr;</span>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
+                <!-- Filters and Search -->
+                <div class="flex flex-col md:flex-row gap-4 mb-12 items-center justify-between">
+                    <div class="flex items-center gap-4 w-full md:w-auto">
+                        <label for="category-filter" class="text-sm font-bold uppercase tracking-wider text-gray-500">Filter:</label>
+                        <select id="category-filter" class="bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-accent-red transition-all w-full md:w-48">
+                            <option value="all">All Categories</option>
+                            <option value="Startup Validation">Validation</option>
+                            <option value="Development">Development</option>
+                            <option value="Pricing">Pricing</option>
+                        </select>
+                    </div>
+                    <div class="relative w-full md:w-64">
+                        <input type="text" id="blog-search" placeholder="Search insights..." class="bg-white border border-gray-200 rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none focus:border-accent-red transition-all w-full">
+                        <i data-lucide="search" class="absolute left-3 top-2.5 w-4 h-4 text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <div id="blog-posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Dynamic posts loaded via blog.js -->
+                    <div class="col-span-full text-center py-12">
+                        <div class="animate-pulse flex flex-col items-center">
+                            <div class="w-12 h-12 bg-gray-200 rounded-full mb-4"></div>
+                            <div class="h-4 bg-gray-200 rounded w-48 mb-2"></div>
+                            <div class="h-4 bg-gray-200 rounded w-32"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- More Posts Coming Soon -->
@@ -250,13 +201,8 @@
     <!-- FOOTER JS -->
     <script src="footer.js" defer></script>
 
-
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        lucide.createIcons();
-    </script>
+    <!-- BLOG JS -->
+    <script src="blog.js" defer></script>
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">

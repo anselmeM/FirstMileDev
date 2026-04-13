@@ -4,12 +4,14 @@
   "description": "FirstMileDev website - Market-First MVP Agency",
   "scripts": {
     "build:css": "tailwindcss -i ./src/input.css -o ./dist/styles.css --minify",
+    "build:js": "terser script.js -o dist/script.min.js --compress --mangle && terser navbar.js -o dist/navbar.min.js --compress --mangle && terser footer.js -o dist/footer.min.js --compress --mangle && terser blog.js -o dist/blog.min.js --compress --mangle && terser calculator.js -o dist/calculator.min.js --compress --mangle",
     "watch:css": "tailwindcss -i ./src/input.css -o ./dist/styles.css --watch",
-    "build": "npm run build:css",
+    "build": "npm run build:css && npm run build:js",
     "test": "jest"
   },
   "devDependencies": {
     "jest": "^29.7.0",
-    "tailwindcss": "^3.4.0"
+    "tailwindcss": "^3.4.0",
+    "terser": "^5.46.1"
   }
 }
