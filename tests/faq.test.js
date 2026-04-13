@@ -129,6 +129,7 @@ describe('toggleFaq', () => {
         faq3 = new MockElement('faq3');
         mockElements = [faq1, faq2, faq3];
         jest.clearAllMocks();
+        toggleFaq.cachedItems = null;
     });
 
     test('should activate an inactive FAQ item and deactivate others', () => {

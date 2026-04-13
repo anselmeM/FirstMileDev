@@ -50,6 +50,12 @@ const mockElement = {
     offsetTop: 100
 };
 
+const mockExitPopupGlobal = {
+    addEventListener: jest.fn(),
+    querySelectorAll: jest.fn(() => []),
+    classList: { contains: jest.fn(), add: jest.fn(), remove: jest.fn() }
+};
+
 global.document = {
     getElementById: jest.fn((id) => {
         if (id === 'exit-intent-popup') {
