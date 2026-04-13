@@ -78,6 +78,12 @@ global.document = {
         }
         return [];
     }),
+    querySelector: jest.fn().mockImplementation((selector) => {
+        if (selector === 'header' || selector === '#hero-section' || selector === 'section[id]') {
+            return new MockElementWithQueries();
+        }
+        return null;
+    }),
     getElementById: jest.fn().mockImplementation((id) => {
         const found = mockElements.find(el => el.id === id);
         if (found) return found;
