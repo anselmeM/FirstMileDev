@@ -1,0 +1,15 @@
+{
+  "name": "firstmiledev",
+  "version": "1.0.0",
+  "description": "FirstMileDev website - Market-First MVP Agency",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/styles.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./dist/styles.css --watch",
+    "build": "npm run build:css",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "tailwindcss": "^3.4.0"
+  }
+}
