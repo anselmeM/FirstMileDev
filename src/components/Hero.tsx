@@ -1,17 +1,17 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 
 const Hero = () => {
-  const lineVariants = {
+  const lineVariants: Variants = {
     hidden: { y: "100%" },
     visible: {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.33, 1, 0.68, 1] as const,
+        ease: [0.33, 1, 0.68, 1],
       },
     },
   };
