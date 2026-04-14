@@ -1,9 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./*.html",
-    "./blog*.html",
-    "./case-study*.html",
+    "./*.js",
   ],
   theme: {
     extend: {
@@ -34,6 +36,15 @@ module.exports = {
         'carbon-100': '#F3F4F6',
         'carbon-50': '#F9FAFB',
       },
+      boxShadow: {
+        'btn': '0 4px 14px rgba(0, 0, 0, 0.1)',
+        'btn-hover': '0 8px 25px rgba(0, 0, 0, 0.15)',
+        'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
+        'card-hover': '0 12px 40px rgba(0, 0, 0, 0.12)',
+      },
+      animation: {
+        'spin-slow': 'spin 15s linear infinite',
+      }
     },
   },
   plugins: [],
