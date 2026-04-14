@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import LeadCapture from "@/components/LeadCapture";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Analytics from "@/components/Analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({
         <Footer />
         <LeadCapture />
         <Analytics />
+        <VercelAnalytics />
         <GoogleAnalytics gaId="G-5FWBEXRG2N" />
       </body>
     </html>

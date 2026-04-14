@@ -78,20 +78,14 @@ const Navbar = () => {
   const menuVariants = {
     closed: {
       opacity: 0,
-      x: "100%",
       transition: {
-        type: "spring" as const,
-        stiffness: 300,
-        damping: 30,
+        staggerChildren: 0.05,
+        staggerDirection: -1,
       },
     },
     open: {
       opacity: 1,
-      x: 0,
       transition: {
-        type: "spring" as const,
-        stiffness: 300,
-        damping: 30,
         staggerChildren: 0.1,
         delayChildren: 0.2,
       },
@@ -99,8 +93,8 @@ const Navbar = () => {
   };
 
   const itemVariants = {
-    closed: { opacity: 0, x: 20 },
-    open: { opacity: 1, x: 0 },
+    closed: { opacity: 0, y: 20 },
+    open: { opacity: 1, y: 0 },
   };
 
   return (
@@ -173,74 +167,63 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* MOBILE MENU */}
+      {/* OLDER MOBILE MENU DESIGN (FULL SCREEN DARK) */}
       <AnimatePresence>
         {isMenuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-[#1f2937] z-[1001] flex flex-col justify-center items-center text-center text-white"
+          >
+            {/* Close Button */}
+            <button 
               onClick={toggleMenu}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[1001] md:hidden"
-            />
-            <motion.div
+              className="absolute top-6 right-6 text-white p-2 hover:rotate-90 transition-transform duration-300"
+            >
+              <X size={40} />
+            </button>
+
+            <motion.nav
               variants={menuVariants}
               initial="closed"
               animate="open"
               exit="closed"
-              className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-white z-[1002] shadow-2xl md:hidden flex flex-col"
+              className="flex flex-col space-y-8"
             >
-              <div className="p-6 flex justify-between items-center border-b border-gray-100">
-                <span className="text-accent-red font-headline text-lg uppercase tracking-tighter">
-                  First<br />MileDev
-                </span>
-                <button onClick={toggleMenu} className="p-2 text-gray-500 hover:text-black">
-                  <X size={32} />
-                </button>
-              </div>
-
-              <nav className="flex-grow flex flex-col p-8 space-y-6">
-                {navLinks.map((link) => (
-                  <motion.div key={link.name} variants={itemVariants}>
-                    <Link
-                      href={link.href}
-                      onClick={toggleMenu}
-                      className={`text-3xl font-headline uppercase transition-colors ${
-                        activeSection === link.id ? "text-accent-red" : "text-gray-900"
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
-                <motion.div variants={itemVariants}>
+              {navLinks.map((link) => (
+                <motion.div key={link.name} variants={itemVariants}>
                   <Link
-                    href="/calculator"
+                    href={link.href}
                     onClick={toggleMenu}
-                    className="text-3xl font-headline text-accent-red uppercase"
+                    className="text-4xl font-headline text-white uppercase hover:text-accent-red transition-all"
                   >
-                    Calculator
+                    {link.name}
                   </Link>
                 </motion.div>
-                
-                <motion.div variants={itemVariants} className="pt-8">
-                  <Link
-                    href="/#contact"
-                    onClick={toggleMenu}
-                    className="btn btn-primary btn-lg w-full"
-                  >
-                    Start Validation
-                  </Link>
-                </motion.div>
-              </nav>
+              ))}
+              
+              <motion.div variants={itemVariants}>
+                <Link
+                  href="/calculator"
+                  onClick={toggleMenu}
+                  className="text-4xl font-headline text-accent-red uppercase hover:text-white transition-all"
+                >
+                  Calculator
+                </Link>
+              </motion.div>
 
-              <div className="p-8 border-t border-gray-100 bg-gray-50">
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Get in touch</p>
-                <p className="text-gray-900 font-bold">hello@firstmiledev.com</p>
-              </div>
-            </motion.div>
-          </>
+              <motion.div variants={itemVariants}>
+                <Link
+                  href="/#contact"
+                  onClick={toggleMenu}
+                  className="mobile-link-item text-xl font-bold font-body text-white uppercase tracking-widest border-2 border-white px-8 py-4 rounded-full hover:bg-white hover:text-[#1f2937] transition-all mt-4 inline-block"
+                >
+                  Start Validation
+                </Link>
+              </motion.div>
+            </motion.nav>
+          </motion.div>
         )}
       </AnimatePresence>
     </>
