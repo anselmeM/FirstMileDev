@@ -21,7 +21,7 @@ const Lab = () => {
             strategies, and code patterns we use for client builds in our "Build in Public" series.
           </p>
           <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center font-bold uppercase text-sm tracking-widest text-accent-red hover:text-black transition group">
+            className="inline-flex items-center font-bold uppercase text-sm tracking-widest text-accent-red hover:text-black transition group">
             <Youtube className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" /> Visit
             The Lab
             <span
