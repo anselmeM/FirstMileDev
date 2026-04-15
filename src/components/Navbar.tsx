@@ -6,6 +6,13 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
+const navLinks = [
+  { name: "Process", href: "/#process", id: "process" },
+  { name: "The Lab", href: "/#lab", id: "lab" },
+  { name: "Work", href: "/#work", id: "work" },
+  { name: "Roadmap", href: "/#pricing", id: "pricing" },
+];
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,42 +22,44 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  const navLinks = [
-    { name: "Process", href: "/#process", id: "process" },
-    { name: "The Lab", href: "/#lab", id: "lab" },
-    { name: "Work", href: "/#work", id: "work" },
-    { name: "Roadmap", href: "/#pricing", id: "pricing" },
-  ];
-
   // Handle Scroll logic (Sticky & Scroll-Spy)
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      // Sticky logic
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-
-      // Scroll-Spy logic for homepage
-      if (isHomePage) {
-        const sections = navLinks.map(link => document.getElementById(link.id));
-        const scrollPosition = window.scrollY + 100;
-
-        for (let i = sections.length - 1; i >= 0; i--) {
-          const section = sections[i];
-          if (section && section.offsetTop <= scrollPosition) {
-            setActiveSection(navLinks[i].id);
-            break;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // Sticky logic
+          if (window.scrollY > 50) {
+            setIsScrolled(true);
+          } else {
+            setIsScrolled(false);
           }
-          if (i === 0 && section && section.offsetTop > scrollPosition) {
-            setActiveSection("");
+
+          // Scroll-Spy logic for homepage
+          if (isHomePage) {
+            // Re-query in case components lazily load
+            const sections = navLinks.map(link => document.getElementById(link.id));
+            const scrollPosition = window.scrollY + 100;
+
+            for (let i = sections.length - 1; i >= 0; i--) {
+              const section = sections[i];
+              if (section && section.offsetTop <= scrollPosition) {
+                setActiveSection(navLinks[i].id);
+                break;
+              }
+              if (i === 0 && section && section.offsetTop > scrollPosition) {
+                setActiveSection("");
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHomePage]);
