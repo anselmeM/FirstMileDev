@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, CheckCircle2, ChevronUp } from "lucide-react";
 import Link from "next/link";
+import { submitLead } from "@/lib/leads";
 
 const LeadCapture = () => {
   const [showScrollCta, setShowScrollCta] = useState(false);
@@ -11,6 +12,7 @@ const LeadCapture = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [hasShownExit, setHasHasShownExit] = useState(false);
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +36,6 @@ const LeadCapture = () => {
     };
 
     const handleMouseLeave = (e: MouseEvent) => {
-      // Trigger if mouse leaves top of screen
       if (e.clientY <= 0 && !hasShownExit) {
         setShowExitPopup(true);
         setHasHasShownExit(true);
@@ -50,14 +51,23 @@ const LeadCapture = () => {
     };
   }, [hasShownExit]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!email) return;
+
+    await submitLead({
+      email,
+      source: "exit-intent"
+    });
+
     setIsSubmitted(true);
-    // In a real app, send to API
+    // Auto-close after success
     setTimeout(() => {
       setShowExitPopup(false);
-      // Reset after close animation
-      setTimeout(() => setIsSubmitted(false), 500);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setEmail("");
+      }, 500);
     }, 3000);
   };
 
@@ -83,7 +93,7 @@ const LeadCapture = () => {
         )}
       </AnimatePresence>
 
-      {/* Scroll-Triggered CTA (Bottom Bar) */}
+      {/* Scroll-Triggered CTA */}
       <AnimatePresence>
         {showScrollCta && (
           <motion.div
@@ -117,7 +127,7 @@ const LeadCapture = () => {
         )}
       </AnimatePresence>
 
-      {/* Exit-Intent Popup (Modal) */}
+      {/* Exit-Intent Popup */}
       <AnimatePresence>
         {showExitPopup && (
           <div className="fixed inset-0 z-[2000] flex items-center justify-center p-6">
@@ -164,6 +174,8 @@ const LeadCapture = () => {
                         required
                         type="email"
                         placeholder="your@email.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="p-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-accent-red transition-all text-gray-900"
                       />
                       <button type="submit" className="btn btn-primary btn-lg group">
@@ -182,7 +194,7 @@ const LeadCapture = () => {
                     className="text-center py-12"
                   >
                     <CheckCircle2 className="w-20 h-20 text-green-500 mx-auto mb-6" />
-                    <h3 className="font-headline text-3xl uppercase mb-2">It's on its way!</h3>
+                    <h3 className="font-headline text-3xl uppercase mb-2 text-gray-900">It's on its way!</h3>
                     <p className="text-gray-500 text-lg">Check your inbox for the checklist.</p>
                   </motion.div>
                 )}

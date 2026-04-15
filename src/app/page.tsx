@@ -6,6 +6,7 @@ import Pricing from "@/components/Pricing";
 import BlogHighlights from "@/components/BlogHighlights";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
+import LeadMagnet from "@/components/LeadMagnet";
 import { getBlogPosts } from "@/lib/blog";
 
 export default async function Home() {
@@ -20,6 +21,7 @@ export default async function Home() {
       <CaseStudies />
       <Pricing />
       <BlogHighlights posts={latestPosts} />
+      <LeadMagnet />
       <FAQ />
       <Contact />
     </>

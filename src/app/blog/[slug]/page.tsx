@@ -3,6 +3,7 @@ import { getBlogPosts, getPostBySlug } from "@/lib/blog";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import MidPostCTA from "@/components/MidPostCTA";
 import { 
   XCircle, 
   ArrowRight, 

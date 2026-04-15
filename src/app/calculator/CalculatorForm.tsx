@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { submitLead } from "@/lib/leads";
 
 const CalculatorForm = () => {
   const [appType, setAppType] = useState("");
@@ -21,9 +22,9 @@ const CalculatorForm = () => {
     );
   };
 
-  const calculateCost = (e: React.FormEvent) => {
+  const calculateCost = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!appType || !complexity || !timeline) return;
+    if (!appType || !complexity || !timeline || !email) return;
 
     // Base costs
     let baseCost = 0;
@@ -53,6 +54,20 @@ const CalculatorForm = () => {
     }
 
     const total = Math.round((baseCost + featureCost) * complexityMultiplier * timelineMultiplier);
+    
+    // Submit lead to API
+    await submitLead({
+      email,
+      source: "calculator",
+      metadata: {
+        appType,
+        complexity,
+        timeline,
+        features,
+        estimatedCost: total
+      }
+    });
+
     setEstimatedCost(total);
   };
 
@@ -201,12 +216,12 @@ const CalculatorForm = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mt-8 bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-accent-red"
           >
-            <h2 className="text-2xl font-headline mb-4 uppercase">Your Estimated Cost</h2>
+            <h2 className="text-2xl font-headline mb-4 uppercase text-gray-900">Your Estimated Cost</h2>
             <p className="text-5xl font-black text-accent-red mb-4">
               ${estimatedCost.toLocaleString()}
             </p>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              This is an estimate based on your selections. To get a precise fixed-price quote and a custom roadmap, let's chat.
+              We've sent a detailed breakdown and your custom validation roadmap to <strong>{email}</strong>. Ready to skip the line?
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/#contact" className="btn btn-primary">Book Discovery Call</Link>
