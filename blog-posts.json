@@ -1,6 +1,6 @@
 [
   {
-    "image": "images/Handpicked-Reasons-Why-90-Startups-Fail-.jpg",
+    "image": "/images/Handpicked-Reasons-Why-90-Startups-Fail-.jpg",
     "alt": "Why 90% of Startups Fail",
     "category": "Startup Validation",
     "title": "Why 90% of Startups Fail",
@@ -11,10 +11,11 @@
       "Data-driven decisions"
     ],
     "readTime": "5 min read",
-    "link": "blog-why-startups-fail.html"
+    "link": "blog-why-startups-fail.html",
+    "slug": "why-startups-fail"
   },
   {
-    "image": "images/MVPInfluence.jpg",
+    "image": "/images/MVPInfluence.jpg",
     "alt": "No-Code vs Custom",
     "category": "Development",
     "title": "No-Code vs Custom",
@@ -25,10 +26,11 @@
       "Migration path planning"
     ],
     "readTime": "7 min read",
-    "link": "blog-no-code-vs-custom.html"
+    "link": "blog-no-code-vs-custom.html",
+    "slug": "no-code-vs-custom"
   },
   {
-    "image": "images/Why-Building-an-MVP-Matters-for-Startups.jpg",
+    "image": "/images/Why-Building-an-MVP-Matters-for-Startups.jpg",
     "alt": "True Cost of MVP",
     "category": "Pricing",
     "title": "The True Cost of an MVP",
@@ -39,6 +41,7 @@
       "Hidden costs to avoid"
     ],
     "readTime": "6 min read",
-    "link": "blog-true-cost-mvp.html"
+    "link": "blog-true-cost-mvp.html",
+    "slug": "true-cost-mvp"
   }
 ]

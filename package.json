@@ -6,11 +6,7 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "build:css": "tailwindcss -i ./src/app/globals.css -o ./dist/styles.css --minify",
-    "build:js": "terser script.js -o dist/script.min.js --compress --mangle && terser navbar.js -o dist/navbar.min.js --compress --mangle && terser footer.js -o dist/footer.min.js --compress --mangle && terser blog.js -o dist/blog.min.js --compress --mangle && terser calculator.js -o dist/calculator.min.js --compress --mangle",
-    "watch:css": "tailwindcss -i ./src/app/globals.css -o ./dist/styles.css --watch",
-    "old-build": "npm run build:css && npm run build:js",
+    "lint": "next lint .",
     "test": "jest"
   },
   "devDependencies": {
@@ -28,10 +24,13 @@
     "@next/third-parties": "^16.2.3",
     "@vercel/analytics": "^2.0.1",
     "framer-motion": "^12.38.0",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.400.0",
     "next": "^16.2.3",
+    "next-mdx-remote": "^6.0.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
+    "remark-gfm": "^4.0.1",
     "resend": "^6.11.0"
   }
 }

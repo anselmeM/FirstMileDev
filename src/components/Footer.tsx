@@ -21,7 +21,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g"
+                href="https://www.youtube.com/@AnselmeMotchoLive"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/80 hover:text-white transition"

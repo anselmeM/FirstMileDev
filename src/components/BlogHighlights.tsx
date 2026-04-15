@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Check } from "lucide-react";
-import { BlogPost } from "@/lib/blog";
+import { BlogMetadata } from "@/lib/mdx";
 
 interface BlogHighlightsProps {
-  posts: BlogPost[];
+  posts: BlogMetadata[];
 }
 
 const BlogHighlights = ({ posts }: BlogHighlightsProps) => {
@@ -38,26 +38,19 @@ const BlogHighlights = ({ posts }: BlogHighlightsProps) => {
               <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
                 <div className="h-48 bg-gray-100 overflow-hidden relative flex-shrink-0">
                   <Image
-                    src={`/${post.image}`}
-                    alt={post.alt}
+                    src={post.image}
+                    alt={post.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
                   <span className="text-xs font-bold text-accent-red uppercase tracking-widest">{post.category}</span>
                   <h3 className="font-headline text-xl uppercase mt-2 mb-3">{post.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{post.description}</p>
-                  <div className="border-t border-gray-100 pt-4 mt-auto">
-                    <ul className="text-xs text-gray-500 space-y-1 mb-4">
-                      {post.features.slice(0, 3).map((feature, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <Check size={12} className="text-accent-red" /> {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="flex items-center justify-between pt-2 border-t border-gray-50 mt-2">
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">{post.description}</p>
+                  
+                  <div className="flex items-center justify-between pt-6 border-t border-gray-50 mt-auto">
                     <span className="text-xs text-gray-400">{post.readTime}</span>
                     <span className="text-sm font-bold text-accent-red group-hover:text-black transition">Read More &rarr;</span>
                   </div>

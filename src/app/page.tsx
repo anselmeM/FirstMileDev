@@ -7,10 +7,10 @@ import BlogHighlights from "@/components/BlogHighlights";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import LeadMagnet from "@/components/LeadMagnet";
-import { getBlogPosts } from "@/lib/blog";
+import { getAllBlogPosts } from "@/lib/mdx";
 
 export default async function Home() {
-  const allPosts = await getBlogPosts();
+  const allPosts = await getAllBlogPosts();
   const latestPosts = allPosts.slice(0, 3);
 
   return (

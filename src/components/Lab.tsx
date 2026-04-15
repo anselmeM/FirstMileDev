@@ -38,7 +38,7 @@ const Lab = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-10">
-            <a href="https://www.youtube.com/channel/UCyonXfGimcVb2ZbfuaZfR_g" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.youtube.com/@AnselmeMotchoLive" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center font-bold uppercase text-sm tracking-widest text-accent-red hover:text-black transition group">
               <Youtube className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" /> Visit
               The Lab
@@ -65,8 +65,8 @@ const Lab = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <h3 className="text-lg font-bold mb-2 uppercase tracking-tight">Get the $500k Tech Stack</h3>
-                  <p className="text-sm text-gray-500 mb-6">Download the exact architecture and tools we used to build a FinTech MVP that secured half a million in funding.</p>
+                  <h3 className="text-lg font-bold mb-2 uppercase tracking-tight text-gray-900">Get the $55k Tech Stack</h3>
+                  <p className="text-sm text-gray-500 mb-6">Download the exact architecture and tools we used to build a FinTech MVP that secured $55,000 in funding.</p>
                   
                   <form onSubmit={handleSubmit} className="flex gap-2">
                     <input

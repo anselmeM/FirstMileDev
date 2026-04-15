@@ -162,6 +162,8 @@ const Navbar = () => {
               isScrolled || !isHomePage ? "text-gray-900 hover:bg-gray-100" : "md:text-white text-gray-900 hover:bg-gray-100"
             }`}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -172,6 +174,9 @@ const Navbar = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            id="mobile-menu"
+            role="navigation"
+            aria-label="Mobile Navigation"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

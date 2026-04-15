@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
+import { Scale, ArrowLeft, Mail, ChevronRight, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Terms of Service | FirstMileDev",
@@ -8,227 +9,186 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://firstmiledev.com/terms",
   },
-  openGraph: {
-    type: "website",
-    url: "https://firstmiledev.com/terms",
-    title: "Terms of Service | FirstMileDev",
-    description: "FirstMileDev Terms of Service - Terms and conditions for using our services.",
-    images: ["https://firstmiledev.com/og-image.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Terms of Service | FirstMileDev",
-    description: "FirstMileDev Terms of Service - Terms and conditions for using our services.",
-    images: ["https://firstmiledev.com/twitter-image.jpg"],
-  },
 };
 
 export default function TermsPage() {
+  const sections = [
+    { id: "acceptance", title: "Acceptance of Terms" },
+    { id: "services", title: "Our Services" },
+    { id: "intellectual-property", title: "Intellectual Property" },
+    { id: "user-conduct", title: "User Conduct" },
+    { id: "payment-terms", title: "Payment Terms" },
+    { id: "confidentiality", title: "Confidentiality" },
+    { id: "limitation", title: "Limitation of Liability" },
+    { id: "termination", title: "Termination" },
+    { id: "governing-law", title: "Governing Law" },
+    { id: "contact", title: "Contact Us" }
+  ];
+
   return (
-    <div className="bg-[#FAFAFA]">
-      {/* Page Header */}
-      <section className="bg-[#FF3B3F] text-white px-6 md:px-8 lg:px-16 py-16 md:py-24">
-        <div className="max-w-4xl mx-auto">
-          <nav className="text-sm mb-6">
-            <Link href="/" className="text-white/80 hover:text-white transition-colors font-body">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-white font-medium font-body">Terms of Service</span>
-          </nav>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl uppercase font-headline">Terms of Service</h1>
-          <p className="text-lg text-white/80 mt-4 max-w-2xl font-body">Please read these terms carefully before using our services.</p>
-          <p className="text-sm text-white/60 mt-4 font-body">Last Updated: March 2026</p>
+    <main id="main-content" className="bg-white">
+      {/* Hero Section */}
+      <section className="bg-accent-red text-white px-6 md:px-8 lg:px-16 py-20 md:py-32 relative overflow-hidden flex flex-col justify-center">
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10 w-full text-center md:text-left">
+          <Link 
+            href="/" 
+            className="inline-flex items-center text-xs font-black uppercase tracking-[0.3em] text-white/60 hover:text-white mb-12 transition-all group"
+          >
+            <ArrowLeft size={14} className="mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Roadmap
+          </Link>
+          
+          <div className="flex items-center justify-center md:justify-start gap-3 mb-8">
+            <Scale className="text-white w-6 h-6" />
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60">Agreement & Conditions</span>
+          </div>
+
+          <h1 className="text-5xl md:text-8xl font-headline uppercase mb-8 leading-[0.9] tracking-tighter">
+            Terms of <br /><span className="text-black">Service</span>
+          </h1>
+          
+          <p className="text-lg md:text-xl font-bold uppercase max-w-2xl leading-relaxed text-white opacity-90 tracking-wide">
+            Please read these terms carefully. By using our services, you agree to be bound by these provisions for a fair and professional partnership.
+          </p>
+          
+          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 mt-12">
+            Last Updated: March 2026
+          </p>
         </div>
       </section>
 
-      {/* Terms of Service Content */}
-      <section className="px-6 md:px-8 lg:px-16 py-16 md:py-20">
-        <div className="max-w-4xl mx-auto">
-          
-          {/* Introduction */}
-          <div className="bg-white rounded-xl p-8 shadow-card mb-8 border border-gray-100">
-            <p className="text-gray-600 mb-4 font-body leading-relaxed">Welcome to FirstMileDev. These Terms of Service ("Terms") govern your access to and use of the FirstMileDev website and services. By accessing or using our website and services, you agree to be bound by these Terms. If you disagree with any part of these Terms, you may not access our services.</p>
-          </div>
+      {/* Content Section */}
+      <section className="px-6 md:px-8 lg:px-16 py-20 md:py-32 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            {/* Sidebar TOC */}
+            <div className="lg:col-span-4">
+              <div className="lg:sticky lg:top-32 space-y-8">
+                <div className="bg-carbon-900 rounded-3xl p-8 text-white shadow-2xl overflow-hidden relative border border-white/5">
+                  <div className="absolute top-0 right-0 p-4 opacity-5">
+                    <FileText size={100} />
+                  </div>
+                  <h3 className="font-headline text-xl uppercase mb-8 relative z-10">Directory</h3>
+                  <nav className="space-y-4 relative z-10">
+                    {sections.map((section, i) => (
+                      <Link 
+                        key={section.id} 
+                        href={`#${section.id}`}
+                        className="group flex items-center justify-between text-[11px] font-bold uppercase tracking-widest text-white/40 hover:text-accent-red transition-colors"
+                      >
+                        <span>{i+1 < 10 ? `0${i+1}` : i+1}. {section.title}</span>
+                        <ChevronRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </Link>
+                    ))}
+                  </nav>
+                </div>
 
-          {/* Table of Contents */}
-          <div className="bg-white rounded-xl p-6 shadow-card mb-12 border border-gray-100">
-            <h2 className="font-headline text-xl uppercase mb-4">Quick Links</h2>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm font-body">
-              <li><Link href="#acceptance" className="text-accent-red hover:text-black transition-colors">1. Acceptance of Terms</Link></li>
-              <li><Link href="#services" className="text-accent-red hover:text-black transition-colors">2. Our Services</Link></li>
-              <li><Link href="#intellectual-property" className="text-accent-red hover:text-black transition-colors">3. Intellectual Property</Link></li>
-              <li><Link href="#user-conduct" className="text-accent-red hover:text-black transition-colors">4. User Conduct</Link></li>
-              <li><Link href="#payment-terms" className="text-accent-red hover:text-black transition-colors">5. Payment Terms</Link></li>
-              <li><Link href="#confidentiality" className="text-accent-red hover:text-black transition-colors">6. Confidentiality</Link></li>
-              <li><Link href="#limitation" className="text-accent-red hover:text-black transition-colors">7. Limitation of Liability</Link></li>
-              <li><Link href="#termination" className="text-accent-red hover:text-black transition-colors">8. Termination</Link></li>
-              <li><Link href="#governing-law" className="text-accent-red hover:text-black transition-colors">9. Governing Law</Link></li>
-              <li><Link href="#contact" className="text-accent-red hover:text-black transition-colors">10. Contact Us</Link></li>
-            </ul>
-          </div>
-
-          {/* Sections */}
-          <div className="space-y-8">
-            {/* Section 1 */}
-            <div id="acceptance" className="bg-white rounded-xl p-8 shadow-card border border-gray-100 scroll-mt-24">
-              <h2 className="font-headline text-2xl uppercase mb-4 text-gray-900">1. Acceptance of Terms</h2>
-              <div className="text-gray-600 space-y-4 font-body leading-relaxed">
-                <p>By accessing and using the FirstMileDev website (firstmiledev.com) and our services, you accept and agree to be bound by the terms and provisions of this agreement. Additionally, when using FirstMileDev's services, you shall be subject to any posted guidelines or rules applicable to such services.</p>
-                <p>We reserve the right to update these Terms at any time. Any changes will be posted on this page. Your continued use of the website following any changes indicates your acceptance of the new Terms.</p>
-              </div>
-            </div>
-
-            {/* Section 2 */}
-            <div id="services" className="bg-white rounded-xl p-8 shadow-card border border-gray-100 scroll-mt-24">
-              <h2 className="font-headline text-2xl uppercase mb-4 text-gray-900">2. Our Services</h2>
-              <div className="text-gray-600 space-y-4 font-body leading-relaxed">
-                <p>FirstMileDev provides MVP development and startup validation services, including but not limited to:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Market Validation:</strong> Testing market demand through ad campaigns and landing pages</li>
-                  <li><strong>MVP Development:</strong> Building minimum viable products using No-Code and Low-Code tools</li>
-                  <li><strong>Custom Development:</strong> Scaling applications using MERN stack and custom architecture</li>
-                  <li><strong>Consultation:</strong> Providing technical strategy and guidance for startups</li>
-                </ul>
-                <p className="mt-4">The specific scope of services, timelines, and deliverables will be defined in individual project agreements.</p>
-              </div>
-            </div>
-
-            {/* Section 3 */}
-            <div id="intellectual-property" className="bg-white rounded-xl p-8 shadow-card border border-gray-100 scroll-mt-24">
-              <h2 className="font-headline text-2xl uppercase mb-4 text-gray-900">3. Intellectual Property</h2>
-              <div className="text-gray-600 space-y-4 font-body leading-relaxed">
-                <h3 className="font-bold text-gray-800 mt-4">Our Intellectual Property</h3>
-                <p>The website and its original content, features, and functionality are owned by FirstMileDev and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
-                
-                <h3 className="font-bold text-gray-800 mt-6">Client Ownership</h3>
-                <p>Upon full payment for services rendered, the client shall own 100% of the intellectual property, code, and design assets created specifically for their project. FirstMileDev retains the right to use general knowledge, techniques, and experience gained during the project.</p>
-                
-                <h3 className="font-bold text-gray-800 mt-6">Third-Party Assets</h3>
-                <p>Third-party assets (stock images, icons, frameworks) are subject to their respective licenses. Clients are responsible for any third-party licensing fees beyond the standard services provided.</p>
-              </div>
-            </div>
-
-            {/* Section 4 */}
-            <div id="user-conduct" className="bg-white rounded-xl p-8 shadow-card border border-gray-100 scroll-mt-24">
-              <h2 className="font-headline text-2xl uppercase mb-4 text-gray-900">4. User Conduct</h2>
-              <div className="text-gray-600 space-y-4 font-body leading-relaxed">
-                <p>When using our website and services, you agree not to:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Violate any applicable laws or regulations</li>
-                  <li>Infringe upon the rights of others</li>
-                  <li>Upload or transmit viruses, malware, or other harmful code</li>
-                  <li>Attempt to gain unauthorized access to our systems</li>
-                  <li>Interfere with the proper operation of the website</li>
-                  <li>Engage in any activity that could damage, disable, or overburden our servers</li>
-                  <li>Use our services for any unlawful purpose</li>
-                  <li>Collect or store personal data about other users without their consent</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Section 5 */}
-            <div id="payment-terms" className="bg-white rounded-xl p-8 shadow-card border border-gray-100 scroll-mt-24">
-              <h2 className="font-headline text-2xl uppercase mb-4 text-gray-900">5. Payment Terms</h2>
-              <div className="text-gray-600 space-y-4 font-body leading-relaxed">
-                <h3 className="font-bold text-gray-800 mt-4">Pricing</h3>
-                <p>Pricing for services is as quoted in proposals and project agreements. All prices are in USD unless otherwise specified.</p>
-                
-                <h3 className="font-bold text-gray-800 mt-6">Payment Schedule</h3>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>Validation Services:</strong> 50% upfront, 50% upon completion</li>
-                  <li><strong>MVP Development:</strong> 30% upfront, 40% at midpoint, 30% upon delivery</li>
-                  <li><strong>Custom Development:</strong> As outlined in individual project agreements</li>
-                </ul>
-                
-                <h3 className="font-bold text-gray-800 mt-6">Payment Methods</h3>
-                <p>We accept bank transfers, credit cards, and other payment methods as agreed upon in project agreements.</p>
-                
-                <h3 className="font-bold text-gray-800 mt-6">Refunds</h3>
-                <p>Due to the custom nature of our services, refunds are handled on a case-by-case basis. If you have concerns about our services, please contact us directly to discuss.</p>
-              </div>
-            </div>
-
-            {/* Section 6 */}
-            <div id="confidentiality" className="bg-white rounded-xl p-8 shadow-card border border-gray-100 scroll-mt-24">
-              <h2 className="font-headline text-2xl uppercase mb-4 text-gray-900">6. Confidentiality</h2>
-              <div className="text-gray-600 space-y-4 font-body leading-relaxed">
-                <p>Both parties agree to maintain the confidentiality of proprietary information exchanged during the course of business:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Technical information, code, and architectural decisions</li>
-                  <li>Business strategies, marketing plans, and financial information</li>
-                  <li>Client lists, project details, and user data</li>
-                  <li>Trade secrets and proprietary methodologies</li>
-                </ul>
-                <p className="mt-4">This obligation survives termination of the business relationship. Confidentiality does not include information that is publicly available, independently developed, or received from third parties.</p>
-              </div>
-            </div>
-
-            {/* Section 7 */}
-            <div id="limitation" className="bg-white rounded-xl p-8 shadow-card border border-gray-100 scroll-mt-24">
-              <h2 className="font-headline text-2xl uppercase mb-4 text-gray-900">7. Limitation of Liability</h2>
-              <div className="text-gray-600 space-y-4 font-body leading-relaxed">
-                <p>FirstMileDev shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Your use of or inability to use our services</li>
-                  <li>Any unauthorized access to or use of our servers</li>
-                  <li>Any interruption or cessation of transmission to or from our services</li>
-                  <li>Any bugs, viruses, or the like that may be transmitted through our services</li>
-                  <li>Any errors or omissions in any content</li>
-                </ul>
-                <p className="mt-4">Our total liability shall not exceed the amount paid by you for the specific service that gave rise to the claim.</p>
-                <p className="mt-4">We make no warranties, express or implied, regarding the success of market validation or the commercial viability of any product built through our services.</p>
-              </div>
-            </div>
-
-            {/* Section 8 */}
-            <div id="termination" className="bg-white rounded-xl p-8 shadow-card border border-gray-100 scroll-mt-24">
-              <h2 className="font-headline text-2xl uppercase mb-4 text-gray-900">8. Termination</h2>
-              <div className="text-gray-600 space-y-4 font-body leading-relaxed">
-                <p>Either party may terminate this agreement with written notice. Upon termination:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>All outstanding payments become immediately due</li>
-                  <li>Client owns all work completed up to the termination date (upon full payment)</li>
-                  <li>Confidentiality obligations survive termination</li>
-                  <li>Return or destroy confidential materials upon request</li>
-                </ul>
-                <p className="mt-4">We reserve the right to terminate access to our services for any reason, including violation of these Terms.</p>
-              </div>
-            </div>
-
-            {/* Section 9 */}
-            <div id="governing-law" className="bg-white rounded-xl p-8 shadow-card border border-gray-100 scroll-mt-24">
-              <h2 className="font-headline text-2xl uppercase mb-4 text-gray-900">9. Governing Law</h2>
-              <div className="text-gray-600 space-y-4 font-body leading-relaxed">
-                <p>These Terms shall be governed by and construed in accordance with the laws of Ontario, Canada, without regard to its conflict of law provisions.</p>
-                <p>Any disputes arising under these Terms shall be resolved through binding arbitration in Ottawa, Ontario, in accordance with the rules of the Canadian Arbitration Association.</p>
-              </div>
-            </div>
-
-            {/* Section 10 */}
-            <div id="contact" className="bg-white rounded-xl p-8 shadow-card border border-gray-100 scroll-mt-24">
-              <h2 className="font-headline text-2xl uppercase mb-4 text-gray-900">10. Contact Us</h2>
-              <div className="text-gray-600 space-y-4 font-body leading-relaxed">
-                <p>If you have any questions about these Terms of Service, please contact us:</p>
-                <div className="bg-gray-50 p-6 rounded-lg mt-4 font-body">
-                  <p className="font-bold text-gray-900 mb-2">FirstMileDev</p>
-                  <p className="mb-2">Ottawa, Ontario, Canada</p>
-                  <p>Email: <a href="mailto:hello@firstmiledev.com" className="text-accent-red hover:text-black transition-colors">hello@firstmiledev.com</a></p>
+                <div className="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm">
+                  <h4 className="font-headline text-sm uppercase mb-4 text-gray-900">Project Agreement</h4>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-6">Specific project deliverables and timelines are governed by individual signed statements of work.</p>
+                  <Link href="/#contact" className="btn btn-primary btn-sm btn-full flex items-center justify-center gap-2 group">
+                    Book Discovery Call
+                  </Link>
                 </div>
               </div>
             </div>
+
+            {/* Legal Content */}
+            <div className="lg:col-span-8 space-y-12">
+              
+              <div id="acceptance" className="bg-white rounded-[2.5rem] p-8 md:p-16 shadow-sm border border-gray-100 scroll-mt-32">
+                <h2 className="font-headline text-3xl md:text-4xl uppercase mb-8 text-gray-900">1. Acceptance of Terms</h2>
+                <div className="prose prose-lg prose-p:text-gray-600 prose-p:leading-relaxed">
+                  <p>By accessing and using the FirstMileDev website (firstmiledev.com) and our services, you accept and agree to be bound by the terms and provisions of this agreement.</p>
+                  <p>We reserve the right to update these Terms at any time. Any changes will be posted on this page. Your continued use of the website following any changes indicates your acceptance of the new Terms.</p>
+                </div>
+              </div>
+
+              <div id="services" className="bg-white rounded-[2.5rem] p-8 md:p-16 shadow-sm border border-gray-100 scroll-mt-32">
+                <h2 className="font-headline text-3xl md:text-4xl uppercase mb-8 text-gray-900">2. Our Services</h2>
+                <div className="prose prose-lg prose-p:text-gray-600 prose-li:text-gray-600">
+                  <p>FirstMileDev provides MVP development and startup validation services, including but not limited to:</p>
+                  <ul className="space-y-4">
+                    <li><strong>Market Validation:</strong> Testing market demand through ad campaigns and landing pages.</li>
+                    <li><strong>MVP Development:</strong> Building minimum viable products using No-Code and Low-Code tools.</li>
+                    <li><strong>Custom Development:</strong> Scaling applications using Next.js and custom architecture.</li>
+                    <li><strong>Consultation:</strong> Providing technical strategy and guidance for startups.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div id="intellectual-property" className="bg-white rounded-[2.5rem] p-8 md:p-16 shadow-sm border border-gray-100 scroll-mt-32">
+                <h2 className="font-headline text-3xl md:text-4xl uppercase mb-8 text-gray-900">3. Intellectual Property</h2>
+                <div className="prose prose-lg prose-p:text-gray-600">
+                  <h3 className="font-headline text-xl uppercase mt-4 mb-4 text-gray-800">Our Property</h3>
+                  <p>The website and its original content, features, and functionality are owned by FirstMileDev and are protected by international copyright laws.</p>
+                  
+                  <h3 className="font-headline text-xl uppercase mt-10 mb-4 text-gray-800">Client Ownership</h3>
+                  <p>Upon full payment for services rendered, the client shall own 100% of the intellectual property, code, and design assets created specifically for their project. FirstMileDev retains the right to use general knowledge and experience gained during the project.</p>
+                </div>
+              </div>
+
+              <div id="payment-terms" className="bg-white rounded-[2.5rem] p-8 md:p-16 shadow-sm border border-gray-100 scroll-mt-32">
+                <h2 className="font-headline text-3xl md:text-4xl uppercase mb-8 text-gray-900">5. Payment Terms</h2>
+                <div className="prose prose-lg prose-p:text-gray-600">
+                  <p>Pricing for services is as quoted in proposals and project agreements. All prices are in USD unless otherwise specified.</p>
+                  <h3 className="font-headline text-xl uppercase mt-10 mb-4 text-gray-800">Typical Schedule</h3>
+                  <ul className="space-y-4">
+                    <li><strong>Validation:</strong> 50% upfront, 50% upon completion.</li>
+                    <li><strong>MVP Build:</strong> 30% upfront, 40% at midpoint, 30% upon delivery.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div id="limitation" className="bg-white rounded-[2.5rem] p-8 md:p-16 shadow-sm border border-gray-100 scroll-mt-32">
+                <h2 className="font-headline text-3xl md:text-4xl uppercase mb-8 text-gray-900">7. Liability</h2>
+                <div className="prose prose-lg prose-p:text-gray-600">
+                  <p>FirstMileDev shall not be liable for any indirect, incidental, or consequential damages resulting from your use of our services.</p>
+                  <p>We make no warranties, express or implied, regarding the commercial success of any product built through our services. Market validation is an analysis tool, not a guarantee of future revenue.</p>
+                </div>
+              </div>
+
+              <div id="contact" className="bg-white rounded-[2.5rem] p-8 md:p-16 shadow-sm border border-gray-100 scroll-mt-32">
+                <h2 className="font-headline text-3xl md:text-4xl uppercase mb-8 text-gray-900">10. Contact Us</h2>
+                <div className="prose prose-lg prose-p:text-gray-600">
+                  <p>If you have any questions about these Terms of Service, please reach out:</p>
+                  <div className="bg-gray-50 p-8 rounded-2xl mt-8 border border-gray-100 text-center md:text-left">
+                    <p className="font-headline text-gray-900 uppercase text-lg mb-2">FirstMileDev</p>
+                    <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Ottawa, Ontario, Canada</p>
+                    <a href="mailto:hello@firstmiledev.com" className="text-accent-red font-black uppercase text-sm tracking-widest hover:text-black transition-colors">
+                      hello@firstmiledev.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="px-6 md:px-8 lg:px-16 py-16 bg-[#1f2937] text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl uppercase font-headline mb-4">Ready to Validate Your Idea?</h2>
-          <p className="text-gray-400 mb-8 font-body">Book a discovery call and let's see if your startup is ready for the First Mile.</p>
-          <Link href="/#contact" className="btn btn-primary btn-lg inline-block transition-transform hover:scale-105">
-            Book Discovery Call
+      {/* Article Footer CTA */}
+      <section className="px-6 py-24 md:py-40 bg-carbon-900 text-white text-center relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none text-white">
+          <div className="w-full h-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:40px_40px]"></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto relative z-10">
+          <h2 className="text-4xl md:text-6xl font-headline uppercase mb-8 leading-[0.95]">
+            Let's Build <br /><span className="text-accent-red">Something Real.</span>
+          </h2>
+          <p className="text-xl opacity-60 mb-12 max-w-xl mx-auto leading-relaxed font-medium">
+            Agreements are the foundation of trust. Let's get the formalities out of the way and start validating your vision.
+          </p>
+          <Link href="/#contact" className="btn btn-primary btn-lg px-12">
+            Book Roadmap Call
           </Link>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
