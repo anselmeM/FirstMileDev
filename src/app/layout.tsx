@@ -8,6 +8,7 @@ import ReadingProgress from "@/components/ReadingProgress";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Analytics from "@/components/Analytics";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import JSONLD from "@/components/JSONLD";
 
 const montserrat = Montserrat({
@@ -78,6 +79,7 @@ export default function RootLayout({
         <LeadCapture />
         <Analytics />
         <VercelAnalytics />
+        <SpeedInsights />
         <GoogleAnalytics gaId="G-5FWBEXRG2N" />
       </body>
     </html>

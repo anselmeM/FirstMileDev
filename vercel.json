@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.firstmiledev.ca"
+        }
+      ],
+      "destination": "https://firstmiledev.ca/$1",
+      "permanent": true
+    }
+  ]
+}
