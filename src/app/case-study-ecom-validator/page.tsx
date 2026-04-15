@@ -51,7 +51,7 @@ export default function EcomValidatorCaseStudy() {
 
       {/* Featured Image Section */}
       <div className="max-w-5xl mx-auto px-6 -mt-16 md:-mt-24 relative z-20">
-        <div className="aspect-video rounded-3xl overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.2)] border-8 border-white bg-gray-100">
+        <div className="aspect-video relative rounded-3xl overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.2)] border-8 border-white bg-gray-100">
           <Image 
             src="/images/E-Commerce Validator.png" 
             alt="E-Commerce Validator"
