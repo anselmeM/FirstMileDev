@@ -20,15 +20,15 @@ const caseStudies = [
     }
   },
   {
-    id: "ecom",
+    id: "validator",
     title: "E-Com Validator",
     phase: "Phase 1: Validation",
-    description: "Ran a 14-day ad test for a niche sneaker marketplace. The data proved the market was too small, saving the client $30k in dev costs.",
+    description: "Ran a 14-day ad test for a sustainable fashion boutique. The data proved the niche was oversaturated, saving $25K.",
     image: "/images/E-Commerce Validator.png",
     link: "/case-study-ecom-validator",
     testimonial: {
-      text: "Honesty is rare in this industry. FirstMileDev told us NOT to build, which was the best advice we got.",
-      author: "Mike T., Founder"
+      text: "The data was eye-opening. We would have lost a lot of money without this validation phase.",
+      author: "Lisa R., Entrepreneur"
     }
   }
 ];

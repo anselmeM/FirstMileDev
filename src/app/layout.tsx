@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${montserrat.variable} ${archivoBlack.variable} antialiased font-body bg-white text-gray-900 flex flex-col min-h-screen`}
       >

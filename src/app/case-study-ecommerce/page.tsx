@@ -12,6 +12,11 @@ export default function EcommerceCaseStudy() {
       {/* Case Study Hero */}
       <section className="bg-accent-teal text-white px-6 py-16 md:py-24">
         <div className="max-w-4xl mx-auto">
+          <nav className="text-sm mb-6 flex items-center gap-2">
+            <Link href="/" className="text-white/80 hover:text-white transition">Home</Link>
+            <span className="text-white/40">/</span>
+            <span className="text-white">Case Study</span>
+          </nav>
           <div className="mb-6">
             <span className="bg-white/20 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
               E-Commerce

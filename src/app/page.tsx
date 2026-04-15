@@ -6,8 +6,12 @@ import Pricing from "@/components/Pricing";
 import BlogHighlights from "@/components/BlogHighlights";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
+import { getBlogPosts } from "@/lib/blog";
 
-export default function Home() {
+export default async function Home() {
+  const allPosts = await getBlogPosts();
+  const latestPosts = allPosts.slice(0, 3);
+
   return (
     <>
       <Hero />
@@ -15,7 +19,7 @@ export default function Home() {
       <Lab />
       <CaseStudies />
       <Pricing />
-      <BlogHighlights />
+      <BlogHighlights posts={latestPosts} />
       <FAQ />
       <Contact />
     </>

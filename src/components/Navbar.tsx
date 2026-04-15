@@ -103,14 +103,15 @@ const Navbar = () => {
         className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 py-4 ${
           isScrolled || !isHomePage
             ? "bg-white/90 backdrop-blur-md shadow-lg border-b border-black/5"
-            : "bg-transparent"
+            : "bg-transparent md:bg-transparent bg-white/90" 
         }`}
       >
+        {/* Added a bg-white/90 for mobile even when not scrolled to prevent overlap visibility issues */}
         <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 flex justify-between items-center">
           <Link
             href="/"
             className={`text-lg font-headline uppercase leading-tight font-black tracking-tighter transition-colors duration-300 ${
-              isScrolled || !isHomePage ? "text-accent-red" : "text-white"
+              isScrolled || !isHomePage ? "text-accent-red" : "text-white md:text-white text-accent-red"
             }`}
           >
             First<br />MileDev
@@ -158,7 +159,7 @@ const Navbar = () => {
           <button
             onClick={toggleMenu}
             className={`md:hidden p-2 rounded-lg transition-colors ${
-              isScrolled || !isHomePage ? "text-gray-900 hover:bg-gray-100" : "text-white hover:bg-white/10"
+              isScrolled || !isHomePage ? "text-gray-900 hover:bg-gray-100" : "md:text-white text-gray-900 hover:bg-gray-100"
             }`}
             aria-label="Toggle menu"
           >

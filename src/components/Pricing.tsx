@@ -43,7 +43,7 @@ const Pricing = () => {
     {
       id: "scale",
       phase: "Phase 3",
-      title: "Custom Scale",
+      title: "Scale",
       price: "Custom",
       tag: "Scaling",
       highlight: "Long-term Partnership",

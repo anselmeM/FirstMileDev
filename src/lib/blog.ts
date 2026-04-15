@@ -14,11 +14,16 @@ export interface BlogPost {
 import postsData from "../../blog-posts.json";
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
-  return postsData.map(post => ({
-    ...post,
-    slug: post.link.replace("blog-", "").replace(".html", ""),
-    id: post.link.replace(".html", "")
-  }));
+  const posts = postsData.map(post => {
+    const slug = post.link.replace("blog-", "").replace(".html", "");
+    console.log(`[Blog Debug] Generated slug: ${slug} from ${post.link}`);
+    return {
+      ...post,
+      slug,
+      id: post.link.replace(".html", "")
+    };
+  });
+  return posts;
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | undefined> {

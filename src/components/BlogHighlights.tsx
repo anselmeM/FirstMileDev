@@ -5,41 +5,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Check } from "lucide-react";
+import { BlogPost } from "@/lib/blog";
 
-const blogPosts = [
-  {
-    id: "why-startups-fail",
-    title: "Why 90% of Startups Fail",
-    category: "Startup Validation",
-    description: "And how validation-first development prevents your startup from becoming another statistic.",
-    image: "/images/Handpicked-Reasons-Why-90-Startups-Fail-.jpg",
-    link: "/blog/why-startups-fail",
-    readTime: "5 min read",
-    features: ["Build measure learn loop", "Problem-solution fit first", "Data-driven decisions"]
-  },
-  {
-    id: "no-code-vs-custom",
-    title: "No-Code vs Custom",
-    category: "Development",
-    description: "When to use low-code tools and when to invest in custom development.",
-    image: "/images/MVPInfluence.jpg",
-    link: "/blog/no-code-vs-custom",
-    readTime: "7 min read",
-    features: ["MVP: Bubble, FlutterFlow", "Scale: PERN, Next.js", "Migration path planning"]
-  },
-  {
-    id: "true-cost-mvp",
-    title: "The True Cost of an MVP",
-    category: "Pricing",
-    description: "A breakdown of MVP development costs and how to budget for your first product.",
-    image: "/images/Why-Building-an-MVP-Matters-for-Startups.jpg",
-    link: "/blog/true-cost-mvp",
-    readTime: "6 min read",
-    features: ["Phase 1: $2,000", "Phase 2: $5,000", "Hidden costs to avoid"]
-  }
-];
+interface BlogHighlightsProps {
+  posts: BlogPost[];
+}
 
-const BlogHighlights = () => {
+const BlogHighlights = ({ posts }: BlogHighlightsProps) => {
   return (
     <section id="blog" className="px-6 md:px-8 lg:px-16 py-20 bg-white">
       <div className="max-w-6xl mx-auto">
@@ -54,20 +26,20 @@ const BlogHighlights = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          {blogPosts.map((post, index) => (
+          {posts.map((post, index) => (
             <motion.article
-              key={post.id}
+              key={post.slug}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               className="blog-card group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col"
             >
-              <Link href={post.link} className="flex flex-col h-full">
+              <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
                 <div className="h-48 bg-gray-100 overflow-hidden relative flex-shrink-0">
                   <Image
-                    src={post.image}
-                    alt={post.title}
+                    src={`/${post.image}`}
+                    alt={post.alt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -78,7 +50,7 @@ const BlogHighlights = () => {
                   <p className="text-gray-600 text-sm mb-4">{post.description}</p>
                   <div className="border-t border-gray-100 pt-4 mt-auto">
                     <ul className="text-xs text-gray-500 space-y-1 mb-4">
-                      {post.features.map((feature, i) => (
+                      {post.features.slice(0, 3).map((feature, i) => (
                         <li key={i} className="flex items-center gap-2">
                           <Check size={12} className="text-accent-red" /> {feature}
                         </li>

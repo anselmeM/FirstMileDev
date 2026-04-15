@@ -34,6 +34,7 @@ const LeadCapture = () => {
     };
 
     const handleMouseLeave = (e: MouseEvent) => {
+      // Trigger if mouse leaves top of screen
       if (e.clientY <= 0 && !hasShownExit) {
         setShowExitPopup(true);
         setHasHasShownExit(true);
@@ -55,7 +56,7 @@ const LeadCapture = () => {
     // In a real app, send to API
     setTimeout(() => {
       setShowExitPopup(false);
-      // Reset after close
+      // Reset after close animation
       setTimeout(() => setIsSubmitted(false), 500);
     }, 3000);
   };
@@ -82,7 +83,7 @@ const LeadCapture = () => {
         )}
       </AnimatePresence>
 
-      {/* Scroll-Triggered CTA */}
+      {/* Scroll-Triggered CTA (Bottom Bar) */}
       <AnimatePresence>
         {showScrollCta && (
           <motion.div
@@ -116,10 +117,10 @@ const LeadCapture = () => {
         )}
       </AnimatePresence>
 
-      {/* Exit-Intent Popup */}
+      {/* Exit-Intent Popup (Modal) */}
       <AnimatePresence>
         {showExitPopup && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+          <div className="fixed inset-0 z-[2000] flex items-center justify-center p-6">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -128,16 +129,17 @@ const LeadCapture = () => {
               className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             />
             <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              initial={{ scale: 0.9, opacity: 0, y: 40 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="bg-white rounded-3xl p-8 md:p-12 max-w-xl w-full relative shadow-2xl overflow-hidden"
+              exit={{ scale: 0.9, opacity: 0, y: 40 }}
+              className="bg-white rounded-3xl p-8 md:p-12 max-w-xl w-full relative shadow-2xl overflow-hidden mt-12 md:mt-20"
             >
               <button 
                 onClick={() => setShowExitPopup(false)}
-                className="absolute top-6 right-6 text-gray-400 hover:text-gray-900 transition"
+                className="absolute top-6 right-6 text-gray-400 hover:text-gray-900 transition p-2"
+                aria-label="Close popup"
               >
-                <X size={24} />
+                <X size={28} />
               </button>
 
               <AnimatePresence mode="wait">
@@ -148,13 +150,13 @@ const LeadCapture = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <span className="text-accent-red font-black uppercase tracking-widest text-xs mb-4 block">
+                    <span className="text-accent-red font-black uppercase tracking-widest text-[10px] md:text-xs mb-4 block">
                       Don't Leave Just Yet!
                     </span>
                     <h2 className="text-3xl md:text-4xl font-headline uppercase mb-4 text-gray-900 leading-tight">
                       Free Startup <br /><span className="text-accent-red">Validation Checklist</span>
                     </h2>
-                    <p className="text-gray-500 mb-8 text-lg">
+                    <p className="text-gray-500 mb-8 text-base md:text-lg">
                       We've helped 50+ founders validate their ideas. Get our internal checklist for free and stop guessing.
                     </p>
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">

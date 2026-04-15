@@ -68,10 +68,25 @@ const FAQ = ({ items = defaultFaqs, title = "Common Questions" }: FAQProps) => {
   return (
     <section id="faq" className="px-6 md:px-8 lg:px-16 py-20 bg-[#FAFAFA]">
       <div className="max-w-3xl mx-auto">
-        {title && <h2 className="text-3xl md:text-5xl uppercase font-headline mb-12 text-center">{title}</h2>}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {title && <h2 className="text-3xl md:text-5xl uppercase font-headline mb-12 text-center">{title}</h2>}
+        </motion.div>
         <div className="space-y-4">
           {items.map((faq, index) => (
-            <FAQItem key={index} {...faq} />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <FAQItem {...faq} />
+            </motion.div>
           ))}
         </div>
       </div>

@@ -27,7 +27,7 @@ const Hero = () => {
   return (
     <section
       id="hero-section"
-      className="bg-accent-red text-white px-6 md:px-8 lg:px-16 py-6 md:py-8 min-h-[90vh] flex flex-col justify-center relative overflow-hidden"
+      className="bg-accent-red text-white px-6 md:px-8 lg:px-16 pt-24 md:pt-32 pb-6 md:py-8 min-h-[90vh] flex flex-col justify-center relative overflow-hidden"
     >
       <motion.div
         className="mt-12 md:mt-20 mb-12 z-10"
