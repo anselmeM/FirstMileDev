@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,16 +15,23 @@ const BlogGrid = ({ posts }: BlogGridProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const categories = ["all", ...Array.from(new Set(posts.map((p) => p.category)))];
+  // Memoize categories to prevent recalculation on every render
+  const categories = useMemo(
+    () => ["all", ...Array.from(new Set(posts.map((p) => p.category)))],
+    [posts]
+  );
 
-  const filteredPosts = posts.filter((post) => {
-    const matchesCategory =
-      selectedCategory === "all" || post.category === selectedCategory;
-    const matchesSearch =
-      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.description.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  // Memoize filtered posts to prevent re-filtering on every keystroke/render if dependencies haven't changed
+  const filteredPosts = useMemo(() => {
+    return posts.filter((post) => {
+      const matchesCategory =
+        selectedCategory === "all" || post.category === selectedCategory;
+      const matchesSearch =
+        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.description.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [posts, selectedCategory, searchTerm]);
 
   return (
     <div className="max-w-7xl mx-auto">
