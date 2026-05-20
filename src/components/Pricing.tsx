@@ -5,59 +5,64 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { BarChart3, Layout, FileText, Users, Database, CreditCard, Smartphone, Code2, Server, Shield, ShieldCheck, Lock, RotateCcw, ArrowRight } from "lucide-react";
 
-const Pricing = () => {
-  const plans = [
-    {
-      id: "validation",
-      phase: "Phase 1",
-      title: "Market Proof",
-      price: "$2,000",
-      tag: "Validation",
-      highlight: "Fast Turnaround (2 Weeks)",
-      description: "Don't build until you know they'll buy. We validate your concept with real data before writing code.",
-      features: [
-        { icon: <BarChart3 size={16} />, text: "Ad Funnel Testing" },
-        { icon: <Layout size={16} />, text: "Landing Page Creation" },
-        { icon: <FileText size={16} />, text: "Viability Report" },
-      ],
-      cta: "Start Validation",
-      popular: false,
-    },
-    {
-      id: "mvp",
-      phase: "Phase 2",
-      title: "Launchpad MVP",
-      price: "$5,000",
-      tag: "Most Popular",
-      highlight: "4-6 Week Turnaround",
-      description: "Get your first 100 users. We build a functional, beautiful product using high-performance Low-Code tools to save time.",
-      features: [
-        { icon: <Users size={16} />, text: "User Authentication" },
-        { icon: <Database size={16} />, text: "Real Database Integration" },
-        { icon: <CreditCard size={16} />, text: "Stripe Payments" },
-        { icon: <Smartphone size={16} />, text: "Mobile Responsive" },
-      ],
-      cta: "Build My MVP",
-      popular: true,
-    },
-    {
-      id: "scale",
-      phase: "Phase 3",
-      title: "Scale",
-      price: "Custom",
-      tag: "Scaling",
-      highlight: "Long-term Partnership",
-      description: "Ready to handle thousands of users? We migrate your MVP to a scalable custom architecture (PERN Stack).",
-      features: [
-        { icon: <Code2 size={16} />, text: "React/Node.js Custom Code" },
-        { icon: <Server size={16} />, text: "AWS/Cloud Architecture" },
-        { icon: <Shield size={16} />, text: "Advanced Security" },
-      ],
-      cta: "Let's Scale",
-      popular: false,
-    },
-  ];
+// ⚡ Bolt: Moved the static `plans` array outside the component to prevent
+// redundant memory allocation and object creation on every re-render.
+// Expected Impact: Reduces memory pressure and slightly improves render speed
+// by avoiding the recreation of 3 complex objects (including React elements)
+// per render cycle.
+const plans = [
+  {
+    id: "validation",
+    phase: "Phase 1",
+    title: "Market Proof",
+    price: "$2,000",
+    tag: "Validation",
+    highlight: "Fast Turnaround (2 Weeks)",
+    description: "Don't build until you know they'll buy. We validate your concept with real data before writing code.",
+    features: [
+      { icon: <BarChart3 size={16} />, text: "Ad Funnel Testing" },
+      { icon: <Layout size={16} />, text: "Landing Page Creation" },
+      { icon: <FileText size={16} />, text: "Viability Report" },
+    ],
+    cta: "Start Validation",
+    popular: false,
+  },
+  {
+    id: "mvp",
+    phase: "Phase 2",
+    title: "Launchpad MVP",
+    price: "$5,000",
+    tag: "Most Popular",
+    highlight: "4-6 Week Turnaround",
+    description: "Get your first 100 users. We build a functional, beautiful product using high-performance Low-Code tools to save time.",
+    features: [
+      { icon: <Users size={16} />, text: "User Authentication" },
+      { icon: <Database size={16} />, text: "Real Database Integration" },
+      { icon: <CreditCard size={16} />, text: "Stripe Payments" },
+      { icon: <Smartphone size={16} />, text: "Mobile Responsive" },
+    ],
+    cta: "Build My MVP",
+    popular: true,
+  },
+  {
+    id: "scale",
+    phase: "Phase 3",
+    title: "Scale",
+    price: "Custom",
+    tag: "Scaling",
+    highlight: "Long-term Partnership",
+    description: "Ready to handle thousands of users? We migrate your MVP to a scalable custom architecture (PERN Stack).",
+    features: [
+      { icon: <Code2 size={16} />, text: "React/Node.js Custom Code" },
+      { icon: <Server size={16} />, text: "AWS/Cloud Architecture" },
+      { icon: <Shield size={16} />, text: "Advanced Security" },
+    ],
+    cta: "Let's Scale",
+    popular: false,
+  },
+];
 
+const Pricing = () => {
   return (
     <section id="pricing" className="px-6 md:px-8 lg:px-16 py-24 md:py-32 bg-white">
       <div className="max-w-4xl mx-auto mb-8">
