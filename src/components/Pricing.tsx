@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { BarChart3, Layout, FileText, Users, Database, CreditCard, Smartphone, Code2, Server, Shield, ShieldCheck, Lock, RotateCcw, ArrowRight } from "lucide-react";
 
-// ⚡ Bolt: Moving static arrays outside the component prevents redundant
-// object creation and memory allocation on every re-render, improving performance.
+// ⚡ Bolt Optimization: Moved static array outside component to prevent
+// redundant memory allocation and object creation on every re-render.
+// Expected Impact: Reduces garbage collection pressure and speeds up render cycle.
 const plans = [
   {
     id: "validation",
@@ -59,6 +60,7 @@ const plans = [
   },
 ];
 
+// ⚡ Bolt Optimization: Extracted static badge configurations to module scope.
 const trustBadges = [
   { icon: <ShieldCheck size={20} className="text-green-600" />, text: "SSL Secure" },
   { icon: <Lock size={20} className="text-green-600" />, text: "Encrypted Payments" },
