@@ -15,13 +15,12 @@ const BlogGrid = ({ posts }: BlogGridProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  // Memoize categories to prevent recalculation on every render
-  const categories = useMemo(
-    () => ["all", ...Array.from(new Set(posts.map((p) => p.category)))],
-    [posts]
-  );
+  // Cache categories extraction to avoid Set operations on every re-render
+  const categories = useMemo(() => {
+    return ["all", ...Array.from(new Set(posts.map((p) => p.category)))];
+  }, [posts]);
 
-  // Memoize filtered posts to prevent re-filtering on every keystroke/render if dependencies haven't changed
+  // Memoize filtered posts to prevent re-calculating on unrelated re-renders
   const filteredPosts = useMemo(() => {
     return posts.filter((post) => {
       const matchesCategory =
