@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useRef, useEffect } from "react";
+import { useReducedMotion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 
 const testimonials = [
@@ -32,6 +32,20 @@ const testimonials = [
 ];
 
 const TestimonialTicker = () => {
+  const shouldReduceMotion = useReducedMotion();
+  const [isPaused, setIsPaused] = useState(false);
+  const [scrollWidth, setScrollWidth] = useState(1032);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Dynamically calculate scroll distance based on actual content width
+  useEffect(() => {
+    if (containerRef.current) {
+      const totalWidth = containerRef.current.scrollWidth;
+      // Half the total width since we duplicate the list
+      setScrollWidth(totalWidth / 2);
+    }
+  }, []);
+
   return (
     <section className="py-24 bg-accent-red overflow-hidden relative">
       {/* Background patterns */}
@@ -45,33 +59,37 @@ const TestimonialTicker = () => {
       </div>
 
       {/* Infinite Scroll Container */}
-      <div className="flex relative">
-        <motion.div 
-          className="flex gap-6 px-3"
-          animate={{
-            x: [0, -1032], // Adjust based on content width
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "linear",
+      <div
+        className="flex relative"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        role="region"
+        aria-label="Testimonials carousel — hover to pause"
+      >
+        <div
+          ref={containerRef}
+          className={`flex gap-6 px-3 ${!shouldReduceMotion ? "animate-marquee" : ""}`}
+          style={{
+            animationPlayState: isPaused ? "paused" : "running",
+            ["--scroll-width" as any]: `-${scrollWidth}px`,
           }}
         >
           {/* Double the list for seamless loop */}
           {[...testimonials, ...testimonials].map((t, i) => (
             <div 
               key={i} 
-              className="w-[320px] md:w-[400px] flex-shrink-0 bg-white p-8 md:p-10 rounded-2xl shadow-xl flex flex-col justify-between border border-white/20"
+              className="w-[320px] md:w-[400px] flex-shrink-0 bg-white p-8 md:p-10 rounded-2xl shadow-xl flex flex-col justify-between border border-white/20 relative"
             >
               <div>
                 <div className="flex text-accent-red mb-6">
                   {[...Array(t.stars)].map((_, si) => (
-                    <Star key={si} size={16} fill="currentColor" />
+                    <Star key={si} size={16} fill="currentColor" aria-hidden="true" />
                   ))}
+                  <span className="sr-only">{t.stars} out of 5 stars</span>
                 </div>
-                <Quote className="text-gray-100 absolute top-8 right-8 w-12 h-12 -z-0" />
+                <Quote className="text-gray-100 absolute top-8 right-8 w-12 h-12 -z-0" aria-hidden="true" />
                 <p className="text-gray-700 text-lg md:text-xl font-medium leading-relaxed relative z-10">
-                  "{t.text}"
+                  &ldquo;{t.text}&rdquo;
                 </p>
               </div>
               <div className="mt-8 pt-6 border-t border-gray-50">
@@ -80,7 +98,7 @@ const TestimonialTicker = () => {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

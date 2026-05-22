@@ -69,6 +69,16 @@ const trustBadges = [
 ];
 
 const Pricing = () => {
+  const [isDesktop, setIsDesktop] = React.useState(false);
+
+  React.useEffect(() => {
+    const media = window.matchMedia("(min-width: 768px)");
+    setIsDesktop(media.matches);
+    const listener = () => setIsDesktop(media.matches);
+    media.addEventListener("change", listener);
+    return () => media.removeEventListener("change", listener);
+  }, []);
+
   return (
     <section id="pricing" className="px-6 md:px-8 lg:px-16 py-24 md:py-32 bg-white">
       <div className="max-w-4xl mx-auto mb-8">
@@ -79,7 +89,7 @@ const Pricing = () => {
             </Link>
           ))}
           <Link href="/calculator" className="text-xs font-bold uppercase tracking-widest text-accent-red border border-accent-red/20 px-4 py-2 rounded-full hover:bg-accent-red hover:text-white transition-all">
-            Cost Calculator
+             Cost Calculator
           </Link>
         </div>
       </div>
@@ -95,7 +105,7 @@ const Pricing = () => {
             key={plan.id}
             id={plan.id}
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: plan.popular ? -24 : 0 }}
+            whileInView={{ opacity: 1, y: plan.popular && isDesktop ? -24 : 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
             className={`flex flex-col p-8 rounded-xl border transition-all duration-300 relative group ${

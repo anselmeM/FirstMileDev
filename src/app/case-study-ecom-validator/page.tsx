@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { 
   ArrowLeft,
-  CheckCircle2,
   AlertTriangle,
   Clock,
   ShieldAlert,

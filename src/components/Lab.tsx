@@ -9,17 +9,26 @@ import { submitLead } from "@/lib/leads";
 const Lab = () => {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     
-    await submitLead({
-      email,
-      source: "lab-hook"
-    });
-    
-    setIsSubmitted(true);
+    setIsLoading(true);
+    setError(null);
+    try {
+      await submitLead({
+        email,
+        source: "lab-hook"
+      });
+      setIsSubmitted(true);
+    } catch (err: any) {
+      setError(err?.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -75,13 +84,21 @@ const Lab = () => {
                       placeholder="your@email.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      disabled={isLoading}
                       className="flex-1 px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-accent-red transition-all text-sm shadow-sm text-gray-900"
                     />
-                    <button type="submit" className="btn btn-primary btn-sm px-6 flex items-center gap-2 group">
-                      Send Me The Stack
-                      <Send className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                    <button 
+                      type="submit" 
+                      disabled={isLoading} 
+                      className="btn btn-primary btn-sm px-6 flex items-center gap-2 group disabled:opacity-50"
+                    >
+                      {isLoading ? "Sending..." : "Send Me The Stack"}
+                      {!isLoading && <Send className="w-3 h-3 group-hover:translate-x-1 transition-transform" />}
                     </button>
                   </form>
+                  {error && (
+                    <p className="text-xs text-red-500 mt-2 font-medium">{error}</p>
+                  )}
                 </motion.div>
               ) : (
                 <motion.div
@@ -103,27 +120,34 @@ const Lab = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative aspect-video bg-gray-900 rounded-lg overflow-hidden shadow-2xl border border-gray-200 group cursor-pointer"
+        <a
+          href="https://www.youtube.com/@AnselmeMotchoLive"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full"
         >
-          <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-            <div
-              className="w-20 h-20 bg-accent-red rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg"
-            >
-              <Play className="w-8 h-8 text-white fill-current ml-1" />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative aspect-video bg-gray-900 rounded-lg overflow-hidden shadow-2xl border border-gray-200 group cursor-pointer"
+          >
+            <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+              <div
+                className="w-20 h-20 bg-accent-red rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg"
+              >
+                <Play className="w-8 h-8 text-white fill-current ml-1" />
+              </div>
             </div>
-          </div>
-          <Image
-            src="https://placehold.co/800x450/1f2937/fff?text=Build+In+Public+Series"
-            alt="Build In Public video series thumbnail"
-            fill
-            className="object-cover opacity-80 group-hover:opacity-100 transition duration-500 scale-100 group-hover:scale-105"
-          />
-        </motion.div>
+            <Image
+              src="https://placehold.co/800x450/1f2937/fff?text=Build+In+Public+Series"
+              alt="Build In Public video series thumbnail"
+              fill
+              className="object-cover opacity-80 group-hover:opacity-100 transition duration-500 scale-100 group-hover:scale-105"
+            />
+          </motion.div>
+        </a>
       </div>
     </section>
   );

@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Check } from "lucide-react";
 import { BlogMetadata } from "@/lib/mdx";
 
 interface BlogHighlightsProps {
@@ -42,6 +41,8 @@ const BlogHighlights = ({ posts }: BlogHighlightsProps) => {
                     alt={post.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    placeholder="blur"
+                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxIDEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjNCMyYiLz48L3N2Zz4="
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>

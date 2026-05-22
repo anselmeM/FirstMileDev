@@ -2,7 +2,7 @@ import React from "react";
 import { getAllBlogPosts } from "@/lib/mdx";
 import BlogGrid from "./BlogGrid";
 import Link from "next/link";
-import { PenLine, ArrowLeft, Sparkles } from "lucide-react";
+import { PenLine, Sparkles } from "lucide-react";
 
 export const metadata = {
   title: "Blog - Startup Validation & Development Insights | FirstMileDev",

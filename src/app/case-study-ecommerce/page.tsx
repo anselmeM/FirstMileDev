@@ -6,7 +6,6 @@ import {
   Search,
   Target,
   BarChart3,
-  CheckCircle2,
   ShieldCheck
 } from "lucide-react";
 

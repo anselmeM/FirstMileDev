@@ -72,7 +72,7 @@ interface FAQProps {
 
 const FAQ = ({ 
   items = defaultFaqs, 
-  title = "Common Questions",
+  title: _title = "Common Questions",
   subtitle = "Everything you need to know about the FirstMileDev process"
 }: FAQProps) => {
   return (

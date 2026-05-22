@@ -1,8 +1,20 @@
 "use client";
 
+import React, { useEffect, useState } from "react";
 import Script from "next/script";
 
 export default function Analytics() {
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    // Load tracking scripts only in production environment and not on localhost
+    if (process.env.NODE_ENV === "production" && !window.location.hostname.includes("localhost")) {
+      setShouldLoad(true);
+    }
+  }, []);
+
+  if (!shouldLoad) return null;
+
   return (
     <>
       {/* Microsoft Clarity */}
@@ -33,3 +45,4 @@ export default function Analytics() {
     </>
   );
 }
+

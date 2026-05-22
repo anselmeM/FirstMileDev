@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
+import React from "react";
 
 const BLOG_CONTENT_PATH = path.join(process.cwd(), "src/content/blog");
 
@@ -50,6 +51,13 @@ export async function getBlogPostBySlug(slug: string) {
       mdxOptions: {
         remarkPlugins: [remarkGfm],
       },
+    },
+    components: {
+      table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
+        <div className="overflow-x-auto w-full my-8 rounded-xl shadow-lg border border-gray-100">
+          <table className="min-w-full" {...props} />
+        </div>
+      ),
     },
   });
 

@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -128,7 +128,7 @@ const Navbar = () => {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
-            <nav className="flex items-center space-x-8">
+            <nav aria-label="Main Navigation" className="flex items-center space-x-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -179,69 +179,136 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* OLDER MOBILE MENU DESIGN (FULL SCREEN DARK) */}
+      {/* Mobile Menu (Full Screen Dark) */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            id="mobile-menu"
-            role="navigation"
-            aria-label="Mobile Navigation"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-[#1f2937] z-[1001] flex flex-col justify-center items-center text-center text-white"
-          >
-            {/* Close Button */}
-            <button 
-              onClick={toggleMenu}
-              className="absolute top-6 right-6 text-white p-2 hover:rotate-90 transition-transform duration-300"
-            >
-              <X size={40} />
-            </button>
-
-            <motion.nav
-              variants={menuVariants}
-              initial="closed"
-              animate="open"
-              exit="closed"
-              className="flex flex-col space-y-8"
-            >
-              {navLinks.map((link) => (
-                <motion.div key={link.name} variants={itemVariants}>
-                  <Link
-                    href={link.href}
-                    onClick={toggleMenu}
-                    className="text-4xl font-headline text-white uppercase hover:text-accent-red transition-all"
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
-              
-              <motion.div variants={itemVariants}>
-                <Link
-                  href="/calculator"
-                  onClick={toggleMenu}
-                  className="text-4xl font-headline text-accent-red uppercase hover:text-white transition-all"
-                >
-                  Calculator
-                </Link>
-              </motion.div>
-
-              <motion.div variants={itemVariants}>
-                <Link
-                  href="/#contact"
-                  onClick={toggleMenu}
-                  className="mobile-link-item text-xl font-bold font-body text-white uppercase tracking-widest border-2 border-white px-8 py-4 rounded-full hover:bg-white hover:text-[#1f2937] transition-all mt-4 inline-block"
-                >
-                  Start Validation
-                </Link>
-              </motion.div>
-            </motion.nav>
-          </motion.div>
+          <MobileMenu
+            isMenuOpen={isMenuOpen}
+            toggleMenu={toggleMenu}
+            menuVariants={menuVariants}
+            itemVariants={itemVariants}
+          />
         )}
       </AnimatePresence>
     </>
+  );
+};
+
+// Extracted mobile menu with focus trap and Escape key support
+const MobileMenu = ({ isMenuOpen: _isMenuOpen, toggleMenu, menuVariants, itemVariants }: {
+  isMenuOpen: boolean;
+  toggleMenu: () => void;
+  menuVariants: Variants;
+  itemVariants: Variants;
+}) => {
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Escape key handler
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        toggleMenu();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [toggleMenu]);
+
+  // Focus trap
+  useEffect(() => {
+    const menuEl = menuRef.current;
+    if (!menuEl) return;
+
+    const focusableElements = menuEl.querySelectorAll<HTMLElement>(
+      'a[href], button, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    // Focus the first element on open
+    firstFocusable?.focus();
+
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable?.focus();
+        }
+      } else {
+        if (document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable?.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleTab);
+    return () => document.removeEventListener("keydown", handleTab);
+  }, []);
+
+  return (
+    <motion.div
+      ref={menuRef}
+      id="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile Navigation"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-[#1f2937] z-[1001] flex flex-col justify-center items-center text-center text-white"
+    >
+      {/* Close Button */}
+      <button 
+        onClick={toggleMenu}
+        className="absolute top-6 right-6 text-white p-2 hover:rotate-90 transition-transform duration-300"
+        aria-label="Close menu"
+      >
+        <X size={40} />
+      </button>
+
+      <motion.nav
+        variants={menuVariants}
+        initial="closed"
+        animate="open"
+        exit="closed"
+        className="flex flex-col space-y-8"
+        aria-label="Mobile Navigation"
+      >
+        {navLinks.map((link) => (
+          <motion.div key={link.name} variants={itemVariants}>
+            <Link
+              href={link.href}
+              onClick={toggleMenu}
+              className="text-4xl font-headline text-white uppercase hover:text-accent-red transition-all"
+            >
+              {link.name}
+            </Link>
+          </motion.div>
+        ))}
+        
+        <motion.div variants={itemVariants}>
+          <Link
+            href="/calculator"
+            onClick={toggleMenu}
+            className="text-4xl font-headline text-accent-red uppercase hover:text-white transition-all"
+          >
+            Calculator
+          </Link>
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <Link
+            href="/#contact"
+            onClick={toggleMenu}
+            className="mobile-link-item text-xl font-bold font-body text-white uppercase tracking-widest border-2 border-white px-8 py-4 rounded-full hover:bg-white hover:text-[#1f2937] transition-all mt-4 inline-block"
+          >
+            Start Validation
+          </Link>
+        </motion.div>
+      </motion.nav>
+    </motion.div>
   );
 };
 

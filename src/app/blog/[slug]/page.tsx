@@ -8,7 +8,6 @@ import {
   ArrowLeft,
   Calendar,
   Clock,
-  User,
   ChevronRight
 } from "lucide-react";
 
@@ -146,7 +145,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           prose-li:text-gray-600 prose-li:mb-4 prose-li:text-[1.15rem]
           prose-strong:text-gray-900 prose-strong:font-black
           prose-a:text-accent-red prose-a:no-underline hover:prose-a:underline prose-a:font-black prose-a:decoration-2
-          prose-blockquote:border-l-[12px] prose-blockquote:border-accent-red prose-blockquote:bg-gray-50 prose-blockquote:py-12 prose-blockquote:px-12 prose-blockquote:rounded-r-3xl prose-blockquote:not-italic prose-blockquote:text-gray-900 prose-blockquote:font-medium prose-blockquote:text-2xl md:prose-blockquote:text-3xl prose-blockquote:my-16 prose-blockquote:shadow-sm
+          prose-blockquote:border-l-[12px] prose-blockquote:border-accent-red prose-blockquote:bg-gray-50 prose-blockquote:py-12 prose-blockquote:px-12 prose-blockquote:rounded-r-3xl prose-blockquote:not-italic prose-blockquote:text-gray-900 prose-blockquote:font-medium prose-blockquote:text-2xl md:prose-blockquote:text-3xl prose-blockquote:my-16 prose-blockquote:shadow-sm prose-blockquote:before:content-none prose-blockquote:after:content-none
           prose-table:w-full prose-table:text-left prose-table:border-collapse prose-table:my-16 prose-table:rounded-xl prose-table:overflow-hidden prose-table:shadow-lg
           prose-th:py-5 prose-th:px-8 prose-th:bg-gray-900 prose-th:text-white prose-th:font-headline prose-th:uppercase prose-th:text-xs prose-th:tracking-[0.2em] prose-th:border-none
           prose-td:py-5 prose-td:px-8 prose-td:border-b prose-td:border-gray-100 prose-td:text-gray-700 prose-td:text-base prose-td:font-medium

@@ -44,7 +44,7 @@ export async function POST(request: Request) {
       message: resend ? "Lead captured and email sent" : "Lead logged (Resend not configured)" 
     });
 
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }

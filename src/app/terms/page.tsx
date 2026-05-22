@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
-import { Scale, ArrowLeft, Mail, ChevronRight, FileText } from "lucide-react";
+import { Scale, ArrowLeft, ChevronRight, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Terms of Service | FirstMileDev",

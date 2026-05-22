@@ -82,20 +82,18 @@ const Hero = () => {
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
               Limited Availability - 2 spots left this month
             </span>
-            <Link href="#contact" className="hero-cta-link">
+            <Link href="#contact" className="btn btn-white btn-lg">
               Book Discovery Call
             </Link>
           </motion.div>
         </div>
       </div>
 
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-[-5%] right-[-5%] text-[15rem] md:text-[20rem] leading-none font-black text-center inline-block py-8 md:py-10 opacity-10 select-none text-black pointer-events-none"
+      <div
+        className="absolute bottom-[-5%] right-[-5%] text-[15rem] md:text-[20rem] leading-none font-black text-center inline-block py-8 md:py-10 opacity-10 select-none text-black pointer-events-none animate-spin-slow"
       >
         *
-      </motion.div>
+      </div>
     </section>
   );
 };

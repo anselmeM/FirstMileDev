@@ -12,7 +12,7 @@ interface MidPostCTAProps {
   type?: "calculator" | "contact" | "checklist";
 }
 
-const MidPostCTA = ({ title, description, buttonText, buttonHref, type = "calculator" }: MidPostCTAProps) => {
+const MidPostCTA = ({ title, description, buttonText, buttonHref, type: _type = "calculator" }: MidPostCTAProps) => {
   return (
     <div className="my-12 bg-carbon-900 text-white rounded-2xl p-8 md:p-10 relative overflow-hidden shadow-2xl border border-white/10">
       <div className="absolute top-0 right-0 p-4 opacity-10">

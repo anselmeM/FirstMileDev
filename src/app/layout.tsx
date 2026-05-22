@@ -69,6 +69,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${archivoBlack.variable} antialiased font-body bg-white text-gray-900 flex flex-col min-h-screen`}
       >
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <JSONLD />
         <ReadingProgress />
         <Navbar />

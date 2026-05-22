@@ -9,17 +9,26 @@ import Link from "next/link";
 const LeadMagnet = () => {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     
-    await submitLead({
-      email,
-      source: "lead-magnet"
-    });
-    
-    setIsSubmitted(true);
+    setIsLoading(true);
+    setError(null);
+    try {
+      await submitLead({
+        email,
+        source: "lead-magnet"
+      });
+      setIsSubmitted(true);
+    } catch (err: any) {
+      setError(err?.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -77,14 +86,22 @@ const LeadMagnet = () => {
                         placeholder="your@email.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        disabled={isLoading}
                         className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-accent-red transition-all text-gray-900 shadow-sm"
                       />
                     </div>
-                    <button type="submit" className="btn btn-primary btn-lg w-full flex items-center justify-center gap-2 group">
-                      Get The Checklist
-                      <Download className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <button 
+                      type="submit" 
+                      disabled={isLoading} 
+                      className="btn btn-primary btn-lg w-full flex items-center justify-center gap-2 group disabled:opacity-50"
+                    >
+                      {isLoading ? "Sending..." : "Get The Checklist"}
+                      {!isLoading && <Download className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
                     </button>
                   </form>
+                  {error && (
+                    <p className="text-xs text-red-500 mt-2 font-medium">{error}</p>
+                  )}
                 </motion.div>
               ) : (
                 <motion.div

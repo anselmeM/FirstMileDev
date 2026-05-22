@@ -44,9 +44,15 @@ const Contact = () => {
 
           <div className="relative">
             {/* Calendly inline widget begin */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl h-[600px]">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl h-[600px] relative">
+              {/* Loading skeleton shown while Calendly loads */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-300 animate-pulse pointer-events-none">
+                <div className="w-16 h-16 rounded-full bg-gray-100 mb-4"></div>
+                <div className="h-4 bg-gray-100 rounded w-48 mb-2"></div>
+                <div className="h-3 bg-gray-50 rounded w-32"></div>
+              </div>
               <div 
-                className="calendly-inline-widget w-full h-full"
+                className="calendly-inline-widget w-full h-full relative z-10"
                 data-url="https://calendly.com/anselme-firstmiledev?hide_gdpr_banner=1&primary_color=ff3b3f"
               ></div>
             </div>
@@ -60,7 +66,7 @@ const Contact = () => {
             {/* Trust badge under Calendly */}
             <div className="mt-4 flex items-center justify-center gap-2 text-white/60 text-xs font-bold uppercase tracking-widest">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-              Next available slot: Tomorrow
+              Responding within 24 hours
             </div>
           </div>
         </div>

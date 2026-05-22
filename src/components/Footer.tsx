@@ -2,13 +2,13 @@
 
 import React from "react";
 import Link from "next/link";
-import { Youtube, Twitter, Linkedin } from "lucide-react";
+import { Youtube } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#FF3B3F] text-white px-6 py-16" role="contentinfo">
+    <footer className="bg-accent-red text-white px-6 py-16" role="contentinfo">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Tagline */}
@@ -29,20 +29,7 @@ const Footer = () => {
               >
                 <Youtube size={20} aria-hidden="true" />
               </a>
-              <a
-                href="#"
-                className="text-white/80 hover:text-white transition"
-                aria-label="FirstMileDev on Twitter"
-              >
-                <Twitter size={20} aria-hidden="true" />
-              </a>
-              <a
-                href="#"
-                className="text-white/80 hover:text-white transition"
-                aria-label="FirstMileDev on LinkedIn"
-              >
-                <Linkedin size={20} aria-hidden="true" />
-              </a>
+
             </div>
           </div>
 
@@ -115,7 +102,7 @@ const Footer = () => {
             <h4 className="font-bold uppercase tracking-widest text-xs mb-4 text-white/60">
               Contact
             </h4>
-            <p className="text-white/80 text-sm">hello@firstmiledev.com</p>
+            <a href="mailto:hello@firstmiledev.com" className="text-white/80 hover:text-white text-sm transition">hello@firstmiledev.com</a>
           </div>
         </div>
 

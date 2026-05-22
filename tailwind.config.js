@@ -4,8 +4,6 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./*.html",
-    "./*.js",
   ],
   theme: {
     extend: {
@@ -41,11 +39,10 @@ module.exports = {
         'btn-hover': '0 8px 25px rgba(0, 0, 0, 0.15)',
         'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
         'card-hover': '0 12px 40px rgba(0, 0, 0, 0.12)',
-      },
-      animation: {
-        'spin-slow': 'spin 15s linear infinite',
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

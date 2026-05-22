@@ -3,6 +3,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { Check, ArrowRight, AlertCircle } from "lucide-react";
 
 const Philosophy = () => {
@@ -103,9 +104,15 @@ const Philosophy = () => {
                   <AlertCircle className="text-gray-400 w-5 h-5" />
                   <h4 className="font-headline uppercase text-sm tracking-widest text-gray-400">The Old Way</h4>
                 </div>
-                <p className="text-lg font-bold line-through decoration-accent-red decoration-2 text-gray-400 leading-tight">
-                  Guess Features &rarr; Spend $50k &rarr; Launch &rarr; Pray
-                </p>
+                <div className="text-lg font-bold text-gray-400 leading-tight flex flex-wrap items-center gap-2">
+                  <span className="line-through decoration-accent-red decoration-2">Guess Features</span>
+                  <ArrowRight size={16} className="text-gray-300 flex-shrink-0" />
+                  <span className="line-through decoration-accent-red decoration-2">Spend $50k</span>
+                  <ArrowRight size={16} className="text-gray-300 flex-shrink-0" />
+                  <span className="line-through decoration-accent-red decoration-2">Launch</span>
+                  <ArrowRight size={16} className="text-gray-300 flex-shrink-0" />
+                  <span className="line-through decoration-accent-red decoration-2">Pray</span>
+                </div>
               </motion.div>
               
               {/* The FirstMile Way */}
@@ -142,9 +149,9 @@ const Philosophy = () => {
 
                 <div className="mt-10 pt-8 border-t border-white/10 relative z-10 text-center lg:text-left">
                   <p className="text-xs font-bold uppercase tracking-widest text-white/60 mb-6">Ready to skip the guessing?</p>
-                  <a href="#contact" className="btn btn-primary btn-full md:btn-md">
+                  <Link href="#contact" className="btn btn-primary btn-full md:btn-md">
                     Start Your Roadmap
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             </div>
