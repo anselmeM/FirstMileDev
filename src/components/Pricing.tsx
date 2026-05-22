@@ -5,11 +5,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { BarChart3, Layout, FileText, Users, Database, CreditCard, Smartphone, Code2, Server, Shield, ShieldCheck, Lock, RotateCcw, ArrowRight } from "lucide-react";
 
-// ⚡ Bolt: Moved the static `plans` array outside the component to prevent
+// ⚡ Bolt Optimization: Moved static array outside component to prevent
 // redundant memory allocation and object creation on every re-render.
-// Expected Impact: Reduces memory pressure and slightly improves render speed
-// by avoiding the recreation of 3 complex objects (including React elements)
-// per render cycle.
+// Expected Impact: Reduces garbage collection pressure and speeds up render cycle.
 const plans = [
   {
     id: "validation",
@@ -60,6 +58,14 @@ const plans = [
     cta: "Let's Scale",
     popular: false,
   },
+];
+
+// ⚡ Bolt Optimization: Extracted static badge configurations to module scope.
+const trustBadges = [
+  { icon: <ShieldCheck size={20} className="text-green-600" />, text: "SSL Secure" },
+  { icon: <Lock size={20} className="text-green-600" />, text: "Encrypted Payments" },
+  { icon: <CreditCard size={20} className="text-green-600" />, text: "No Credit Card Required" },
+  { icon: <RotateCcw size={20} className="text-green-600" />, text: "100% Ownership" },
 ];
 
 const Pricing = () => {
@@ -137,12 +143,7 @@ const Pricing = () => {
       {/* Trust Badges */}
       <div className="mt-12 pt-8 border-t border-gray-100">
         <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-500">
-          {[
-            { icon: <ShieldCheck size={20} className="text-green-600" />, text: "SSL Secure" },
-            { icon: <Lock size={20} className="text-green-600" />, text: "Encrypted Payments" },
-            { icon: <CreditCard size={20} className="text-green-600" />, text: "No Credit Card Required" },
-            { icon: <RotateCcw size={20} className="text-green-600" />, text: "100% Ownership" },
-          ].map((badge, i) => (
+          {trustBadges.map((badge, i) => (
             <div key={i} className="flex items-center gap-2">
               {badge.icon}
               <span>{badge.text}</span>
