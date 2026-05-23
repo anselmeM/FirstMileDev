@@ -51,7 +51,7 @@ const Philosophy = () => {
               <div className="w-16 h-16 rounded-2xl overflow-hidden bg-accent-red p-0.5 shadow-xl rotate-3 hover:rotate-0 transition-transform duration-500">
                 <div className="w-full h-full rounded-[14px] overflow-hidden border-2 border-white/20">
                   <Image
-                    src="https://placehold.co/100x100/333/fff?text=AM"
+                    src="/images/anselme-avatar.png"
                     alt="Anselme Motcho"
                     width={100}
                     height={100}

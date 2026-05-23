@@ -18,7 +18,7 @@ export default function Analytics() {
   return (
     <>
       {/* Microsoft Clarity */}
-      <Script id="microsoft-clarity" strategy="afterInteractive">
+      <Script id="microsoft-clarity" strategy="lazyOnload">
         {`
           (function(c,l,a,r,i,t,y){
               c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -29,7 +29,7 @@ export default function Analytics() {
       </Script>
 
       {/* Tawk.to */}
-      <Script id="tawk-to" strategy="afterInteractive">
+      <Script id="tawk-to" strategy="lazyOnload">
         {`
           var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
           (function(){

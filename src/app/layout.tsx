@@ -14,7 +14,7 @@ import JSONLD from "@/components/JSONLD";
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "900"],
 });
 
 const archivoBlack = Archivo_Black({

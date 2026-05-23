@@ -55,6 +55,9 @@ export default function EcommerceCaseStudy() {
             src="/images/E-Commerce Validator.png" 
             alt="Market Validator Dashboard"
             fill
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            placeholder="blur"
+            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxIDEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjNCMyYiLz48L3N2Zz4="
             className="object-cover"
             priority
           />

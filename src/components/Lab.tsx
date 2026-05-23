@@ -141,9 +141,10 @@ const Lab = () => {
               </div>
             </div>
             <Image
-              src="https://placehold.co/800x450/1f2937/fff?text=Build+In+Public+Series"
+              src="/images/lab-thumbnail.png"
               alt="Build In Public video series thumbnail"
               fill
+              sizes="(max-width: 1024px) 100vw, 600px"
               className="object-cover opacity-80 group-hover:opacity-100 transition duration-500 scale-100 group-hover:scale-105"
             />
           </motion.div>

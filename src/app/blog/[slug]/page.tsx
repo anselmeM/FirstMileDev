@@ -107,7 +107,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="flex items-center gap-4 py-6 border-t border-white/10">
             <div className="w-12 h-12 rounded-full overflow-hidden bg-white/20 border-2 border-white flex-shrink-0">
               <Image 
-                src="https://placehold.co/100x100/333/fff?text=AM" 
+                src="/images/anselme-avatar.png" 
                 alt="Anselme Motcho" 
                 width={48} 
                 height={48} 
@@ -129,6 +129,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             src={metadata.image} 
             alt={metadata.title}
             fill
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            placeholder="blur"
+            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxIDEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjNCMyYiLz48L3N2Zz4="
             className="object-cover"
             priority
           />
@@ -181,7 +184,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {metadata.slug !== "why-startups-fail" && (
               <Link href="/blog/why-startups-fail" className="group block">
                 <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden mb-6 relative shadow-md">
-                  <Image src="/images/Handpicked-Reasons-Why-90-Startups-Fail-.jpg" alt="Why 90% fail" fill className="object-cover group-hover:scale-105 transition duration-500" />
+                  <Image 
+                    src="/images/Handpicked-Reasons-Why-90-Startups-Fail-.jpg" 
+                    alt="Why 90% fail" 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    placeholder="blur"
+                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxIDEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjNCMyYiLz48L3N2Zz4="
+                    className="object-cover group-hover:scale-105 transition duration-500" 
+                  />
                 </div>
                 <h4 className="font-headline text-xl uppercase group-hover:text-accent-red transition-colors leading-tight mb-2">Why 90% of Startups Fail</h4>
                 <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 italic">Validation-first development prevents your startup from becoming another statistic.</p>
@@ -190,7 +201,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {metadata.slug !== "no-code-vs-custom" && (
               <Link href="/blog/no-code-vs-custom" className="group block">
                 <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden mb-6 relative shadow-md">
-                  <Image src="/images/MVPInfluence.jpg" alt="No-code vs Custom" fill className="object-cover group-hover:scale-105 transition duration-500" />
+                  <Image 
+                    src="/images/MVPInfluence.jpg" 
+                    alt="No-code vs Custom" 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    placeholder="blur"
+                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxIDEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjNCMyYiLz48L3N2Zz4="
+                    className="object-cover group-hover:scale-105 transition duration-500" 
+                  />
                 </div>
                 <h4 className="font-headline text-xl uppercase group-hover:text-accent-red transition-colors leading-tight mb-2">No-Code vs Custom Development</h4>
                 <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 italic">One decision will shape your startup's future. Learn when to move fast.</p>
@@ -199,7 +218,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             {metadata.slug !== "true-cost-mvp" && (
               <Link href="/blog/true-cost-mvp" className="group block">
                 <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden mb-6 relative shadow-md">
-                  <Image src="/images/Why-Building-an-MVP-Matters-for-Startups.jpg" alt="True cost" fill className="object-cover group-hover:scale-105 transition duration-500" />
+                  <Image 
+                    src="/images/Why-Building-an-MVP-Matters-for-Startups.jpg" 
+                    alt="True cost" 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    placeholder="blur"
+                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxIDEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNGRjNCMyYiLz48L3N2Zz4="
+                    className="object-cover group-hover:scale-105 transition duration-500" 
+                  />
                 </div>
                 <h4 className="font-headline text-xl uppercase group-hover:text-accent-red transition-colors leading-tight mb-2">The True Cost of an MVP</h4>
                 <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 italic">A complete breakdown of MVP development costs and budgeting strategy.</p>

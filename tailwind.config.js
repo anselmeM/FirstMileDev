@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'headline': ['"Archivo Black"', 'sans-serif'],
-        'body': ['"Montserrat"', 'sans-serif'],
+        'headline': ['var(--font-archivo-black)', 'sans-serif'],
+        'body': ['var(--font-montserrat)', 'sans-serif'],
       },
       colors: {
         // Primary Accent - Red
