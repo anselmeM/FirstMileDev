@@ -26,6 +26,7 @@ const CalculatorForm = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [estimatedCost, setEstimatedCost] = useState<number | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   const toggleFeature = (feature: string) => {
@@ -41,6 +42,7 @@ const CalculatorForm = () => {
     if (!appType || !complexity || !timeline || !email) return;
 
     setIsSubmitting(true);
+    setError(null);
 
     // Base costs
     let baseCost = 0;
@@ -71,21 +73,26 @@ const CalculatorForm = () => {
 
     const total = Math.round((baseCost + featureCost) * complexityMultiplier * timelineMultiplier);
     
-    // Submit lead to API
-    await submitLead({
-      email,
-      source: "calculator",
-      metadata: {
-        appType,
-        complexity,
-        timeline,
-        features,
-        estimatedCost: total
-      }
-    });
+    try {
+      // Submit lead to API
+      await submitLead({
+        email,
+        source: "calculator",
+        metadata: {
+          appType,
+          complexity,
+          timeline,
+          features,
+          estimatedCost: total
+        }
+      });
 
-    setEstimatedCost(total);
-    setIsSubmitting(false);
+      setEstimatedCost(total);
+    } catch (err: any) {
+      setError(err?.message || "There was a problem submitting your request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -276,7 +283,8 @@ const CalculatorForm = () => {
                       placeholder="Enter your professional email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="flex-1 p-4 bg-white border border-gray-200 rounded-xl focus:border-accent-red focus:outline-none transition-all shadow-sm font-medium"
+                      disabled={isSubmitting}
+                      className="flex-1 p-4 bg-white border border-gray-200 rounded-xl focus:border-accent-red focus:outline-none transition-all shadow-sm font-medium text-gray-900"
                     />
                     <button 
                       type="submit" 
@@ -287,6 +295,9 @@ const CalculatorForm = () => {
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
+                  {error && (
+                    <p className="text-xs text-red-500 mt-4 font-medium">{error}</p>
+                  )}
                 </div>
               </div>
 

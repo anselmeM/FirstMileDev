@@ -84,4 +84,30 @@ describe("CalculatorForm Component", () => {
 
     expect(screen.getByText(/test@example.com/i)).toBeInTheDocument();
   });
+
+  it("displays an error message when lead submission fails", async () => {
+    (submitLead as jest.Mock).mockRejectedValueOnce(new Error("Network Error"));
+
+    render(<CalculatorForm />);
+
+    // Fill minimum required fields
+    fireEvent.click(screen.getByLabelText("Web App"));
+    fireEvent.click(screen.getByLabelText(/Launchpad MVP/i));
+    fireEvent.click(screen.getByLabelText(/8-12 Weeks/i));
+    
+    const emailInput = screen.getByPlaceholderText("Enter your professional email");
+    fireEvent.change(emailInput, { target: { value: "error@example.com" } });
+
+    // Submit
+    const submitButton = screen.getByRole("button", { name: /Get My Estimate/i });
+    fireEvent.click(submitButton);
+
+    // Wait for the error message to display
+    await waitFor(() => {
+      expect(screen.getByText("Network Error")).toBeInTheDocument();
+    });
+
+    // Cost estimate should not be shown
+    expect(screen.queryByText("$6,000")).not.toBeInTheDocument();
+  });
 });
