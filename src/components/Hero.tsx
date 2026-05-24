@@ -1,63 +1,23 @@
 "use client";
 
 import React from "react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Hero = () => {
-  const lineVariants: Variants = {
-    hidden: { y: "100%" },
-    visible: {
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.33, 1, 0.68, 1],
-      },
-    },
-  };
-
-  const containerVariants = {
-    visible: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
   return (
     <section
       id="hero-section"
       className="bg-accent-red text-white px-6 md:px-8 lg:px-16 pt-24 md:pt-32 pb-6 md:py-8 min-h-[90vh] flex flex-col justify-center relative overflow-hidden"
     >
-      <motion.div
-        className="mt-12 md:mt-20 mb-12 z-10"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="mt-12 md:mt-20 mb-12 z-10">
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase leading-none font-headline mb-8">
-          <span className="overflow-hidden block">
-            <motion.span variants={lineVariants} className="block">
-              VALIDATE DEMAND
-            </motion.span>
-          </span>
-          <span className="overflow-hidden block">
-            <motion.span variants={lineVariants} className="block">
-              BEFORE YOU WRITE
-            </motion.span>
-          </span>
-          <span className="overflow-hidden block">
-            <motion.span variants={lineVariants} className="block text-black">
-              A SINGLE LINE
-            </motion.span>
-          </span>
-          <span className="overflow-hidden block">
-            <motion.span variants={lineVariants} className="block">
-              OF CODE
-            </motion.span>
-          </span>
+          VALIDATE DEMAND <br />
+          BEFORE YOU WRITE <br />
+          <span className="text-black">A SINGLE LINE</span> <br />
+          OF CODE
         </h1>
-      </motion.div>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-12 md:mb-16 z-10">
         <div className="lg:col-start-2">
