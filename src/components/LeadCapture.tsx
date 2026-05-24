@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, CheckCircle2, ChevronUp } from "lucide-react";
+import { X, Send, CheckCircle2, ChevronUp, Download } from "lucide-react";
 import Link from "next/link";
 import { submitLead } from "@/lib/leads";
 
@@ -275,9 +275,16 @@ const LeadCapture = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     className="text-center py-12"
                   >
-                    <CheckCircle2 className="w-20 h-20 text-green-500 mx-auto mb-6" />
+                    <CheckCircle2 className="w-20 h-20 text-green-500 mx-auto mb-4" />
                     <h3 className="font-headline text-3xl uppercase mb-2 text-gray-900">It&apos;s on its way!</h3>
-                    <p className="text-gray-500 text-lg">Check your inbox for the checklist.</p>
+                    <p className="text-gray-500 text-lg mb-6">Check your inbox for the checklist.</p>
+                    <a 
+                      href="/downloads/startup-validation-checklist.pdf" 
+                      download 
+                      className="btn btn-outline btn-md inline-flex items-center gap-2"
+                    >
+                      <Download size={16} /> Download PDF Directly
+                    </a>
                   </motion.div>
                 )}
               </AnimatePresence>

@@ -114,7 +114,15 @@ const LeadMagnet = () => {
                     <CheckCircle2 size={40} />
                   </div>
                   <h3 className="font-headline text-2xl uppercase mb-2 text-gray-900">Check Your Inbox!</h3>
-                  <p className="text-gray-500 mb-8">The checklist is on its way. Ready to skip the line?</p>
+                  <p className="text-gray-500 mb-4">The checklist is on its way.</p>
+                  <a 
+                    href="/downloads/startup-validation-checklist.pdf" 
+                    download 
+                    className="btn btn-outline btn-sm mb-6 inline-flex items-center gap-2"
+                  >
+                    <Download size={14} /> Download PDF Directly
+                  </a>
+                  <p className="text-gray-500 mb-3 text-xs font-semibold uppercase tracking-wider">Ready to skip the line?</p>
                   <Link href="/#contact" className="text-accent-red font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-2 hover:gap-3 transition-all">
                     Talk to an expert <ArrowRight size={16} />
                   </Link>
