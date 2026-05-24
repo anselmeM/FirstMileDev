@@ -5,6 +5,8 @@ const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY) 
   : null;
 
+const audienceId = process.env.RESEND_AUDIENCE_ID;
+
 const FEATURE_LABELS: Record<string, string> = {
   auth_email: "Email/password accounts",
   auth_profile: "Onboarding / profile",
@@ -398,6 +400,19 @@ export async function POST(request: Request) {
             console.error("Failed to send email to user:", err);
           })
         );
+
+        // 3. Add to Resend Audience if configured
+        if (audienceId) {
+          emailSends.push(
+            resend.contacts.create({
+              email: email,
+              audienceId: audienceId,
+              unsubscribed: false,
+            }).catch(err => {
+              console.error("Failed to add contact to Resend Audience:", err);
+            })
+          );
+        }
 
         // Wait for both email operations to settle in parallel
         await Promise.all(emailSends);
