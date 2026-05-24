@@ -14,12 +14,14 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
   weight: ["400", "500", "600", "700", "900"],
+  display: "swap",
 });
 
 const archivoBlack = Archivo_Black({
   subsets: ["latin"],
   variable: "--font-archivo-black",
   weight: "400",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
