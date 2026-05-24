@@ -204,7 +204,7 @@ site/
 *.md
 
 # NOTE: Keep these important markdown files:
-# !README.md
+!README.md
 # !CONTRIBUTING.md
 # !LICENSE.md
 
