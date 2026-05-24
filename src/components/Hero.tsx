@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Hero = () => {
@@ -21,21 +20,15 @@ const Hero = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mb-12 md:mb-16 z-10">
         <div className="lg:col-start-2">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
+          <p
             className="text-base md:text-lg font-bold uppercase mb-8 leading-relaxed tracking-wide"
           >
             Where Vision Meets Velocity. We transform ideas into market-validated
             MVPs using Data-Driven Insights, No-Code Agility, and PERN Stack
             Precision. Your breakthrough product—built faster, tested smarter,
             ready for launch.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
+          </p>
+          <div
             className="flex flex-col items-start"
           >
             <span className="inline-flex items-center gap-2 bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full w-fit mb-4">
@@ -45,7 +38,7 @@ const Hero = () => {
             <Link href="#contact" className="btn btn-white btn-lg">
               Book Discovery Call
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
 

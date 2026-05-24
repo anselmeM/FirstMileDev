@@ -8,7 +8,7 @@
     scroll-behavior: smooth;
   }
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-montserrat), sans-serif;
     color: #1f2937;
     background-color: #ffffff;
     overflow-x: hidden;
