@@ -245,6 +245,97 @@ function getWelcomeEmailHtml() {
   `;
 }
 
+function getLabHookEmailHtml() {
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Your $55k FinTech MVP Tech Stack Breakdown</title>
+      <style>
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f9f9f9; color: #333333; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+        .wrapper { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #eeeeee; }
+        .header { background-color: #111111; padding: 32px; text-align: center; border-bottom: 3px solid #FF3B3F; }
+        .header h1 { color: #ffffff; font-size: 24px; font-weight: 700; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+        .content { padding: 40px 32px; }
+        .welcome-text { font-size: 16px; line-height: 1.6; color: #555555; margin-bottom: 32px; }
+        .tech-box { background-color: #fafafa; border: 1px solid #eeeeee; border-radius: 12px; padding: 24px; margin-bottom: 32px; }
+        .tech-item { margin-bottom: 16px; }
+        .tech-item:last-child { margin-bottom: 0; }
+        .tech-title { font-size: 14px; font-weight: 900; text-transform: uppercase; color: #FF3B3F; letter-spacing: 1px; margin-bottom: 4px; }
+        .tech-val { font-size: 16px; font-weight: bold; color: #111111; }
+        .section-title { font-size: 14px; font-weight: 900; text-transform: uppercase; color: #111111; border-bottom: 2px solid #111111; padding-bottom: 8px; margin-top: 32px; margin-bottom: 16px; letter-spacing: 1px; }
+        .cta-container { text-align: center; margin-top: 40px; }
+        .cta-btn { display: inline-block; background-color: #FF3B3F; color: #ffffff !important; font-size: 15px; font-weight: bold; text-decoration: none; padding: 16px 32px; border-radius: 8px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 8px rgba(255, 59, 63, 0.2); }
+        .footer { background-color: #fafafa; padding: 24px; text-align: center; font-size: 12px; color: #999999; border-top: 1px solid #eeeeee; }
+        .footer a { color: #FF3B3F; text-decoration: none; }
+      </style>
+    </head>
+    <body>
+      <div style="padding: 20px 0; background-color: #f3f4f6;">
+        <div class="wrapper">
+          <div class="header">
+            <h1>FirstMileDev</h1>
+          </div>
+          <div class="content">
+            <p class="welcome-text">
+              Hello,<br><br>
+              Thank you for requesting our <strong>$55k FinTech MVP Tech Stack Breakdown</strong>! This is the exact production-ready architecture and tooling we used to build a robust, scalable FinTech platform that successfully secured $55,000 in early-stage funding.
+            </p>
+            
+            <div class="tech-box">
+              <div class="tech-item">
+                <div class="tech-title">Mobile Frontend Framework</div>
+                <div class="tech-val">React Native & Expo (TypeScript) + NativeWind</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-title">State Management & Querying</div>
+                <div class="tech-val">React Query (TanStack) & Zustand</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-title">Backend API & Database</div>
+                <div class="tech-val">Supabase (PostgreSQL, Auth, Realtime Sync)</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-title">Payment Processor</div>
+                <div class="tech-val">Stripe API (Subscriptions, KYC verification flow)</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-title">Hosting & Serverless Functions</div>
+                <div class="tech-val">Vercel & AWS Edge Functions</div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-title">Monitoring & Diagnostics</div>
+                <div class="tech-val">Sentry (Error tracking) & Axiom (Structured logs)</div>
+              </div>
+            </div>
+            
+            <div class="section-title">Key Architectural Decisions</div>
+            <p class="welcome-text" style="margin-top: 0; font-size: 14px; line-height: 1.5;">
+              <strong>1. React Native + Expo:</strong> Delivered a unified codebase for iOS & Android with near-native performance, reducing development time by 45%.<br><br>
+              <strong>2. Supabase Serverless PG:</strong> Allowed us to bypass building a heavy REST API from scratch, leveraging realtime listeners and auto-generated Row Level Security (RLS) for bank-grade data isolation.<br><br>
+              <strong>3. React Query Caching:</strong> Kept the mobile app highly responsive and reduced database reads by caching user sessions and transactional histories.
+            </p>
+            
+            <p class="welcome-text" style="margin-top: 32px;">
+              Want to see how this architecture translates to your specific startup concept? Schedule a direct roadmap call to review your app's technical design.
+            </p>
+            
+            <div class="cta-container">
+              <a href="https://calendly.com/anselme-firstmiledev?hide_gdpr_banner=1&primary_color=ff3b3f" class="cta-btn" target="_blank">Discuss Your Architecture</a>
+            </div>
+          </div>
+          <div class="footer">
+            &copy; ${new Date().getFullYear()} FirstMileDev. All rights reserved.<br>
+            If you have any questions, reach out to us at <a href="mailto:hello@firstmiledev.com">hello@firstmiledev.com</a>.
+          </div>
+        </div>
+      </div>
+    </body>
+    </html>
+  `;
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -290,6 +381,9 @@ export async function POST(request: Request) {
         } else if (source === "exit-intent" || source === "lead-magnet") {
           userSubject = "Your Free Startup Validation Checklist - FirstMileDev";
           userHtml = getChecklistEmailHtml();
+        } else if (source === "lab-hook") {
+          userSubject = "Your $55k FinTech MVP Tech Stack Breakdown - FirstMileDev";
+          userHtml = getLabHookEmailHtml();
         } else {
           userHtml = getWelcomeEmailHtml();
         }
