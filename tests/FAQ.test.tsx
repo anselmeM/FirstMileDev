@@ -10,25 +10,34 @@ describe("FAQ Component", () => {
     });
   });
 
-  it("toggles FAQ answer on click", () => {
+  it("toggles FAQ answer visibility classes on click", () => {
     render(<FAQ />);
     const firstFaq = defaultFaqs[0];
     
-    // Initially, the answer should not be in the document (due to conditional rendering)
-    expect(screen.queryByText(firstFaq.answer)).not.toBeInTheDocument();
-
-    // Click the first FAQ question button
+    // Click button element lookup
     const questionButton = screen.getByText(firstFaq.question).closest("button");
     expect(questionButton).toBeInTheDocument();
+
+    const answerElement = screen.getByText(firstFaq.answer);
+    expect(answerElement).toBeInTheDocument();
+    
+    // Initially, container should be collapsed/hidden
+    const container = answerElement.closest(".grid");
+    expect(container).toHaveClass("grid-rows-[0fr]");
+    expect(container).toHaveClass("opacity-0");
+
+    // Click the FAQ question button
     fireEvent.click(questionButton!);
 
-    // Now the answer should be in the document
-    expect(screen.getByText(firstFaq.answer)).toBeInTheDocument();
+    // Now the container should be expanded/visible
+    expect(container).toHaveClass("grid-rows-[1fr]");
+    expect(container).toHaveClass("opacity-100");
 
     // Click it again
     fireEvent.click(questionButton!);
 
-    // Answer should be removed from the document
-    expect(screen.queryByText(firstFaq.answer)).not.toBeInTheDocument();
+    // Should collapse/hide again
+    expect(container).toHaveClass("grid-rows-[0fr]");
+    expect(container).toHaveClass("opacity-0");
   });
 });

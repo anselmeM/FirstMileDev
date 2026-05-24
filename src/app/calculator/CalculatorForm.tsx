@@ -47,7 +47,6 @@ const ToggleSwitch = ({
         aria-label={`Toggle ${label}`}
       >
         <motion.div
-          layout
           className="bg-white w-4 h-4 rounded-full shadow-md"
           animate={{ x: checked ? 24 : 0 }}
           transition={{ type: "spring", stiffness: 500, damping: 30 }}

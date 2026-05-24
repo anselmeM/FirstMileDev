@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Plus, Minus, HelpCircle } from "lucide-react";
 
 export interface FAQType {
@@ -32,12 +32,11 @@ const FAQItem = ({ question, answer }: FAQType) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div 
-      className={`group border-b border-gray-200 transition-all duration-500 ${isOpen ? "pb-6" : "pb-0"}`}
-    >
+    <div className="group border-b border-gray-200">
       <button 
         className="w-full py-8 flex justify-between items-center text-left focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
       >
         <h4 className={`font-headline text-lg md:text-xl uppercase transition-colors duration-300 ${isOpen ? "text-accent-red" : "text-gray-900 group-hover:text-accent-red"}`}>
           {question}
@@ -46,20 +45,17 @@ const FAQItem = ({ question, answer }: FAQType) => {
           {isOpen ? <Minus size={20} /> : <Plus size={20} />}
         </div>
       </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.33, 1, 0.68, 1] }}
-          >
-            <div className="text-gray-500 text-lg leading-relaxed max-w-2xl font-medium">
-              {answer}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        className={`grid transition-[grid-template-rows,opacity,padding] duration-300 ease-[cubic-bezier(0.33,1,0.68,1)] ${
+          isOpen ? "grid-rows-[1fr] opacity-100 pb-6" : "grid-rows-[0fr] opacity-0 pb-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="text-gray-500 text-lg leading-relaxed max-w-2xl font-medium">
+            {answer}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
