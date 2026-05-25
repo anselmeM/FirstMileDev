@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Script from "next/script";
 import { motion, AnimatePresence } from "framer-motion";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Link from "next/link";
 
 export default function Analytics() {
   const [consent, setConsent] = useState<"accepted" | "declined" | "undecided">("undecided");
@@ -81,7 +82,11 @@ export default function Analytics() {
               <div>
                 <p className="text-sm font-bold uppercase tracking-tight mb-2">Cookie Preferences</p>
                 <p className="text-xs text-white/60 leading-relaxed">
-                  We use cookies and telemetry tools (Clarity, Google Analytics, and Tawk.to Live Chat) to analyze site usage and improve your experience.
+                  We use cookies and telemetry tools (Clarity, Google Analytics, and Tawk.to Live Chat) to analyze site usage and improve your experience. Read our{" "}
+                  <Link href="/privacy" className="underline text-white hover:text-accent-red transition">
+                    Privacy Policy
+                  </Link>{" "}
+                  to learn more.
                 </p>
               </div>
               <div className="flex gap-3 justify-end pt-2">
