@@ -11,10 +11,26 @@ const Hero = () => {
     >
       <div className="mt-12 md:mt-20 mb-12 z-10">
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase leading-none font-headline mb-8">
-          VALIDATE DEMAND <br />
-          BEFORE YOU WRITE <br />
-          <span className="text-black">A SINGLE LINE</span> <br />
-          OF CODE
+          <span className="overflow-hidden block">
+            <span className="block animate-title-slide" style={{ animationDelay: "0s" }}>
+              VALIDATE DEMAND
+            </span>
+          </span>
+          <span className="overflow-hidden block">
+            <span className="block animate-title-slide" style={{ animationDelay: "0.1s" }}>
+              BEFORE YOU WRITE
+            </span>
+          </span>
+          <span className="overflow-hidden block">
+            <span className="block animate-title-slide text-black" style={{ animationDelay: "0.2s" }}>
+              A SINGLE LINE
+            </span>
+          </span>
+          <span className="overflow-hidden block">
+            <span className="block animate-title-slide" style={{ animationDelay: "0.3s" }}>
+              OF CODE
+            </span>
+          </span>
         </h1>
       </div>
 

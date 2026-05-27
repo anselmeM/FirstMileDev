@@ -151,6 +151,21 @@
   .animate-spin-slow {
     animation: spin-slow 15s linear infinite;
   }
+
+  /* Title Slide Up for Hero Header */
+  @keyframes title-slide-up {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  .animate-title-slide {
+    display: block;
+    transform: translateY(100%);
+    animation: title-slide-up 0.8s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  }
 }
 
 
