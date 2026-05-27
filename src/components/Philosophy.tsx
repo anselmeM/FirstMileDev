@@ -6,29 +6,39 @@ import Image from "next/image";
 import Link from "next/link";
 import { Check, ArrowRight, AlertCircle } from "lucide-react";
 
+// ⚡ Bolt Optimization: Moved static variants and arrays outside the component
+// to prevent redundant object creation and memory allocation on every re-render.
+// Expected Impact: Reduces garbage collection overhead and improves render performance.
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.33, 1, 0.68, 1],
+    },
+  },
+};
+
+const firstMilePhases = [
+  { p: "Phase 1", t: "Prove Market Demand" },
+  { p: "Phase 2", t: "Launch No-Code MVP" },
+  { p: "Phase 3", t: "Scale with Custom Code" }
+];
+
 const Philosophy = () => {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.33, 1, 0.68, 1],
-      },
-    },
-  };
-
   return (
     <section id="process" className="px-6 md:px-8 lg:px-16 py-24 md:py-40 bg-white relative overflow-hidden">
       {/* Subtle Background Pattern */}
@@ -130,11 +140,7 @@ const Philosophy = () => {
                 </div>
                 
                 <ul className="space-y-6 relative z-10">
-                  {[
-                    { p: "Phase 1", t: "Prove Market Demand" },
-                    { p: "Phase 2", t: "Launch No-Code MVP" },
-                    { p: "Phase 3", t: "Scale with Custom Code" }
-                  ].map((phase, i) => (
+                  {firstMilePhases.map((phase, i) => (
                     <li key={i} className="flex items-center gap-4">
                       <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-accent-red font-headline text-xs">
                         0{i+1}
